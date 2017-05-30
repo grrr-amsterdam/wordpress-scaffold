@@ -1,0 +1,128 @@
+/* ==========================================================================
+   mixins
+   ========================================================================== */
+
+/**
+ * Placeholder styling
+ */
+@mixin placeholder {
+    &:placeholder {
+        @content;
+    }
+    &::placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+/**
+ * Font smoothing
+ */
+@mixin font-smoothing($enabled: true) {
+    @if $enabled {
+        font-smoothing: antialiased;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    } @else {
+        font-smoothing: initial;
+        -webkit-font-smoothing: initial;
+        -moz-osx-font-smoothing: initial;
+    }
+}
+
+/**
+ * Clearfix
+ * Actually an @extend, but we don't want to depend on inclusion order
+ *
+ * Usage:
+ * section { @include clearfix(); }
+ */
+@mixin clearfix {
+    &::after {
+        display: table; clear: both; content: '';
+    }
+}
+
+/**
+ * Bare button
+ *
+ * Get rid of default button styling
+ */
+@mixin bare-button {
+    background: transparent; border: 0;
+    line-height: 1.1; text-decoration: none; text-align: center;
+    cursor: pointer; appearance: none;
+}
+
+/*
+ * Bare list
+ *
+ * Get rid of list-style and padding
+ */
+@mixin bare-list {
+    margin: 0; padding: 0; list-style-type: none;
+}
+
+/**
+ * For image replacement
+ */
+@mixin hide-text {
+    font-family: a;
+    font-size: 0;
+    line-height: 0;
+    text-shadow: none;
+    color: transparent;
+    background-color: transparent;
+    border: 0 none;
+}
+
+/**
+ * Media query breakpoints mixins
+ *
+ * Usage:
+ * div { width: 60px;
+ *    @include breakpoint-min($small) { width: 80px; }
+ * }
+ */
+@mixin bp-min($point: 0) {
+    @media (min-width: px-to-em($point)) {
+        @content;
+    }
+}
+
+@mixin bp-max($point: 0) {
+    @media (max-width: (px-to-em($point) - 0.0625em)) {
+        @content;
+    }
+}
+
+@mixin bp-min-max($min-point: 0, $max-point: 0) {
+    @media (min-width: px-to-em($min-point)) and (max-width: (px-to-em($max-point) - 0.0625em)) {
+        @content;
+    }
+}
+
+/**
+ * For targetting high dpi screens
+ * Usage:
+ * div {
+ *    width: 30px; height: 30px; background: url('img.jpg');
+ *    @include high-dpi() { background: url('image-2x.jpg'); @include background-size(30px 30px); }
+ * }
+ */
+@mixin high-dpi {
+    @media (min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (min-resolution: 2dppx) {
+        @content;
+    }
+}

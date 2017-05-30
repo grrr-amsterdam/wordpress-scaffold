@@ -1,0 +1,30 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "env": {
+        "es6": true
+    },
+    "ecmaFeatures": {
+        "modules": true
+    },
+    "extends": "defaults/configurations/airbnb/es6",
+    "rules": {
+        "no-empty-label": 0,
+        "space-after-keywords": 0,
+        "space-return-throw-case": 0,
+        "keyword-spacing": 1,
+        "no-labels": 1,
+        "no-mixed-spaces-and-tabs": 0,
+        "no-undef": 0,
+        "no-unused-vars": 0,
+        "no-console": 0,
+        "indent": 0,
+        "quotes": 0,
+        "space-before-function-paren": 0,
+        "comma-dangle": 0,
+        "no-use-before-define": ["error", { "functions": false, "classes": true }],
+        "arrow-body-style": 0
+    }
+}

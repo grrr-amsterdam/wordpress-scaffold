@@ -1,0 +1,21 @@
+// sass-lint:disable indentation
+
+@font-face {
+    font-family: 'Something Bold';
+    src: url('../fonts/something-bold.woff2') format('woff2'),
+         url('../fonts/something-bold.woff') format('woff'),
+         url('../fonts/something-bold.ttf') format('truetype'),
+         url('../fonts/something-bold.svg#something-bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Something Regular';
+    src: url('../fonts/something-regular.woff2') format('woff2'),
+         url('../fonts/something-regular.woff') format('woff'),
+         url('../fonts/something-regular.ttf') format('truetype'),
+         url('../fonts/something-regular.svg#something-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

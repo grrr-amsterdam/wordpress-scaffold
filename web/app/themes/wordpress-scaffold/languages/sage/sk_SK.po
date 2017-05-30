@@ -1,0 +1,270 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: roots\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: roots\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: sk_SK\n"
+
+#: 404.php:4
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Prepáčte, ale stránka, ktorú hľadáte, neexistuje."
+
+#: 404.php:7
+msgid "It looks like this was the result of either:"
+msgstr "Príčin môže byť niekoľko:"
+
+#: 404.php:9
+msgid "a mistyped address"
+msgstr "zle napísaná adresa"
+
+#: 404.php:10
+msgid "an out-of-date link"
+msgstr "starý, nefunkčný odkaz"
+
+#: base.php:4
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a href=\"http://"
+"browsehappy.com/\">upgrade your browser</a> to improve your experience."
+msgstr ""
+"Používate <strong>neaktuálny</strong> prehliadač. <a href=\"http://"
+"browsehappy.com/\">Aktualizujte váš internetový prehliadač</a> pre lepší "
+"zážitok pri surfovaní."
+
+#: index.php:5
+msgid "Sorry, no results were found."
+msgstr "Prepáčte, neboli nájdené žiadne výsledky."
+
+#: index.php:17
+msgid "&larr; Older posts"
+msgstr "&larr; Staršie príspevky"
+
+#: index.php:18
+msgid "Newer posts &rarr;"
+msgstr "Novšie príspevky &rarr;"
+
+#: lib/activation.php:28 lib/activation.php:29
+msgid "Theme Activation"
+msgstr "Aktivácia témy"
+
+#: lib/activation.php:51
+msgid "%s Theme Activation"
+msgstr "Aktivácia témy %s"
+
+#: lib/activation.php:62 lib/activation.php:64
+msgid "Create static front page?"
+msgstr "Vytvoriť statickú hlavnú stránku?"
+
+#: lib/activation.php:66 lib/activation.php:79 lib/activation.php:92
+#: lib/activation.php:105 lib/activation.php:118
+msgid "Yes"
+msgstr "Áno"
+
+#: lib/activation.php:67 lib/activation.php:80 lib/activation.php:93
+#: lib/activation.php:106 lib/activation.php:119
+msgid "No"
+msgstr "Nie"
+
+#: lib/activation.php:70
+msgid "Create a page called Home and set it to be the static front page"
+msgstr ""
+"Vytvoriť stránku s názvom Domov a nastaviť ju ako statickú hlavnú stránku"
+
+#: lib/activation.php:75
+msgid "Change permalink structure?"
+msgstr "Zmeniť štruktúru odkazov?"
+
+#: lib/activation.php:77
+msgid "Update permalink structure?"
+msgstr "Aktualizovať štruktúru odkazov?"
+
+#: lib/activation.php:83
+msgid "Change permalink structure to /&#37;postname&#37;/"
+msgstr "Zmeniť štruktúru odkazov na /&#37;postname&#37;/"
+
+#: lib/activation.php:88
+msgid "Change uploads folder?"
+msgstr "Zmeniť priečinok pre nahrávanie súborov?"
+
+#: lib/activation.php:90
+msgid "Update uploads folder?"
+msgstr "Aktualizovať priečinok pre nahrávanie súborov?"
+
+#: lib/activation.php:96
+msgid "Change uploads folder to /media/ instead of /wp-content/uploads/"
+msgstr ""
+"Zmeniť priečinok pre nahrávanie súborov z /wp-content/uploads/ na /media/"
+
+#: lib/activation.php:101 lib/activation.php:103
+msgid "Create navigation menu?"
+msgstr "Vytvoriť hlavné menu?"
+
+#: lib/activation.php:109
+msgid "Create the Primary Navigation menu and set the location"
+msgstr "Vytvoriť menu s hlavnou navigáciou a nastaviť jeho umiestnenie"
+
+#: lib/activation.php:114 lib/activation.php:116
+msgid "Add pages to menu?"
+msgstr "Pridať stránky do menu?"
+
+#: lib/activation.php:122
+msgid "Add all current published pages to the Primary Navigation"
+msgstr "Pridať všetky publikované stránky do hlavného menu"
+
+#: lib/cleanup.php:210
+msgid "Continued"
+msgstr "Čítať ďalej"
+
+#: lib/init.php:11
+msgid "Primary Navigation"
+msgstr "Hlavná navigácia"
+
+#: lib/titles.php:10
+msgid "Latest Posts"
+msgstr "Najnovšie príspevky"
+
+#: lib/titles.php:19
+msgid "Daily Archives: %s"
+msgstr "Denný archív: %s"
+
+#: lib/titles.php:21
+msgid "Monthly Archives: %s"
+msgstr "Mesačný archív: %s"
+
+#: lib/titles.php:23
+msgid "Yearly Archives: %s"
+msgstr "Ročný archív: %s"
+
+#: lib/titles.php:26
+msgid "Author Archives: %s"
+msgstr "Archív autora: %s"
+
+#: lib/titles.php:31
+msgid "Search Results for %s"
+msgstr "Výsledky vyhľadávania pre %s"
+
+#: lib/titles.php:33
+msgid "Not Found"
+msgstr "Nenájdené"
+
+#: lib/widgets.php:8
+msgid "Primary"
+msgstr "Hlavné"
+
+#: lib/widgets.php:17
+msgid "Footer"
+msgstr "Pätka"
+
+#: lib/widgets.php:45
+msgid "Use this widget to add a vCard"
+msgstr "Použite tento widget pre pridanie vCard"
+
+#: lib/widgets.php:47
+msgid "Roots: vCard"
+msgstr "Roots: vCard"
+
+#: lib/widgets.php:74
+msgid "vCard"
+msgstr "vCard"
+
+#: templates/comment.php:4
+msgid "%1$s"
+msgstr "%1$s"
+
+#: templates/comment.php:5
+msgid "(Edit)"
+msgstr "(Upraviť)"
+
+#: templates/comment.php:9
+msgid "Your comment is awaiting moderation."
+msgstr "Váš komentár čaká na schválenie."
+
+#: templates/comments.php:8
+msgid "One Response to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Responses to &ldquo;%2$s&rdquo;"
+msgstr[0] "Jeden komentár ku &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s komentáre ku &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s komentárov ku &ldquo;%2$s&rdquo;"
+
+#: templates/comments.php:18
+msgid "&larr; Older comments"
+msgstr "&larr; Staršie komentáre"
+
+#: templates/comments.php:21
+msgid "Newer comments &rarr;"
+msgstr "Novšie komentáre &rarr;"
+
+#: templates/comments.php:29 templates/comments.php:38
+msgid "Comments are closed."
+msgstr "Komentáre sú uzavreté."
+
+#: templates/comments.php:45
+msgid "Leave a Reply"
+msgstr "Komentovať"
+
+#: templates/comments.php:45
+msgid "Leave a Reply to %s"
+msgstr "Odpovedať na %s"
+
+#: templates/comments.php:48
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Pre pridávanie komentárov musíte byť <a href=\"%s\">prihlásený</a>."
+
+#: templates/comments.php:53
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Prihlásený ako <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: templates/comments.php:54
+msgid "Log out of this account"
+msgstr "Odhlásiť sa z účtu"
+
+#: templates/comments.php:54
+msgid "Log out &raquo;"
+msgstr "Odhlásiť sa &raquo;"
+
+#: templates/comments.php:57
+msgid "Name"
+msgstr "Meno"
+
+#: templates/comments.php:57 templates/comments.php:59
+msgid " (required)"
+msgstr " (povinné)"
+
+#: templates/comments.php:59
+msgid "Email (will not be published)"
+msgstr "Email (nebude zverejnený)"
+
+#: templates/comments.php:61
+msgid "Website"
+msgstr "Webstránka"
+
+#: templates/comments.php:64
+msgid "Comment"
+msgstr "Komentár"
+
+#: templates/comments.php:66
+msgid "Submit Comment"
+msgstr "Odoslať komentár"
+
+#: templates/content-single.php:11
+msgid "Pages:"
+msgstr "Stránky:"
+
+#: templates/entry-meta.php:2
+msgid "By"
+msgstr "Autor:"
+
+#: templates/searchform.php:2
+msgid "Search for:"
+msgstr "Vyhľadať:"
+
+#: templates/searchform.php:3 templates/searchform.php:4
+msgid "Search"
+msgstr "Hľadať"

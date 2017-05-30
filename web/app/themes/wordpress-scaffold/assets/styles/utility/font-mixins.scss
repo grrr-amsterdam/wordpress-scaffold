@@ -1,0 +1,11 @@
+@mixin body-font {
+    font-family: $body-font;
+}
+
+@mixin heading-font {
+    font-family: $heading-font;
+}
+
+@mixin ui-font {
+    font-family: $ui-font;
+}

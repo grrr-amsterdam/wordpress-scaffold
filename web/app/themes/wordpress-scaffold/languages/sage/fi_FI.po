@@ -1,0 +1,289 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: Roots\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Ville Ristimäki <ville.ristimaki@nordsoftware.com>\n"
+"Language-Team:  <ville.ristimaki@nordsoftware.com>\n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fi\n"
+
+#: 404.php:4
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Pahoittelut, hakemaasi sivua ei löydy."
+
+#: 404.php:7
+msgid "It looks like this was the result of either:"
+msgstr "Tämä voi johtua seuraavista asioista:"
+
+#: 404.php:9
+msgid "a mistyped address"
+msgstr "kirjoitusvirhe osoitteessa"
+
+#: 404.php:10
+msgid "an out-of-date link"
+msgstr "vanhentunut linkki"
+
+#: base.php:6
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a href=\"http://"
+"browsehappy.com/\">upgrade your browser</a> to improve your experience."
+msgstr ""
+"Käytössäsi on <strong>vanhentunut</strong> selain, mikä ei välttämättä tue "
+"sivun vaatimia tekniikoita. Ole hyvä ja <a href=\"http://browsehappy.com/"
+"\">päivitä</a> käyttämäsi selain."
+
+#: functions.php:29
+msgid "Error locating %s for inclusion"
+msgstr "Virhe yritettäessä sisällyttää %s liitteeseen"
+
+#: index.php:5
+msgid "Sorry, no results were found."
+msgstr "Pahoittelut, ei hakutuloksia"
+
+#: index.php:17
+msgid "&larr; Older posts"
+msgstr "&larr; Vanhemmat artikkelit"
+
+#: index.php:18
+msgid "Newer posts &rarr;"
+msgstr "Uudemmat artikkelit &rarr;"
+
+#: lib/activation.php:28 lib/activation.php:29
+msgid "Theme Activation"
+msgstr "Teeman aktivointi"
+
+#: lib/activation.php:50
+msgid "%s Theme Activation"
+msgstr "%s - teeman aktivointi"
+
+#: lib/activation.php:52
+msgid ""
+"These settings are optional and should usually be used only on a fresh "
+"installation"
+msgstr ""
+"Nämä asetukset ovat valinnaisia, joita tulisi käyttää ainoastaan uudessa "
+"asennuksessa"
+
+#: lib/activation.php:59 lib/activation.php:62
+msgid "Create static front page?"
+msgstr "Luodaanko staattinen etusivu?"
+
+#: lib/activation.php:64 lib/activation.php:76 lib/activation.php:88
+#: lib/activation.php:100
+msgid "Yes"
+msgstr "Kyllä"
+
+#: lib/activation.php:65 lib/activation.php:77 lib/activation.php:89
+#: lib/activation.php:101
+msgid "No"
+msgstr "Ei"
+
+#: lib/activation.php:67
+msgid "Create a page called Home and set it to be the static front page"
+msgstr "Luo sivu nimeltä Etusivu ja aseta se staattiseksi etusivuksi?"
+
+#: lib/activation.php:71
+msgid "Change permalink structure?"
+msgstr "Vaihdetaanko osoiterakenne?"
+
+#: lib/activation.php:74
+msgid "Update permalink structure?"
+msgstr "Päivitetäänkö osoiterakenne?"
+
+#: lib/activation.php:79
+msgid "Change permalink structure to /&#37;postname&#37;/"
+msgstr "Vaihdetaanko osoiterakenne muotoon /&#37;postname&#37;/?"
+
+#: lib/activation.php:83 lib/activation.php:86
+msgid "Create navigation menu?"
+msgstr "Luodaanko valikko?"
+
+#: lib/activation.php:91
+msgid "Create the Primary Navigation menu and set the location"
+msgstr "Luodaanko päävalikko ja asetetaan sille lokaatio?"
+
+#: lib/activation.php:95 lib/activation.php:98
+msgid "Add pages to menu?"
+msgstr "Lisätäänkö sivut päävalikkoon?"
+
+#: lib/activation.php:103
+msgid "Add all current published pages to the Primary Navigation"
+msgstr "Lisätäänkö kaikki julkaistut sivut päävalikkoon?"
+
+#: lib/activation.php:126 lib/activation.php:147
+msgid "Home"
+msgstr "Etusivu"
+
+#: lib/activation.php:173 lib/activation.php:176 lib/activation.php:190
+#: lib/init.php:13
+msgid "Primary Navigation"
+msgstr "Päävalikko"
+
+#: lib/extras.php:6
+msgid "Continued"
+msgstr "Jatkuu"
+
+#: lib/init.php:36
+msgid "Primary"
+msgstr "Ensisijainen"
+
+#: lib/init.php:45
+msgid "Footer"
+msgstr "Footer"
+
+#: lib/titles.php:10
+msgid "Latest Posts"
+msgstr "Uusimmat artikkelit"
+
+#: lib/titles.php:19
+msgid "Daily Archives: %s"
+msgstr "Päiväkohtaiset artikkelit: %s"
+
+#: lib/titles.php:21
+msgid "Monthly Archives: %s"
+msgstr "Kuukausikohtaiset artikkelit: %s"
+
+#: lib/titles.php:23
+msgid "Yearly Archives: %s"
+msgstr "Vuosikohtaiset artikkelit: %s"
+
+#: lib/titles.php:26
+msgid "Author Archives: %s"
+msgstr "Kirjoittajakohtaiset artikkelit: %s"
+
+#: lib/titles.php:31
+msgid "Search Results for %s"
+msgstr "Hakutulokset termille %s"
+
+#: lib/titles.php:33
+msgid "Not Found"
+msgstr "Sivua ei löytynyt"
+
+#: templates/comment.php:4
+msgid "%1$s"
+msgstr "%1$s"
+
+#: templates/comment.php:5
+msgid "(Edit)"
+msgstr "(Muokkaa)"
+
+#: templates/comment.php:9
+msgid "Your comment is awaiting moderation."
+msgstr "Kommenttisi odottaa moderointia."
+
+#: templates/comments.php:9
+msgid "One Response to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Responses to &ldquo;%2$s&rdquo;"
+msgstr[0] "Yksi vastaus artikkeeliin &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s Vastausta artikkeliin &ldquo;%2$s&rdquo;"
+
+#: templates/comments.php:19
+msgid "&larr; Older comments"
+msgstr "&larr; Vanhemmat kommentit"
+
+#: templates/comments.php:22
+msgid "Newer comments &rarr;"
+msgstr "Uudemmat kommentit &rarr;"
+
+#: templates/comments.php:30 templates/comments.php:35
+msgid "Comments are closed."
+msgstr "Kommentointi on suljettu."
+
+#: templates/comments.php:42
+msgid "Leave a Reply"
+msgstr "Jätä kommentti"
+
+#: templates/comments.php:42
+msgid "Leave a Reply to %s"
+msgstr "Jätä kommentti artikkeliin %s"
+
+#: templates/comments.php:45
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Sinun täytyy <a href=\"%s\">kirjautua</a> voidaksesi kommentoida."
+
+#: templates/comments.php:50
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr "Kirjauduttu nimellä <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#: templates/comments.php:51
+msgid "Log out of this account"
+msgstr "Kirjaudu ulos"
+
+#: templates/comments.php:51
+msgid "Log out &raquo;"
+msgstr "Kirjaudu ulos &raquo;"
+
+#: templates/comments.php:55
+msgid "Name"
+msgstr "Nimi"
+
+#: templates/comments.php:55 templates/comments.php:59
+msgid " (required)"
+msgstr " (pakollinen)"
+
+#: templates/comments.php:59
+msgid "Email (will not be published)"
+msgstr "Sähköposti (ei julkaista)"
+
+#: templates/comments.php:63
+msgid "Website"
+msgstr "Kotisivu"
+
+#: templates/comments.php:68
+msgid "Comment"
+msgstr "Kommentti"
+
+#: templates/comments.php:71
+msgid "Submit Comment"
+msgstr "Lähetä kommentti"
+
+#: templates/content-single.php:11
+msgid "Pages:"
+msgstr "Sivut:"
+
+#: templates/entry-meta.php:2
+msgid "By"
+msgstr "By"
+
+#: templates/searchform.php:2
+msgid "Search for:"
+msgstr "Hae termillä:"
+
+#: templates/searchform.php:4 templates/searchform.php:6
+msgid "Search"
+msgstr "Hae"
+
+#. Theme Name of the plugin/theme
+msgid "Roots Starter Theme"
+msgstr "Roots-aloitusteema"
+
+#. Theme URI of the plugin/theme
+msgid "http://roots.io/starter-theme/"
+msgstr "http://roots.io/starter-theme/"
+
+#. Description of the plugin/theme
+msgid ""
+"Roots is a WordPress starter theme based on HTML5 Boilerplate & Bootstrap. "
+"<a href=\"https://github.com/roots/roots/contributors\">Contribute on "
+"GitHub</a>"
+msgstr ""
+"Roots on Wordpress-aloitusteema kehittäjille sisältäen HTML5-boilerplaten ja "
+"Twitter Bootstrapin.  <a href=\"https://github.com/roots/roots/contributors"
+"\">Osallistu kehitykseen @ GitHub</a>"
+
+#. Author of the plugin/theme
+msgid "Roots"
+msgstr "Roots"
+
+#. Author URI of the plugin/theme
+msgid "http://roots.io/"
+msgstr "http://roots.io/"
+
+#. Template Name of the plugin/theme
+msgid "Custom Template"
+msgstr "Custom Template"

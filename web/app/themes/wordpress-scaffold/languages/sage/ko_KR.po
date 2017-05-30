@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: Sage\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Alex Lim <contact@simonalex.com>\n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ko_KR\n"
+
+#: 404.php:4
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "죄송합니다, 요청하신 페이지를 찾을 수 없습니다."
+
+#: base.php:14
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a href=\"http://"
+"browsehappy.com/\">upgrade your browser</a> to improve your experience."
+msgstr ""
+"더 이상 지원하지 않는 오래된 브라우저를 사용 중입니다. <a href=\"http://"
+"browsehappy.com/\">최신 브라우저로 업그레이드하세요.</a>"
+
+#: functions.php:27
+msgid "Error locating %s for inclusion"
+msgstr "오류: %s을(를) 찾을 수 없습니다."
+
+#: index.php:5
+msgid "Sorry, no results were found."
+msgstr "죄송합니다. 검색 결과가 없습니다."
+
+#: lib/extras.php:31
+msgid "Continued"
+msgstr "더보기"
+
+#: lib/init.php:22
+msgid "Primary Navigation"
+msgstr "기본메뉴"
+
+#: lib/init.php:49
+msgid "Primary"
+msgstr "기본"
+
+#: lib/init.php:58
+msgid "Footer"
+msgstr "푸터"
+
+#: lib/titles.php:13
+msgid "Latest Posts"
+msgstr "최신 포스트"
+
+#: lib/titles.php:18
+msgid "Search Results for %s"
+msgstr "%S에 대한 검색 결과."
+
+#: lib/titles.php:20
+msgid "Not Found"
+msgstr "찾을 수 없습니다."
+
+#: templates/comments.php:9
+msgctxt "comments title"
+msgid "One response to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s responses to &ldquo;%2$s&rdquo;"
+msgstr[0] "&ldquo;%2$s&rdquo;에 %1$s개의 댓글이 있습니다."
+
+#: templates/comments.php:19
+msgid "&larr; Older comments"
+msgstr "&larr; 이전 댓글"
+
+#: templates/comments.php:22
+msgid "Newer comments &rarr;"
+msgstr "새로운 댓글 &rarr;"
+
+#: templates/comments.php:31
+msgid "Comments are closed."
+msgstr "댓글을 달 수 없는 글입니다."
+
+#: templates/content-page.php:2 templates/content-single.php:11
+msgid "Pages:"
+msgstr "페이지:"
+
+#: templates/entry-meta.php:2
+msgid "By"
+msgstr ""
+
+#: templates/searchform.php:2
+msgid "Search for:"
+msgstr "검색: "
+
+#: templates/searchform.php:4 templates/searchform.php:6
+msgid "Search"
+msgstr "검색"
+
+#. Theme Name of the plugin/theme
+msgid "Sage Starter Theme"
+msgstr "Sage 스타터 테마"
+
+#. Theme URI of the plugin/theme
+msgid "https://roots.io/sage/"
+msgstr "https://roots.io/sage/"
+
+#. Description of the plugin/theme
+msgid ""
+"Sage is a WordPress starter theme. <a href=\"https://github.com/roots/sage"
+"\">Contribute on GitHub</a>"
+msgstr ""
+"Sage - 워드프레스 스타터 테마 <a href=\"https://github.com/roots/sage"
+"\">Contribute on GitHub</a>"
+
+#. Author of the plugin/theme
+msgid "Roots"
+msgstr "Roots"
+
+#. Author URI of the plugin/theme
+msgid "https://roots.io/"
+msgstr "https://roots.io/"
+
+#. Template Name of the plugin/theme
+msgid "Custom Template"
+msgstr "커스텀 템플릿"

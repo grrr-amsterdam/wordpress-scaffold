@@ -1,0 +1,17 @@
+.header {
+
+}
+.header__inner {
+    padding: 20px;
+}
+
+/**
+ * Logo
+ */
+.header__logo {
+    display: inline-block;
+}
+.header__logo > svg {
+    width: 100px; height: 36px;
+    fill: $primary-color;
+}

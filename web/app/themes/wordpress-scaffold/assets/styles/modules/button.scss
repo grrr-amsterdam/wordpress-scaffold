@@ -1,0 +1,16 @@
+@mixin button {
+    @include bare-button;
+    display: inline-block; padding: 12px 15px;
+    border-radius: $border-radius;
+    @include ui-font;
+    &:hover,
+    &:focus {
+        opacity: 0.9;
+    }
+    &:active {
+        transform: scale(0.95);
+    }
+}
+.button {
+    @include button;
+}

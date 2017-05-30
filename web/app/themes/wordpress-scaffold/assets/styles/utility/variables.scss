@@ -1,0 +1,72 @@
+/* ==========================================================================
+   variables
+   ========================================================================== */
+
+/**
+ * Colors
+ */
+$white: #FFFFFF;
+$whitish: #FCFCFC;
+$grey-light: #F7F7F7;
+$grey:  #7D7D7D;
+$blackish: #2D2D2D;
+$black: #000000;
+
+$purple: #7B35FF;
+
+$text-color: $black;
+
+$primary-color: $purple;
+
+/**
+ * General stuff
+ */
+$border-radius: 2px;
+$box-shadow: 0 0 5px 0 rgba($black, .3);
+
+/**
+ * Fonts
+ */
+$heading-font: sans-serif;
+$ui-font: sans-serif;
+$body-font: sans-serif;
+
+/**
+ * Widths & Sizes
+ */
+$site-width-small: 660px;
+$site-width-medium: 940px;
+$site-width-large: 1200px;
+
+$site-widths: (
+    small: $site-width-small,
+    medium: $site-width-medium,
+    large: $site-width-large,
+);
+
+$row-margins: (
+    small: 1.5vw,
+    medium: 3vw,
+    large: 6vw,
+);
+
+/*
+ * z-index
+ * for stacking stuff
+ *
+ * define the stacking order for modules here
+ * within a module you should define it via
+ * the $module-z-index variable
+ */
+$z-index: (
+);
+
+/**
+ * Breakpoints
+ * @see: https://medium.com/re-write/designing-a-responsive-grid-in-2016-58e4db6db786
+ */
+$tiny: 480;
+$small: 640;
+$medium: 960;
+$large: 1280;
+$huge: 1680;
