@@ -28,6 +28,7 @@ web/app/mu-plugins/*/
 
 # Cache
 web/app/cache/*
+!web/app/cache/.gitkeep
 
 # W3TC (managed on server in shared folder)
 web/app/db.php
