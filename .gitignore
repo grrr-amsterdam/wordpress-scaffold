@@ -36,4 +36,5 @@ web/app/advanced-cache.php
 web/app/w3tc-config/
 
 # Other
+.DS_Store
 /log/*
