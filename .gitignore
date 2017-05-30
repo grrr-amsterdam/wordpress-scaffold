@@ -1,15 +1,3 @@
-# Application
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
-web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
-
-# WordPress
-web/wp
-web/.htaccess
-
 # Dotenv
 .env
 .env.*
@@ -18,3 +6,34 @@ web/.htaccess
 # Composer
 vendor/*
 !vendor/.gitkeep
+
+# npm
+node_modules
+
+# WordPress
+web/wp
+
+# Uploads & Upgrade
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+
+# Plugins
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+
+# Plugins not available on Packagist/WPackagist
+!web/app/plugins/advanced-custom-fields-pro
+
+# Cache
+web/app/cache/*
+
+# W3TC (managed on server in shared folder)
+web/app/db.php
+web/app/advanced-cache.php
+web/app/w3tc-config/
+
+# Other
+.DS_Store
+/log/*
