@@ -350,7 +350,7 @@ gulp.task('watch-tasks', () => {
  * Watch
  * In sequence, since we need to set `isWatching`
  */
-gulp.task('watch', ['default'], (cb) => {
+gulp.task('watch', (cb) => {
   isWatching = true;
   runSequence(
     'default',
