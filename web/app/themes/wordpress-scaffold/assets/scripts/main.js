@@ -24,6 +24,7 @@ const executeOnReady = () => {
    * Simple requestAnimationFrame
    * @see http://elektronotdienst-nuernberg.de/bugs/requestAnimationFrame.html
    */
+  // eslint-disable-next-line func-names
   window.requestAnimationFrame = window.requestAnimationFrame || function(c) {
     return setTimeout(() => {
       c(+new Date);

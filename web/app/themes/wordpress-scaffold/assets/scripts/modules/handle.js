@@ -1,7 +1,7 @@
 /**
  * Runner of handlers
  */
-const findElementWithHandler = elm => {
+const findElementWithHandler = (elm) => {
   if (!elm || elm.tagName === 'HTML') {
     return;
   }

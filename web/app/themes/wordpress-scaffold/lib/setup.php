@@ -123,7 +123,7 @@ function assets() {
     }
 
     /**
-    * For now, this is loaded async in the head
+    * The main JavaScript is loaded async in the head
     */
     // wp_enqueue_script('grrr/js', Assets\asset_path('scripts/main.js'), [], null, true);
     // wp_localize_script('grrr/js', 'picl_vars', array(
@@ -136,6 +136,6 @@ add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
  * Admin assets
  */
 function admin_assets() {
-    // wp_enqueue_style('grrr/css', Assets\asset_path('styles/admin.css'), false, null);
+    wp_enqueue_style('grrr/css', Assets\asset_path('styles/admin.css'), false, null);
 }
 add_action('admin_enqueue_scripts', __NAMESPACE__ . '\\admin_assets');

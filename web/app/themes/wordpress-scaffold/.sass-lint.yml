@@ -254,7 +254,7 @@ rules:
   url-quotes: 1
 
   variable-for-property:
-    - 1
+    - 0
     -
       properties:
         - color
