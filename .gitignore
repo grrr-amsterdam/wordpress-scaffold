@@ -1,7 +1,7 @@
 # Dotenv
 .env
 .env.*
-!.env.example
+!.env.template
 
 # Composer
 vendor/*

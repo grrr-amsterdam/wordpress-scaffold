@@ -4,6 +4,16 @@
   "license": "MIT",
   "description": "WordPress scaffold with theme",
   "homepage": "https://grrr.nl/",
+  "authors": [
+    {
+      "name": "Ramiro Hammen",
+      "email": "ramiro@grrr.nl"
+    },
+    {
+      "name": "Koen Schaft",
+      "email": "koen@grrr.nl"
+    }
+  ],
   "config": {
     "preferred-install": "dist"
   },
