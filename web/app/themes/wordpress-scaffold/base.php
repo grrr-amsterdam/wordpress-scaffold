@@ -34,7 +34,7 @@ use Roots\Sage\Wrapper;
         ?>
 
         <?php
-        get_template_part('templates/partials/tracking/other');
+        get_template_part('templates/partials/tracking/google-analytics');
         ?>
 
         <!--[if IE]>

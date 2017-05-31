@@ -23,7 +23,6 @@
  * Print styles........Styles for printing
  */
 
-// Import Normalize.css from npm so it’s easy to update
 @import '../../node_modules/normalize.css/normalize';
 
 @import 'utility/functions';
@@ -209,6 +208,7 @@ video {
     @include ui-font; font-size: 14px !important;
 }
 // sass-lint:enable no-ids
+
 /* ==========================================================================
     HOVER - disable on scroll (see function disableHoverStylesOnScroll() in main.js)
     ========================================================================== */
