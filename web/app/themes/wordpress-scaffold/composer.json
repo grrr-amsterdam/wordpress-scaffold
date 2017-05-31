@@ -16,7 +16,6 @@
       "lib/Sage/Assets.php",
       "lib/Sage/Extras.php",
       "lib/Sage/Setup.php",
-      "lib/Sage/Titles.php",
       "lib/Sage/Wrapper.php"
     ]
   },

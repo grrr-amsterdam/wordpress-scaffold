@@ -1,10 +1,10 @@
 <?php
 
-use Roots\Sage\Titles;
+use Grrr\Utils;
 
 ?>
 <header class="page-header">
     <div class="page-header__inner">
-        <h1><?= Titles\title(); ?></h1>
+        <h1><?= Utils\get_title(); ?></h1>
     </div>
 </header>

@@ -11,10 +11,10 @@ class Example {
     private static $icon               = 'dashicons-portfolio';
 
     public function __construct() {
-        add_action('init', [$this, 'setup'], 1);
+        add_action('init', [$this, 'init'], 1);
     }
 
-    public static function init() {
+    public function init() {
         $args = [
             'capability_type'   => 'post',
             'supports'          => [ 'title', 'revisions', 'thumbnail' ],

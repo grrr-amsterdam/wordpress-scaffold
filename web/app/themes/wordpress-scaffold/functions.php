@@ -8,7 +8,7 @@ use Grrr\Shortcodes;
 use Grrr\Taxonomies;
 use Grrr\PostTypes;
 
-
 Acf\Setup::init();
 
-PostTypes\Example::init();
+$example = new PostTypes\Example;
+$example->init();
