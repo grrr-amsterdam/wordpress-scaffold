@@ -1,3 +1,10 @@
-dist/dev
+# Composer
+#vendor/*
+#!vendor/.gitkeep
+
+# npm
 node_modules
 npm-debug.log
+
+# Assets
+dist/dev
