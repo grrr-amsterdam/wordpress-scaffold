@@ -1,5 +1,27 @@
 {
-    "require": {
-
-    }
+  "name": "roots/sage",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "description": "WordPress starter theme with a modern development workflow",
+  "autoload": {
+    "psr-4": {
+      "Grrr\\": [
+        "lib/Grrr/"
+      ]
+    },
+    "files": [
+      "lib/Grrr/Utils/Cleanup.php",
+      "lib/Grrr/Utils/Debug.php",
+      "lib/Grrr/Utils/Utils.php",
+      "lib/Sage/Assets.php",
+      "lib/Sage/Extras.php",
+      "lib/Sage/Setup.php",
+      "lib/Sage/Titles.php",
+      "lib/Sage/Wrapper.php"
+    ]
+  },
+  "require": {
+    "php": ">=5.6",
+    "composer/installers": "^1.2.0"
+  }
 }

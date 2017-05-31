@@ -1,5 +1,6 @@
 <?php
 
+use Grrr\Utils;
 use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 
@@ -7,7 +8,7 @@ use Roots\Sage\Wrapper;
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
     <?php get_template_part('templates/partials/head'); ?>
-    <body class="<?= is_admin_bar_showing() ? 'admin-bar' : '' ?>">
+    <body class="<?= Utils\get_body_class(); ?>">
         <?php get_template_part('templates/partials/tracking/google-tag-manager'); ?>
 
         <?php
