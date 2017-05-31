@@ -1,8 +1,8 @@
 /*
-Theme Name:         WordPress Scaffold
-Theme URI:          https://grrr.nl/
+Theme Name:         %THEME_NAME%
+Theme URI:          %THEME_URI%
 Version:            1.0.0
-Author:             Grrr
-Author URI:         https://grrr.nl/
-Text Domain:        grrr
+Author:             %AUTHOR%
+Author URI          %AUTHOR_URI%
+Text Domain:        %TEXT_DOMAIN%
 */

@@ -36,6 +36,11 @@
     "squizlabs/php_codesniffer": "^2.5.1",
     "wp-cli/wp-cli": "^1.1"
   },
+  "autoload": {
+    "psr-4": {
+      "Grrr\\Warp\\" : "lib/"
+    }
+  },
   "extra": {
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
@@ -46,7 +51,8 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "@php -r \"copy('.env.template', '.env');\""
+      "@php -r \"copy('.env.template', '.env');\"",
+      "Grrr\\Warp\\PostCreateProject::setup"
     ],
     "test": [
       "vendor/bin/phpcs"
