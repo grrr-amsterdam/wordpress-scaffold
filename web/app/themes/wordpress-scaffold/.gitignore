@@ -1,6 +1,6 @@
 # Composer
-#vendor/*
-#!vendor/.gitkeep
+vendor/*
+!vendor/.gitkeep
 
 # npm
 node_modules
