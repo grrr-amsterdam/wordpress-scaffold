@@ -1,0 +1,2 @@
+# Tell Cap to use wp-cli.phar on the webserver
+SSHKit.config.command_map[:wp] = "php #{shared_path.join("wp-cli.phar")}"

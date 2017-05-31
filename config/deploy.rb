@@ -20,3 +20,31 @@ set :linked_files, fetch(:linked_files, []).push(
   'web/app/advanced-cache.php',
   'web/app/db.php'
 )
+
+# Run all tasks
+namespace :deploy do
+
+  after :updated do
+
+    invoke :composer_install_root
+    invoke :composer_install_theme
+
+  end
+
+  after :publishing do
+
+    invoke :fpm_reload
+
+  end
+
+  after :setup do
+
+    # copy .htaccess
+    # install wp-cli
+    # install composer
+    # install crontab (?)
+    # install cachetool (?)
+
+  end
+
+end

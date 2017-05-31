@@ -1,7 +1,6 @@
 {
   "name": "grrr-amsterdam/wordpress-scaffold",
   "type": "project",
-  "license": "MIT",
   "description": "WordPress scaffold with theme",
   "homepage": "https://grrr.nl/",
   "authors": [

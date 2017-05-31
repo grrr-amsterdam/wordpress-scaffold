@@ -1,0 +1,7 @@
+# Reload PHP-FPM
+desc 'Reload PHP-FPM'
+task :fpm_reload do
+  on roles(:app) do
+    execute :sudo, :service, 'rh-php56-php-fpm', :reload
+  end
+end
