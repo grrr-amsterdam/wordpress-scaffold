@@ -46,7 +46,7 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "@php -r \"copy('.env.example', '.env');\""
+      "@php -r \"copy('.env.template', '.env');\""
     ],
     "test": [
       "vendor/bin/phpcs"

@@ -1,4 +1,13 @@
 <?php
+
+/**
+ * Composer
+ *
+ * Only add/load packages used specifically in this theme,
+ * else add/load them in WordPress.
+ */
+require_once('vendor/autoload.php');
+
 /**
  * Sage includes
  *
@@ -18,19 +27,17 @@ $sage_includes = [
     'lib/wrapper.php',
     'lib/utils.php',
     'lib/cleanup.php',
+    'lib/debug.php',
+
     'lib/taxonomies.php',
     'lib/post-types.php',
-    'lib/shortcodes.php',
     'lib/meta-boxes.php',
-    'lib/debug.php',
+    'lib/shortcodes.php',
 
     'lib/acf/options-page.php',
     'lib/acf/select-prefillers.php',
     'lib/acf/version.php',
-
-    'lib/flexible-content/blocks.php',
-
-    'lib/wp/import.php',
+    'lib/acf/flexible-content/blocks.php',
 ];
 
 foreach ($sage_includes as $file) {
