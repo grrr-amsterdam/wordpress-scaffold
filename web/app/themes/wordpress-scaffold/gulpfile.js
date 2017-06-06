@@ -209,9 +209,13 @@ function bundle() {
     .pipe(buffer())
     .pipe($.sourcemaps.init({loadMaps: true}))
     .pipe($.if(production, $.uglify({
-      // comments: /^!/,
-      drop_console: true,
-      drop_debugger: true,
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+      output: {
+        comments: /^!/,
+      }
     }))).on('error', handleError)
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(paths.jsBuild))
@@ -229,7 +233,13 @@ gulp.task('javascript:vendor', () => {
     './node_modules/picturefill/dist/picturefill.js',
   ])
     .pipe($.uglify({
-      // comments: /^!/,
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+      output: {
+        comments: /^!/,
+      }
     })).on('error', handleError)
     .pipe(gulp.dest(paths.jsBuild + '/vendor'));
 });
