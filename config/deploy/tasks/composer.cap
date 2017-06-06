@@ -1,31 +1,33 @@
-# Tell Cap to use composer.phar on the webserver
-SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
-
-# Configure Composer
-set :composer_install_flags, '--no-dev --no-interaction --quiet --optimize-autoloader'
+# Map Composer command
+desc "Map the Composer command for further use"
+task :composer_map_command do
+  on roles(:app) do
+    SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
+  end
+end
 
 # Composer in root
-desc "Running Composer install in root"
+desc "Install Composer dependencies for WordPress"
 task :composer_install_root do
   on roles(:app) do
-    set :composer_working_dir, -> { fetch(:release_path) }
-    invoke :composer:install_executable
+    composer = "#{shared_path}/composer.phar"
+    if test "[[ -f #{composer} ]]"
+      execute "php #{composer} install -d #{release_path} --no-dev"
+    end
   end
 end
 
 # Composer in theme
-desc "Running Composer install in theme"
-task :composer_install_theme do
+desc "Install Composer dependencies for all themes"
+task :composer_install_themes do
   on roles(:app) do
-    within fetch(:release_path) do
-      if test :wp, :core, 'is-installed'
-
-        # @TODO need to tweak/test this when we have an actual environment
-
-        theme_dir = fetch(:release_path).join(fetch(:wp, :option, :get, :template_root))
-        set :composer_working_dir, -> { theme_dir }
-        invoke :composer:install_executable
-      end
+    composer = "#{shared_path}/composer.phar"
+    theme_path = "#{release_path}/web/app/themes"
+    if test "[[ -f #{composer} && -d #{theme_path} ]]"
+      execute \
+        "for theme in #{theme_path}/*; do " \
+          "[ -d $theme ] && php #{composer} install -d \"${theme}\" --no-dev;" \
+        "done;"
     end
   end
 end

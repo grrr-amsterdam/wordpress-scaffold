@@ -29,7 +29,8 @@
     "johnpbloch/wordpress": "4.7.5",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
-    "roots/soil": "^3.7"
+    "roots/soil": "^3.7",
+    "wpackagist-plugin/w3-total-cache": "0.9.5.4"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1",
