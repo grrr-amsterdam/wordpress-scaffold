@@ -4,16 +4,16 @@ namespace Grrr\Acf;
 
 class OptionsPage {
 
-    public static function init() {
+    public function init() {
         if (!function_exists('acf_add_options_page') ||
             !function_exists('acf_add_options_sub_page')) {
             return;
         }
-        $this->main_page();
-        $this->sub_pages();
+        $this->_add_main_page();
+        $this->_add_sub_pages();
     }
 
-    private function main_page() {
+    private function _add_main_page() {
         acf_add_options_page(array(
             'page_title'    => 'Theme Options',
             'menu_title'    => 'Theme Options',
@@ -22,7 +22,7 @@ class OptionsPage {
         ));
     }
 
-    private function sub_pages() {
+    private function _add_sub_pages() {
         acf_add_options_sub_page(array(
             'page_title'    => 'Address & Contact',
             'menu_title'    => 'Address & Contact',

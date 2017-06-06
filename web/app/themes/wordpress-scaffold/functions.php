@@ -3,12 +3,7 @@
 require_once(__DIR__ . '/vendor/autoload.php');
 
 use Grrr\Acf;
-use Grrr\MetaBoxes;
-use Grrr\Shortcodes;
-use Grrr\Taxonomies;
 use Grrr\PostTypes;
 
-Acf\Setup::init();
-
-$example = new PostTypes\Example;
-$example->init();
+(new Acf\Setup)->init();
+(new PostTypes\Example)->init();

@@ -1,7 +1,6 @@
 {
-  "name": "roots/sage",
+  "name": "grrr/wordpress-scaffold",
   "type": "wordpress-theme",
-  "license": "MIT",
   "description": "WordPress starter theme with a modern development workflow",
   "autoload": {
     "psr-4": {

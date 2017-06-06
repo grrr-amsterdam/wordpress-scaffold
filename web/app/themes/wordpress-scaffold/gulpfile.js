@@ -158,7 +158,6 @@ const eslint = () => {
     .pipe($.eslint('.eslintrc').on('error', handleError))
     .pipe($.eslint.format());
 };
-
 gulp.task('eslint', eslint);
 
 /**
@@ -197,11 +196,12 @@ function initBrowserify() {
   b.on('update', bundle);
   return bundle();
 };
-
 gulp.task('javascript', initBrowserify);
 
 function bundle() {
-  eslint();
+  if (!isWatching) {
+    eslint();
+  }
 
   return b.bundle()
     .on('error', handleError)
@@ -215,9 +215,7 @@ function bundle() {
     }))).on('error', handleError)
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(paths.jsBuild))
-    .pipe(browserSync.stream({once: true}));
 };
-
 gulp.task('bundle', bundle);
 
 
@@ -322,6 +320,15 @@ gulp.task('modernizr:build', () => {
 gulp.task('modernizr', ['init', 'modernizr:build']);
 
 /**
+ * Watch wrapper for JavaScript bundle, since we want to reload
+ * the browser only once, and only after finishing the bundling.
+ */
+gulp.task('js-watch', ['bundle'], (done) => {
+    browserSync.reload();
+    done();
+});
+
+/**
  * Watches for file changes and runs Gulp tasks accordingly
  */
 gulp.task('watch-tasks', () => {
@@ -333,8 +340,9 @@ gulp.task('watch-tasks', () => {
   ], ['images']);
   gulp.watch(paths.fontSrc + '/**/*.{ttf,eot,woff,woff2}', ['copy']);
   gulp.watch(paths.videoSrc + '/**/*', ['copy']);
-  gulp.watch(paths.jsSrc + '/**/*.js', ['bundle']);
-  return browserSync.init({
+  gulp.watch(paths.jsSrc + '/**/*.js', ['js-watch']);
+
+  browserSync.init({
     files: ['{lib,templates,woocommerce}/**/*.php', '*.php'],
     proxy: process.env.WP_HOME,
     open: false,

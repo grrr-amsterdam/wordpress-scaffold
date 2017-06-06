@@ -3,7 +3,7 @@ set :repo_url, 'git@github.com:grrr-amsterdam/wordpress-scaffold'
 set :ssh_options, {
   forward_agent: true,
 }
-set :keep_releases, 5
+set :keep_releases, 3
 set :log_level, :info
 set :branch, :master
 
@@ -24,27 +24,35 @@ set :linked_files, fetch(:linked_files, []).push(
 # Run all tasks
 namespace :deploy do
 
-  after :updated do
+  task :updated do
+    invoke :wp_cli_map_command
+    invoke :composer_map_command
 
     invoke :composer_install_root
-    invoke :composer_install_theme
-
+    invoke :composer_install_themes
   end
 
-  after :publishing do
-
-    invoke :fpm_reload
-
+  task :publishing do
+    # invoke :fpm_reload
   end
 
-  after :setup do
+  task :setup do
+    invoke 'git:wrapper'
+    invoke 'git:check'
 
-    # copy .htaccess
-    # install wp-cli
-    # install composer
-    # install crontab (?)
-    # install cachetool (?)
+    invoke 'deploy:check:directories'
+    invoke 'deploy:check:linked_dirs'
+    invoke 'deploy:check:make_linked_dirs'
 
+    invoke :copy_dotenv
+    invoke :copy_htaccess
+    invoke :copy_w3tc_files
+    invoke :make_w3tc_config_dir
+
+    invoke :composer_setup
+    invoke :wp_cli_setup
+
+    invoke 'deploy:check:linked_files'
   end
 
 end
