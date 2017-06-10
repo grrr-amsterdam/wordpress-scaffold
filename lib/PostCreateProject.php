@@ -29,6 +29,7 @@ class PostCreateProject
 
         $io->write("\n<info>Updating .env file...</info>");
         $dotEnv = new Util\DotEnv(self::_getRootPath());
+        $answers = static::parseAnswers($answers);
         $dotEnv->replaceVariables($answers);
         $io->write('.env file updated');
 
@@ -69,6 +70,11 @@ class PostCreateProject
         foreach ($questions as $key => $config) {
             $answers[$key] = static::askQuestion($config);
         }
+        return $answers;
+    }
+
+    protected static function parseAnswers($answers) {
+        $answers['DB_PREFIX'] = $answers['DB_PREFIX'] . '_';
         return $answers;
     }
 
@@ -122,6 +128,16 @@ class PostCreateProject
             'DB_PASSWORD' => [
                 'question' => 'Database password',
                 'default' => 'welovegarp'
+            ],
+            'DB_PREFIX' => [
+                'question' => 'Database prefix',
+                'default' => 'grrr',
+                'validator' => function($value) {
+                    if (empty($value)) {
+                        throw new \Exception("Value is required");
+                    }
+                    return $value;
+                }
             ],
             'WP_HOME' => [
                 'question' => 'What will be your local site url?',
