@@ -236,6 +236,6 @@ class PostCreateProject
     }
 
     protected static function _getThemePath($themeName) {
-        return self::_getRootPath() . '/web/app/themes/wordpress-scaffold';
+        return self::_getRootPath() . '/web/app/themes/' . $themeName;
     }
 }
