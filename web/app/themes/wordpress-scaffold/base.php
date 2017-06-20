@@ -34,10 +34,6 @@ use Roots\Sage\Wrapper;
         wp_footer();
         ?>
 
-        <?php
-        get_template_part('templates/partials/tracking/google-analytics');
-        ?>
-
         <!--[if IE]>
         <div class="browser-warning">
         <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>

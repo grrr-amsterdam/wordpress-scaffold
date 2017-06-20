@@ -1,11 +1,11 @@
 <?php
 
-if (WP_ENV === 'development' || is_admin()) {
-    echo '<!-- Google Tag Manager, you are admin or in development mode. -->';
-    return;
-}
+$id = env('GOOGLE_TAG_MANAGER_ID');
 
-$gtm_id = 'XXXXX';
+if (!$id || is_user_logged_in()):
+    echo '<!-- Google Tag Manager (TRACKING CODE EXCLUDED) -->';
+    return;
+endif;
 
 ?>
 <!-- Google Tag Manager -->
