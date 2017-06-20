@@ -25,34 +25,25 @@ set :linked_files, fetch(:linked_files, []).push(
 namespace :deploy do
 
   task :updated do
-    invoke :wp_cli_map_command
-    invoke :composer_map_command
+    invoke 'wp_cli:map_command'
+    invoke 'composer:map_command'
 
-    invoke :composer_install_root
-    invoke :composer_install_themes
+    invoke 'composer:install_root'
+    invoke 'composer:install_themes'
   end
 
   task :publishing do
-    # invoke :fpm_reload
+    # invoke 'cache:fpm_reload'
   end
 
-  task :setup do
-    invoke 'git:wrapper'
-    invoke 'git:check'
+  task :check do
+    invoke 'setup:copy_dotenv'
+    invoke 'setup:copy_htaccess'
+    invoke 'setup:copy_w3tc_files'
+    invoke 'setup:make_w3tc_config_dir'
 
-    invoke 'deploy:check:directories'
-    invoke 'deploy:check:linked_dirs'
-    invoke 'deploy:check:make_linked_dirs'
-
-    invoke :copy_dotenv
-    invoke :copy_htaccess
-    invoke :copy_w3tc_files
-    invoke :make_w3tc_config_dir
-
-    invoke :composer_setup
-    invoke :wp_cli_setup
-
-    invoke 'deploy:check:linked_files'
+    invoke 'composer:setup'
+    invoke 'wp_cli:setup'
   end
 
 end

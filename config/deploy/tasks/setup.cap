@@ -1,68 +1,38 @@
-# Copy .env
-desc "Copy .env file to server"
-task :copy_dotenv do
-  on roles(:app) do
-    upload! '.env.template', "#{shared_path}"
-    within shared_path do
-      execute :mv, '.env.template .env'
+namespace :setup do
+
+  desc "Copy .env file to server"
+  task :copy_dotenv do
+    on roles(:app) do
+      upload! '.env.template', "#{shared_path}"
+      within shared_path do
+        execute :mv, '.env.template .env'
+      end
     end
   end
-end
 
-# Copy .htaccess
-desc "Copy .htaccess file to server"
-task :copy_htaccess do
-  on roles(:app) do
-    upload! 'web/.htaccess',
-      "#{shared_path}/web/"
-  end
-end
-
-# Copy W3TC files
-desc "Copy W3TC file to server"
-task :copy_w3tc_files do
-  on roles(:app) do
-    upload! 'web/app/plugins/w3-total-cache/wp-content/advanced-cache.php',
-      "#{shared_path}/web/app"
-    upload! 'web/app/plugins/w3-total-cache/wp-content/db.php',
-      "#{shared_path}/web/app"
-  end
-end
-
-# Create W3TC config dir
-desc "Create W3TC config dir on the server"
-task :make_w3tc_config_dir do
-  on roles(:app) do
-    execute "mkdir -p #{shared_path}/web/app/w3tc-config"
-  end
-end
-
-# Install Composer, by adding composer.phar
-desc "Add composer.phar on the server"
-task :composer_setup do
-  on roles(:app) do
-    upload! 'config/deploy/scripts/install-composer.sh',
-      "#{shared_path}"
-    within shared_path do
-      execute :chmod, '+x', 'install-composer.sh'
-      execute :sh, 'install-composer.sh'
-      execute :chmod, '+x', 'composer.phar'
-      execute :rm, 'install-composer.sh'
+  desc "Copy .htaccess file to server"
+  task :copy_htaccess do
+    on roles(:app) do
+      upload! 'web/.htaccess',
+        "#{shared_path}/web/"
     end
   end
-end
 
-# Install WP-CLI, by adding wp-cli.phar
-desc "Add wp-cli.phar on the server"
-task :wp_cli_setup do
-  on roles(:app) do
-    upload! 'config/deploy/scripts/install-wp-cli.sh',
-      "#{shared_path}"
-    within shared_path do
-      execute :chmod, '+x', 'install-wp-cli.sh'
-      execute :sh, 'install-wp-cli.sh'
-      execute :chmod, '+x', 'wp-cli.phar'
-      execute :rm, 'install-wp-cli.sh'
+  desc "Copy W3TC file to server"
+  task :copy_w3tc_files do
+    on roles(:app) do
+      upload! 'web/app/plugins/w3-total-cache/wp-content/advanced-cache.php',
+        "#{shared_path}/web/app"
+      upload! 'web/app/plugins/w3-total-cache/wp-content/db.php',
+        "#{shared_path}/web/app"
     end
   end
+
+  desc "Create W3TC config dir on the server"
+  task :make_w3tc_config_dir do
+    on roles(:app) do
+      execute "mkdir -p #{shared_path}/web/app/w3tc-config"
+    end
+  end
+
 end

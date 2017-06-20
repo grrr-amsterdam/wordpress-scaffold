@@ -1,7 +1,24 @@
-# Map WP-CLI command
-desc "Map the WP-CLI command for further use"
-task :wp_cli_map_command do
-  on roles(:app) do
-    SSHKit.config.command_map[:wp] = "php #{shared_path.join("wp-cli.phar")}"
+namespace :wp_cli do
+
+  desc "Add wp-cli.phar on the server"
+  task :setup do
+    on roles(:app) do
+      upload! 'config/deploy/scripts/install-wp-cli.sh',
+        "#{shared_path}"
+      within shared_path do
+        execute :chmod, '+x', 'install-wp-cli.sh'
+        execute :sh, 'install-wp-cli.sh'
+        execute :chmod, '+x', 'wp-cli.phar'
+        execute :rm, 'install-wp-cli.sh'
+      end
+    end
   end
+
+  desc "Map the WP-CLI command for further use"
+  task :map_command do
+    on roles(:app) do
+      SSHKit.config.command_map[:wp] = "php #{shared_path.join("wp-cli.phar")}"
+    end
+  end
+
 end

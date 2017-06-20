@@ -1,33 +1,48 @@
-# Map Composer command
-desc "Map the Composer command for further use"
-task :composer_map_command do
-  on roles(:app) do
-    SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
-  end
-end
+namespace :composer do
 
-# Composer in root
-desc "Install Composer dependencies for WordPress"
-task :composer_install_root do
-  on roles(:app) do
-    composer = "#{shared_path}/composer.phar"
-    if test "[[ -f #{composer} ]]"
-      execute "php #{composer} install -d #{release_path} --no-dev"
+  desc "Add composer.phar on the server"
+  task :setup do
+    on roles(:app) do
+      upload! 'config/deploy/scripts/install-composer.sh',
+        "#{shared_path}"
+      within shared_path do
+        execute :chmod, '+x', 'install-composer.sh'
+        execute :sh, 'install-composer.sh'
+        execute :chmod, '+x', 'composer.phar'
+        execute :rm, 'install-composer.sh'
+      end
     end
   end
-end
 
-# Composer in theme
-desc "Install Composer dependencies for all themes"
-task :composer_install_themes do
-  on roles(:app) do
-    composer = "#{shared_path}/composer.phar"
-    theme_path = "#{release_path}/web/app/themes"
-    if test "[[ -f #{composer} && -d #{theme_path} ]]"
-      execute \
-        "for theme in #{theme_path}/*; do " \
-          "[ -d $theme ] && php #{composer} install -d \"${theme}\" --no-dev;" \
-        "done;"
+  desc "Map the Composer command for further use"
+  task :map_command do
+    on roles(:app) do
+      SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
     end
   end
+
+  desc "Install Composer dependencies for WordPress"
+  task :install_root do
+    on roles(:app) do
+      composer = "#{shared_path}/composer.phar"
+      if test "[[ -f #{composer} ]]"
+        execute "php #{composer} install -d #{release_path} --no-dev"
+      end
+    end
+  end
+
+  desc "Install Composer dependencies for all themes"
+  task :install_themes do
+    on roles(:app) do
+      composer = "#{shared_path}/composer.phar"
+      theme_path = "#{release_path}/web/app/themes"
+      if test "[[ -f #{composer} && -d #{theme_path} ]]"
+        execute \
+          "for theme in #{theme_path}/*; do " \
+            "[ -d $theme ] && php #{composer} install -d \"${theme}\" --no-dev;" \
+          "done;"
+      end
+    end
+  end
+
 end
