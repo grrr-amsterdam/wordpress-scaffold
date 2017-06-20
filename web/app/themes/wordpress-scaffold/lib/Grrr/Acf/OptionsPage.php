@@ -4,11 +4,14 @@ namespace Grrr\Acf;
 
 class OptionsPage {
 
-    public function init() {
+    public function __construct() {
         if (!function_exists('acf_add_options_page') ||
             !function_exists('acf_add_options_sub_page')) {
-            return;
+            throw new \Exception('Advanced Custom Fields not installed or activated.');
         }
+    }
+
+    public function init() {
         $this->_add_main_page();
         $this->_add_sub_pages();
     }
