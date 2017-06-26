@@ -60,7 +60,7 @@ class PostCreateProject
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasYarn)) {
             $output = shell_exec("cd {$themePath} && yarn");
-        else {
+        } else {
             $output = shell_exec("cd {$themePath} && npm install");
         }
         $io->write("\n" . $output);
