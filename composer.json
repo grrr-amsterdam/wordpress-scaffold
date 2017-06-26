@@ -1,7 +1,7 @@
 {
   "name": "grrr-amsterdam/wordpress-scaffold",
   "type": "project",
-  "description": "WordPress scaffold with theme",
+  "description": "A modern WordPress scaffold",
   "homepage": "https://grrr.nl/",
   "authors": [
     {

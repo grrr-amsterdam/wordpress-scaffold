@@ -36,7 +36,9 @@ namespace :deploy do
     # invoke 'cache:fpm_reload'
   end
 
-  task :check do
+  task :setup do
+    invoke 'deploy:check'
+
     invoke 'setup:copy_dotenv'
     invoke 'setup:copy_htaccess'
     invoke 'setup:copy_w3tc_files'
