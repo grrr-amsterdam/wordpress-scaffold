@@ -54,7 +54,6 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "@php -r \"copy('.env.template', '.env');\"",
       "Grrr\\Warp\\PostCreateProject::setup"
     ],
     "test": [
