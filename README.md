@@ -23,6 +23,7 @@ This will create a new project in the chosen directory. It will also initiate an
 - Prefill the `style.css` file
 - Install theme Composer dependencies
 - Install npm packages
+- Run `gulp`
 - Activate the theme and plugins
 
 ### Theme & asset building

@@ -56,7 +56,7 @@ class PostCreateProject
         $output = shell_exec("cd {$themePath} && composer install");
         $io->write("\n" . $output);
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
-        if ($hasYarn) {
+        if (intval($hasYarn)) {
             $output = shell_exec("cd {$themePath} && yarn");
         else {
             $output = shell_exec("cd {$themePath} && npm install");
