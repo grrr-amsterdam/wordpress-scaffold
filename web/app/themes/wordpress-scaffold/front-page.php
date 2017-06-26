@@ -9,7 +9,7 @@ $examples = (new Example)->get_posts(10);
 ?>
 <article>
     <header>
-        <h1>Hello WorldPress</h1>
+        <h1><?php bloginfo() ?></h1>
         <?= Utils\svg('arrow'); ?>
     </header>
     <section>
