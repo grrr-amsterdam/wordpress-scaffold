@@ -5,7 +5,7 @@ namespace :setup do
     on roles(:app) do
       upload! '.env.template', "#{shared_path}"
       within shared_path do
-        execute :mv, '.env.template .env'
+        execute "mv -n .env.template .env"
       end
     end
   end
