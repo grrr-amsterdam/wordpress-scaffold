@@ -15,13 +15,15 @@ A WordPress 'Pro' scaffold, based on the [Bedrock](https://github.com/roots/bedr
 Run `composer create-project grrr-amsterdam/wordpress-scaffold <project>`.
 This will create a new project in the chosen directory. It will also initiate an interactive shell where the following things will be done for you:
 
-- Install Composer dependencies
-- Install npm packages
-- Rename the theme folder
-- Prefill the `style.css` file
-- Create and prefill a `.env` file
+- Install root Composer dependencies
+- Create and prefill a `.env` file (essentials only)
 - Create a database
 - Install WordPress
+- Rename the theme folder
+- Prefill the `style.css` file
+- Install theme Composer dependencies
+- Install npm packages
+- Activate the theme and plugins
 
 ### Theme & asset building
 

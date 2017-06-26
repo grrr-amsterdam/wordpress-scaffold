@@ -55,7 +55,12 @@ class PostCreateProject
         $themePath = self::_getThemePath($themeName);
         $output = shell_exec("cd {$themePath} && composer install");
         $io->write("\n" . $output);
-        $output = shell_exec("cd {$themePath} && npm install");
+        $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
+        if ($hasYarn) {
+            $output = shell_exec("cd {$themePath} && yarn");
+        else {
+            $output = shell_exec("cd {$themePath} && npm install");
+        }
         $io->write("\n" . $output);
         $output = shell_exec("cd {$themePath} && gulp");
         $io->write("\n" . $output);
@@ -143,7 +148,7 @@ class PostCreateProject
                 }
             ],
             'WP_HOME' => [
-                'question' => 'What will be your local site url? (including `http://`)',
+                'question' => 'What will be your local site url? (incl. `http://`)',
                 'default' => NULL,
                 'validator' => function($value) {
                     if (empty($value)) {
