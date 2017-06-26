@@ -2,6 +2,23 @@
   "name": "grrr/wordpress-scaffold",
   "type": "wordpress-theme",
   "description": "WordPress starter theme with a modern development workflow",
+  "license": "BSD-3-Clause",
+  "homepage": "https://grrr.nl/",
+  "authors": [
+    {
+      "name": "Ramiro Hammen",
+      "email": "ramiro@grrr.nl"
+    },
+    {
+      "name": "Koen Schaft",
+      "email": "koen@grrr.nl"
+    }
+  ],
+  "config": {
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Grrr\\": [

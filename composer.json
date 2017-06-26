@@ -2,6 +2,7 @@
   "name": "grrr-amsterdam/wordpress-scaffold",
   "type": "project",
   "description": "A modern WordPress scaffold",
+  "license": "BSD-3-Clause",
   "homepage": "https://grrr.nl/",
   "authors": [
     {
