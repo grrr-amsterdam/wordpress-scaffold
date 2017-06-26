@@ -26,7 +26,7 @@ namespace :composer do
     on roles(:app) do
       composer = "#{shared_path}/composer.phar"
       if test "[[ -f #{composer} ]]"
-        execute "php #{composer} install -d #{release_path} --no-dev"
+        execute "php #{composer} install -d #{release_path} --no-dev --no-progress --optimize-autoloader"
       end
     end
   end
@@ -39,7 +39,7 @@ namespace :composer do
       if test "[[ -f #{composer} && -d #{theme_path} ]]"
         execute \
           "for theme in #{theme_path}/*; do " \
-            "[ -d $theme ] && php #{composer} install -d \"${theme}\" --no-dev;" \
+            "[ -d $theme ] && php #{composer} install -d \"${theme}\" --no-dev --no-progress --optimize-autoloader;" \
           "done;"
       end
     end
