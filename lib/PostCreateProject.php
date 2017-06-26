@@ -1,11 +1,11 @@
-<?php 
+<?php
 namespace Grrr\Warp;
 
 /**
  * PostCreateProject
- * 
+ *
  * Some task that will be done after composer create-project
- * 
+ *
  * @package Wordpress Scaffold
  * @author Ramiro Hammen <ramiro@grrr.nl>
  */
@@ -18,12 +18,12 @@ class PostCreateProject
     public static $event;
     public static $io;
 
-    public static function setup(Event $event) 
+    public static function setup(Event $event)
     {
         static::$event = $event;
         $io = $event->getIO();
         static::$io = $io;
-        $io->write('<info>Setup project information. Press enter key for default.</info>');
+        $io->write("\n<info>Setup project information. Press enter key for default.</info>");
         $questions = static::getEnvQuestions();
         $answers = static::askQuestions($questions);
 
@@ -51,19 +51,22 @@ class PostCreateProject
         $result = static::_installWordpress($answers);
         $io->write($result);
 
-        $io->write("\nInstalling Theme Dependencies");
+        $io->write("\n<info>Installing Theme Dependencies</info>");
         $themePath = self::_getThemePath($themeName);
-        $output = shell_exec("cd {$themePath}; composer install");
-        $io->write($output);
-        $output = shell_exec("cd {$themePath}; npm install");
-        $io->write($output);
+        $output = shell_exec("cd {$themePath} && composer install");
+        $io->write("\n" . $output);
+        $output = shell_exec("cd {$themePath} && npm install");
+        $io->write("\n" . $output);
+        $output = shell_exec("cd {$themePath} && gulp");
+        $io->write("\n" . $output);
         shell_exec("cd " . self::_getRootPath());
 
-        $io->write("\n<info>Activate theme</info>");
+        $io->write("\n<info>Activate theme & plugins</info>");
         $output = shell_exec("wp theme activate {$themeName}");
-        $io->write($output);
-
-    }   
+        $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate soil");
+        $io->write("\n" . $output);
+    }
 
     protected static function askQuestions($questions) {
         $answers = [];
@@ -110,7 +113,7 @@ class PostCreateProject
         ];
     }
 
-    protected static function getEnvQuestions() 
+    protected static function getEnvQuestions()
     {
         $questions = [
             'DB_HOST' => [
@@ -140,11 +143,11 @@ class PostCreateProject
                 }
             ],
             'WP_HOME' => [
-                'question' => 'What will be your local site url?',
+                'question' => 'What will be your local site url? (including `http://`)',
                 'default' => NULL,
                 'validator' => function($value) {
                     if (empty($value)) {
-                        throw new \Exception('You need to give an url');    
+                        throw new \Exception('You need to give an url');
                     }
                     return $value;
                 }
@@ -206,15 +209,15 @@ class PostCreateProject
             . "--admin_email={$data['admin_email']}";
 
         return shell_exec($installCommand);
-    } 
+    }
 
-    protected static function _composeProjectName() 
+    protected static function _composeProjectName()
     {
         $vendorDir = self::$event->getComposer()->getConfig()->get('vendor-dir');
         return pathinfo(dirname($vendorDir))['basename'];
     }
 
-    protected static function _composeThemeName() 
+    protected static function _composeThemeName()
     {
         $projectName = self::_composeProjectName();
         $themeName = str_replace('_', ' ', self::_composeProjectName());
@@ -223,7 +226,7 @@ class PostCreateProject
         return $themeName;
     }
 
-    protected static function _getRootPath() 
+    protected static function _getRootPath()
     {
         $vendorDir = self::$event->getComposer()->getConfig()->get('vendor-dir');
         return pathinfo($vendorDir)['dirname'];
