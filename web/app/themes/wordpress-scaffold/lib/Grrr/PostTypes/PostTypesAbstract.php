@@ -25,22 +25,24 @@ abstract class PostTypesAbstract {
 
     public function register() {
         $defaults = [
-            'capability_type'   => 'page',
-            'supports'          => [ 'title', 'revisions', 'thumbnail' ],
-            'public'            => true,
-            'hierarchical'      => true,
-            'query_var'         => true,
-            'has_archive'       => false,
+            'capability_type' => 'page',
+            'supports' => [ 'title', 'revisions', 'thumbnail' ],
+            'public' => true,
+            'show_ui' => true,
+            'exclude_from_search' => false,
+            'hierarchical' => true,
+            'has_archive' => false,
+            'query_var' => true,
             'rewrite' => [
-                'slug'          => $this->_slug,
-                'with_front'    => true,
+                'slug' => $this->_slug,
+                'with_front' => true,
             ],
-            'taxonomies'        => [],
-            'labels'            => [
-                'name'          => $this->_name,
+            'taxonomies' => [],
+            'labels' => [
+                'name' => $this->_name,
                 'singular_name' => $this->_singular_name,
             ],
-            'menu_icon'         => $this->_icon,
+            'menu_icon' => $this->_icon,
         ];
 
         register_post_type($this->_type, array_merge($defaults, $this->_args));
