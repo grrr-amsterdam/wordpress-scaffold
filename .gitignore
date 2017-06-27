@@ -4,38 +4,38 @@
 !.env.template
 
 # Composer
-vendor/*
-!vendor/.gitkeep
+/vendor
+!/vendor/.gitkeep
 
 # npm
-node_modules
+/node_modules
 npm-debug.log
 
 # WordPress
-web/wp
+/web/wp
 
 # Uploads & Upgrade
-web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
+/web/app/upgrade
+/web/app/uploads/*
+!/web/app/uploads/.gitkeep
 
 # Plugins
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
+/web/app/plugins/*
+!/web/app/plugins/.gitkeep
+/web/app/mu-plugins/*/
 
 # Plugins not available on Packagist/WPackagist
-!web/app/plugins/advanced-custom-fields-pro
+!/web/app/plugins/advanced-custom-fields-pro
 
 # Cache
-web/app/cache/*
-!web/app/cache/.gitkeep
+/web/app/cache/*
+!/web/app/cache/.gitkeep
 
 # W3TC (managed on server in shared folder)
-web/app/db.php
-web/app/advanced-cache.php
-web/app/w3tc-config/
+/web/app/db.php
+/web/app/advanced-cache.php
+/web/app/w3tc-config/
 
 # Other
 .DS_Store
-/log/*
+/log

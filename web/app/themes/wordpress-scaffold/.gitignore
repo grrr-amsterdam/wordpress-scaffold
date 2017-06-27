@@ -1,10 +1,10 @@
 # Composer
-vendor/*
-!vendor/.gitkeep
+/vendor/*
+!/vendor/.gitkeep
 
 # npm
-node_modules
+/node_modules
 npm-debug.log
 
 # Assets
-dist/dev
+/dist/dev
