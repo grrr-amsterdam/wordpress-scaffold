@@ -10,4 +10,10 @@ class Example extends PostTypesAbstract {
     protected $_singular_name      = 'Example';
     protected $_icon               = 'dashicons-portfolio';
 
+    protected $_args = [
+        'public' => false,
+        'hierarchical' => false,
+        'supports' => [ 'title', 'revisions', 'thumbnail', 'editor' ],
+    ];
+
 }

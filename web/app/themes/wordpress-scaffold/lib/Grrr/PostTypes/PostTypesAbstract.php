@@ -10,6 +10,8 @@ abstract class PostTypesAbstract {
     protected $_singular_name;
     protected $_icon;
 
+    protected $_args = [];
+
     public function init() {
         add_action('init', [$this, 'register'], 1);
     }
@@ -22,8 +24,8 @@ abstract class PostTypesAbstract {
     }
 
     public function register() {
-        $args = [
-            'capability_type'   => 'post',
+        $defaults = [
+            'capability_type'   => 'page',
             'supports'          => [ 'title', 'revisions', 'thumbnail' ],
             'public'            => true,
             'hierarchical'      => true,
@@ -38,10 +40,10 @@ abstract class PostTypesAbstract {
                 'name'          => $this->_name,
                 'singular_name' => $this->_singular_name,
             ],
-            'menu_icon' => $this->_icon,
+            'menu_icon'         => $this->_icon,
         ];
 
-        register_post_type($this->_type, $args);
+        register_post_type($this->_type, array_merge($defaults, $this->_args));
     }
 
 }
