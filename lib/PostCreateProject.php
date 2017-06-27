@@ -43,7 +43,7 @@ class PostCreateProject
             $io->write("<error>{$errorMessage}</error>");
         }
 
-        $io->write("\n<info>Setup Theme Settings</info>");
+        $io->write("\n<info>Setup Theme settings</info>");
         $answers = static::askQuestions(static::getThemeQuestions());
         static::_updateThemeSettings($answers);
         $themeName = $answers['TEXT_DOMAIN'];
@@ -53,10 +53,12 @@ class PostCreateProject
         $result = static::_installWordpress($answers);
         $io->write($result);
 
-        $io->write("\n<info>Installing Theme Dependencies</info>");
+        $io->write("\n<info>Installing Theme dependencies (Composer)</info>");
         $themePath = self::_getThemePath($themeName);
         $output = shell_exec("cd {$themePath} && composer install");
         $io->write("\n" . $output);
+
+        $io->write("\n<info>Installing Theme dependencies (Yarn/npm)</info>");
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasYarn)) {
             $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
@@ -64,8 +66,11 @@ class PostCreateProject
             $output = shell_exec("cd {$themePath} && npm install");
         }
         $io->write("\n" . $output);
+
+        $io->write("\n<info>Building Theme assets</info>");
         $output = shell_exec("cd {$themePath} && gulp");
         $io->write("\n" . $output);
+
         shell_exec("cd " . self::_getRootPath());
 
         $io->write("\n<info>Activate theme & plugins</info>");
