@@ -33,7 +33,16 @@
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "^1.0.0",
     "roots/soil": "^3.7",
-    "wpackagist-plugin/w3-total-cache": "^0.9.5.4"
+    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^1.2",
+    "wpackagist-plugin/admin-menu-editor": "^1.6",
+    "wpackagist-plugin/ajax-thumbnail-rebuild": "^1.12",
+    "wpackagist-plugin/amazon-s3-and-cloudfront": "^1.0",
+    "wpackagist-plugin/amazon-web-services": "^1.0",
+    "wpackagist-plugin/simple-page-ordering": "^2.2",
+    "wpackagist-plugin/thumbnail-upscale": "^1.1",
+    "wpackagist-plugin/w3-total-cache": "^0.9.5.4",
+    "wpackagist-plugin/wordpress-seo": "^4.9",
+    "wpackagist-plugin/wp-ses": "^0.7.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1",

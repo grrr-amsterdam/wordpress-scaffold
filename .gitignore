@@ -26,6 +26,7 @@ npm-debug.log
 
 # Plugins not available on Packagist/WPackagist
 !/web/app/plugins/advanced-custom-fields-pro
+!/web/app/plugins/acf-sync
 
 # Cache
 /web/app/cache/*
