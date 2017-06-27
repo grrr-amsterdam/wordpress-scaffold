@@ -140,7 +140,7 @@ class PostCreateProject
                 'default' => 'welovegarp'
             ],
             'DB_PREFIX' => [
-                'question' => 'Database prefix',
+                'question' => 'Database prefix (without trailing `_`)',
                 'default' => 'grrr',
                 'validator' => function($value) {
                     if (empty($value)) {
@@ -196,7 +196,7 @@ class PostCreateProject
         $db_password = $dotEnv->get('DB_PASSWORD');
         $conn = new \PDO("mysql:host={$db_host}", $db_user, $db_password);
         $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE {$db_name}";
+        $sql = "CREATE DATABASE {$db_name} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;";
         $conn->exec($sql);
     }
 
