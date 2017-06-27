@@ -28,7 +28,7 @@ class PostCreateProject
         $answers = static::askQuestions($questions);
 
         $io->write("\n<info>Updating .env file...</info>");
-        $output = shell_exec("mv -n .env.template .env");
+        $output = shell_exec("cp -n .env.template .env");
         $io->write("\n" . $output);
         $dotEnv = new Util\DotEnv(self::_getRootPath());
         $answers = static::parseAnswers($answers);

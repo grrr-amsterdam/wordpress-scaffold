@@ -37,12 +37,19 @@ namespace :deploy do
   end
 
   task :setup do
-    invoke 'deploy:check'
+    invoke 'git:wrapper'
+    invoke 'git:check'
+
+    invoke 'deploy:check:directories'
+    invoke 'deploy:check:linked_dirs'
+    invoke 'deploy:check:make_linked_dirs'
 
     invoke 'setup:copy_dotenv'
     invoke 'setup:copy_htaccess'
     invoke 'setup:copy_w3tc_files'
     invoke 'setup:make_w3tc_config_dir'
+
+    invoke 'deploy:check:linked_files'
 
     invoke 'composer:setup'
     invoke 'wp_cli:setup'
