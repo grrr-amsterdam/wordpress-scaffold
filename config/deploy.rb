@@ -47,7 +47,6 @@ namespace :deploy do
     invoke 'setup:copy_dotenv'
     invoke 'setup:copy_htaccess'
     invoke 'setup:copy_w3tc_files'
-    invoke 'setup:make_w3tc_config_dir'
 
     invoke 'deploy:check:linked_files'
 

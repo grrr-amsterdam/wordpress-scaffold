@@ -28,11 +28,4 @@ namespace :setup do
     end
   end
 
-  desc "Create W3TC config dir on the server"
-  task :make_w3tc_config_dir do
-    on roles(:app) do
-      execute "mkdir -p #{shared_path}/web/app/w3tc-config"
-    end
-  end
-
 end
