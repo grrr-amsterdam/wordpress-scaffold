@@ -3,6 +3,7 @@
 namespace Grrr\Utils;
 
 use Roots\Sage\Assets;
+use Grrr\Templates;
 
 /**
  * SVG helper
@@ -20,6 +21,13 @@ function svg($id, $args = []) {
     }
     $sprite = Assets\asset_path('images/icons.svg');
     return sprintf($template, $attributes, $sprite, $id);
+}
+
+/**
+ * Render a template/partial
+ */
+function partial(string $file, array $args = []) {
+    (new Templates\Renderer($file, $args))->render();
 }
 
 /**
