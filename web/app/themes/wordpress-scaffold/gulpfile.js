@@ -121,7 +121,10 @@ gulp.task('sass', () => {
     }),
   ];
 
-  return gulp.src(paths.cssSrc + '/base.scss')
+  return gulp.src([
+    paths.cssSrc + '/admin.scss',
+    paths.cssSrc + '/base.scss',
+  ])
     .pipe(sassGlob())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.postcss(processors))
