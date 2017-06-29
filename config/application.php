@@ -1,7 +1,16 @@
 <?php
 
+use Grrr\Root;
+
 /** @var string Directory containing all of the site's files */
 $root_dir = dirname(__DIR__);
+
+/**
+ * Define root directory
+ */
+if (!defined('ROOT_DIR')) {
+    define('ROOT_DIR', $root_dir);
+}
 
 /** @var string Document Root */
 $webroot_dir = $root_dir . '/web';
@@ -46,6 +55,13 @@ define('WP_CONTENT_DIR', $webroot_dir . CONTENT_DIR);
 define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
 
 /**
+ * Bootstrap WordPress
+ */
+if (!defined('ABSPATH')) {
+    define('ABSPATH', $webroot_dir . '/wp/');
+}
+
+/**
  * DB settings
  */
 define('DB_NAME', env('DB_NAME'));
@@ -76,8 +92,27 @@ define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
 
 /**
- * Bootstrap WordPress
+ * Semver
  */
-if (!defined('ABSPATH')) {
-    define('ABSPATH', $webroot_dir . '/wp/');
+define('SEMVER', (new Root\Semver)->get_version());
+
+/**
+ * AWS & S3
+ */
+define('DBI_AWS_ACCESS_KEY_ID', env('DBI_AWS_ACCESS_KEY_ID'));
+define('DBI_AWS_SECRET_ACCESS_KEY', env('DBI_AWS_SECRET_ACCESS_KEY'));
+define('AS3CF_BUCKET', env('AS3CF_BUCKET'));
+define('AS3CF_REGION', env('AS3CF_REGION'));
+
+/**
+ * Sentry
+ */
+define('SENTRY_DSN', env('SENTRY_DSN'));
+
+/**
+ * CloudFront SSL fix
+ */
+if (isset($_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
 }

@@ -44,6 +44,8 @@ use Roots\Sage\Wrapper;
 
 <!--
 
+<?= SEMVER ?>
+
 <?= get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds
 
 -->

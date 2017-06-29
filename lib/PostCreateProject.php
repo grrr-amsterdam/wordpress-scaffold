@@ -1,5 +1,5 @@
 <?php
-namespace Grrr\Warp;
+namespace Grrr\Root;
 
 /**
  * PostCreateProject

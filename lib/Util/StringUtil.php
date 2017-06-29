@@ -1,5 +1,5 @@
-<?php 
-namespace Grrr\Warp\Util;
+<?php
+namespace Grrr\Root\Util;
 
 class StringUtil {
     /**
