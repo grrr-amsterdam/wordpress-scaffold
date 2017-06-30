@@ -3,6 +3,7 @@
 namespace Grrr\Root;
 
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Yaml\Exception\ParseException;
 
 class Semver {
 
@@ -19,9 +20,9 @@ class Semver {
             return static::$_cached;
         }
         try {
-            $version = Yaml::parse(file_get_contents($this->_path), true);
+            $version = Yaml::parse(file_get_contents($this->_path));
             if (!is_array($version)) {
-                return 'v0.0.0';
+                throw new ParseException('Semver cannot be parsed as array');
             }
         } catch (ParseException $e) {
             return 'v0.0.0';
