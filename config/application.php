@@ -85,11 +85,15 @@ define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
 define('NONCE_SALT', env('NONCE_SALT'));
 
 /**
- * Custom Settings
+ * Updates & Files
  */
 define('AUTOMATIC_UPDATER_DISABLED', true);
-define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
+
+/**
+ * Cron & Cache
+ */
+define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('WP_CACHE', env('WP_CACHE') ?: false);
 
 /**
