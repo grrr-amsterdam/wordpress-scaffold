@@ -27,7 +27,7 @@ const executeOnReady = () => {
   // eslint-disable-next-line func-names
   window.requestAnimationFrame = window.requestAnimationFrame || function(c) {
     return setTimeout(() => {
-      c(+new Date);
+      c(+new Date());
     }, 30);
   };
 };

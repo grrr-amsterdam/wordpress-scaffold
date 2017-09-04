@@ -23,16 +23,16 @@ This will create a new project in the chosen directory. It will also initiate an
 - Prefill the `style.css` file
 - Install theme Composer dependencies
 - Install npm packages
-- Run `gulp`
+- Run `yarn build`
 - Activate the theme and plugins
 
 ### Theme & asset building
 
-We use [Yarn](https://github.com/yarnpkg/yarn) for managing our front-end dependencies, and (Gulp)[https://github.com/gulpjs/gulp] for building all the assets.
+We use [Yarn](https://github.com/yarnpkg/yarn) for managing our front-end dependencies, and (grrr-gulpfile)[https://github.com/grrr-amsterdam/gulpfile] for building all the assets.
 Commands should be run from inside the theme folder: `web/app/themes/*`.
 
-- For watching, run `gulp watch`
-- For building production assets, run `gulp --production`
+- For watching and buildint, run `yarn watch` or `yarn build`
+- For building production assets, run `yarn build:production`
 
 ### Deploying
 

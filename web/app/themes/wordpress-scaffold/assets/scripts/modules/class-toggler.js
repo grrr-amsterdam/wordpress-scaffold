@@ -1,9 +1,9 @@
+import { trackEvent } from './google-analytics';
+
 const TRIGGER_SELECTOR = '.js-class-toggler';
 const DATA_ATTR_TARGET = 'data-target';
 const DATA_ATTR_CLASS = 'data-target-class';
 const DATA_CALLBACK = 'data-callback';
-
-import { trackEvent } from './google-analytics.js';
 
 const triggerIsValid = item => item.getAttribute(DATA_ATTR_TARGET)
   && item.getAttribute(DATA_ATTR_CLASS);

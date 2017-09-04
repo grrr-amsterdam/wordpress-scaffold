@@ -15,7 +15,7 @@ namespace :wp_cli do
   end
 
   desc "Map the WP-CLI command for further use"
-  task :map_command do
+  task :config do
     on roles(:app) do
       SSHKit.config.command_map[:wp] = "php #{shared_path.join("wp-cli.phar")}"
     end

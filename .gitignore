@@ -1,15 +1,9 @@
 # Dotenv
 .env
-.env.*
 !.env.template
 
 # Composer
 /vendor
-!/vendor/.gitkeep
-
-# npm
-/node_modules
-npm-debug.log
 
 # WordPress
 /web/wp
@@ -23,6 +17,7 @@ npm-debug.log
 /web/app/plugins/*
 !/web/app/plugins/.gitkeep
 /web/app/mu-plugins/*/
+!/web/app/mu-plugins/.gitkeep
 
 # Plugins not available on Packagist/WPackagist
 !/web/app/plugins/advanced-custom-fields-pro

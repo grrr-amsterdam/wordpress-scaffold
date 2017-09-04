@@ -32,10 +32,11 @@
     "johnpbloch/wordpress": "^4.8.0",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "^1.0.0",
+    "wikimedia/composer-merge-plugin": "^1.4",
     "roots/soil": "^3.7",
     "sentry/sentry": "^1.7",
     "symfony/yaml": "^3.3",
-    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^1.2",
+    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^2.0",
     "wpackagist-plugin/admin-menu-editor": "^1.6",
     "wpackagist-plugin/ajax-thumbnail-rebuild": "^1.12",
     "wpackagist-plugin/amazon-s3-and-cloudfront": "^1.0",
@@ -43,7 +44,7 @@
     "wpackagist-plugin/simple-page-ordering": "^2.2",
     "wpackagist-plugin/thumbnail-upscale": "^1.1",
     "wpackagist-plugin/w3-total-cache": "^0.9.5.4",
-    "wpackagist-plugin/wordpress-seo": "^4.9",
+    "wpackagist-plugin/wordpress-seo": "^5.3.3",
     "wpackagist-plugin/wp-ses": "^0.7.0"
   },
   "require-dev": {
@@ -56,6 +57,18 @@
     }
   },
   "extra": {
+    "merge-plugin": {
+      "include": [
+        "web/app/themes/*/composer.json"
+      ],
+      "recurse": true,
+      "replace": false,
+      "ignore-duplicates": false,
+      "merge-dev": false,
+      "merge-extra": false,
+      "merge-extra-deep": false,
+      "merge-scripts": false
+    },
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
       "web/app/plugins/{$name}/": ["type:wordpress-plugin"],

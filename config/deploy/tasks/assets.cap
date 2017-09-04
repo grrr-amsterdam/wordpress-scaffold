@@ -1,0 +1,61 @@
+namespace :assets do
+
+  desc 'Verify Node.js dependencies are up to date in theme folders'
+  task :verify do
+    on roles(:app) do
+      run_locally do
+        has_yarn = capture("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0").strip == '1'
+        if !has_yarn
+          abort "\n" \
+            "Deploy aborted! \n" \
+            "Please install Yarn on your machine (╯°□°）╯︵ ┻━┻ \n" \
+            "See https://yarnpkg.com/en/docs/install or install via `npm i -g yarn` \n\n"
+        end
+        execute \
+          "for theme in web/app/themes/*; do " \
+            "if [[ -f \"$theme/package.json\" ]]; then " \
+              "cd $theme && yarn; cd -;" \
+            "fi;" \
+          "done;"
+      end
+    end
+  end
+
+  desc 'Build assets in theme folders'
+  task :build do
+    on roles(:app) do
+      run_locally do
+        execute \
+          "for theme in themes/*; do " \
+            "if [[ -f \"$theme/package.json\" ]]; then " \
+              "cd $theme && yarn run build:#{fetch(:stage)}; cd -;" \
+            "fi;" \
+          "done;"
+      end
+    end
+  end
+
+  desc 'Push assets from theme folders'
+  task :push do
+    on roles(:app) do |host|
+      execute \
+        "for theme in #{release_path}/web/app/themes/*; do " \
+          "if [[ -f \"$theme/package.json\" ]]; then " \
+            "mkdir -p $theme/assets/build;" \
+          "fi;" \
+        "done;"
+      unless dry_run?
+        run_locally do
+          execute \
+            "for theme in web/app/themes/*; do " \
+              "if [[ -f \"$theme/package.json\" ]]; then " \
+                "scp -r $theme/assets/build/* " \
+                  "#{host.user}@#{host.hostname}:#{release_path}/$theme/assets/build/;" \
+              "fi;" \
+            "done;"
+        end
+      end
+    end
+  end
+
+end

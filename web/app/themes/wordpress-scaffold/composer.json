@@ -19,24 +19,15 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "require": {
+    "php": ">=7.0",
+    "composer/installers": "^1.2.0"
+  },
   "autoload": {
     "psr-4": {
       "Grrr\\": [
         "lib/Grrr/"
       ]
-    },
-    "files": [
-      "lib/Grrr/Utils/Cleanup.php",
-      "lib/Grrr/Utils/Debug.php",
-      "lib/Grrr/Utils/Utils.php",
-      "lib/Sage/Assets.php",
-      "lib/Sage/Extras.php",
-      "lib/Sage/Setup.php",
-      "lib/Sage/Wrapper.php"
-    ]
-  },
-  "require": {
-    "php": ">=7.0",
-    "composer/installers": "^1.2.0"
+    }
   }
 }
