@@ -12,4 +12,11 @@ namespace :cache do
     end
   end
 
+  desc 'Reload Apache'
+  task :apache_reload do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :sudo, :service, :apache2, :reload
+    end
+  end
+
 end

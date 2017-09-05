@@ -1,10 +1,10 @@
 # Composer
-/vendor/*
-!/vendor/.gitkeep
-
-# npm
-/node_modules
-npm-debug.log
+/vendor
 
 # Assets
-/dist/dev
+/assets/build
+
+# Yarn & npm
+/node_modules
+npm-debug.log
+yarn-error.log

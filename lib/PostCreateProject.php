@@ -68,7 +68,7 @@ class PostCreateProject
         $io->write("\n" . $output);
 
         $io->write("\n<info>Building Theme assets</info>");
-        $output = shell_exec("cd {$themePath} && gulp");
+        $output = shell_exec("cd {$themePath} && yarn run build");
         $io->write("\n" . $output);
 
         shell_exec("cd " . self::_getRootPath());

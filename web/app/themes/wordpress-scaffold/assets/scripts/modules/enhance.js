@@ -15,10 +15,8 @@ export default enhancers => {
     enhancerCollection.split(',').forEach(enhancer => {
       if (typeof enhancers[enhancer] === 'function') {
         enhancers[enhancer](elm);
-      } else {
-        if (window.console && typeof console.log === 'function') {
-          console.log('Non-existing enhancer: "%s" on %o', enhancer, this);
-        }
+      } else if (window.console && typeof console.log === 'function') {
+        console.log('Non-existing enhancer: "%s" on %o', enhancer, this);
       }
     });
   });

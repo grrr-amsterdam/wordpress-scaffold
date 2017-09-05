@@ -7,6 +7,9 @@ set :keep_releases, 3
 set :log_level, :info
 set :branch, :master
 
+# Composer settings
+set :composer_install_flags, '--no-interaction --prefer-dist --optimize-autoloader'
+
 # Linked directories
 set :linked_dirs, fetch(:linked_dirs, []).push(
   'web/app/uploads',
@@ -21,20 +24,25 @@ set :linked_files, fetch(:linked_files, []).push(
   'web/app/db.php'
 )
 
-# Run all tasks
+# Deploy tasks
+# Note: several capistrano-deploy, capistrano-composer and
+# capistrano-laravel tasks run automatically
 namespace :deploy do
 
-  task :updated do
-    invoke 'wp_cli:map_command'
-    invoke 'composer:map_command'
+  after  :started,     'composer:config'
+  after  :started,     'wp_cli:config'
+  after  :started,     'assets:verify'
+  after  :started,     'assets:build'
 
-    invoke 'composer:install_root'
-    invoke 'composer:install_themes'
-  end
+  after  :updated,     'assets:push'
 
-  task :publishing do
-    # invoke 'cache:fpm_reload'
-  end
+  # after :published,   'cache:apache_reload'
+  # after :published,   'cache:apache_reload'
+
+end
+
+# Setup tasks
+namespace :deploy do
 
   task :setup do
     invoke 'git:wrapper'
@@ -50,7 +58,7 @@ namespace :deploy do
 
     invoke 'deploy:check:linked_files'
 
-    invoke 'composer:setup'
+    invoke 'composer:install_executable'
     invoke 'wp_cli:setup'
   end
 

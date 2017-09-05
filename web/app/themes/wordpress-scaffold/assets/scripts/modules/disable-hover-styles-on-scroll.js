@@ -1,9 +1,9 @@
+import { register } from './scroll-listener';
+
 /**
  * Add class to the body when scrolling.
  * This class disabled pointer-events in the CSS. Greatly enhanced performance.
  */
-
-import { register } from './scroll-listener.js';
 
 export default () => {
   const body = document.body;

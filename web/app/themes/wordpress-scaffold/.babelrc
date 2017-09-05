@@ -1,0 +1,20 @@
+{
+    "plugins": [
+        "lodash",
+        "babel-plugin-transform-object-rest-spread"
+    ],
+    "presets": [
+        [
+            "env", {
+                "targets": {
+                    "browsers": [
+                        "> 5%",
+                        "last 3 versions",
+                        "safari >= 7",
+                        "ie >= 9"
+                    ]
+                }
+            }
+        ]
+    ]
+}

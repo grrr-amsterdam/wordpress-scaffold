@@ -1,0 +1,59 @@
+{
+  "app": {
+    "domain": "localhost.wordpress-scaffold.nl"
+  },
+  "paths": {
+    "src": "./assets",
+    "dist": "./assets/build"
+  },
+  "tasks": {
+    "copy": [
+      "./assets/fonts/**/*",
+      "./assets/images/favicon.ico",
+      "./assets/scripts/vendor/**/*.js"
+    ],
+    "icons": {
+      "src": "./assets/images/icons/**/*.svg",
+      "dist": "./assets/build/images"
+    },
+    "images": {
+      "src": "./assets/images/**/*.{png,gif,jpg,jpeg,svg}",
+      "dist": "./assets/build/images"
+    },
+    "javascript": {
+      "src": "./assets/scripts/**/*.js",
+      "dist": "./assets/build/scripts",
+      "main": "./assets/scripts/main.js",
+      "bundle": "main.js"
+    },
+    "javascript:vendor": [
+      {
+        "src": [
+          "./node_modules/fg-loadjs/loadJS.js",
+          "./node_modules/svg4everybody/dist/svg4everybody.js",
+          "./node_modules/babel-polyfill/dist/polyfill.js"
+        ],
+        "dist": "./assets/build/scripts/vendor"
+      }
+    ],
+    "sass": {
+      "src": "./assets/styles/**/*.scss",
+      "dist": "./assets/build/styles",
+      "main": [
+        "./assets/styles/base.scss",
+        "./assets/styles/admin.scss"
+      ]
+    },
+    "revision": {
+      "manifest": {
+        "directory": "./assets/build",
+        "file": "assets.json"
+      }
+    },
+    "watch": {
+      "files": [
+        "*.php"
+      ]
+    }
+  }
+}

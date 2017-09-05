@@ -39,13 +39,8 @@ class JsonManifest {
     }
 }
 
-function env_path() {
-    return (defined('WP_ENV') && WP_ENV === 'development') ? 'dev/' : 'prod/';
-}
-
 function asset_path($filename) {
-    $env_path = env_path();
-    $dist_path = get_template_directory() . '/dist/' . $env_path;
+    $dist_path = get_template_directory() . '/assets/build/';
 
     $directory = dirname($filename) . '/';
     $file = basename($filename);
@@ -56,7 +51,7 @@ function asset_path($filename) {
         $manifest = new JsonManifest($manifest_path);
     }
 
-    $dist_uri = get_template_directory_uri() . '/dist/' . $env_path;
+    $dist_uri = get_template_directory_uri() . '/assets/build/';
     if (array_key_exists($file, $manifest->get())) {
         return $dist_uri . $directory . $manifest->get()[$file];
     } else {
@@ -65,8 +60,7 @@ function asset_path($filename) {
 }
 
 function asset_import($filename) {
-    $env_path = env_path();
-    $dist_path = get_template_directory() . '/dist/' . $env_path;
+    $dist_path = get_template_directory() . '/assets/build/';
 
     $directory = dirname($filename) . '/';
     $file = basename($filename);

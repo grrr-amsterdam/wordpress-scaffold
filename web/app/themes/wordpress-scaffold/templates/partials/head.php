@@ -31,10 +31,15 @@ use Roots\Sage\Assets;
         require_once(Assets\asset_import('scripts/vendor/loadJS.js')); echo "\n";
         ?>
 
-        /* Load JavaScript if browser cuts the mustard */
+        /* Load JavaScript if browser cuts the mustard, and babel-polyfill when needed */
         var cutsMustard = 'querySelector' in document && 'addEventListener' in window;
-        if (cutsMustard) {
+        var cutsEdge = 'Symbol' in window && 'WeakMap' in window;
+        if (cutsMustard && cutsEdge) {
             loadJS('<?= Assets\asset_path('scripts/main.js') ?>');
+        } else if (cutsMustard) {
+            loadJS('<?= Assets\asset_path('scripts/vendor/polyfill.js') ?>', function() {
+                loadJS('<?= Assets\asset_path('scripts/main.js') ?>');
+            });
         } else {
             var doc = document.documentElement;
             var reJS = new RegExp('(^|\\s)js(\\s|$)');
