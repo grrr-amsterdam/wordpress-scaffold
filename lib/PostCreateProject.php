@@ -54,7 +54,7 @@ class PostCreateProject
         $result = static::_installWordpress($answers);
         $io->write($result);
 
-        $io->write("\n<info>Installing Theme dependencies (Yarn)</info>");
+        $io->write("\n<info>Installing front-end dependencies (thru Yarn)</info>");
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasYarn)) {
             $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
@@ -81,6 +81,15 @@ class PostCreateProject
         $output = shell_exec("wp theme activate {$themeName}");
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate soil");
+        $io->write("\n" . $output);
+
+        $io->write("\n<info>Installing deployment dependencies (thru Bundler)</info>");
+        $hasBundler = shell_exec("command -v bundle >/dev/null 2>&1 && echo 1 || echo 0");
+        if (intval($hasBundler)) {
+            $output = shell_exec("bundle install");
+        } else {
+            $output = "<error>Bundler was not found. We recommend using Bundler to install deployment dependencies.\n Install Bundler `gem install bundler` and install the dependencies yourself: `bundle install`.</error>";
+        }
         $io->write("\n" . $output);
     }
 
