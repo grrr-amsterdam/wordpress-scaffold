@@ -34,6 +34,13 @@
           "./node_modules/babel-polyfill/dist/polyfill.js"
         ],
         "dist": "./assets/build/scripts/vendor"
+      },
+      {
+        "src": [
+          "./node_modules/babel-polyfill/dist/polyfill.js"
+        ],
+        "dist": "./assets/build/scripts/vendor",
+        "bundle": "babel-polyfill.js"
       }
     ],
     "sass": {

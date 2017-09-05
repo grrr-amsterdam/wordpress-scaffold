@@ -37,7 +37,7 @@ use Roots\Sage\Assets;
         if (cutsMustard && cutsEdge) {
             loadJS('<?= Assets\asset_path('scripts/main.js') ?>');
         } else if (cutsMustard) {
-            loadJS('<?= Assets\asset_path('scripts/vendor/polyfill.js') ?>', function() {
+            loadJS('<?= Assets\asset_path('scripts/vendor/babel-polyfill.js') ?>', function() {
                 loadJS('<?= Assets\asset_path('scripts/main.js') ?>');
             });
         } else {

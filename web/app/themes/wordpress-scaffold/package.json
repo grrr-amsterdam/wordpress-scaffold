@@ -14,7 +14,7 @@
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
-    "grrr-gulpfile": "^1.0.10"
+    "grrr-gulpfile": "^1.0.11"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
