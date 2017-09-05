@@ -1,6 +1,6 @@
 {
   "app": {
-    "domain": "localhost.wordpress-scaffold.nl"
+    "domain": "%WP_HOME%"
   },
   "paths": {
     "src": "./assets",

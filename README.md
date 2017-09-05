@@ -5,8 +5,9 @@ A WordPress 'Pro' scaffold, based on the [Bedrock](https://github.com/roots/bedr
 ### Based on
 
 - [roots/bedrock](https://github.com/roots/bedrock/) 1.7.x
-- [roots/bedrock-capistrano](https://github.com/roots/bedrock-capistrano)
+- [roots/bedrock-capistrano](https://github.com/roots/bedrock-capistrano/)
 - [roots/sage](https://github.com/roots/sage/) 8.5.x
+- [grrr-amsterdam/gulpfile](https://github.com/grrr-amsterdam/gulpfile/)
 
 ## Quick start
 
@@ -49,7 +50,7 @@ Deployments and rollbacks can be done via:
 
 ### Theme settings & logic
 
-We try to avoid extensive logic in templates or partials. Most logic can be found in `lib\<namespace>`, and all classes are autoloaded thru [PSR-4](http://www.php-fig.org/psr/psr-4/). Files with classless functions (like `Utils.php`) need to be specified explicitly in the `autoload` entry of the `composer.json`.
+We try to avoid extensive logic in templates or partials. Most logic can be found in `lib\<namespace>`, and all classes are autoloaded thru [PSR-4](http://www.php-fig.org/psr/psr-4/). Directories with classless functions (like `libs/Grrr/Utils` and `libs/Sage/`) need to be specified explicitly in the `functions.php`. Loading them thru Composer will fail, since we 'hoist' the theme composer dependencies to the main `composer.json` on install.
 
 ### Plugins & dependencies
 

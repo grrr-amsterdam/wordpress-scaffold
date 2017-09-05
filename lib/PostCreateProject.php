@@ -33,6 +33,7 @@ class PostCreateProject
         $dotEnv = new Util\DotEnv(self::_getRootPath());
         $answers = static::parseAnswers($answers);
         $dotEnv->replaceVariables($answers);
+        static::_updateGulpConfig($answers);
         $io->write('.env file updated');
 
         $io->write("\n<info>Creating database...</info>");
@@ -53,17 +54,12 @@ class PostCreateProject
         $result = static::_installWordpress($answers);
         $io->write($result);
 
-        $io->write("\n<info>Installing Theme dependencies (Composer)</info>");
-        $themePath = self::_getThemePath($themeName);
-        $output = shell_exec("cd {$themePath} && composer install");
-        $io->write("\n" . $output);
-
-        $io->write("\n<info>Installing Theme dependencies (Yarn/npm)</info>");
+        $io->write("\n<info>Installing Theme dependencies (Yarn)</info>");
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasYarn)) {
             $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
         } else {
-            $output = shell_exec("cd {$themePath} && npm install");
+            $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies.\n Install Yarn `npm i -g yarn` and install the front-end assets yourself.</error>";
         }
         $io->write("\n" . $output);
 
@@ -72,6 +68,14 @@ class PostCreateProject
         $io->write("\n" . $output);
 
         shell_exec("cd " . self::_getRootPath());
+
+        /**
+         * We run `composer dumpautoload`, since the theme path was renamed,
+         * and we merge dependencies in the main `composer.json`.
+         */
+        $io->write("\n<info>Composer dumpautoload</info>");
+        $output = shell_exec("composer dumpautoload");
+        $io->write("\n" . $output);
 
         $io->write("\n<info>Activate theme & plugins</info>");
         $output = shell_exec("wp theme activate {$themeName}");
@@ -210,6 +214,12 @@ class PostCreateProject
         $stylesheetContent = file_get_contents($themeStylesheetPath);
         file_put_contents($themeStylesheetPath, S::interpolate($stylesheetContent, $data));
         $themeFolderRenamed = static::_renameThemeDirectory($data['TEXT_DOMAIN']);
+    }
+
+    protected static function _updateGulpConfig($data) {
+        $configPath = static::_getRootPath() . '/web/app/themes/wordpress-scaffold/gulp.json';
+        $configContent = file_get_contents($configPath);
+        file_put_contents($configPath, S::interpolate($configContent, $data));
     }
 
     protected static function _installWordpress($data) {
