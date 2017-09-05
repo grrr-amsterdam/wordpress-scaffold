@@ -60,13 +60,19 @@ class PostCreateProject
             $themePath = self::_getThemePath($themeName);
             $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
         } else {
-            $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies.\n Install Yarn `npm i -g yarn` and install the front-end assets yourself.</error>";
+            $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies. \nInstall Yarn `npm i -g yarn` and install the front-end assets yourself.</error>\n";
         }
         $io->write("\n" . $output);
 
         $io->write("\n<info>Building theme assets</info>");
         $themePath = self::_getThemePath($themeName);
-        $output = shell_exec("cd {$themePath} && yarn run build");
+        $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
+        if (intval($hasYarn)) {
+            $themePath = self::_getThemePath($themeName);
+            $output = shell_exec("cd {$themePath} && yarn build");
+        } else {
+            $output = "<error>Yarn was not found. We require Yarn for building our front-end dependencies. \nInstall Yarn `npm i -g yarn` and build the front-end assets yourself.</error>\n";
+        }
         $io->write("\n" . $output);
 
         shell_exec("cd " . self::_getRootPath());
@@ -91,7 +97,7 @@ class PostCreateProject
         if (intval($hasBundler)) {
             $output = shell_exec("bundle install");
         } else {
-            $output = "<error>Bundler was not found. We recommend using Bundler to install deployment dependencies.\n Install Bundler `gem install bundler` and install the dependencies yourself: `bundle install`.</error>";
+            $output = "<error>Bundler was not found. We recommend using Bundler to install deployment dependencies.\n Install Bundler `gem install bundler` and install the dependencies yourself: `bundle install`.</error>\n";
         }
         $io->write("\n" . $output);
     }
