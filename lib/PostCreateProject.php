@@ -44,7 +44,7 @@ class PostCreateProject
             $io->write("<error>{$errorMessage}</error>");
         }
 
-        $io->write("\n<info>Setup Theme settings</info>");
+        $io->write("\n<info>Setup theme settings</info>");
         $answers = static::askQuestions(static::getThemeQuestions());
         static::_updateThemeSettings($answers);
         $themeName = $answers['TEXT_DOMAIN'];
@@ -57,13 +57,15 @@ class PostCreateProject
         $io->write("\n<info>Installing front-end dependencies (thru Yarn)</info>");
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasYarn)) {
+            $themePath = self::_getThemePath($themeName);
             $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
         } else {
             $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies.\n Install Yarn `npm i -g yarn` and install the front-end assets yourself.</error>";
         }
         $io->write("\n" . $output);
 
-        $io->write("\n<info>Building Theme assets</info>");
+        $io->write("\n<info>Building theme assets</info>");
+        $themePath = self::_getThemePath($themeName);
         $output = shell_exec("cd {$themePath} && yarn run build");
         $io->write("\n" . $output);
 
@@ -78,6 +80,7 @@ class PostCreateProject
         $io->write("\n" . $output);
 
         $io->write("\n<info>Activate theme & plugins</info>");
+        $themePath = self::_getThemePath($themeName);
         $output = shell_exec("wp theme activate {$themeName}");
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate soil");
