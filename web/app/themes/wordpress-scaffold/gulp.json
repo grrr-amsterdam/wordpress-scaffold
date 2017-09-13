@@ -24,7 +24,27 @@
       "src": "./assets/scripts/**/*.js",
       "dist": "./assets/build/scripts",
       "main": "./assets/scripts/main.js",
-      "bundle": "main.js"
+      "bundle": "main.js",
+      "babel": {
+        "plugins": [
+          "lodash",
+          "babel-plugin-transform-object-rest-spread"
+        ],
+        "presets": [
+          [
+            "env", {
+              "targets": {
+                "browsers": [
+                  "> 5%",
+                  "last 3 versions",
+                  "safari >= 7",
+                  "ie >= 9"
+                ]
+              }
+            }
+          ]
+        ]
+      }
     },
     "javascript:vendor": [
       {
