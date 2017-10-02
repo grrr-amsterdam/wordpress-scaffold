@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'capistrano', '~> 3.2'
-gem "capistrano-composer", "~> 0.0"
-gem "semver", "~> 1.0"
+gem 'capistrano', '>= 3.9'
+gem "capistrano-composer", ">= 0.0.6"
+gem "semver", ">= 1.0"
