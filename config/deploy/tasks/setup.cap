@@ -4,9 +4,7 @@ namespace :setup do
   task :copy_dotenv do
     on roles(:app) do
       upload! '.env.template', "#{shared_path}"
-      within shared_path do
-        execute "mv -n .env.template .env"
-      end
+      execute "mv -n #{shared_path}/.env.template #{shared_path}/.env"
     end
   end
 

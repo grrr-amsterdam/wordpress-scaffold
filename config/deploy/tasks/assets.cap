@@ -26,7 +26,7 @@ namespace :assets do
     on roles(:app) do
       run_locally do
         execute \
-          "for theme in themes/*; do " \
+          "for theme in web/app/themes/*; do " \
             "if [[ -f \"$theme/package.json\" ]]; then " \
               "cd $theme && yarn run build:#{fetch(:stage)}; cd -;" \
             "fi;" \
