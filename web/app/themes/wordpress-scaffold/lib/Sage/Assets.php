@@ -19,61 +19,19 @@ class JsonManifest {
     public function get() {
         return $this->manifest;
     }
-
-    public function getPath($key = '', $default = null) {
-        $collection = $this->manifest;
-        if (is_null($key)) {
-            return $collection;
-        }
-        if (isset($collection[$key])) {
-            return $collection[$key];
-        }
-        foreach (explode('.', $key) as $segment) {
-            if (!isset($collection[$segment])) {
-                return $default;
-            } else {
-                $collection = $collection[$segment];
-            }
-        }
-        return $collection;
-    }
 }
 
-function asset_path($filename) {
-    $dist_path = get_template_directory() . '/assets/build/';
-
-    $directory = dirname($filename) . '/';
-    $file = basename($filename);
+function asset_path($filepath, $return_uri = true) {
     static $manifest;
-
-    if (empty($manifest)) {
-        $manifest_path = $dist_path . 'assets.json';
-        $manifest = new JsonManifest($manifest_path);
-    }
-
+    $dist_path = get_template_directory() . '/assets/build/';
     $dist_uri = get_template_directory_uri() . '/assets/build/';
-    if (array_key_exists($file, $manifest->get())) {
-        return $dist_uri . $directory . $manifest->get()[$file];
-    } else {
-        return $dist_uri . $directory . $file;
-    }
-}
-
-function asset_import($filename) {
-    $dist_path = get_template_directory() . '/assets/build/';
-
-    $directory = dirname($filename) . '/';
-    $file = basename($filename);
-    static $manifest;
-
     if (empty($manifest)) {
         $manifest_path = $dist_path . 'assets.json';
         $manifest = new JsonManifest($manifest_path);
     }
-
-    if (array_key_exists($file, $manifest->get())) {
-        return $dist_path . $directory . $manifest->get()[$file];
+    if (array_key_exists($filepath, $manifest->get())) {
+        return ($return_uri ? $dist_uri : $dist_path) . $manifest->get()[$filepath];
     } else {
-        return $dist_path . $directory . $file;
+        return ($return_uri ? $dist_uri : $dist_path) . $filepath;
     }
 }

@@ -23,12 +23,12 @@ use Roots\Sage\Assets;
     <script>
         /* Modernizr */
         <?php
-        require_once(Assets\asset_import('scripts/modernizr.js')); echo "\n";
+        require_once(Assets\asset_path('scripts/modernizr.js', false)); echo "\n";
         ?>
 
         /* LoadJS */
         <?php
-        require_once(Assets\asset_import('scripts/vendor/loadJS.js')); echo "\n";
+        require_once(Assets\asset_path('scripts/vendor/loadJS.js', false)); echo "\n";
         ?>
 
         /* Load JavaScript if browser cuts the mustard, and babel-polyfill when needed */
