@@ -3,27 +3,27 @@
     "domain": "%WP_HOME%"
   },
   "paths": {
-    "src": "./assets",
-    "dist": "./assets/build"
+    "src": "assets",
+    "dist": "assets/build"
   },
   "tasks": {
     "copy": [
-      "./assets/fonts/**/*",
-      "./assets/images/favicon.ico",
-      "./assets/scripts/vendor/**/*.js"
+      "assets/fonts/**/*",
+      "assets/images/favicon.ico",
+      "assets/scripts/vendor/**/*.js"
     ],
     "icons": {
-      "src": "./assets/images/icons/**/*.svg",
-      "dist": "./assets/build/images"
+      "src": "assets/images/icons/**/*.svg",
+      "dist": "assets/build/images"
     },
     "images": {
-      "src": "./assets/images/**/*.{png,gif,jpg,jpeg,svg}",
-      "dist": "./assets/build/images"
+      "src": "assets/images/**/*.{png,gif,jpg,jpeg,svg}",
+      "dist": "assets/build/images"
     },
     "javascript": {
-      "src": "./assets/scripts/**/*.js",
-      "dist": "./assets/build/scripts",
-      "main": "./assets/scripts/main.js",
+      "src": "assets/scripts/**/*.js",
+      "dist": "assets/build/scripts",
+      "main": "assets/scripts/main.js",
       "bundle": "main.js",
       "babel": {
         "plugins": [
@@ -49,31 +49,31 @@
     "javascript:vendor": [
       {
         "src": [
-          "./node_modules/fg-loadjs/loadJS.js",
-          "./node_modules/svg4everybody/dist/svg4everybody.js",
-          "./node_modules/babel-polyfill/dist/polyfill.js"
+          "node_modules/fg-loadjs/loadJS.js",
+          "node_modules/svg4everybody/dist/svg4everybody.js",
+          "node_modules/babel-polyfill/dist/polyfill.js"
         ],
-        "dist": "./assets/build/scripts/vendor"
+        "dist": "assets/build/scripts/vendor"
       },
       {
         "src": [
-          "./node_modules/babel-polyfill/dist/polyfill.js"
+          "node_modules/babel-polyfill/dist/polyfill.js"
         ],
-        "dist": "./assets/build/scripts/vendor",
+        "dist": "assets/build/scripts/vendor",
         "bundle": "babel-polyfill.js"
       }
     ],
     "sass": {
-      "src": "./assets/styles/**/*.scss",
-      "dist": "./assets/build/styles",
+      "src": "assets/styles/**/*.scss",
+      "dist": "assets/build/styles",
       "main": [
-        "./assets/styles/base.scss",
-        "./assets/styles/admin.scss"
+        "assets/styles/base.scss",
+        "assets/styles/admin.scss"
       ]
     },
     "revision": {
       "manifest": {
-        "directory": "./assets/build",
+        "directory": "assets/build",
         "file": "assets.json"
       }
     },
