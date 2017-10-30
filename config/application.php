@@ -110,6 +110,14 @@ define('AS3CF_BUCKET', env('AS3CF_BUCKET'));
 define('AS3CF_REGION', env('AS3CF_REGION'));
 
 /**
+ * SES
+ */
+define('WP_SES_ACCESS_KEY', env('WP_SES_ACCESS_KEY'));
+define('WP_SES_SECRET_KEY', env('WP_SES_SECRET_KEY'));
+define('WP_SES_ENDPOINT', env('WP_SES_ENDPOINT'));
+define('WP_SES_HIDE_VERIFIED', env('WP_SES_HIDE_VERIFIED'));
+
+/**
  * Sentry
  */
 define('SENTRY_DSN', env('SENTRY_DSN'));
