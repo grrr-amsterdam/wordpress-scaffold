@@ -1,8 +1,8 @@
 <?php
 
-$id = env('GOOGLE_TAG_MANAGER_ID');
+$gtm_id = env('GOOGLE_TAG_MANAGER_ID');
 
-if (!$id || is_user_logged_in()):
+if (!$gtm_id || is_user_logged_in()):
     echo '<!-- Google Tag Manager (TRACKING CODE EXCLUDED) -->';
     return;
 endif;
