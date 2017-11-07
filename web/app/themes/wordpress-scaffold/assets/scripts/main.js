@@ -1,6 +1,6 @@
 // Import libraries and polyfills
 import domready from 'domready';
-import classListPolyfill from 'classlist.js';
+import classListPolyfill from 'classlist-polyfill';
 
 // Handler and Enhancer utility
 import handle from './modules/handle';
