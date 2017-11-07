@@ -24,26 +24,50 @@
       "src": "assets/scripts/**/*.js",
       "dist": "assets/build/scripts",
       "main": "assets/scripts/main.js",
-      "bundle": "main.js",
+      "bundle": {
+        "es6": "main.js",
+        "legacy": "main-legacy.js"
+      },
       "babel": {
-        "plugins": [
-          "lodash",
-          "babel-plugin-transform-object-rest-spread"
-        ],
-        "presets": [
-          [
-            "env", {
-              "targets": {
-                "browsers": [
-                  "> 5%",
-                  "last 3 versions",
-                  "safari >= 7",
-                  "ie >= 9"
-                ]
+        "es6": {
+          "plugins": [
+            "babel-plugin-transform-object-rest-spread"
+          ],
+          "presets": [
+            [
+              "env", {
+                "targets": {
+                  "browsers": [
+                    "Chrome >= 60",
+                    "Safari >= 10.1",
+                    "iOS >= 10.3",
+                    "Firefox >= 54",
+                    "Edge >= 15"
+                  ]
+                }
               }
-            }
+            ]
           ]
-        ]
+        },
+        "legacy": {
+          "plugins": [
+            "babel-plugin-transform-object-rest-spread"
+          ],
+          "presets": [
+            [
+              "env", {
+                "targets": {
+                  "browsers": [
+                    "> 5%",
+                    "last 3 versions",
+                    "safari >= 7",
+                    "ie >= 9"
+                  ]
+                }
+              }
+            ]
+          ]
+        }
       }
     },
     "javascript:vendor": [
