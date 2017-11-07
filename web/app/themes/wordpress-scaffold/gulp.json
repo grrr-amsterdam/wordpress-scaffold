@@ -30,6 +30,11 @@
       },
       "babel": {
         "es6": {
+          "env": {
+            "production": {
+              "presets": ["minify"]
+            }
+          },
           "plugins": [
             "babel-plugin-transform-object-rest-spread"
           ],
@@ -103,7 +108,8 @@
     },
     "watch": {
       "files": [
-        "*.php"
+        "*.php",
+        "{templates,lib}/**/*.php"
       ]
     }
   }

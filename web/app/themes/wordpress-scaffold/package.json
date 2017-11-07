@@ -8,12 +8,13 @@
     "watch": "gulp watch --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'",
     "build": "gulp --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'",
     "build:staging": "gulp --staging --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'",
-    "build:production": "gulp --production --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'"
+    "build:production": "BABEL_ENV=production gulp --production --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'"
   },
   "devDependencies": {
+    "babel-minify": "^0.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
-    "grrr-gulpfile": "^3.0.3"
+    "grrr-gulpfile": "^3.1.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
