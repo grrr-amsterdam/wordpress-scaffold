@@ -14,7 +14,7 @@
     "babel-minify": "^0.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
-    "grrr-gulpfile": "^3.1.1"
+    "grrr-gulpfile": "^3.2.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",

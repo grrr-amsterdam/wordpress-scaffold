@@ -3426,9 +3426,9 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-grrr-gulpfile@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/grrr-gulpfile/-/grrr-gulpfile-3.1.1.tgz#695cbc7c49222e9d8c309f8b4d4686a2406709b1"
+grrr-gulpfile@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/grrr-gulpfile/-/grrr-gulpfile-3.2.1.tgz#8cedc4f770c120915bdb428442c25c6baf444a4a"
   dependencies:
     autoprefixer "^7.1.2"
     babel-core "^6.25.0"
