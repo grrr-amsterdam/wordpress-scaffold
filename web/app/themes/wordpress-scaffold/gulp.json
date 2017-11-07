@@ -24,11 +24,11 @@
       "src": "assets/scripts/**/*.js",
       "dist": "assets/build/scripts",
       "main": "assets/scripts/main.js",
-      "babel": [
+      "bundles": [
         {
           "bundle": "main.js",
           "watch": true,
-          "config": {
+          "babel": {
             "plugins": [
               "babel-plugin-transform-object-rest-spread"
             ],
