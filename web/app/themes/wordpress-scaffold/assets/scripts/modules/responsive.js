@@ -36,12 +36,12 @@ export const matchesBreakpoint = breakpoint => {
 
 export const getCurrentBreakpoint = () => {
   const tries = ['small', 'medium', 'large', 'extraLarge'];
-  let i = 0;
+  const i = 0;
   let bp = 'small';
 
   do {
     bp = tries[i];
-  } while (matchesBreakpoint(tries[++i]));
+  } while (matchesBreakpoint(tries[i + 1]));
   return bp;
 };
 

@@ -1,4 +1,4 @@
-import { register } from './scroll-listener';
+import { register as registerScrollListener } from './scroll-listener';
 
 /**
  * Add class to the body when scrolling.
@@ -6,19 +6,14 @@ import { register } from './scroll-listener';
  */
 
 export default () => {
-  const body = document.body;
   let timer;
-  if (!body) {
-    return;
-  }
-  register('hover-styles', () => {
+  registerScrollListener('hover-styles', () => {
     clearTimeout(timer);
-    if (!body.classList.contains('disable-hover')) {
-      body.classList.add('disable-hover');
+    if (!document.body.classList.contains('disable-hover')) {
+      document.body.classList.add('disable-hover');
     }
-
     timer = setTimeout(() => {
-      body.classList.remove('disable-hover');
+      document.body.classList.remove('disable-hover');
     }, 300);
   });
 };

@@ -3,7 +3,7 @@
  */
 const findElementWithHandler = elm => {
   if (!elm || elm.tagName === 'HTML') {
-    return;
+    return null;
   }
   if (elm.getAttribute('data-handler')) {
     return elm;
@@ -45,7 +45,7 @@ export default handlers => {
       if (typeof handlers[handler] === 'function') {
         handlers[handler](trigger, e);
       } else if (console && console.log) {
-        console.log('Non-existing enhancer: "%s" on %o', enhancer, this);
+        console.log('Non-existing handler: "%s" on %o', handler, this);
       }
     });
   });

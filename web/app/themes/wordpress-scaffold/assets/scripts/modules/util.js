@@ -9,7 +9,7 @@ export const getScrollPosition = () => {
   const y = supportPageOffset ? window.pageYOffset : isCSS1Compat ?
     document.documentElement.scrollTop : document.body.scrollTop;
   return {
-    x, y
+    x, y,
   };
 };
 
@@ -22,7 +22,7 @@ export const closest = (elm, selector) => {
     'webkitMatchesSelector',
     'mozMatchesSelector',
     'msMatchesSelector',
-    'oMatchesSelector'
+    'oMatchesSelector',
   ].some(fn => {
     if (typeof document.body[fn] === 'function') {
       matchesFn = fn;

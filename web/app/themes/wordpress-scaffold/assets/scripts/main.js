@@ -1,6 +1,6 @@
 // Import libraries and polyfills
+import 'classlist-polyfill';
 import domready from 'domready';
-import classListPolyfill from 'classlist-polyfill';
 
 // Handler and Enhancer utility
 import handle from './modules/handle';
@@ -13,10 +13,10 @@ import { default as disableHoverStylesOnScroll } from './modules/disable-hover-s
 
 // Import handlers
 import { handler as classToggler } from './modules/class-toggler';
-import { handler as googleAnalyticsEventHandler } from './modules/google-analytics';
+import { handler as gtmEventHandler } from './modules/gtm-event';
 
 // Import enhancers
-import { enhancer as googleAnalyticsEventEnhancer } from './modules/google-analytics';
+import { enhancer as gtmEventEnhancer } from './modules/gtm-event';
 
 const executeOnReady = () => {
   disableHoverStylesOnScroll(); // Disable hover styles on scroll
@@ -40,11 +40,11 @@ function main() {
 
   handle({
     classToggler,
-    googleAnalyticsEventHandler,
+    gtmEventHandler,
   });
 
   enhance({
-    googleAnalyticsEventEnhancer,
+    gtmEventEnhancer,
   });
 }
 
