@@ -35,14 +35,9 @@ export const matchesBreakpoint = breakpoint => {
 };
 
 export const getCurrentBreakpoint = () => {
-  const tries = ['small', 'medium', 'large', 'extraLarge'];
-  const i = 0;
-  let bp = 'small';
-
-  do {
-    bp = tries[i];
-  } while (matchesBreakpoint(tries[i + 1]));
-  return bp;
+  const breakpoints = ['small', 'medium', 'large', 'extraLarge'];
+  const matches = breakpoints.filter(matchesBreakpoint);
+  return matches[matches.length - 1];
 };
 
 export const enhancer = () => {
