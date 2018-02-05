@@ -13,7 +13,7 @@
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
-    "grrr-gulpfile": "^3.4.1"
+    "grrr-gulpfile": "^3.4.3"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
