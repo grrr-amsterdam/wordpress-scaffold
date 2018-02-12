@@ -13,8 +13,8 @@ namespace :assets do
         end
         execute \
           "for theme in web/app/themes/*; do " \
-            "if [[ -f \"$theme/package.json\" ]]; then " \
-              "cd $theme && yarn; cd -;" \
+            "if [ -f \"$theme/package.json\" ]; then " \
+              "cd $theme && yarn" \
             "fi;" \
           "done;"
       end
@@ -27,8 +27,8 @@ namespace :assets do
       run_locally do
         execute \
           "for theme in web/app/themes/*; do " \
-            "if [[ -f \"$theme/package.json\" ]]; then " \
-              "cd $theme && yarn run build:#{fetch(:stage)}; cd -;" \
+            "if [ -f \"$theme/package.json\" ]; then " \
+              "cd $theme && yarn run build:#{fetch(:stage)}" \
             "fi;" \
           "done;"
       end
@@ -40,7 +40,7 @@ namespace :assets do
     on roles(:app) do |host|
       execute \
         "for theme in #{release_path}/web/app/themes/*; do " \
-          "if [[ -f \"$theme/package.json\" ]]; then " \
+          "if [ -f \"$theme/package.json\" ]; then " \
             "mkdir -p $theme/assets/build;" \
           "fi;" \
         "done;"
@@ -48,7 +48,7 @@ namespace :assets do
         run_locally do
           execute \
             "for theme in web/app/themes/*; do " \
-              "if [[ -f \"$theme/package.json\" ]]; then " \
+              "if [ -f \"$theme/package.json\" ]; then " \
                 "scp -r $theme/assets/build/* " \
                   "#{host.user}@#{host.hostname}:#{release_path}/$theme/assets/build/;" \
               "fi;" \
