@@ -19,6 +19,8 @@ use Roots\Sage\Assets;
     <link rel="preload" href="<?= Assets\asset_path('fonts/harbour-bold-webfont.woff2') ?>" as="font" type="font/woff2" crossorigin>
     */ ?>
 
+    <link rel="shortcut icon" type="image/x-icon" href="<?= Assets\asset_path('images/favicon.png') ?>">
+
     <?php wp_head(); ?>
 
     <script>
