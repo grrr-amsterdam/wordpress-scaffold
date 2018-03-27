@@ -12,6 +12,15 @@ function excerpt_more() {
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 /**
+ * Set custom admin favicon
+ */
+function admin_favicon() {
+    echo '<link rel="shortcut icon" type="image/x-icon" href="'
+        . Assets\asset_path('images/favicon--admin.png') . '">';
+}
+add_action('admin_head', __NAMESPACE__ . '\\admin_favicon');
+
+/**
  * Admin logo and login styling
  */
 function my_login_logo() { ?>
