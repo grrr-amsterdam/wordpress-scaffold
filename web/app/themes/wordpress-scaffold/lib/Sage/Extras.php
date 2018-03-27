@@ -1,6 +1,7 @@
 <?php
 
 namespace Roots\Sage\Extras;
+use Roots\Sage\Assets;
 
 /**
  * Clean up the_excerpt()
@@ -18,11 +19,11 @@ function my_login_logo() { ?>
         .login h1 a {
             margin-bottom: 30px !important;
             display: block !important;
-            width: 80px !important;
+            width: 150px !important;
             height: 90px !important;
             background-size: contain !important;
             background-position: center !important;
-            /*background-image: url('') !important;*/
+            background-image: url('<?= Assets\asset_path('images/site-logo.svg') ?>') !important;
         }
         .login input[type="submit"] {
             background-color: rgb(255, 183, 84);

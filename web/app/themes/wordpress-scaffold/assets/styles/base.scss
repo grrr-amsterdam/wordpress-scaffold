@@ -38,6 +38,7 @@
 
 html {
     box-sizing: border-box; font-size: 62.5%; line-height: 1.4;
+    quotes: '“' '”' '‘' '’';
 }
 
 // sass-lint:disable no-universal-selectors
@@ -90,7 +91,7 @@ input,
 select,
 textarea {
     padding: 8px 10px;
-    border-radius: $border-radius; color: $black;
+    border-radius: $border-radius; color: $text-color;
     @include body-font; line-height: normal;
 }
 input[type='checkbox'],
@@ -172,7 +173,6 @@ iframe,
 video {
     max-width: 100%; width: auto; height: auto;
 }
-
 
 /* ==========================================================================
     LAYOUT

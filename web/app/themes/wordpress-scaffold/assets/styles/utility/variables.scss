@@ -14,9 +14,9 @@ $black: #000000;
 
 $purple: #7B35FF;
 
-$text-color: $black;
-
 $primary-color: $purple;
+
+$text-color: $black;
 
 /**
  * General stuff
@@ -28,13 +28,13 @@ $box-shadow: 0 0 5px 0 rgba($black, .3);
  * Fonts
  */
 // sass-lint:disable indentation
-$system-fonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+$system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 // sass-lint:enable indentation
 
-$heading-font: $system-fonts;
-$ui-font: $system-fonts;
-$body-font:  $system-fonts;
+$heading-font: $system-font;
+$ui-font: $system-font;
+$body-font:  $system-font;
 
 /**
  * Widths & Sizes

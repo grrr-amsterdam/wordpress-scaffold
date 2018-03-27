@@ -13,7 +13,7 @@ use Roots\Sage\Wrapper;
 
         <?php
         do_action('get_header');
-        get_template_part('templates/partials/header');
+        get_template_part('templates/partials/site-header');
         ?>
 
         <div class="wrapper" role="document">
@@ -30,7 +30,7 @@ use Roots\Sage\Wrapper;
 
         <?php
         do_action('get_footer');
-        get_template_part('templates/partials/footer');
+        get_template_part('templates/partials/site-footer');
         wp_footer();
         ?>
 
