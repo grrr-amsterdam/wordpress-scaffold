@@ -10,6 +10,7 @@ use Roots\Sage\Assets;
 
     <link rel="dns-prefetch" href="https://s3-eu-west-1.amazonaws.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
     <link rel="preload" href="<?= Assets\asset_path('scripts/main.js') ?>" as="script">
 
