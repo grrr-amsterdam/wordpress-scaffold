@@ -14,7 +14,7 @@ namespace :assets do
         execute \
           "for theme in web/app/themes/*; do " \
             "if [ -f \"$theme/package.json\" ]; then " \
-              "cd $theme && yarn" \
+              "cd $theme && yarn;" \
             "fi;" \
           "done;"
       end
@@ -28,7 +28,7 @@ namespace :assets do
         execute \
           "for theme in web/app/themes/*; do " \
             "if [ -f \"$theme/package.json\" ]; then " \
-              "cd $theme && yarn run build:#{fetch(:stage)}" \
+              "cd $theme && yarn run build:#{fetch(:stage)};" \
             "fi;" \
           "done;"
       end
