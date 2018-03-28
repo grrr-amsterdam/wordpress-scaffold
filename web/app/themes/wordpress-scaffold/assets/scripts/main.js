@@ -1,6 +1,7 @@
 // Import libraries and polyfills
 import 'classlist-polyfill';
 import domready from 'domready';
+import rafPolyfill from './polyfills/request-animation-frame';
 
 // Handler and Enhancer utility
 import handle from './modules/handle';
@@ -22,17 +23,7 @@ const executeOnReady = () => {
   disableHoverStylesOnScroll(); // Disable hover styles on scroll
   scrollListener(); // Initialise central scroll listener
   responsive(); // Set document width on resize and orientation change
-
-  /**
-   * Simple requestAnimationFrame
-   * @see http://elektronotdienst-nuernberg.de/bugs/requestAnimationFrame.html
-   */
-  // eslint-disable-next-line func-names
-  window.requestAnimationFrame = window.requestAnimationFrame || function(c) {
-    return setTimeout(() => {
-      c(+new Date());
-    }, 30);
-  };
+  window.requestAnimationFrame = window.requestAnimationFrame || rafPolyfill;
 };
 
 function main() {
