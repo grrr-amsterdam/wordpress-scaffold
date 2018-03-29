@@ -97,9 +97,9 @@ define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('WP_CACHE', env('WP_CACHE') ?: false);
 
 /**
- * Semver
+ * Versioning
  */
-define('SEMVER', (new Root\Semver)->get_version());
+define('APPLICATION_VERSION', (new Root\Versioning)->get_version());
 
 /**
  * AWS & S3

@@ -2,7 +2,7 @@ namespace :setup do
 
   desc "Copy .env file to server"
   task :copy_dotenv do
-    on roles(:app) do
+    on roles(:web) do
       upload! '.env.template', "#{shared_path}"
       execute "mv -n #{shared_path}/.env.template #{shared_path}/.env"
     end
@@ -10,7 +10,7 @@ namespace :setup do
 
   desc "Copy .htaccess file to server"
   task :copy_htaccess do
-    on roles(:app) do
+    on roles(:web) do
       upload! 'web/.htaccess',
         "#{shared_path}/web/"
     end
@@ -18,7 +18,7 @@ namespace :setup do
 
   desc "Copy W3TC file to server"
   task :copy_w3tc_files do
-    on roles(:app) do
+    on roles(:web) do
       upload! 'web/app/plugins/w3-total-cache/wp-content/advanced-cache.php',
         "#{shared_path}/web/app"
       upload! 'web/app/plugins/w3-total-cache/wp-content/db.php',

@@ -2,7 +2,7 @@ namespace :wp_cli do
 
   desc "Add wp-cli.phar on the server"
   task :setup do
-    on roles(:app) do
+    on roles(:web) do
       upload! 'config/deploy/scripts/install-wp-cli.sh',
         "#{shared_path}"
       within shared_path do
@@ -16,7 +16,7 @@ namespace :wp_cli do
 
   desc "Map the WP-CLI command for further use"
   task :config do
-    on roles(:app) do
+    on roles(:web) do
       SSHKit.config.command_map[:wp] = "php #{shared_path.join("wp-cli.phar")}"
     end
   end

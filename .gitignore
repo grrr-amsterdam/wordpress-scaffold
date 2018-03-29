@@ -34,4 +34,6 @@
 
 # Other
 .DS_Store
+yarn-error.log
 /log
+/VERSION

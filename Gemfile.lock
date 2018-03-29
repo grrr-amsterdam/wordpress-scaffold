@@ -10,12 +10,14 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-composer (0.0.6)
       capistrano (>= 3.0.0.pre)
+    dotenv (2.2.1)
     i18n (0.8.6)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
     rake (12.1.0)
-    semver (1.0.1)
+    slackistrano (3.8.2)
+      capistrano (>= 3.8.1)
     sshkit (1.14.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -26,7 +28,11 @@ PLATFORMS
 DEPENDENCIES
   capistrano (>= 3.9)
   capistrano-composer (>= 0.0.6)
-  semver (>= 1.0)
+  dotenv (>= 2.2)
+  slackistrano (>= 3.8)
+
+RUBY VERSION
+   ruby 2.5.0p0
 
 BUNDLED WITH
-   1.15.4
+   1.16.1

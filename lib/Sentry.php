@@ -11,7 +11,7 @@ class Sentry {
 
         $ravenClient = new \Raven_Client(SENTRY_DSN, [
             'environment' => WP_ENV,
-            'release' => SEMVER,
+            'release' => APPLICATION_VERSION,
             'app_path' => ROOT_DIR,
             'tags' => [
                 'wordpress' => get_bloginfo('version'),

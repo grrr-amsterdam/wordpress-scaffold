@@ -2,7 +2,7 @@ namespace :composer do
 
   desc 'Set Composer executable and define path'
   task :config do
-    on roles(:app) do
+    on roles(:web) do
       SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
       set :composer_working_dir, -> { fetch(:release_path) }
     end

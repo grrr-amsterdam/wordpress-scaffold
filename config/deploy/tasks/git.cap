@@ -1,0 +1,20 @@
+namespace :git do
+
+  desc 'Verify user is on the right branch or tag, since assets are built locally'
+  task :verify_branch do
+    run_locally do
+      deployTarget = "#{fetch(:branch)}" # convert to string
+      currentBranch = ENV['TRAVIS_BRANCH'] \
+        ? ENV['TRAVIS_BRANCH'] \
+        : capture(:git, 'rev-parse --abbrev-ref HEAD')
+      currentTag = capture(:git, 'describe --exact-match --tags 2>/dev/null || echo 0')
+      if ((deployTarget != currentBranch) && (deployTarget != currentTag))
+        abort "\n" \
+          "Deploy aborted: incorrect branch ⚠️\n\n" \
+          "It appears you haven't checked out the branch or tag you're trying to deploy. \n" \
+          "$ git checkout #{fetch(:branch)} && sh deploy.sh #{fetch(:stage)} #{fetch(:branch)} \n\n" \
+      end
+    end
+  end
+
+end

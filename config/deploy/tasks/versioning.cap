@@ -1,0 +1,21 @@
+namespace :versioning do
+
+  desc 'Create a file with the current deployed tag or commit (when deploying master)'
+  task :create_file do
+    on roles(:web) do
+      version = ''
+      if "#{fetch(:branch)}" == 'master'
+        within fetch(:repo_path) do
+          version = capture(:git, 'describe master --tags').strip!
+        end
+      else
+        datetime = Time.now.strftime("%Y%m%d%H%M%S")
+        version = "#{fetch(:branch)}-#{datetime}"
+      end
+      within fetch(:release_path) do
+        execute :echo, "\"#{version}\" > VERSION"
+      end
+    end
+  end
+
+end

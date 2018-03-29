@@ -24,10 +24,20 @@ set :linked_files, fetch(:linked_files, []).push(
   'web/app/db.php'
 )
 
+# Slackistrano
+set :slackistrano, {
+  klass: Slackistrano::CustomMessaging,
+  channel: ENV['SLACK_DEPLOY_CHANNEL'],
+  webhook: ENV['SLACK_WEBHOOK_URL'],
+  icon_emoji: ':rocket:'
+}
+
 # Deploy tasks
-# Note: several capistrano-deploy, capistrano-composer and
-# capistrano-laravel tasks run automatically
+# Note: several tasks run automatically
 namespace :deploy do
+
+  before :starting,    'deploy:set_branch'
+  before :starting,    'git:verify_branch'
 
   after  :started,     'composer:config'
   after  :started,     'wp_cli:config'
@@ -36,8 +46,10 @@ namespace :deploy do
 
   after  :updated,     'assets:push'
 
+  before :publishing,  'versioning:create_file'
+
   # after :published,   'cache:apache_reload'
-  # after :published,   'cache:apache_reload'
+  # after :published,   'cache:fpm_reload'
 
 end
 

@@ -35,7 +35,6 @@
     "wikimedia/composer-merge-plugin": "^1.4",
     "roots/soil": "^3.7",
     "sentry/sentry": "^1.7",
-    "symfony/yaml": "^3.3",
     "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^2.0",
     "wpackagist-plugin/admin-menu-editor": "^1.6",
     "wpackagist-plugin/ajax-thumbnail-rebuild": "^1.12",
@@ -49,7 +48,7 @@
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1",
-    "wp-cli/wp-cli": "^1.1"
+    "wp-cli/wp-cli": "^1.5"
   },
   "autoload": {
     "psr-4": {
