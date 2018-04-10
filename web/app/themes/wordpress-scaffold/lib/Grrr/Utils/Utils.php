@@ -14,13 +14,13 @@ function svg($id, $args = []) {
         return $this;
     }
     // keep spaces, due to Safari 10 bug
-    $template = '<svg%s> <use xlink:href="%s#%s"/> </svg>';
-    $attributes = '';
+    $template = '<svg aria-hidden="true" role="presentation" focusable="false" %s> <use xlink:href="%s#%s"/> </svg>';
+    $attributes = [];
     foreach ($args as $key => $value) {
-        $attributes .= " {$key}=\"{$value}\"";
+        $attributes[]= "{$key}=\"{$value}\"";
     }
     $sprite = Assets\asset_path('images/icons.svg');
-    return sprintf($template, $attributes, $sprite, $id);
+    return sprintf($template, implode(' ', $attributes), $sprite, $id);
 }
 
 /**
