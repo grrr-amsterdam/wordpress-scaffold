@@ -9,7 +9,7 @@ const BREAKPOINT_LARGE = 1020;
 const BREAKPOINT_EXTRA_LARGE = 1400;
 
 const setDocWidth = () => {
-  docWidth = document.documentElement.clientWidth;
+  docWidth = window.innerWidth || document.documentElement.clientWidth;
 };
 
 export const getDocWidth = () => {
