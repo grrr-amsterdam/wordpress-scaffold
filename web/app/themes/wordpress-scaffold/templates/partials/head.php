@@ -8,6 +8,17 @@ use Roots\Sage\Assets;
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!--
+     _________   ________   ________   _______-+-
+    /\* ______\ /\* ____ \ /\* ____ \ /\* ____ \
+    \ \ \_____/ \ \ \__/\ \\ \ \__/\ \\ \ \__/\ \
+     \ \ \   ____\ \ \_\_\ \\ \ \_\_\ \\ \ \_\_\ \
+      \ \ \ /\__ \\ \  __  _\\ \  __  _\\ \  __  _\
+       \ \ \_/_/\ \\ \ \/\ \/_\ \ \/\ \/_\ \ \/\ \/_
+        \ \________\\ \_\ \___\\ \_\ \___\\ \_\ \___\
+         \/________/ \/_/\/___/ \/_/\/___/ \/_/\/___/.nl -->
+
+
     <link rel="dns-prefetch" href="https://s3-eu-west-1.amazonaws.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
