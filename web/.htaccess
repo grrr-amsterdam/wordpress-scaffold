@@ -1,3 +1,10 @@
+# #
+# !! Notice !!
+#
+# Any changes to the .htaccess should be manually added to the .htaccess on the server
+# This file won't be updated with a new deploy
+# #
+
 # Proper MIME types
 <IfModule mod_mime.c>
     # Audio
