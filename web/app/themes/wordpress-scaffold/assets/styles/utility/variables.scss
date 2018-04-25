@@ -32,9 +32,9 @@ $system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 // sass-lint:enable indentation
 
-$heading-font: $system-font;
-$ui-font: $system-font;
-$body-font:  $system-font;
+$heading-font: $system-font, sans-serif;
+$ui-font: $system-font, sans-serif;
+$body-font:  $system-font, sans-serif;
 
 /**
  * Widths & Sizes
