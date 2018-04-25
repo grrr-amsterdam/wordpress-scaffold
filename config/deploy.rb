@@ -8,7 +8,7 @@ set :log_level, :info
 set :branch, :master
 
 # Composer settings
-set :composer_install_flags, '--no-interaction --prefer-dist --optimize-autoloader'
+set :composer_install_flags, '--no-dev --no-interaction --prefer-dist --optimize-autoloader'
 
 # Linked directories
 set :linked_dirs, fetch(:linked_dirs, []).push(
