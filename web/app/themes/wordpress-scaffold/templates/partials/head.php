@@ -66,7 +66,7 @@ use Roots\Sage\Assets;
             return newerIEUA.test(navigator.userAgent) || (navigator.userAgent.match(olderEdgeUA) || [])[1] < 10547 || (navigator.userAgent.match(webkitUA) || [])[1] < 537 ? false : true;
         }
         if (!svgSupportsExternalSource()) {
-            loadJS('<?= Assets\asset_path('scripts/vendor/svg4everybody.min.js') ?>', function() {
+            loadJS('<?= Assets\asset_path('scripts/vendor/svg4everybody.js') ?>', function() {
                 svg4everybody({
                     nosvg: false,
                     polyfill: true
