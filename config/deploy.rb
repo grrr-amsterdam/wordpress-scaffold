@@ -48,8 +48,9 @@ namespace :deploy do
 
   before :publishing,  'versioning:create_file'
 
-  # after :published,   'cache:apache_reload'
-  # after :published,   'cache:fpm_reload'
+  after :published,    'server:fpm_reload'
+
+  after :failed,       'deploy:remove_failed_release'
 
 end
 

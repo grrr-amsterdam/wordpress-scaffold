@@ -17,4 +17,12 @@ namespace :deploy do
     end
   end
 
+  desc "Remove current failed release directory"
+  task :remove_failed_release do
+    on roles(:web) do
+      failedPath = "#{releases_path}/#{release_timestamp}"
+      execute "if [ -d #{failedPath} ]; then rm -rf #{failedPath}; fi"
+    end
+  end
+
 end

@@ -1,0 +1,22 @@
+namespace :server do
+
+  desc 'Create directories and set permissions'
+  task :set_directories_and_permissions do
+    on roles(:web) do
+      execute :mkdir, "-p #{release_path}/web/app/cache/"
+      execute :chmod, "-R 755 #{release_path}/web/app/cache/"
+
+      execute :chmod, "755 #{release_path}/web/"
+      execute :chmod, "755 #{release_path}/web/app/"
+      execute :chmod, "755 #{release_path}/web/wp/"
+    end
+  end
+
+  desc 'Reload PHP-FPM'
+  task :fpm_reload do
+    on roles(:web) do
+      execute :sudo, "service php71-php-fpm reload"
+    end
+  end
+
+end
