@@ -34,3 +34,4 @@ try {
 }
 
 (new PostTypes\Example)->init();
+(new PostTypes\Page)->init();
