@@ -19,9 +19,13 @@ use Roots\Sage\Assets;
          \/________/ \/_/\/___/ \/_/\/___/ \/_/\/___/.nl -->
 
 
-    <link rel="dns-prefetch" href="https://s3-eu-west-1.amazonaws.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <?php if (AS3CF_REGION) : ?>
+        <link rel="dns-prefetch" href="<?= sprintf('https://s3-%s.amazonaws.com', AS3CF_REGION) ?>">
+    <?php endif ?>
+    <?php if (GOOGLE_TAG_MANAGER_ID) : ?>
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+        <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <?php endif ?>
 
     <link rel="preload" href="<?= Assets\asset_path('scripts/main.js') ?>" as="script">
 

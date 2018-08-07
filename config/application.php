@@ -118,6 +118,11 @@ define('WP_SES_ENDPOINT', env('WP_SES_ENDPOINT'));
 define('WP_SES_HIDE_VERIFIED', env('WP_SES_HIDE_VERIFIED'));
 
 /**
+ * Google Tag Manager
+ */
+define('GOOGLE_TAG_MANAGER_ID', env('GOOGLE_TAG_MANAGER_ID'));
+
+/**
  * Sentry
  */
 define('SENTRY_DSN', env('SENTRY_DSN'));
