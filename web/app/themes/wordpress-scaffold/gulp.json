@@ -30,11 +30,11 @@
           "watch": true,
           "babel": {
             "plugins": [
-              "babel-plugin-transform-object-rest-spread"
+              "@babel/plugin-proposal-object-rest-spread"
             ],
             "presets": [
               [
-                "env", {
+                "@babel/preset-env", {
                   "targets": {
                     "browsers": [
                       "> 0.25%",
@@ -52,14 +52,13 @@
       {
         "src": [
           "node_modules/fg-loadjs/loadJS.js",
-          "node_modules/svg4everybody/dist/svg4everybody.js",
-          "node_modules/babel-polyfill/dist/polyfill.js"
+          "node_modules/svg4everybody/dist/svg4everybody.js"
         ],
         "dist": "assets/build/scripts/vendor"
       },
       {
         "src": [
-          "node_modules/babel-polyfill/dist/polyfill.js"
+          "node_modules/@babel/polyfill/dist/polyfill.js"
         ],
         "dist": "assets/build/scripts/vendor",
         "bundle": "babel-polyfill.js"

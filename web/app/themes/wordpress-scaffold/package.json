@@ -11,12 +11,13 @@
     "build:production": "BABEL_ENV=production gulp --production --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'"
   },
   "devDependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "grrr-gulpfile": "^3.4.3"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "@babel/polyfill": "^7.0.0",
     "classlist-polyfill": "^1.2.0",
     "domready": "^1.0.8",
     "fg-loadjs": "^1.0.0",
