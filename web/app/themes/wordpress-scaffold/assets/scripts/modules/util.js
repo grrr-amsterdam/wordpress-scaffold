@@ -3,11 +3,11 @@ export const getScrollPosition = () => {
   const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
 
   /* eslint-disable no-nested-ternary */
-  const x = supportPageOffset ? window.pageXOffset : isCSS1Compat ?
-    document.documentElement.scrollLeft : document.body.scrollLeft;
+  const x = supportPageOffset ? window.pageXOffset : isCSS1Compat
+    ? document.documentElement.scrollLeft : document.body.scrollLeft;
 
-  const y = supportPageOffset ? window.pageYOffset : isCSS1Compat ?
-    document.documentElement.scrollTop : document.body.scrollTop;
+  const y = supportPageOffset ? window.pageYOffset : isCSS1Compat
+    ? document.documentElement.scrollTop : document.body.scrollTop;
   return {
     x, y,
   };
@@ -52,11 +52,12 @@ export const filter = (a, fn) => Array.prototype.filter.call(a, fn);
 
 export const not = fn => (...args) => !fn(...args);
 
-export const objectByKey = (arr, key) =>
-  arr.reduce((prev, curr) => {
+export const objectByKey = (arr, key) => {
+  return arr.reduce((prev, curr) => {
     if (typeof curr[key] === 'undefined') {
       return prev;
     }
     prev[curr[key]] = curr;
     return prev;
   }, {});
+};

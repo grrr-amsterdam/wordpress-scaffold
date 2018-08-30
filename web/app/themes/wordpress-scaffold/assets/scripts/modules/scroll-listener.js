@@ -27,5 +27,6 @@ export const isScrolledPast = elm => {
   return scrollY + elm.getBoundingClientRect().top <= scrollY;
 };
 
-export const isVisible = (elm, offset = 0) =>
-  elm.getBoundingClientRect().top - window.innerHeight <= offset;
+export const isVisible = (elm, offset = 0) => {
+  return elm.getBoundingClientRect().top - window.innerHeight <= offset;
+};
