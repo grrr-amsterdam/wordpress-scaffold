@@ -22,19 +22,19 @@ export const pushEvent = (data) => {
   }
 };
 
-export const trackEvent = (args) => {
-  if (!args || !args.type || !args.category || !args.action) {
-    console.error('Missing arguments in trackEvent', args);
+export const trackEvent = ({ type, category, action, label, value }) => {
+  if (!type || !category || !action) {
+    console.error('Missing arguments in trackEvent');
     return;
   }
   const data = {
-    eventType: args.type,
-    eventCategory: args.category,
-    eventAction: args.action,
-    eventLabel: args.label,
-    eventValue: args.value,
+    eventType: type,
+    eventCategory: category,
+    eventAction: action,
+    eventLabel: label,
+    eventValue: value,
   };
-  pushEvent({ event: args.type, ...data });
+  pushEvent({ event: type, ...data });
 };
 
 export const handler = (el, e) => {

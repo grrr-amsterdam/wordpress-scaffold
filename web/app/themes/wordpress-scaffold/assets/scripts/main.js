@@ -26,19 +26,15 @@ const executeOnReady = () => {
   window.requestAnimationFrame = window.requestAnimationFrame || rafPolyfill;
 };
 
-function main() {
+const main = () => {
   executeOnReady();
-
   handle({
     classToggler,
     gtmEventHandler,
   });
-
   enhance({
     gtmEventEnhancer,
   });
-}
+};
 
-domready(() => {
-  main();
-});
+domready(main);
