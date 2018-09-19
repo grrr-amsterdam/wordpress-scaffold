@@ -223,7 +223,7 @@ class PostCreateProject
         $db_password = $dotEnv->get('DB_PASSWORD');
         $conn = new \PDO("mysql:host={$db_host}", $db_user, $db_password);
         $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE {$db_name} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;";
+        $sql = "CREATE DATABASE {$db_name} CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
         $conn->exec($sql);
     }
 
