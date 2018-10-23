@@ -127,7 +127,7 @@ p {
     }
 }
 small {
-    @include small-text; color: $grey-dark;
+    @include small-text;
 }
 
 @mixin h1 {
