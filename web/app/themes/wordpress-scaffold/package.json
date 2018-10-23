@@ -5,16 +5,16 @@
   "homepage": "https://grrr.nl/",
   "private": true,
   "scripts": {
-    "watch": "gulp watch --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'",
-    "build": "gulp --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'",
-    "build:staging": "gulp --staging --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'",
-    "build:production": "BABEL_ENV=production gulp --production --cwd . --gulpfile 'node_modules/grrr-gulpfile/gulpfile.js'"
+    "watch": "gulp watch --cwd . --gulpfile 'node_modules/@grrr/gulpfile/gulpfile.js'",
+    "build": "gulp --cwd . --gulpfile 'node_modules/@grrr/gulpfile/gulpfile.js'",
+    "build:staging": "gulp --staging --cwd . --gulpfile 'node_modules/@grrr/gulpfile/gulpfile.js'",
+    "build:production": "BABEL_ENV=production gulp --production --cwd . --gulpfile 'node_modules/@grrr/gulpfile/gulpfile.js'"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "grrr-gulpfile": "^4.0.0"
+    "@grrr/gulpfile": "^5.0.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
