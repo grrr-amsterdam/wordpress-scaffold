@@ -92,6 +92,16 @@ class PostCreateProject
         $output = shell_exec("wp plugin activate soil");
         $io->write("\n" . $output);
 
+        $io->write("\n<info>Updating WordPress settings</info>");
+        $output = shell_exec("wp option update permalink_structure /%year%/%monthnum%/%postname%/");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp option update default_comment_status closed");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp option update default_ping_status closed");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp option update timezone_string Europe/Amsterdam");
+        $io->write("\n" . $output);
+
         $io->write("\n<info>Installing deployment dependencies (thru Bundler)</info>");
         $hasBundler = shell_exec("command -v bundle >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasBundler)) {
