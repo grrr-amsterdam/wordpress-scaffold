@@ -36,7 +36,7 @@ use Roots\Sage\Wrapper;
 
         <!--[if IE]>
         <div class="browser-warning">
-            <?php _e('You are using a <strong>strongly outdated</strong> browser. Please <a href="https://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.', 'sage'); ?>
+            <?php _e('You are using a <strong>strongly outdated</strong> browser. Please <a href="http://outdatedbrowser.com/" target="_blank">upgrade your browser</a> to improve your experience.', 'sage'); ?>
         </div>
         <![endif]-->
     </body>
