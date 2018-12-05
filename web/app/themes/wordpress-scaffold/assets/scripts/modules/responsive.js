@@ -1,8 +1,11 @@
+import { debounce } from './util';
+
 /**
  * Responsive breakpoint registry
  */
 
 let docWidth;
+
 const BREAKPOINT_SMALL = 540;
 const BREAKPOINT_MEDIUM = 720;
 const BREAKPOINT_LARGE = 1020;
@@ -41,6 +44,6 @@ export const getCurrentBreakpoint = () => {
 };
 
 export const enhancer = () => {
-  window.addEventListener('resize', setDocWidth);
-  window.addEventListener('orientationchange', setDocWidth);
+  window.addEventListener('resize', debounce(setDocWidth, 300));
+  window.addEventListener('orientationchange', debounce(setDocWidth, 300));
 };
