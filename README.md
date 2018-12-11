@@ -56,6 +56,12 @@ We try to avoid extensive logic in templates or partials. Most logic can be foun
 
 WordPress and WordPress plugins should be required by Composer in the root of the project. Dependencies explicitly required by the theme (a SDK for accessing an API for example) should be included in the theme, which has its own `composer.json`.
 
+Requiring a plugin works by using [WordPress Packagist](https://wpackagist.org/):
+
+```
+composer require wpackagist-plugin/<plugin-slug>
+```
+
 Paid plugins should be included in the repo, and excluded form exclusion in the `.gitignore` file.
 
 ### Updating WordPress & plugins
