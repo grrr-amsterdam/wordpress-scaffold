@@ -110,6 +110,8 @@ class PostCreateProject
             $output = "<error>Bundler was not found. We recommend using Bundler to install deployment dependencies.\n Install Bundler `gem install bundler` and install the dependencies yourself: `bundle install`.</error>\n";
         }
         $io->write("\n" . $output);
+
+        $io->write("\n<info>Done 🤘</info>");
     }
 
     protected static function askQuestions($questions) {
@@ -143,7 +145,7 @@ class PostCreateProject
             ],
             'admin_user' => [
                 'question' => 'What will be the admin\'s username?',
-                'default' => 'Grrr'
+                'default' => 'grrr'
             ],
             'admin_email' => [
                 'question' => 'What will be the admin\'s email?',
