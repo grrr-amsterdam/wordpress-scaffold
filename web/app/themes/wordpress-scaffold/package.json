@@ -22,6 +22,8 @@
     "domready": "^1.0.8",
     "fg-loadjs": "^1.0.0",
     "normalize.css": "^8.0.0",
-    "svg4everybody": "^2.1.8"
+    "promise-polyfill": "^8.1.0",
+    "svg4everybody": "^2.1.8",
+    "whatwg-fetch": "^3.0.0"
   }
 }

@@ -1,4 +1,6 @@
 // Import libraries and polyfills
+import Promise from 'promise-polyfill';
+import 'whatwg-fetch';
 import 'classlist-polyfill';
 import domready from 'domready';
 import rafPolyfill from './polyfills/request-animation-frame';
@@ -18,12 +20,18 @@ import { handler as gtmEventHandler } from './modules/gtm-event';
 
 // Import enhancers
 import { enhancer as gtmEventEnhancer } from './modules/gtm-event';
+import { enhancer as newsletterSignup } from './modules/newsletter-signup';
 
 const executeOnReady = () => {
   disableHoverStylesOnScroll(); // Disable hover styles on scroll
   scrollListener(); // Initialise central scroll listener
   responsive(); // Set document width on resize and orientation change
+
   window.requestAnimationFrame = window.requestAnimationFrame || rafPolyfill;
+
+  if (typeof window.Promise === 'undefined') {
+    window.Promise = Promise;
+  }
 };
 
 const main = () => {
@@ -34,6 +42,7 @@ const main = () => {
   });
   enhance({
     gtmEventEnhancer,
+    newsletterSignup,
   });
 };
 

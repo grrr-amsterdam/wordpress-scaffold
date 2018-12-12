@@ -93,8 +93,6 @@ class PostCreateProject
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate soil");
         $io->write("\n" . $output);
-        $output = shell_exec("wp plugin activate acf-sync");
-        $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate thumbnail-upscale");
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate admin-menu-editor");

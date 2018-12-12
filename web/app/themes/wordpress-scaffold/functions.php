@@ -25,7 +25,7 @@ foreach ($includes as $directory) {
 unset($files, $file, $filepath);
 
 /**
- * Init classes
+ * ACF (when available)
  */
 try {
     (new Acf\Setup)->init();
@@ -33,5 +33,14 @@ try {
     // Let if fail silently
 }
 
-(new PostTypes\Example)->init();
+/**
+ * Post Types
+ */
+(new PostTypes\Post)->init();
 (new PostTypes\Page)->init();
+(new PostTypes\Example)->init();
+
+/**
+ * API
+ */
+(new \Grrr\API\Newsletter)->init();

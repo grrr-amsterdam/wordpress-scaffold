@@ -21,7 +21,8 @@
   "prefer-stable": true,
   "require": {
     "php": ">=7.0",
-    "composer/installers": "^1.2.0"
+    "composer/installers": "^1.2.0",
+    "drewm/mailchimp-api": "^2.5"
   },
   "autoload": {
     "psr-4": {
