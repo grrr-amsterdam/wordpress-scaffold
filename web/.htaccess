@@ -5,6 +5,32 @@
 # This file won't be updated with a new deploy
 # #
 
+# Custom rewrites
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # require https
+    RewriteCond %{HTTPS} !on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteCond %{HTTP:CLOUDFRONT-FORWARDED-PROTO} !https [NC]
+    RewriteCond %{HTTP_HOST} ^thoughtforfood\.org$
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+</IfModule>
+
+# W3 Total Cache will be added here automagically
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+
 # Proper MIME types
 <IfModule mod_mime.c>
     # Audio
@@ -104,15 +130,3 @@
     # compress text, html, javascript, css, xml, svg:
     AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css text/javascript image/svg+xml application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript
 </IfModule>
-
-# BEGIN WordPress
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-
-# END WordPress
