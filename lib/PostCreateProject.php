@@ -89,7 +89,17 @@ class PostCreateProject
         $themePath = self::_getThemePath($themeName);
         $output = shell_exec("wp theme activate {$themeName}");
         $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate classic-editor");
+        $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate soil");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate acf-sync");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate thumbnail-upscale");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate admin-menu-editor");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate ajax-thumbnail-rebuild");
         $io->write("\n" . $output);
 
         $io->write("\n<info>Updating WordPress settings</info>");
