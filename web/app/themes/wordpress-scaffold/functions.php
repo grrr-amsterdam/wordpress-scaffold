@@ -1,6 +1,8 @@
 <?php
 
 use Grrr\Acf;
+use Grrr\API;
+use Grrr\Theme;
 use Grrr\PostTypes;
 
 /**
@@ -24,7 +26,12 @@ foreach ($includes as $directory) {
 unset($files, $file, $filepath);
 
 /**
- * ACF (when available)
+ * Theme setup (incl. Timber)
+ */
+new Theme\Setup();
+
+/**
+ * Advanced Custom Fields (when available)
  */
 try {
     (new Acf\Setup)->init();
@@ -42,4 +49,4 @@ try {
 /**
  * API
  */
-(new \Grrr\API\Newsletter)->init();
+(new API\Newsletter)->init();
