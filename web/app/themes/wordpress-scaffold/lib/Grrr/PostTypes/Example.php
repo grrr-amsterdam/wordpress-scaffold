@@ -11,9 +11,9 @@ class Example extends PostTypesAbstract {
     protected $_icon               = 'dashicons-portfolio';
 
     protected $_args = [
-        'public' => false,
+        'public' => true,
         'hierarchical' => false,
-        'supports' => [ 'title', 'revisions', 'thumbnail', 'editor' ],
+        'supports' => [ 'title', 'revisions', 'thumbnail' ],
     ];
 
 }

@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+    {% include 'partials/page-header.twig' with {
+        title: post.title,
+    } only %}
+
+    {{ post.content|raw }}
+
+{% endblock %}

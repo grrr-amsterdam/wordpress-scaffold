@@ -3,7 +3,6 @@
 namespace Grrr\Utils;
 
 use Grrr\Utils\Assets;
-use Grrr\Templates;
 
 /**
  * SVG helper
@@ -27,7 +26,7 @@ function svg($id, $args = []) {
  * Render a template/partial
  */
 function partial(string $file, array $args = []) {
-    (new Templates\Renderer($file, $args))->render();
+    (new Utils\Renderer($file, $args))->render();
 }
 
 /**

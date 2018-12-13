@@ -1,14 +1,13 @@
-<?php get_template_part('templates/partials/page', 'header'); ?>
+<?php
 
-<?php if (!have_posts()) : ?>
-    <div class="alert alert-warning">
-        <?php _e('Sorry, no results were found.', 'sage'); ?>
-    </div>
-    <?php get_search_form(); ?>
-<?php endif; ?>
+$templates = [
+    'search.twig',
+    'archive.twig',
+    'index.twig',
+];
 
-<?php while (have_posts()) : the_post(); ?>
-    <?php get_template_part('templates/content/content', 'search'); ?>
-<?php endwhile; ?>
+$context = Timber::get_context();
+$context['title'] = __('Search results for ', 'grrr') . get_search_query();
+$context['posts'] = new Timber\PostQuery();
 
-<?php the_posts_navigation(); ?>
+Timber::render($templates, $context);

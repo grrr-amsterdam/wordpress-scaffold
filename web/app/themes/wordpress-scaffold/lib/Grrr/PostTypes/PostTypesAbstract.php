@@ -14,13 +14,21 @@ abstract class PostTypesAbstract {
 
     public function init() {
         add_action('init', [$this, 'register'], 1);
+        add_filter('timber/twig', [$this, 'twig_get_posts']);
     }
 
-    public function get_posts(int $amount = -1): array {
-        return get_posts([
+    public function get_posts(int $amount = -1) {
+        return \Timber::get_posts([
             'post_type' => $this->_type,
             'posts_per_page' => $amount,
         ]);
+    }
+
+    public function twig_get_posts(\Twig_Environment $twig) {
+        $twig->addFunction(
+            new \Timber\Twig_Function('get_' . $this->_type . '_posts', [$this, 'get_posts'])
+        );
+        return $twig;
     }
 
     public function register() {

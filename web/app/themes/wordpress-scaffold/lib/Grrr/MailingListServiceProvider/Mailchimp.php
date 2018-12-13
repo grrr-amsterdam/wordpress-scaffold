@@ -5,9 +5,9 @@ namespace Grrr\MailingListServiceProvider;
 use \DrewM\MailChimp\MailChimp as MailChimpAPI;
 
 /**
- * [Mailchimp service provider]
+ * [MailChimp service provider]
  */
-class Mailchimp implements MailingListServiceProvider {
+class MailChimp implements MailingListServiceProvider {
 
     /**
      * [subscribe adds user to a mailing list]
