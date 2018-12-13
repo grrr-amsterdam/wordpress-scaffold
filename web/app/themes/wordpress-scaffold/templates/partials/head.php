@@ -1,6 +1,6 @@
 <?php
 
-use Roots\Sage\Assets;
+use Grrr\Utils\Assets;
 
 ?>
 <head>

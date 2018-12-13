@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Setup;
+namespace Grrr\Utils\Setup;
 
-use Roots\Sage\Assets;
+use Grrr\Utils\Assets;
 
 /**
  * Theme setup
