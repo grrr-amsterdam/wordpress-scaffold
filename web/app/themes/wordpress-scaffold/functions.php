@@ -10,7 +10,6 @@ use Grrr\PostTypes;
  */
 $includes = [
     'lib/Grrr/Utils',
-    'lib/Sage',
 ];
 foreach ($includes as $directory) {
     $files = scandir(__DIR__ . '/' . $directory);

@@ -1,8 +1,8 @@
 <?php
 
 use Grrr\Utils;
-use Roots\Sage\Setup;
-use Roots\Sage\Wrapper;
+use Grrr\Utils\Setup;
+use Grrr\Utils\Wrapper;
 
 ?>
 <!doctype html>
