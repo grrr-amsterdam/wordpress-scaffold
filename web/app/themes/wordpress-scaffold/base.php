@@ -20,12 +20,6 @@ use Grrr\Utils\Wrapper;
             <main>
                 <?php include Wrapper\template_path(); ?>
             </main>
-
-            <?php if (Setup\display_sidebar()) : ?>
-            <aside class="sidebar">
-                <?php include Wrapper\sidebar_path(); ?>
-            </aside>
-            <?php endif; ?>
         </div>
 
         <?php
