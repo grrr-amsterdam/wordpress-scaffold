@@ -2,7 +2,7 @@
 
 namespace Grrr\Utils;
 
-use Roots\Sage\Assets;
+use Grrr\Utils\Assets;
 use Grrr\Templates;
 
 /**
