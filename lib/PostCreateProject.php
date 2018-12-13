@@ -86,8 +86,12 @@ class PostCreateProject
         $io->write("\n" . $output);
 
         $io->write("\n<info>Activate theme & plugins</info>");
+
         $themePath = self::_getThemePath($themeName);
         $output = shell_exec("wp theme activate {$themeName}");
+
+        $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate timber-library");
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate classic-editor");
         $io->write("\n" . $output);
