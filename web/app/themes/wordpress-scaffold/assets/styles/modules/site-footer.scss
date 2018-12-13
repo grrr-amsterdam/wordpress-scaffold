@@ -4,3 +4,13 @@
 .site-footer__inner {
     @include row; @include content;
 }
+
+/**
+ * Logo
+ */
+.site-footer__logo {
+    display: inline-block;
+}
+.site-footer__logo > svg {
+    width: 100px; height: 36px; fill: $white;
+}

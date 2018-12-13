@@ -1,7 +1,8 @@
-<?php get_template_part('templates/partials/page', 'header'); ?>
+<?php
 
-<div class="alert">
-  <?php _e('Sorry, but the page you were trying to view does not exist.', 'sage'); ?>
-</div>
+$templates = [
+    '404.twig',
+];
 
-<?php get_search_form(); ?>
+$context = Timber::get_context();
+Timber::render($templates, $context);

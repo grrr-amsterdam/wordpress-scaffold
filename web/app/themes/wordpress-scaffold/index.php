@@ -1,14 +1,13 @@
-<?php get_template_part('templates/partials/page', 'header'); ?>
+<?php
 
-<?php if (!have_posts()) : ?>
-    <div class="alert alert-warning">
-        <?php _e('Sorry, no results were found.', 'sage'); ?>
-    </div>
-    <?php get_search_form(); ?>
-<?php endif; ?>
+$templates = [
+    'index.twig',
+];
 
-<?php while (have_posts()) : the_post(); ?>
-    <?php get_template_part('templates/content/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-<?php endwhile; ?>
+$context = Timber::get_context();
 
-<?php the_posts_navigation(); ?>
+if (is_home()) {
+	array_unshift($templates, 'front-page.twig', 'home.twig');
+}
+
+Timber::render($templates, $context);
