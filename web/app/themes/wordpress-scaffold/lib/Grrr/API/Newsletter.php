@@ -3,7 +3,7 @@
 namespace Grrr\API;
 
 use Garp\Functional as f;
-use Grrr\MailingListServiceProvider\Mailchimp;
+use Grrr\MailingListServiceProvider\MailChimp;
 
 /**
  * [Newsletter]

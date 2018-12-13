@@ -1,0 +1,11 @@
+<article class="preview" id="preview-{{  post.ID  }}">
+    <a href="{{ post.link }}">
+        {% if post.get_thumbnail %}
+            <figure>
+                <img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.alt }}"/>
+            </figure>
+        {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.preview({ read_more: 'sdf' })|raw }}</p>
+    </a>
+</article>

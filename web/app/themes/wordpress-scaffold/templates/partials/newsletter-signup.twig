@@ -1,0 +1,16 @@
+{% set action = function('get_rest_url', null, 'grrr/v1/newsletter/subscribe') %}
+
+<form class="newsletter-signup" data-enhancer="newsletterSignup" action="{{ action }}" method="post" target="_blank" aria-label="{{ __('Sign up for our newsletter', 'grrr') }}">
+    <label for="newsletter-signup-email">
+        {{ __('Your e-mail address', 'grrr') }}
+    </label>
+    <input type="email" value="" name="email" placeholder="Your e-mail address" id="newsletter-signup-email" required>
+    <!-- Simple honeypot -->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+        <input type="text" name="random_input" tabindex="-1" value="">
+    </div>
+    <button type="submit">
+        {{ __('Sign up', 'grrr') }}
+    </button>
+    <span role="alert" id="newsletter-signup-alert" aria-hidden="true"></span>
+</form>

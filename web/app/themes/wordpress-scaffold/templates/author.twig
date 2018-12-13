@@ -1,0 +1,14 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    {% include 'partials/page-header.twig' with {
+        title: post.title,
+    } only %}
+
+    {% for post in posts %}
+        {% include [
+            'previews/preview-' ~ post.post_type ~ '.twig',
+            'previews/preview.twig',
+        ] %}
+    {% endfor %}
+{% endblock %}

@@ -1,6 +1,6 @@
 {
   "app": {
-    "domain": "%WP_HOME%"
+    "domain": "http://localhost.wordpress-scaffold.nl"
   },
   "paths": {
     "src": "assets",
@@ -81,7 +81,8 @@
     "watch": {
       "files": [
         "*.php",
-        "{templates,lib}/**/*.php"
+        "lib/**/*.php",
+        "templates/**/*.twig"
       ]
     }
   }

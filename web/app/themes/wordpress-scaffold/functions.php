@@ -2,6 +2,7 @@
 
 use Grrr\Acf;
 use Grrr\API;
+use Grrr\Twig;
 use Grrr\Theme;
 use Grrr\PostTypes;
 
@@ -29,6 +30,7 @@ unset($files, $file, $filepath);
  * Theme setup (incl. Timber)
  */
 new Theme\Setup();
+new Twig\Functions();
 
 /**
  * Advanced Custom Fields (when available)
@@ -45,6 +47,7 @@ try {
 (new PostTypes\Post)->init();
 (new PostTypes\Page)->init();
 (new PostTypes\Example)->init();
+(new PostTypes\Test)->init();
 
 /**
  * API

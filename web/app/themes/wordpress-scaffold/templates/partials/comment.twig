@@ -1,0 +1,19 @@
+<div class="comment {{ comment.comment_type }}" id="comment-{{ comment.ID }}">
+    <h5 class="comment__author">{{ comment.author.name }} says</h5>
+    <div class="comment__content">{{ comment.comment_content|wpautop }}</div>
+
+    <section class="comment-box">
+        <!-- child comments -->
+        {% if post.comments %}
+        <h4> replies </h4>
+        <div class="comment__nested">
+            {% for cmt in comment.children %}
+                {% include 'comment.twig' with { comment:cmt } only %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- comment form -->
+        {% include 'comment-form.twig' %}
+    </section>
+</div>

@@ -1,0 +1,15 @@
+<footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+        {% include "partials/newsletter-signup.twig" only %}
+
+        <a class="site-footer__logo" href="{{ site.url }}" rol="home" aria-label="{{ __('Go to homepage', 'grrr') }}">
+            {{ source('images/site-logo.svg')|raw }}
+        </a>
+
+        <nav class="site-footer__nav" role="navigation">
+            {% include "partials/menu.twig" with { 'menu': menu } only %}
+        </nav>
+
+        <aside><small>Copyright {{ "now"|date('Y') }}</small></aside>
+    </div>
+</footer>
