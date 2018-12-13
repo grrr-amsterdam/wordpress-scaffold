@@ -128,6 +128,12 @@ define('GOOGLE_TAG_MANAGER_ID', env('GOOGLE_TAG_MANAGER_ID'));
 define('SENTRY_DSN', env('SENTRY_DSN'));
 
 /**
+ * Mailchimp
+ */
+define('MAILCHIMP_API_KEY', env('MAILCHIMP_API_KEY'));
+define('MAILCHIMP_LIST_ID', env('MAILCHIMP_LIST_ID'));
+
+/**
  * CloudFront SSL fix
  */
 if (isset($_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO']) &&

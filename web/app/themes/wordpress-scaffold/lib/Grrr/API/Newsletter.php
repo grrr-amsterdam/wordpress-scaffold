@@ -31,6 +31,11 @@ class Newsletter {
      * @return mixed
      */
     public function subscribe(\WP_REST_Request $data) {
+        if (!defined('MAILCHIMP_API_KEY') || !MAILCHIMP_API_KEY) {
+            $message = $this->_get_failure_message('MailChimp is not configured.');
+            return new \WP_Error('rest_config_error', $message, ['status' => 400]);
+        }
+
         if ($data->get_param(self::HONEYPOT_INPUT)) {
             $message = $this->_get_failure_message('Invalid input detected.');
             return new \WP_Error('rest_invalid_param', $message, ['status' => 400]);
@@ -42,16 +47,16 @@ class Newsletter {
         if (f\prop('status', $result) === 'subscribed') {
             return new \WP_REST_Response($this->_get_success_message(), 200);
         } else {
-            $message = $this->_get_failure_message(f\prop('title', $result));
+            $message = $this->_get_failure_message(f\prop('title', $result) ?: '');
             return new \WP_Error('mailchimp_signup_failed', $message, ['status' => 400]);
         }
     }
 
     protected function _get_success_message(): string {
-        return get_field('newsletter_success_message', 'option');
+        return 'Succesfully subscribed';
     }
 
     protected function _get_failure_message(string $error_message): string {
-        return get_field('newsletter_error_message', 'option') . " Error: {$error_message}";
+        return 'Subscription failed.' . " Error: {$error_message}";
     }
 }
