@@ -33,7 +33,6 @@ class PostCreateProject
         $dotEnv = new Util\DotEnv(self::_getRootPath());
         $answers = static::parseAnswers($answers);
         $dotEnv->replaceVariables($answers);
-        static::_updateGulpConfig($answers);
         $io->write('.env file updated');
 
         $io->write("\n<info>Creating database...</info>");
@@ -136,6 +135,7 @@ class PostCreateProject
 
     protected static function parseAnswers($answers) {
         $answers['DB_PREFIX'] = $answers['DB_PREFIX'] . '_';
+        $answers['BROWSERSYNC_PROXY'] = $answers['WP_HOME'];
         return $answers;
     }
 
@@ -256,12 +256,6 @@ class PostCreateProject
         $stylesheetContent = file_get_contents($themeStylesheetPath);
         file_put_contents($themeStylesheetPath, S::interpolate($stylesheetContent, $data));
         $themeFolderRenamed = static::_renameThemeDirectory($data['TEXT_DOMAIN']);
-    }
-
-    protected static function _updateGulpConfig($data) {
-        $configPath = static::_getRootPath() . '/web/app/themes/wordpress-scaffold/gulp.json';
-        $configContent = file_get_contents($configPath);
-        file_put_contents($configPath, S::interpolate($configContent, $data));
     }
 
     protected static function _installWordpress($data) {

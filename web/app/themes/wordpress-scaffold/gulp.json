@@ -1,6 +1,6 @@
 {
-  "app": {
-    "domain": "http://localhost.wordpress-scaffold.nl"
+  "dotenv": {
+    "file": "../../../../.env"
   },
   "paths": {
     "src": "assets",
