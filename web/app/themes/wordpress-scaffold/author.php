@@ -1,5 +1,7 @@
 <?php
 
+use \Timber as Timber;
+
 global $wp_query;
 
 $templates = [
@@ -7,7 +9,7 @@ $templates = [
     'archive.twig',
 ];
 
-$context = Timber::get_context();
+$context = Timber\Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
 $context['templates'] = $templates;
 
@@ -17,4 +19,4 @@ if (isset($wp_query->query_vars['author'])) {
 	$context['title'] = 'Author Archives: ' . $author->name();
 }
 
-Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context);

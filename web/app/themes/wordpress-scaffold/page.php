@@ -1,13 +1,15 @@
 <?php
 
+use \Timber as Timber;
+
 $templates = [
     'page-' . $post->post_name . '.twig',
     'page.twig',
 ];
 
-$context = Timber::get_context();
-$post = new TimberPost();
+$context = Timber\Timber::get_context();
+$post = new Timber\Post();
 $context['post'] = $post;
 $context['templates'] = $templates;
 
-Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context);

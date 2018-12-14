@@ -1,14 +1,16 @@
 <?php
 
+use \Timber as Timber;
+
 $templates = [
     'index.twig',
 ];
 
-$context = Timber::get_context();
+$context = Timber\Timber::get_context();
 $context['templates'] = $templates;
 
 if (is_home()) {
 	array_unshift($templates, 'front-page.twig', 'home.twig');
 }
 
-Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context);

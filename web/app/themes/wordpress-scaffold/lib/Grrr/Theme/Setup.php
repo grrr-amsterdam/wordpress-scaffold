@@ -3,11 +3,12 @@
 namespace Grrr\Theme;
 
 use Grrr\Utils\Assets;
+use \Timber as Timber;
 
-\Timber::$dirname = ['templates'];
-\Timber::$autoescape = true;
+Timber\Timber::$dirname = ['templates'];
+Timber\Timber::$autoescape = true;
 
-class Setup extends \Timber\Site {
+class Setup extends Timber\Site {
 
     const ENV_MAPPER = [
         'application_version' => APPLICATION_VERSION,
