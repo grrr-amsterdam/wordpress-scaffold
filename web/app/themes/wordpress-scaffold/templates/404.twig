@@ -1,5 +1,4 @@
-{% extends 'base.twig' %}
-
-{% block content %}
+<section>
     {{ __("Sorry, we couldn't find what you're looking for.", 'grrr') }}
-{% endblock %}
+    <a class="button" href="{{ site.url }}" rel="home">{{ __('Go to homepage', 'grrr') }}</a>
+</section>

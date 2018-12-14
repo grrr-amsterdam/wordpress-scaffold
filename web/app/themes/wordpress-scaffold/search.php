@@ -9,5 +9,6 @@ $templates = [
 $context = Timber::get_context();
 $context['title'] = __('Search results for ', 'grrr') . get_search_query();
 $context['posts'] = new Timber\PostQuery();
+$context['templates'] = $templates;
 
-Timber::render($templates, $context);
+Timber::render('base.twig', $context);

@@ -15,5 +15,6 @@ ob_end_clean();
 $templates = [
     'page-plugin.twig',
 ];
+$timberContext['templates'] = $templates;
 
-Timber::render($templates, $timberContext);
+Timber::render('base.twig', $timberContext);

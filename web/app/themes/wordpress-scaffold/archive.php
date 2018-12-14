@@ -8,6 +8,7 @@ $templates = [
 $context = Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
 $context['title'] = 'Archive';
+$context['templates'] = $templates;
 
 if (is_day()) {
 	$context['title'] = 'Archive: ' . get_the_date('D M Y');
@@ -25,4 +26,4 @@ if (is_day()) {
 	array_unshift($templates, 'archive-' . get_post_type() . '.twig');
 }
 
-Timber::render($templates, $context);
+Timber::render('base.twig', $context);

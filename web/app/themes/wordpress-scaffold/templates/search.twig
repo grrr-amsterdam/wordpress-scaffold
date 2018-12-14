@@ -1,7 +1,4 @@
-{% extends 'base.twig' %}
-
-{% block content %}
-
+<section>
     {% include 'partials/page-header.twig' with {
         title: post.title,
     } only %}
@@ -20,5 +17,4 @@
             end_size: 2,
         }),
     } only %}
-
-{% endblock %}
+</section>
