@@ -1,6 +1,4 @@
-{% extends 'base.twig' %}
-
-{% block content %}
+<article>
     {% include 'partials/page-header.twig' with {
         title: post.title,
     } only %}
@@ -11,4 +9,4 @@
             'previews/preview.twig',
         ] %}
     {% endfor %}
-{% endblock %}
+</article>

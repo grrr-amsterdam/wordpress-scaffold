@@ -1,6 +1,20 @@
-{% extends "index.twig" %}
+<section>
+    {% include 'partials/page-header.twig' with {
+        title: post.title,
+    } only %}
 
-{% block content %}
-    <h1>Archive</h1>
-    {{ parent() }}
-{% endblock %}
+    {% for post in posts %}
+        {% include [
+            'previews/preview-' ~ post.post_type ~ '.twig',
+            'previews/preview.twig',
+        ] %}
+    {% endfor %}
+
+    {% include 'partials/pagination.twig' with {
+        pagination: posts.pagination({
+            show_all: false,
+            mid_size: 3,
+            end_size: 2,
+        }),
+    } only %}
+</section>

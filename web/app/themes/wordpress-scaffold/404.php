@@ -5,4 +5,6 @@ $templates = [
 ];
 
 $context = Timber::get_context();
-Timber::render($templates, $context);
+$context['templates'] = $templates;
+
+Timber::render('base.twig', $context);
