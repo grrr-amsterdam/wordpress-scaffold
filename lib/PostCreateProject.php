@@ -86,11 +86,6 @@ class PostCreateProject
 
         $io->write("\n<info>Activate theme & plugins</info>");
 
-        $themePath = self::_getThemePath($themeName);
-        $output = shell_exec("wp theme activate {$themeName}");
-
-        $io->write("\n" . $output);
-        $output = shell_exec("wp plugin activate timber-library");
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate classic-editor");
         $io->write("\n" . $output);
@@ -102,6 +97,9 @@ class PostCreateProject
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate ajax-thumbnail-rebuild");
         $io->write("\n" . $output);
+
+        $themePath = self::_getThemePath($themeName);
+        $output = shell_exec("wp theme activate {$themeName}");
 
         $io->write("\n<info>Updating WordPress settings</info>");
         $output = shell_exec("wp option update permalink_structure /%year%/%monthnum%/%postname%/");

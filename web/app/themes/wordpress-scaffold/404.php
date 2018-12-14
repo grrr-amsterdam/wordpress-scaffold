@@ -1,10 +1,12 @@
 <?php
 
+use \Timber as Timber;
+
 $templates = [
     '404.twig',
 ];
 
-$context = Timber::get_context();
+$context = Timber\Timber::get_context();
 $context['templates'] = $templates;
 
-Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context);

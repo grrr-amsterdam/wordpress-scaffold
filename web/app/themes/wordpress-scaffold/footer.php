@@ -1,4 +1,7 @@
 <?php
+
+use \Timber as Timber;
+
 /**
  * Third party plugins that hijack the theme will call wp_footer() to get the footer template.
  * We use this to end our output buffer (started in header.php) and render into the
@@ -17,4 +20,4 @@ $templates = [
 ];
 $timberContext['templates'] = $templates;
 
-Timber::render('base.twig', $timberContext);
+Timber\Timber::render('base.twig', $timberContext);

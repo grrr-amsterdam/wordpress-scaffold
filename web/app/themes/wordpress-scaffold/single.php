@@ -6,8 +6,8 @@ $templates = [
     'singles/single.twig'
 ];
 
-$context = Timber::get_context();
-$post = Timber::query_post();
+$context = Timber\Timber::get_context();
+$post = Timber\Timber::query_post();
 $context['post'] = $post;
 
 if (post_password_required($post->ID)) {
@@ -16,4 +16,4 @@ if (post_password_required($post->ID)) {
     $context['templates'] = $templates;
 }
 
-Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context);

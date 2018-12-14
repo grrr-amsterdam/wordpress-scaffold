@@ -2,6 +2,8 @@
 
 namespace Grrr\PostTypes;
 
+use \Timber as Timber;
+
 abstract class PostTypesAbstract {
 
     protected $_type;
@@ -18,7 +20,7 @@ abstract class PostTypesAbstract {
     }
 
     public function get_posts(int $amount = -1) {
-        return \Timber::get_posts([
+        return Timber\Timber::get_posts([
             'post_type' => $this->_type,
             'posts_per_page' => $amount,
         ]);
@@ -26,7 +28,7 @@ abstract class PostTypesAbstract {
 
     public function twig_get_posts(\Twig_Environment $twig) {
         $twig->addFunction(
-            new \Timber\Twig_Function('get_' . $this->_type . '_posts', [$this, 'get_posts'])
+            new Timber\Twig_Function('get_' . $this->_type . '_posts', [$this, 'get_posts'])
         );
         return $twig;
     }

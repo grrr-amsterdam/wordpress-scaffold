@@ -47,7 +47,6 @@ try {
 (new PostTypes\Post)->init();
 (new PostTypes\Page)->init();
 (new PostTypes\Example)->init();
-(new PostTypes\Test)->init();
 
 /**
  * API
