@@ -1,0 +1,16 @@
+.skiplink {
+    position: absolute; top: 0; left: 0;
+    display: block; padding: 10px 15px;
+    background: $black; color: $white; opacity: 0;
+    transform: translateY(-100%);
+}
+.skiplink:focus,
+.skiplink:active {
+    z-index: 10000; transform: none; opacity: 1;
+}
+.skiplink:focus::before {
+    content: '';
+    z-index: -1; position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba($black, 0.3);
+}
