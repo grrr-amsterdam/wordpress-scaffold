@@ -1,8 +1,4 @@
-{% extends 'base.twig' %}
-
-{% block content %}
 <article class="single-{{ post.post_type }}" id="single-{{ post.ID }}">
-
     <figure>
         <img src="{{ post.thumbnail.src|resize(1200, 300) }}" alt="">
     </figure>
@@ -12,6 +8,4 @@
     } only %}
 
     {{ post.content|raw }}
-
 </article>
-{% endblock %}

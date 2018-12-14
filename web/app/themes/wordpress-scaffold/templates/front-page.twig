@@ -1,10 +1,6 @@
-{% extends 'base.twig' %}
-
 {% set examples = get_example_posts(10) %}
 
-{% block content %}
 <article>
-
     <header>
         <h1>{{ site.name }}</h1>
         {{ svg('arrow')|raw }}
@@ -14,8 +10,5 @@
             {% include 'previews/preview-example.twig' with { post: example } only %}
         {% endfor %}
     </section>
-
     {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } only %}
-
 </article>
-{% endblock %}
