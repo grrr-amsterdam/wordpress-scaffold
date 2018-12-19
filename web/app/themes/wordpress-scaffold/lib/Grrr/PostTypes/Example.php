@@ -12,8 +12,12 @@ class Example extends PostTypesAbstract {
 
     protected $_args = [
         'public' => true,
+        'has_archive' => true,
         'hierarchical' => false,
         'supports' => [ 'title', 'revisions', 'thumbnail' ],
+        'taxonomies' => [
+            'example_type',
+        ],
     ];
 
 }

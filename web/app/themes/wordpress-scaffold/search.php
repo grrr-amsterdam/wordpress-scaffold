@@ -1,7 +1,5 @@
 <?php
 
-use \Timber as Timber;
-
 $templates = [
     'search.twig',
     'archive.twig',

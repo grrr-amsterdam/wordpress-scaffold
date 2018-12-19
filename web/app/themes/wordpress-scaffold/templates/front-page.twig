@@ -7,8 +7,8 @@
     </header>
     <section>
         {% for example in examples %}
-            {% include 'previews/preview-example.twig' with { post: example } only %}
+            {% include 'previews/example-preview.twig' with { post: example } only %}
         {% endfor %}
     </section>
-    {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } only %}
+    {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
 </article>

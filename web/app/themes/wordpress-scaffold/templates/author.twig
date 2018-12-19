@@ -5,8 +5,8 @@
 
     {% for post in posts %}
         {% include [
-            'previews/preview-' ~ post.post_type ~ '.twig',
-            'previews/preview.twig',
+            'previews/' ~ post.post_type ~ '-preview.twig',
+            'preview.twig',
         ] %}
     {% endfor %}
 </article>

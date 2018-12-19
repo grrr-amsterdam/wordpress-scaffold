@@ -2,8 +2,8 @@
 
 namespace Grrr\Theme;
 
+use Timber;
 use Grrr\Utils\Assets;
-use \Timber as Timber;
 
 Timber\Timber::$dirname = ['templates'];
 Timber\Timber::$autoescape = true;
