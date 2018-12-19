@@ -4,6 +4,7 @@ use Grrr\Acf;
 use Grrr\API;
 use Grrr\Twig;
 use Grrr\Theme;
+use Grrr\Taxonomies;
 use Grrr\PostTypes;
 
 /**

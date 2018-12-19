@@ -1,4 +1,4 @@
-<article class="single-{{ post.post_type }}" id="single-{{ post.ID }}">
+<article class="{{ post.post_type }}-single" id="single-{{ post.ID }}">
     <figure>
         <img src="{{ post.thumbnail.src|resize(1200, 300) }}" alt="">
     </figure>

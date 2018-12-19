@@ -1,7 +1,5 @@
 <?php
 
-use \Timber as Timber;
-
 $templates = [
     'page-' . $post->post_name . '.twig',
     'page.twig',
