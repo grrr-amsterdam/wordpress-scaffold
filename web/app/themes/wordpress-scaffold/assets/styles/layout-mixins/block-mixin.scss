@@ -1,12 +1,12 @@
-@mixin content($size: large) {
+@mixin block($size: large) {
     margin-left: auto; margin-right: auto;
     padding-left: 25px; padding-right: 25px;
     @include bp-min($small) {
         @if ($size != full) {
-            max-width: calc(#{map-get($site-widths, $size)} + 8vw + 4em);
+            max-width: calc(#{map-get($site-widths, $size)} + 6vw + 4em);
         }
-        padding-left: calc(4vw + 2em);
-        padding-right: calc(4vw + 2em);
+        padding-left: calc(3vw + 2em);
+        padding-right: calc(3vw + 2em);
     }
     .no-csscalc &,
     .no-cssvwunit & {

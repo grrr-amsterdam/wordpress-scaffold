@@ -2,7 +2,7 @@
     background: $primary-color; color: $white;
 }
 .site-footer__inner {
-    @include row; @include content;
+    @include row; @include block;
 }
 
 /**
