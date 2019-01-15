@@ -3,6 +3,16 @@
    ========================================================================== */
 
 /**
+ * Figure reset
+ */
+@mixin figure-reset {
+    margin: 0; line-height: 0;
+    img {
+        width: 100%; line-height: normal;
+    }
+}
+
+/**
  * Placeholder styling
  */
 @mixin placeholder {

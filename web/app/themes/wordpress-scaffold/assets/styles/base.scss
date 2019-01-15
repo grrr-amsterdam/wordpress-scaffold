@@ -215,6 +215,9 @@ hr {
 /*
  * Media
  */
+figure {
+    @include figure-reset;
+}
 img,
 object,
 iframe,
