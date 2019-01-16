@@ -3,10 +3,10 @@
     padding-left: 25px; padding-right: 25px;
     @include bp-min($small) {
         @if ($size != full) {
-            max-width: calc(#{map-get($site-widths, $size)} + 6vw + 4em);
+            max-width: calc(#{map-get($site-widths, $size)} + 6vw + 4rem);
         }
-        padding-left: calc(3vw + 2em);
-        padding-right: calc(3vw + 2em);
+        padding-left: calc(3vw + 2rem);
+        padding-right: calc(3vw + 2rem);
     }
     .no-csscalc &,
     .no-cssvwunit & {
