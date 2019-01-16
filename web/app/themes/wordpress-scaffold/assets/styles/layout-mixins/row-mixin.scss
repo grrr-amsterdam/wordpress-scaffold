@@ -1,4 +1,4 @@
 @mixin row($size: medium) {
-    padding-top: calc(#{map-get($row-margins, $size)} + 2em);
-    padding-bottom: calc(#{map-get($row-margins, $size)} + 2em);
+    padding-top: calc(#{map-get($row-margins, $size)} + 2rem);
+    padding-bottom: calc(#{map-get($row-margins, $size)} + 2rem);
 }
