@@ -66,3 +66,25 @@ function my_admin_footer_function() {
     <?php
 }
 add_action('admin_footer-index.php', __NAMESPACE__ . '\\my_admin_footer_function');
+
+/**
+ * Add term query argument to get terms for a specific post type
+ * Based on https://1fix.io/blog/2016/10/25/get-terms-cpt-taxonomy
+ */
+function my_terms_clauses( $clauses, $taxonomy, $args) {
+    if (empty($args['post_type'])) {
+        return $clauses;
+    }
+    global $wpdb;
+    $post_types = is_array($args['post_type'])
+        ? implode("','", $args['post_type'])
+        : $args['post_type'];
+
+    $clauses['join'] .= " INNER JOIN $wpdb->term_relationships AS r"
+        . " ON r.term_taxonomy_id = tt.term_taxonomy_id"
+        . " INNER JOIN $wpdb->posts AS p ON p.ID = r.object_id";
+    $clauses['where'] .= " AND p.post_type IN ('". esc_sql( $post_types ). "') GROUP BY t.term_id";
+    return $clauses;
+}
+add_filter('terms_clauses', __NAMESPACE__ . '\\my_terms_clauses', 99999, 3);
+
