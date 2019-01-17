@@ -16,4 +16,4 @@ if (post_password_required($post->ID)) {
     $context['templates'] = $templates;
 }
 
-Timber\Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context, TWIG_CACHE_TTL);

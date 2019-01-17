@@ -17,4 +17,4 @@ if (isset($wp_query->query_vars['author'])) {
     $context['title'] = 'Author Archives: ' . $author->name();
 }
 
-Timber\Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context, TWIG_CACHE_TTL);
