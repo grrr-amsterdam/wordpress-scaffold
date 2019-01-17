@@ -8,6 +8,12 @@ use Grrr\Utils\Assets;
 Timber\Timber::$dirname = ['templates'];
 Timber\Timber::$autoescape = true;
 
+// Cache the twig file and conversion to PHP.
+// See `TWIG_CACHE_TTL` for static caching including data.
+if (WP_ENV !== 'development') {
+    Timber::$cache = true;
+}
+
 class Setup extends Timber\Site {
 
     const ENV_MAPPER = [

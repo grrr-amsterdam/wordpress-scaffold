@@ -27,4 +27,4 @@ $context['posts'] = new Timber\PostQuery();
 $context['title'] = 'Archive';
 $context['templates'] = $templates;
 
-Timber\Timber::render('base.twig', $context);
+Timber\Timber::render('base.twig', $context, TWIG_CACHE_TTL);

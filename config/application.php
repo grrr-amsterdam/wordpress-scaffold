@@ -134,6 +134,13 @@ define('MAILCHIMP_API_KEY', env('MAILCHIMP_API_KEY'));
 define('MAILCHIMP_LIST_ID', env('MAILCHIMP_LIST_ID'));
 
 /**
+ * Twig Cache
+ * This caches the Twig templats including data, and is only invalidated
+ * when the data (hash) changes or when the TTL is invalidated.
+ */
+define('TWIG_CACHE_TTL', env('TWIG_CACHE_TTL') ?: false);
+
+/**
  * CloudFront SSL fix
  */
 if (isset($_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO']) &&
