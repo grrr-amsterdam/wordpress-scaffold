@@ -18,7 +18,7 @@ abstract class TaxonomyAbstract {
     public function register() {
         $defaults = [
             'public' => true,
-            'hierarchical' => false,
+            'hierarchical' => true,
             'show_admin_column' => true,
             'rewrite' => [
                 'slug' => $this->_slug,
