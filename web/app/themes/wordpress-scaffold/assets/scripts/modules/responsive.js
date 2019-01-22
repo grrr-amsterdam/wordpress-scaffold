@@ -6,10 +6,11 @@ import { debounce } from './util';
 
 let docWidth;
 
-const BREAKPOINT_SMALL = 540;
-const BREAKPOINT_MEDIUM = 720;
-const BREAKPOINT_LARGE = 1020;
-const BREAKPOINT_EXTRA_LARGE = 1400;
+const BREAKPOINT_TINY = 480;
+const BREAKPOINT_SMALL = 640;
+const BREAKPOINT_MEDIUM = 960;
+const BREAKPOINT_LARGE = 1280;
+const BREAKPOINT_HUGE = 1680;
 
 const setDocWidth = () => {
   docWidth = window.innerWidth || document.documentElement.clientWidth;
@@ -24,21 +25,23 @@ export const getDocWidth = () => {
 
 export const matchesBreakpoint = breakpoint => {
   switch (breakpoint) {
+    case 'tiny':
+      return getDocWidth() >= BREAKPOINT_TINY;
     case 'small':
       return getDocWidth() >= BREAKPOINT_SMALL;
     case 'medium':
       return getDocWidth() >= BREAKPOINT_MEDIUM;
     case 'large':
       return getDocWidth() >= BREAKPOINT_LARGE;
-    case 'extraLarge':
-      return getDocWidth() >= BREAKPOINT_EXTRA_LARGE;
+    case 'huge':
+      return getDocWidth() >= BREAKPOINT_HUGE;
     default:
       return false;
   }
 };
 
 export const getCurrentBreakpoint = () => {
-  const breakpoints = ['small', 'medium', 'large', 'extraLarge'];
+  const breakpoints = ['tiny', 'small', 'medium', 'large', 'huge'];
   const matches = breakpoints.filter(matchesBreakpoint);
   return matches[matches.length - 1];
 };
