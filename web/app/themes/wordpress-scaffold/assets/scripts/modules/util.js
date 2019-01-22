@@ -78,16 +78,31 @@ export const range = (max, n = 0) => {
 
 export const preventDefault = e => e.preventDefault();
 
-export const debounce = (fn, delay = 20) => {
+export const debounce = (fn, delay) => {
   let timer = null;
   return function(...args) {
     clearTimeout(timer);
-    timer = setTimeout(
-      () => {
-        fn(...args);
-      },
-      delay
-    );
+    timer = setTimeout(e => fn(...args), delay);
+  };
+};
+
+export const throttle = (fn, limit) => {
+  let lastFunc;
+  let lastRan;
+  return function(...args) {
+    const context = this;
+    if (!lastRan) {
+      fn.apply(context, ...args);
+      lastRan = Date.now();
+    } else {
+      clearTimeout(lastFunc);
+      lastFunc = setTimeout(() => {
+        if ((Date.now() - lastRan) >= limit) {
+          fn.apply(context, ...args);
+          lastRan = Date.now();
+        }
+      }, limit - (Date.now() - lastRan));
+    }
   };
 };
 
