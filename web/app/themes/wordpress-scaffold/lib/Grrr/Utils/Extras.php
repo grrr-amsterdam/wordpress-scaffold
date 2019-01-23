@@ -88,3 +88,10 @@ function my_terms_clauses( $clauses, $taxonomy, $args) {
 }
 add_filter('terms_clauses', __NAMESPACE__ . '\\my_terms_clauses', 99999, 3);
 
+/**
+ * Set max srcset size
+ */
+function set_max_srcset(int $max, array $sizes) {
+    return 2560;
+}
+add_filter('max_srcset_image_width', __NAMESPACE__ . '\\set_max_srcset', 10, 2);
