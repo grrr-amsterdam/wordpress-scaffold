@@ -11,11 +11,7 @@ abstract class TaxonomyAbstract {
 
     protected $_args = [];
 
-    public function init() {
-        add_action('init', [$this, 'register'], 0);
-    }
-
-    public function register() {
+    public function __construct() {
         $defaults = [
             'public' => true,
             'hierarchical' => true,
@@ -29,8 +25,15 @@ abstract class TaxonomyAbstract {
                 'singular_name' => $this->_singular_name,
             ],
         ];
+        $this->_args = array_merge($defaults, $this->_args);
+    }
 
-        register_taxonomy($this->_taxonomy, null, array_merge($defaults, $this->_args));
+    public function init() {
+        add_action('init', [$this, 'register'], 0);
+    }
+
+    public function register() {
+        register_taxonomy($this->_taxonomy, null, $this->_args);
     }
 
 }
