@@ -14,9 +14,37 @@ abstract class PostTypesAbstract {
 
     protected $_args = [];
 
+    public function __construct() {
+        $defaults = [
+            'capability_type' => 'page',
+            'supports' => [ 'title', 'revisions', 'thumbnail' ],
+            'public' => true,
+            'show_ui' => true,
+            'exclude_from_search' => false,
+            'hierarchical' => true,
+            'has_archive' => false,
+            'query_var' => true,
+            'rewrite' => [
+                'slug' => $this->_slug,
+                'with_front' => true,
+            ],
+            'taxonomies' => [],
+            'labels' => [
+                'name' => $this->_name,
+                'singular_name' => $this->_singular_name,
+            ],
+            'menu_icon' => $this->_icon,
+        ];
+        $this->_args = array_merge($defaults, $this->_args);
+    }
+
     public function init() {
         add_action('init', [$this, 'register'], 1);
         add_filter('timber/twig', [$this, 'twig_functions']);
+    }
+
+    public function register() {
+        register_post_type($this->_type, $this->_args);
     }
 
     public function get_posts(int $amount = -1) {
@@ -38,31 +66,6 @@ abstract class PostTypesAbstract {
             new Timber\Twig_Function('get_' . $this->_type . '_link', [$this, 'get_index_link'])
         );
         return $twig;
-    }
-
-    public function register() {
-        $defaults = [
-            'capability_type' => 'page',
-            'supports' => [ 'title', 'revisions', 'thumbnail' ],
-            'public' => true,
-            'show_ui' => true,
-            'exclude_from_search' => false,
-            'hierarchical' => true,
-            'has_archive' => false,
-            'query_var' => true,
-            'rewrite' => [
-                'slug' => $this->_slug,
-                'with_front' => true,
-            ],
-            'taxonomies' => [],
-            'labels' => [
-                'name' => $this->_name,
-                'singular_name' => $this->_singular_name,
-            ],
-            'menu_icon' => $this->_icon,
-        ];
-
-        register_post_type($this->_type, array_merge($defaults, $this->_args));
     }
 
 }

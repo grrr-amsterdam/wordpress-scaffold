@@ -9,4 +9,10 @@ class ExampleType extends TaxonomyAbstract {
     protected $_name = 'Example Types';
     protected $_singular_name = 'Example Type';
 
+    protected $_args = [
+        'rewrite' => [
+            'slug' => 'post_type_slug/type',
+        ],
+    ];
+
 }
