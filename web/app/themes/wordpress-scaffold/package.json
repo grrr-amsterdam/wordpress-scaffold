@@ -19,7 +19,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "classlist-polyfill": "^1.2.0",
-    "domready": "^1.0.8",
     "fg-loadjs": "^1.0.0",
     "normalize.css": "^8.0.0",
     "promise-polyfill": "^8.1.0",
