@@ -2,6 +2,7 @@
 
 namespace Grrr\Twig;
 
+use Timber;
 use Grrr\Utils;
 use Grrr\Utils\Assets;
 
@@ -9,9 +10,10 @@ class Functions {
 
     const FUNCTION_MAPPER = [
         'asset' => 'get_asset_path',
+        'env' => 'get_env',
         'option' => 'get_acf_option',
-        'snippet' => 'get_acf_snippet',
         'page' => 'get_acf_page',
+        'snippet' => 'get_acf_snippet',
         'source' => 'get_source',
         'svg' => 'get_svg',
     ];
@@ -45,8 +47,8 @@ class Functions {
     }
 
     public function add_functions(\Twig_Environment $twig) {
-        foreach (self::FUNCTION_MAPPER as $function => $blabla) {
-            $twig->addFunction(new \Timber\Twig_Function($function, [$this, $blabla]));
+        foreach (self::FUNCTION_MAPPER as $caller => $function) {
+            $twig->addFunction(new Timber\Twig_Function($caller, [$this, $function]));
         }
         return $twig;
     }
