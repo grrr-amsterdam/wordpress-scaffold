@@ -13,8 +13,9 @@ abstract class TaxonomyAbstract {
 
     public function __construct() {
         $defaults = [
-            'public' => true,
+            'public' => false,
             'hierarchical' => true,
+            'show_ui' => true,
             'show_admin_column' => true,
             'rewrite' => [
                 'slug' => $this->_slug,
