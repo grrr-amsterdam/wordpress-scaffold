@@ -41,3 +41,27 @@ function wpdocs_dequeue_dashicon() {
 	wp_deregister_style('dashicons');
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\wpdocs_dequeue_dashicon');
+
+/**
+ * Disable W3TC footer comment for everyone but Admins.
+ */
+function disable_w3tc_comment() {
+    return current_user_can('activate_plugins');
+}
+add_filter('w3tc_can_print_comment', __NAMESPACE__ . '\\disable_w3tc_comment');
+
+/**
+ * Disable Yoast's Hidden love letter about using the WordPress SEO plugin.
+ */
+function remove_yoast_comment() {
+    if (!class_exists('WPSEO_Frontend')) {
+        return;
+    }
+    $instance = \WPSEO_Frontend::get_instance();
+    if (!method_exists($instance, 'debug_mark')) {
+        return ;
+    }
+    remove_action('wpseo_head', [$instance, 'debug_mark'], 2);
+};
+
+add_action('template_redirect', __NAMESPACE__ . '\\remove_yoast_comment', 9999);
