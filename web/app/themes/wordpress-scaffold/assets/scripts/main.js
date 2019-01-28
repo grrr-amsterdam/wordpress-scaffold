@@ -2,7 +2,6 @@
 import Promise from 'promise-polyfill';
 import 'whatwg-fetch';
 import 'classlist-polyfill';
-import domready from 'domready';
 import rafPolyfill from './polyfills/request-animation-frame';
 
 // Handler and Enhancer utility
@@ -10,6 +9,7 @@ import handle from './modules/handle';
 import enhance from './modules/enhance';
 
 // Import functions that are executed on DOMready regardless of DOM
+import { onDomReady } from './modules/ready';
 import { enhancer as scrollListener } from './modules/scroll-listener';
 import { enhancer as responsive } from './modules/responsive';
 import { default as disableHoverStylesOnScroll } from './modules/disable-hover-styles-on-scroll';
@@ -46,4 +46,4 @@ const main = () => {
   });
 };
 
-domready(main);
+onDomReady(main);
