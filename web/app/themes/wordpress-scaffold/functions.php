@@ -31,6 +31,7 @@ unset($files, $file, $filepath);
  * Theme setup (incl. Timber)
  */
 new Theme\Setup();
+new Twig\Filters();
 new Twig\Functions();
 
 /**
