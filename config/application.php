@@ -97,6 +97,11 @@ define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('WP_CACHE', env('WP_CACHE') ?: false);
 
 /**
+ * Limit post revisions
+ */
+define('WP_POST_REVISIONS', 30);
+
+/**
  * Versioning
  */
 define('APPLICATION_VERSION', (new Root\Versioning)->get_version());
