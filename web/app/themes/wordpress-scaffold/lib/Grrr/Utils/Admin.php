@@ -27,42 +27,36 @@ function admin_favicon() {
 add_action('admin_head', __NAMESPACE__ . '\\admin_favicon');
 
 /**
- * Admin logo URL.
+ * Add footer timing comment to debug performance issues.
  */
-function my_login_logo_url() {
-    return home_url();
+function admin_footer_timing() {
+    ?>
+    <!--<?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.-->
+    <?php
 }
-add_filter('login_headerurl', __NAMESPACE__ . '\\my_login_logo_url');
+add_action('admin_footer-index.php', __NAMESPACE__ . '\\admin_footer_timing');
 
 /**
- * Admin logo and login styling.
+* Overrides the function user_can_richedit and only checks the
+* user preferences instead of doing UA sniffing.
+* See: https://benjaminhorn.io/code/wordpress-visual-editor-not-visible-because-of-user-agent-sniffing/
+*/
+function user_can_richedit_custom() {
+    global $wp_rich_edit;
+    if (get_user_option('rich_editing') == 'true' || !is_user_logged_in()) {
+        $wp_rich_edit = true;
+        return true;
+    }
+    $wp_rich_edit = false;
+    return false;
+}
+
+add_filter('user_can_richedit', __NAMESPACE__ . '\\user_can_richedit_custom');
+
+/**
+ * Move Yoast to bottom.
  */
-function my_login_logo() { ?>
-    <style type="text/css">
-        .login h1 a {
-            margin-bottom: 30px !important;
-            display: block !important;
-            width: 150px !important;
-            height: 90px !important;
-            background-size: contain !important;
-            background-position: center !important;
-            background-image: url('<?= Assets\asset_path('images/site-logo.svg') ?>') !important;
-        }
-        .login input[type="submit"] {
-            background-color: #000000;
-            box-shadow: 0 1px 0 #000000;
-            color: #FFFFFF !important;
-            border: none !important;
-            text-shadow: none !important;
-        }
-        .login input[type="submit"]:hover,
-        .login input[type="submit"]:focus {
-            background-color: #000000;
-            box-shadow: 0 1px 0 #000000;
-            color: #FFFFFF !important;
-            border: none !important;
-            text-shadow: none !important;
-        }
-    </style>
-<?php }
-add_action('login_enqueue_scripts', __NAMESPACE__ . '\\my_login_logo' );
+function yoasttobottom() {
+    return 'low';
+}
+add_filter('wpseo_metabox_prio', __NAMESPACE__ . '\\yoasttobottom');
