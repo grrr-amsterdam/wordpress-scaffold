@@ -13,6 +13,22 @@
 }
 
 /**
+ * Easier way to provide object-fit polyfill hook
+ */
+@mixin object-fit($value: cover) {
+    object-fit: $value; font-family: 'object-fit: #{$value}'; // for polyfill
+}
+
+/**
+ * Smooth scrolling
+ */
+@mixin smooth-scrolling {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/**
  * Placeholder styling
  */
 @mixin placeholder {

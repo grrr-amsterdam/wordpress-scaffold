@@ -1,4 +1,10 @@
-@mixin row($size: medium) {
+@mixin row-top($size: medium) {
     padding-top: calc(#{map-get($row-margins, $size)} + 2rem);
+}
+@mixin row-bottom($size: medium) {
     padding-bottom: calc(#{map-get($row-margins, $size)} + 2rem);
+}
+@mixin row($size: medium) {
+    @include row-top($size);
+    @include row-bottom($size);
 }

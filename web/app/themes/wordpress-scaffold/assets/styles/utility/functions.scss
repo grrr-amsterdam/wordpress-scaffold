@@ -15,44 +15,9 @@
 }
 
 /**
- * Color mixins (other than lighten or darken)
- */
-// Add percentage of white to a color
-@function tint($color, $percent) {
-    @return mix(white, $color, $percent);
-}
-// Add percentage of black to a color
-@function shade($color, $percent) {
-    @return mix(black, $color, $percent);
-}
-
-/**
  * z-index function
  * For dynamically determining the stacking order of elements
- *
- * Usage:
- * .module { z-index: z('module'); }
- * .module__child { z-index: z('child'); }
- *
- * See $z-index variable in _variables.scss for stacking order
  */
 @function z($element) {
-    $result: index($module-z-index, $element);
-    @if $result {
-        @return $result;
-    }
-
-    $result: index($z-index, $element);
-    @if $result {
-        @return $result;
-    }
-
-    @if $result == false {
-        // sass-lint:disable max-line-length
-        @warn 'There is no item "#{$element}" in the variables $z-index and " +
-        "$module-z-index. Either it is not defined, or there is a typo in the " +
-        "$module-z-index variable declaration.';
-        // sass-lint:enable max-line-length
-        @return null;
-    }
+    @return map-get($z-index, $element);
 }

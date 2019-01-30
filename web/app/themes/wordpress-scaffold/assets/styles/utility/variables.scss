@@ -56,15 +56,10 @@ $row-margins: (
 );
 
 /*
- * z-index
- * for stacking stuff
- *
- * define the stacking order for modules here
- * within a module you should define it via
- * the $module-z-index variable
+ * Z-index
  */
 $z-index: (
-
+    site-header: 1000,
 );
 
 /**
