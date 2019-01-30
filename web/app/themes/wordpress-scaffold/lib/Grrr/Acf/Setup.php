@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Acf;
+<?php namespace Grrr\Acf;
 
 class Setup {
 
@@ -14,7 +12,8 @@ class Setup {
     }
 
     public function init() {
-        (new OptionsPage)->init();
+        (new Options\Pages)->init();
+        (new FlexibleContent\AdminTitles)->init();
     }
 
 }
