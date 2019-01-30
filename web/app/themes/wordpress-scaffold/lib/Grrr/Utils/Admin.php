@@ -21,8 +21,8 @@ add_filter('tiny_mce_before_init', __NAMESPACE__ . '\\adjust_editor');
  * Set custom admin favicon.
  */
 function admin_favicon() {
-    echo '<link rel="shortcut icon" type="image/x-icon" href="'
-        . Assets\asset_path('images/favicon--admin.png') . '">';
+    echo '<link rel="icon" sizes="512x512" type="image/png" href="'
+        . Assets\asset_path('images/favicons/favicon-admin.png') . '">';
 }
 add_action('admin_head', __NAMESPACE__ . '\\admin_favicon');
 
