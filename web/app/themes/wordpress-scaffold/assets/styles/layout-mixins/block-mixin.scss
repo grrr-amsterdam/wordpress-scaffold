@@ -1,7 +1,7 @@
 @mixin block($size: large) {
     margin-left: auto; margin-right: auto;
     padding-left: 25px; padding-right: 25px;
-    @include bp-min($small) {
+    @include bp-min($tiny) {
         @if ($size != full) {
             max-width: calc(#{map-get($site-widths, $size)} + 6vw + 4rem);
         }

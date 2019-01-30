@@ -1,8 +1,51 @@
-@import 'utility/functions';
-@import 'utility/mixins';
-@import 'utility/variables';
+// sass-lint:disable class-name-format
 
 /**
  * This file is loaded in the admin area, not to be confused with the styling
  * loaded inside the TinyMCE editor.
  */
+
+@import 'utility/functions';
+@import 'utility/mixins';
+@import 'utility/variables';
+
+/**
+ * ACF styling
+ * @see acf.php
+ */
+.acf-fc-layout-handle {
+    @include clearfix;
+    font-size: 12px;
+}
+.acf-fc-layout-order {
+    float: left;
+}
+.acf-fc-layout-handle .block-name {
+    float: left; margin-left: 7px;
+    display: block; opacity: .5;
+}
+.acf-fc-layout-handle .title,
+.acf-fc-layout-handle .body {
+    float: left; clear: left;
+    margin-top: 5px; display: block;
+}
+.acf-fc-layout-handle .thumbnails {
+    position: absolute; right: 35px; top: -10px;
+}
+.acf-fc-layout-handle .thumbnail {
+    margin-right: 5px;
+    display: inline-block; vertical-align: middle; padding: 0; line-height: 0;
+    background: $white; border: 1px solid #E1E1E1;
+}
+
+th.column-featured_image,
+td.column-featured_image {
+    width: 40px;
+    @include bp-max($small) {
+        display: none !important;
+    }
+}
+td.column-featured_image span {
+    display: block; width: 40px; height: 40px;
+    background: rgba($black, 0.1);
+}
