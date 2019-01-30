@@ -1,8 +1,9 @@
 {% if content %}
 <div class="flexible-content">
-    {% for block in content if block.acf_fc_layout %}
-        {% set partial = 'flexible-content/' ~ block.acf_fc_layout|replace({ '_': '-' }) ~ '.twig' %}
-        {% include partial with { block: block } %}
+    {% for flex in content if flex.acf_fc_layout and flex.acf_fc_layout != '———' %}
+        {% set name = flex.acf_fc_layout|replace({ '_': '-' }) %}
+        {% set partial = 'flexibles/' ~ name ~ '-flex.twig' %}
+        {% include partial with { flex: flex } %}
     {% endfor %}
 </div>
 {% endif %}
