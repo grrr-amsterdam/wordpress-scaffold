@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7024411f0e994b9e28ac452b30da4fb6",
+    "content-hash": "78dcb56b95cf0709deb25befef9945f4",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -1283,6 +1283,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/classic-editor/"
+        },
+        {
+            "name": "wpackagist-plugin/safe-svg",
+            "version": "1.9.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/safe-svg/",
+                "reference": "tags/1.9.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/safe-svg/"
         },
         {
             "name": "wpackagist-plugin/thumbnail-upscale",

@@ -97,6 +97,8 @@ class PostCreateProject
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate ajax-thumbnail-rebuild");
         $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate safe-svg");
+        $io->write("\n" . $output);
 
         $themePath = self::_getThemePath($themeName);
         $output = shell_exec("wp theme activate {$themeName}");
