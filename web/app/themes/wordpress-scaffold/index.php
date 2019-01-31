@@ -1,14 +1,6 @@
 <?php
 
-$templates = [
-    'index.twig',
-];
-
-if (is_home()) {
-	array_unshift($templates, 'front-page.twig', 'home.twig');
-}
-
-$context = Timber\Timber::get_context();
-$context['templates'] = $templates;
-
-Timber\Timber::render('base.twig', $context, TWIG_CACHE_TTL);
+/**
+ * All requests are handled in more specific files, like `page.php`, `archive.php`, etc.
+ * See: https://developer.wordpress.org/themes/basics/template-hierarchy/
+ */
