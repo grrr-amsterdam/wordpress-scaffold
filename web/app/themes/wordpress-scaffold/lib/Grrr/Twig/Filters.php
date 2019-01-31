@@ -9,6 +9,7 @@ class Filters {
 
     const FUNCTION_MAPPER = [
         'dropcap' => 'add_dropcap',
+        'slugify' => 'make_slug',
     ];
 
     public function __construct() {
@@ -22,6 +23,10 @@ class Filters {
             $html,
             1
         );
+    }
+
+    public function make_slug(string $string): string {
+        return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $string)));
     }
 
     public function add_filters(\Twig_Environment $twig) {
