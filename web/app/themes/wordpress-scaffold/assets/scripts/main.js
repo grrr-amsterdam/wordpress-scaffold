@@ -2,11 +2,8 @@
 import Promise from 'promise-polyfill';
 import 'whatwg-fetch';
 import 'classlist-polyfill';
+import { handle, enhance } from '@grrr/hansel';
 import rafPolyfill from './polyfills/request-animation-frame';
-
-// Handler and Enhancer utility
-import handle from './modules/handle';
-import enhance from './modules/enhance';
 
 // Import functions that are executed on DOMready regardless of DOM
 import { onDomReady } from './modules/ready';
