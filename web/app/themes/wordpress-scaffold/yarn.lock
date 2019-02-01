@@ -661,6 +661,11 @@
     watchify "^3.9.0"
     yargs "^12.0.1"
 
+"@grrr/hansel@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@grrr/hansel/-/hansel-1.0.4.tgz#b42a1be7aee6ac905e3217bdad5a91a7a993547c"
+  integrity sha512-ZMIFQHn+xCC786FuIY3lxprL9lBfO/3q+KYSl7xRyXFNULEQTIgcGFHzGc2g3DQy3ot8ydnhNKFhC4LKtUxnZg==
+
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@gulp-sourcemaps/identity-map/-/identity-map-1.0.2.tgz#1e6fe5d8027b1f285dc0d31762f566bccd73d5a9"
