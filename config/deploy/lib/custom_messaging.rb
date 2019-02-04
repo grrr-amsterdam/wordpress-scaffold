@@ -39,7 +39,7 @@ module Slackistrano
     # Fancy updated message.
     # See https://api.slack.com/docs/message-attachments
     def payload_for_updated
-      version = `git describe #{fetch(:branch)} --tags`.strip!
+      version = `git describe #{fetch(:branch)} --tags --always`.strip!
       {
         text: "*#{application}* *#{version}* (*#{fetch(:branch)}*) was deployed to *#{stage}* by *#{deployer}*"
       }

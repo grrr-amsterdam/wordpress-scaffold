@@ -6,7 +6,7 @@ namespace :versioning do
       version = ''
       if "#{fetch(:branch)}" == 'master'
         within fetch(:repo_path) do
-          version = capture(:git, 'describe master --tags')
+          version = capture(:git, 'describe master --tags --always')
         end
       else
         datetime = Time.now.strftime("%Y%m%d%H%M%S")
