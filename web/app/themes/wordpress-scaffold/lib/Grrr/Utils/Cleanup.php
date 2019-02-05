@@ -32,6 +32,14 @@ function wpembed_dequeue_script() {
 add_action('wp_print_scripts', __NAMESPACE__ . '\\wpembed_dequeue_script');
 
 /**
+ * Remove Gutenberg block-library/style.css (WP 5.0+)
+ */
+function wps_deregister_styles() {
+    wp_dequeue_style('wp-block-library');
+}
+add_action('wp_print_styles', __NAMESPACE__ . '\\wps_deregister_styles');
+
+/**
  * Remove dashicons for non-admins
  */
 function wpdocs_dequeue_dashicon() {
