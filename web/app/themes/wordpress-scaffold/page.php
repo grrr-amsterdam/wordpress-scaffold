@@ -1,7 +1,7 @@
 <?php
 
 $templates = [
-    'page-' . $post->post_name . '.twig',
+    'pages/' . $post->post_name . '-page.twig',
     'page.twig',
 ];
 
