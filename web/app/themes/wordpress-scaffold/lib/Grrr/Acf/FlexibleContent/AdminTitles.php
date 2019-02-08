@@ -1,10 +1,16 @@
 <?php namespace Grrr\Acf\FlexibleContent;
 
+/**
+ * Adds contextual content to styled flexible content blocks in the CMS.
+ * Adjust names according to field names used in the flexible content blocks
+ * to load content.
+ */
+
 class AdminTitles {
 
     const FLEX_NAME = 'flexible_content';
 
-    public function init() {
+    public function register() {
         add_filter(
             'acf/fields/flexible_content/layout_title/name=' . self::FLEX_NAME,
             [$this, 'filterLayoutTitles'], 1, 4
@@ -14,12 +20,12 @@ class AdminTitles {
     public function filterLayoutTitles($title, $field, $layout, $i) {
         $out = '<span class="block-name">' . $title . '</span>';
 
-        // title
+        // Title
         if ($text = get_sub_field('title')):
             $out .= "<div class=\"title\">{$text}</div>";
         endif;
 
-        // image
+        // Image
         if ($image = get_sub_field('image')):
             if (is_array($image)) {
                 $out .= '<div class="thumbnails"><div class="thumbnail"><img src="' .
@@ -27,7 +33,7 @@ class AdminTitles {
             }
         endif;
 
-        // images
+        // Multiple images
         if ($images = get_sub_field('images')):
             $count = 0;
             $out .= '<div class="thumbnails">';
@@ -41,17 +47,17 @@ class AdminTitles {
             $out .= '</div>';
         endif;
 
-        // text block (body)
+        // Text block (body)
         if (!$text && $body = get_sub_field('description') ?: get_sub_field('text')):
             $out .= '<div class="body">' . strip_tags(substr($body, 0, 100)) . ' […]</div>';
         endif;
 
-        // quote
+        // Quote
         if (!$text && $body = get_sub_field('quote')):
             $out .= '<div class="body">' . strip_tags(substr($body, 0, 100)) . ' […]</div>';
         endif;
 
-        // video block
+        // Video
         if (!$text && !$image && $placeholder = get_sub_field('placeholder')) {
             if (is_array($placeholder)) {
                 $out .= '<div class="thumbnails"><div class="thumbnail"><img src="' .

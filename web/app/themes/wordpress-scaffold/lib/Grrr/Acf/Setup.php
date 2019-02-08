@@ -12,8 +12,8 @@ class Setup {
     }
 
     public function init() {
-        (new Options\Pages)->init();
-        (new FlexibleContent\AdminTitles)->init();
+        (new Options\Theme)->register();
+        (new FlexibleContent\AdminTitles)->register();
     }
 
 }
