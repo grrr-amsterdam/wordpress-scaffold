@@ -1,6 +1,6 @@
 <?php
 
-namespace Grrr\API;
+namespace Grrr\Api;
 
 use Garp\Functional as f;
 use Grrr\MailingListServiceProvider\MailChimp;
