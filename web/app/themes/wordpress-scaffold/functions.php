@@ -53,4 +53,4 @@ try {
 /**
  * API
  */
-(new API\Newsletter)->init();
+(new Api\Newsletter)->init();
