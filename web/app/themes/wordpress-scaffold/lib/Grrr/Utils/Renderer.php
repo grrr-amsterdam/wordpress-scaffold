@@ -1,6 +1,6 @@
 <?php
 
-namespace Grrr\Templates;
+namespace Grrr\Utils;
 
 class Renderer {
 

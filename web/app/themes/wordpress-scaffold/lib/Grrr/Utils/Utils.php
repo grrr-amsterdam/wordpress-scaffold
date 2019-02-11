@@ -26,7 +26,7 @@ function svg($id, $args = []) {
  * Render a template/partial
  */
 function partial(string $file, array $args = []) {
-    (new Utils\Renderer($file, $args))->render();
+    (new Renderer($file, $args))->render();
 }
 
 /**

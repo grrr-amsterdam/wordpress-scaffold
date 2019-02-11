@@ -107,6 +107,11 @@ define('WP_POST_REVISIONS', 30);
 define('APPLICATION_VERSION', (new Root\Versioning)->get_version());
 
 /**
+ * Advanced Custom Fields (ACF)
+ */
+define('ACF_SYNC_WARNING', env('ACF_SYNC_WARNING') ?: false);
+
+/**
  * AWS & S3
  */
 define('DBI_AWS_ACCESS_KEY_ID', env('DBI_AWS_ACCESS_KEY_ID'));
