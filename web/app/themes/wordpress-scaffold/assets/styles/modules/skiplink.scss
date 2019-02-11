@@ -6,7 +6,7 @@
 }
 .skiplink:focus,
 .skiplink:active {
-    z-index: 10000; transform: none; opacity: 1;
+    z-index: z(skiplink); transform: none; opacity: 1;
 }
 .skiplink:focus::before {
     content: '';
