@@ -9,6 +9,7 @@ class Setup {
     }
 
     public function init() {
+        (new SyncWarning)->register();
         (new Options\Theme)->register();
         (new FlexibleContent\AdminTitles)->register();
     }
