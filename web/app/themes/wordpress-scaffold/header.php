@@ -6,5 +6,5 @@
  * template in footer.php
  */
 
-$GLOBALS['timberContext'] = Timber\Timber::get_context();
+$GLOBALS['timberContext'] = Timber::get_context();
 ob_start();

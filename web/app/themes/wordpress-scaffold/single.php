@@ -1,19 +1,14 @@
 <?php
 
 $templates = [
-    'singles/' . $post->ID . '-single.twig',
     'singles/' . $post->post_type . '-single.twig',
     'single.twig'
 ];
 
-$context = Timber\Timber::get_context();
-$post = Timber\Timber::query_post();
-$context['post'] = $post;
+$context = Timber::get_context();
+$context['post'] = new Timber\Post();
+$context['templates'] = post_password_required($post->ID)
+    ? ['singles/password-single.twig']
+    : $templates;
 
-if (post_password_required($post->ID)) {
-    $context['templates'] = ['singles/password-single.twig'];
-} else {
-    $context['templates'] = $templates;
-}
-
-Timber\Timber::render('base.twig', $context, TWIG_CACHE_TTL);
+Timber::render('base.twig', $context, TWIG_CACHE_TTL);
