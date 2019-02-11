@@ -18,4 +18,4 @@ $templates = [
 ];
 $timberContext['templates'] = $templates;
 
-Timber\Timber::render('base.twig', $timberContext, TWIG_CACHE_TTL);
+Timber::render('base.twig', $timberContext, TWIG_CACHE_TTL);

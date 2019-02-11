@@ -4,7 +4,7 @@ $templates = [
     'archive.twig',
 ];
 
-$context = Timber\Timber::get_context();
+$context = Timber::get_context();
 
 if (is_day()) {
     $context['title'] = 'Archive: ' . get_the_date('D M Y');
@@ -28,6 +28,7 @@ if (is_day()) {
 $context['posts'] = new Timber\PostQuery();
 $context['templates'] = $templates;
 $context['post_type'] = get_post_type();
+$context['term'] = new Timber\Term();
 $context['is_tax'] = is_tax();
 
-Timber\Timber::render('base.twig', $context, TWIG_CACHE_TTL);
+Timber::render('base.twig', $context, TWIG_CACHE_TTL);

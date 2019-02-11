@@ -5,10 +5,12 @@
         <h1>{{ site.name }}</h1>
         {{ svg('arrow')|raw }}
     </header>
+
     <section>
         {% for example in examples %}
             {% include 'previews/example-preview.twig' with { post: example } only %}
         {% endfor %}
     </section>
+
     {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
 </article>

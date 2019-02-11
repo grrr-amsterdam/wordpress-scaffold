@@ -8,49 +8,36 @@ use Grrr\Taxonomies;
 use Grrr\PostTypes;
 
 /**
- * We include function-only files (non-PSR-4 autoloadable, they're not classes) this way,
- * since including them in the theme composer.json will fail due to being 'hoisted' to
- * the main composer.json.
+ * Utils.
  */
-$includes = [
-    'lib/Grrr/Utils',
-];
-foreach ($includes as $directory) {
-    $files = scandir(__DIR__ . '/' . $directory);
-    foreach ($files as $file) {
-        $filepath = locate_template($directory . '/' . $file);
-        if (is_dir($file) || !$filepath) {
-            continue;
-        }
-        require_once $filepath;
-    }
+new Grrr\UtilsLoader();
+
+/**
+ * Theme setup. Fails when Timber plugin is not activated.
+ */
+if (class_exists('Timber')) {
+    (new Theme\Setup)->register();
+    (new Twig\Filters)->register();
+    (new Twig\Functions)->register();
+} else {
+    (new Theme\NoTimber)->register();
 }
-unset($files, $file, $filepath);
 
 /**
- * Theme setup (incl. Timber)
+ * Advanced Custom Fields
  */
-new Theme\Setup();
-new Twig\Filters();
-new Twig\Functions();
-
-/**
- * Advanced Custom Fields (when available)
- */
-try {
-    (new Acf\Setup)->init();
-} catch(\Exception $e) {
-    // Let if fail silently
+if (class_exists('acf')) {
+    (new Acf\Setup)->register();
 }
 
 /**
  * Post Types
  */
-(new PostTypes\Post)->init();
-(new PostTypes\Page)->init();
-(new PostTypes\Example)->init();
+(new PostTypes\Post)->register();
+(new PostTypes\Page)->register();
+(new PostTypes\Example)->register();
 
 /**
  * API
  */
-(new Api\Newsletter)->init();
+(new Api\Newsletter)->register();
