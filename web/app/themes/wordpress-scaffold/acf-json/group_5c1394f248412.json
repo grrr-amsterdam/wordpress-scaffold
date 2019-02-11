@@ -1,0 +1,74 @@
+{
+    "key": "group_5c1394f248412",
+    "title": "Flexible Content",
+    "fields": [
+        {
+            "key": "field_5c1394f707206",
+            "label": "Flexible Content",
+            "name": "flexible_content",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_5c6157d5d5677": {
+                    "key": "layout_5c6157d5d5677",
+                    "name": "text",
+                    "label": "Text",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5c6157e0d5678",
+                            "label": "Clone",
+                            "name": "clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5c61578a94f2f"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Block",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1549885911
+}
