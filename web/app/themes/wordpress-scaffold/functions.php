@@ -33,6 +33,7 @@ if (class_exists('acf')) {
 /**
  * Post Types
  */
+(new PostTypes\Comment)->register();
 (new PostTypes\Post)->register();
 (new PostTypes\Page)->register();
 (new PostTypes\Example)->register();
