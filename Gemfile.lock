@@ -1,24 +1,26 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    airbrussh (1.3.0)
+    airbrussh (1.3.1)
       sshkit (>= 1.6.1, != 1.7.0)
-    capistrano (3.9.1)
+    capistrano (3.11.0)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
     capistrano-composer (0.0.6)
       capistrano (>= 3.0.0.pre)
-    dotenv (2.2.1)
-    i18n (0.8.6)
+    concurrent-ruby (1.1.4)
+    dotenv (2.6.0)
+    i18n (1.5.3)
+      concurrent-ruby (~> 1.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (4.2.0)
-    rake (12.1.0)
-    slackistrano (3.8.2)
+    net-ssh (5.1.0)
+    rake (12.3.2)
+    slackistrano (3.8.3)
       capistrano (>= 3.8.1)
-    sshkit (1.14.0)
+    sshkit (1.18.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
 
@@ -32,7 +34,7 @@ DEPENDENCIES
   slackistrano (>= 3.8)
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.6.1p33
 
 BUNDLED WITH
-   1.16.1
+   2.0.1
