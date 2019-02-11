@@ -1,13 +1,11 @@
-<?php
-
-namespace Grrr\Theme;
+<?php namespace Grrr\Theme;
 
 use Timber;
 use Grrr\Utils\Assets;
 use Garp\Functional as f;
 
-Timber\Timber::$dirname = ['templates'];
-Timber\Timber::$autoescape = true;
+Timber::$dirname = ['templates'];
+Timber::$autoescape = true;
 
 // Cache the twig file and conversion to PHP.
 // See `TWIG_CACHE_TTL` for static caching including data.
@@ -40,12 +38,14 @@ class Setup extends Timber\Site {
     ];
 
     public function __construct() {
+        parent::__construct();
+    }
+
+    public function register() {
 		add_filter('timber_context', [$this, 'add_to_context']);
         add_action('after_setup_theme', [$this, 'theme_setup']);
         add_action('wp_enqueue_scripts', [$this, 'theme_assets']);
         add_action('admin_enqueue_scripts', [$this, 'admin_assets']);
-
-        parent::__construct();
     }
 
     /**

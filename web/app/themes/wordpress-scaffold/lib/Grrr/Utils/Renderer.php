@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Utils;
+<?php namespace Grrr\Utils;
 
 class Renderer {
 

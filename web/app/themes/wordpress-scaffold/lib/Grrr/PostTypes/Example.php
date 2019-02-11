@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\PostTypes;
+<?php namespace Grrr\PostTypes;
 
 class Example extends PostTypesAbstract {
 

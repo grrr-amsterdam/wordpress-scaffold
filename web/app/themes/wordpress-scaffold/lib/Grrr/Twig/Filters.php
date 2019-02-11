@@ -1,8 +1,5 @@
-<?php
+<?php namespace Grrr\Twig;
 
-namespace Grrr\Twig;
-
-use Timber;
 use Garp\Functional as f;
 
 class Filters {
@@ -12,7 +9,7 @@ class Filters {
         'slugify' => 'make_slug',
     ];
 
-    public function __construct() {
+    public function register() {
         add_filter('timber/twig', [$this, 'add_filters']);
     }
 

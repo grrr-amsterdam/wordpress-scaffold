@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Utils\AdminLogin;
+<?php namespace Grrr\Utils\AdminLogin;
 
 use Grrr\Utils\Assets;
 

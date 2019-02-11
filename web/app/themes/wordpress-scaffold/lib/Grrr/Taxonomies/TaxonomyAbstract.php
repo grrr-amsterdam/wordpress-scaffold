@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Taxonomies;
+<?php namespace Grrr\Taxonomies;
 
 abstract class TaxonomyAbstract {
 
@@ -29,11 +27,11 @@ abstract class TaxonomyAbstract {
         $this->_args = array_merge($defaults, $this->_args);
     }
 
-    public function init() {
-        add_action('init', [$this, 'register'], 0);
+    public function register() {
+        add_action('init', [$this, 'register_taxonomy'], 0);
     }
 
-    public function register() {
+    public function register_taxonomy() {
         register_taxonomy($this->_taxonomy, null, $this->_args);
     }
 

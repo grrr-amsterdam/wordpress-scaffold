@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Api;
+<?php namespace Grrr\Api;
 
 use Garp\Functional as f;
 use Grrr\MailingListServiceProvider\MailChimp;
@@ -13,7 +11,7 @@ class Newsletter {
     const EMAIL_INPUT = 'email';
     const HONEYPOT_INPUT = 'random_input';
 
-    public function init() {
+    public function register() {
         add_action('rest_api_init', [$this, 'registerEndpoints']);
     }
 

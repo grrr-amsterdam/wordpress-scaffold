@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\MailingListServiceProvider;
+<?php namespace Grrr\MailingListServiceProvider;
 
 use \DrewM\MailChimp\MailChimp as MailChimpAPI;
 

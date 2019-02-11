@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Utils;
+<?php namespace Grrr\Utils;
 
 /**
  * Remove generator, rsd and wlw

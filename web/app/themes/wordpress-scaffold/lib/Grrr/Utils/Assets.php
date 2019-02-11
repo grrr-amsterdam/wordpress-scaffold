@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Utils\Assets;
+<?php namespace Grrr\Utils\Assets;
 
 /**
  * Get paths for assets
