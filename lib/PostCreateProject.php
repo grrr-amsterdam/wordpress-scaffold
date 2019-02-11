@@ -1,5 +1,7 @@
-<?php
-namespace Grrr\Root;
+<?php namespace Grrr\Root;
+
+use Composer\Script\Event;
+use Grrr\Root\Util\StringUtil as S;
 
 /**
  * PostCreateProject
@@ -9,17 +11,13 @@ namespace Grrr\Root;
  * @package Wordpress Scaffold
  * @author Ramiro Hammen <ramiro@grrr.nl>
  */
-use Composer\Script\Event;
-use Grrr\Root\Util\StringUtil as S;
 
-class PostCreateProject
-{
+class PostCreateProject {
 
     public static $event;
     public static $io;
 
-    public static function setup(Event $event)
-    {
+    public static function setup(Event $event) {
         static::$event = $event;
         $io = $event->getIO();
         static::$io = $io;
@@ -134,7 +132,6 @@ class PostCreateProject
     }
 
     protected static function parseAnswers($answers) {
-        $answers['DB_PREFIX'] = $answers['DB_PREFIX'] . '_';
         $answers['BROWSERSYNC_PROXY'] = $answers['WP_HOME'];
         return $answers;
     }
@@ -171,8 +168,7 @@ class PostCreateProject
         ];
     }
 
-    protected static function getEnvQuestions()
-    {
+    protected static function getEnvQuestions() {
         $questions = [
             'DB_HOST' => [
                 'question' => 'Database host',
@@ -191,8 +187,8 @@ class PostCreateProject
                 'default' => 'welovegarp'
             ],
             'DB_PREFIX' => [
-                'question' => 'Database prefix (without trailing `_`)',
-                'default' => 'grrr',
+                'question' => 'Database prefix (incl. trailing `_`)',
+                'default' => 'grrr_',
                 'validator' => function($value) {
                     if (empty($value)) {
                         throw new \Exception("Value is required");
@@ -269,14 +265,12 @@ class PostCreateProject
         return shell_exec($installCommand);
     }
 
-    protected static function _composeProjectName()
-    {
+    protected static function _composeProjectName() {
         $vendorDir = self::$event->getComposer()->getConfig()->get('vendor-dir');
         return pathinfo(dirname($vendorDir))['basename'];
     }
 
-    protected static function _composeThemeName()
-    {
+    protected static function _composeThemeName() {
         $projectName = self::_composeProjectName();
         $themeName = str_replace('_', ' ', self::_composeProjectName());
         $themeName = str_replace('-', ' ', $themeName);
@@ -284,8 +278,7 @@ class PostCreateProject
         return $themeName;
     }
 
-    protected static function _getRootPath()
-    {
+    protected static function _getRootPath() {
         $vendorDir = self::$event->getComposer()->getConfig()->get('vendor-dir');
         return pathinfo($vendorDir)['dirname'];
     }

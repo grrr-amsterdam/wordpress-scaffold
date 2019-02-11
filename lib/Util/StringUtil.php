@@ -1,7 +1,7 @@
-<?php
-namespace Grrr\Root\Util;
+<?php namespace Grrr\Root\Util;
 
 class StringUtil {
+
     /**
      * Interpolate strings with variables
      *
@@ -21,4 +21,5 @@ class StringUtil {
         $str = str_replace($keys, $vals, $str);
         return $str;
     }
+
 }
