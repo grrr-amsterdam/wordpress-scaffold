@@ -85,9 +85,11 @@ class PostCreateProject {
         $io->write("\n<info>Activate theme & plugins</info>");
 
         $io->write("\n" . $output);
-        $output = shell_exec("wp plugin activate classic-editor");
+        $output = shell_exec("wp plugin activate timber-library");
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate soil");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp plugin activate classic-editor");
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate thumbnail-upscale");
         $io->write("\n" . $output);
