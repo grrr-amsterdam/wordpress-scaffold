@@ -16,7 +16,6 @@ add_filter('login_headerurl', __NAMESPACE__ . '\\my_login_logo_url');
  * Adjust admin logo and login styling.
  */
 function my_login_logo() {
-    $logo = 'images/' . SITE_VARIATION . '/site-logo.svg';
     ?>
     <style type="text/css">
         .login #loginform {
@@ -29,7 +28,7 @@ function my_login_logo() {
             height: 90px !important;
             background-size: contain !important;
             background-position: center !important;
-            background-image: url('<?= Assets\asset_path($logo) ?>') !important;
+            background-image: url('<?= Assets\asset_path('images/site-logo.svg') ?>') !important;
         }
         .login input[type="submit"] {
             background-color: #000000;
