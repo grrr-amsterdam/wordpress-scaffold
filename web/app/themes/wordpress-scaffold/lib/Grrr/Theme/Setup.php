@@ -4,6 +4,7 @@ namespace Grrr\Theme;
 
 use Timber;
 use Grrr\Utils\Assets;
+use Garp\Functional as f;
 
 Timber\Timber::$dirname = ['templates'];
 Timber\Timber::$autoescape = true;
@@ -17,9 +18,25 @@ if (WP_ENV !== 'development') {
 class Setup extends Timber\Site {
 
     const ENV_MAPPER = [
+        'wp_env' => WP_ENV,
         'application_version' => APPLICATION_VERSION,
         'aws_s3_region' => AS3CF_REGION,
         'google_tag_manager_id' => GOOGLE_TAG_MANAGER_ID,
+    ];
+
+    const NAV_MENUS = [
+        [
+            'location' => 'primary_navigation',
+            'description' => 'Primary Navigation',
+        ],
+        [
+            'location' => 'footer_primary_navigation',
+            'description' => 'Footer Primary Navigation',
+        ],
+        [
+            'location' => 'footer_secondary_navigation',
+            'description' => 'Footer Secondary Navigation',
+        ],
     ];
 
     public function __construct() {
@@ -27,6 +44,7 @@ class Setup extends Timber\Site {
         add_action('after_setup_theme', [$this, 'theme_setup']);
         add_action('wp_enqueue_scripts', [$this, 'theme_assets']);
         add_action('admin_enqueue_scripts', [$this, 'admin_assets']);
+
         parent::__construct();
     }
 
@@ -35,13 +53,20 @@ class Setup extends Timber\Site {
      */
     public function add_to_context($context) {
         $context['site'] = $this;
-        $context['menu'] = new \Timber\Menu('primary_navigation');
         $context['env'] = self::ENV_MAPPER;
+
+        // Add menus to context, but check if menu for location exists.
+        $context['menus'] = f\reduce(function ($menus, $nav_menu) {
+            $menus[$nav_menu['location']] = has_nav_menu($nav_menu['location'])
+                ? new Timber\Menu($nav_menu['location']) : null;
+            return $menus;
+        }, [], self::NAV_MENUS);
+
         return $context;
     }
 
     /**
-     * WordPress theme setup
+     * WordPress theme setup.
      */
     public function theme_setup() {
         // Enable features from Soil when plugin is activated
@@ -61,9 +86,7 @@ class Setup extends Timber\Site {
 
         // Register wp_nav_menu() menus
         // http://codex.wordpress.org/Function_Reference/register_nav_menus
-        register_nav_menus([
-            'primary_navigation' => __('Primary Navigation', 'sage'),
-        ]);
+        $this->_register_nav_menus();
 
         // Enable post thumbnails
         // http://codex.wordpress.org/Post_Thumbnails
@@ -98,7 +121,7 @@ class Setup extends Timber\Site {
     }
 
     /**
-     * Theme assets
+     * Theme assets.
      */
     function theme_assets() {
         wp_enqueue_style('grrr/css', Assets\asset_path('styles/base.css'), false, null);
@@ -108,9 +131,22 @@ class Setup extends Timber\Site {
     }
 
     /**
-     * Admin assets
+     * Admin assets.
      */
     function admin_assets() {
         wp_enqueue_style('grrr/css', Assets\asset_path('styles/admin.css'), false, null);
     }
+
+    /**
+     * Nav menus.
+     */
+    protected function _register_nav_menus() {
+        f\map(
+            function ($nav_menu) {
+                register_nav_menu($nav_menu['location'], $nav_menu['description']);
+            },
+            self::NAV_MENUS
+        );
+    }
+
 }
