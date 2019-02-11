@@ -1,12 +1,10 @@
-<?php
-
-namespace Grrr\PostTypes;
+<?php namespace Grrr\PostTypes;
 
 class Page {
 
     protected $_type = 'page';
 
-    public function init() {
+    public function register() {
         add_action('init', [$this, 'adjust'], 1);
     }
 

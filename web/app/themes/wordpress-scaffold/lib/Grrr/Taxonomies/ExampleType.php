@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Taxonomies;
+<?php namespace Grrr\Taxonomies;
 
 class ExampleType extends TaxonomyAbstract {
 

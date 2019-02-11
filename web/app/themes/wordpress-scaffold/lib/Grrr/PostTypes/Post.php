@@ -1,12 +1,10 @@
-<?php
-
-namespace Grrr\PostTypes;
+<?php namespace Grrr\PostTypes;
 
 class Post {
 
     protected $_type = 'post';
 
-    public function init() {
+    public function register() {
         add_action('init', [$this, 'adjust'], 1);
     }
 

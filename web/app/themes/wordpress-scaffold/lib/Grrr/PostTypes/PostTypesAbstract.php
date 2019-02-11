@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\PostTypes;
+<?php namespace Grrr\PostTypes;
 
 use Timber;
 
@@ -38,12 +36,12 @@ abstract class PostTypesAbstract {
         $this->_args = array_merge($defaults, $this->_args);
     }
 
-    public function init() {
-        add_action('init', [$this, 'register'], 1);
+    public function register() {
+        add_action('init', [$this, 'register_post_type'], 1);
         add_filter('timber/twig', [$this, 'twig_functions']);
     }
 
-    public function register() {
+    public function register_post_type() {
         register_post_type($this->_type, $this->_args);
     }
 

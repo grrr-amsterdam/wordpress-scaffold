@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Utils\Extras;
+<?php namespace Grrr\Utils\Extras;
 
 /**
  * Clean up the_excerpt()

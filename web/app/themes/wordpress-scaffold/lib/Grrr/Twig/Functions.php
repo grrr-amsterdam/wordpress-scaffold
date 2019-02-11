@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Twig;
+<?php namespace Grrr\Twig;
 
 use Timber;
 use Grrr\Utils;
@@ -18,7 +16,7 @@ class Functions {
         'svg' => 'get_svg',
     ];
 
-    public function __construct() {
+    public function register() {
         add_filter('timber/twig', [$this, 'add_functions']);
     }
 

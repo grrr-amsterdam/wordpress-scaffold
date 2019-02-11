@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Utils;
+<?php namespace Grrr\Utils;
 
 /**
  * Enqueued scripts inspection, turn on when debugging
