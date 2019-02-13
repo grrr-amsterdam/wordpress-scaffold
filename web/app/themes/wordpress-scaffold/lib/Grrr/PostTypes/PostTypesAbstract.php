@@ -1,6 +1,7 @@
 <?php namespace Grrr\PostTypes;
 
 use Timber;
+use Garp\Functional as f;
 
 abstract class PostTypesAbstract {
 
@@ -15,16 +16,21 @@ abstract class PostTypesAbstract {
     public function __construct() {
         $defaults = [
             'capability_type' => 'page',
-            'supports' => [ 'title', 'revisions', 'thumbnail' ],
+            'supports' => [
+                'title',
+                'revisions',
+                'thumbnail',
+            ],
             'public' => true,
             'show_ui' => true,
-            'exclude_from_search' => false,
-            'hierarchical' => true,
-            'has_archive' => false,
+            'has_archive' => true,
             'query_var' => true,
+            'exclude_from_search' => false,
+            'show_in_rest' => false,
+            'hierarchical' => false,
             'rewrite' => [
                 'slug' => $this->_slug,
-                'with_front' => true,
+                'with_front' => false,
             ],
             'taxonomies' => [],
             'labels' => [
@@ -33,7 +39,7 @@ abstract class PostTypesAbstract {
             ],
             'menu_icon' => $this->_icon,
         ];
-        $this->_args = array_merge($defaults, $this->_args);
+        $this->_args = f\concat($defaults, $this->_args);
     }
 
     public function register() {

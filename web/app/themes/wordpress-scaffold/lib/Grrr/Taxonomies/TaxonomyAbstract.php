@@ -1,5 +1,7 @@
 <?php namespace Grrr\Taxonomies;
 
+use Garp\Functional as f;
+
 abstract class TaxonomyAbstract {
 
     protected $_taxonomy;
@@ -17,14 +19,14 @@ abstract class TaxonomyAbstract {
             'show_admin_column' => true,
             'rewrite' => [
                 'slug' => $this->_slug,
-                'with_front' => true,
+                'with_front' => false,
             ],
             'labels' => [
                 'name' => $this->_name,
                 'singular_name' => $this->_singular_name,
             ],
         ];
-        $this->_args = array_merge($defaults, $this->_args);
+        $this->_args = f\concat($defaults, $this->_args);
     }
 
     public function register() {

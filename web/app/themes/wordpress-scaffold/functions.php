@@ -24,14 +24,19 @@ if (class_exists('Timber')) {
 }
 
 /**
- * Advanced Custom Fields
+ * Advanced Custom Fields.
  */
 if (class_exists('acf')) {
     (new Acf\Setup)->register();
 }
 
 /**
- * Post Types
+ * Taxonomies.
+ */
+(new Taxonomies\ExampleType)->register();
+
+/**
+ * Post Types.
  */
 (new PostTypes\Comment)->register();
 (new PostTypes\Post)->register();
@@ -39,6 +44,6 @@ if (class_exists('acf')) {
 (new PostTypes\Example)->register();
 
 /**
- * API
+ * API.
  */
 (new Api\Newsletter)->register();

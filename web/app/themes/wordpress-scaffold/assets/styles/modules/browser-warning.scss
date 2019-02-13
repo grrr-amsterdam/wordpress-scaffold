@@ -1,5 +1,5 @@
 .browser-warning {
-    z-index: 100; position: fixed; bottom: 0; left: 0;
+    z-index: z(browser-warning); position: fixed; bottom: 0; left: 0;
     width: 100%; padding: 12px 15px;
     background: $white; border-top: 1px solid $primary-color;
     color: $primary-color; font-size: 16px; text-align: center; line-height: 1.3;
