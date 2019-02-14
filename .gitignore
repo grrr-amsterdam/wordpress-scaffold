@@ -20,8 +20,7 @@
 !/web/app/mu-plugins/.gitkeep
 
 # Plugins not available on Packagist/WPackagist
-!/web/app/plugins/advanced-custom-fields-pro
-!/web/app/plugins/acf-sync
+# !/web/app/plugins/advanced-custom-fields-pro
 
 # Cache
 /web/app/cache/*
