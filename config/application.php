@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
 use Grrr\Root;
 
 /** @var string Directory containing all of the site's files */
