@@ -3,7 +3,7 @@
     {% for flex in content if flex.acf_fc_layout and flex.acf_fc_layout != '———' %}
         {% set name = flex.acf_fc_layout|replace({ '_': '-' }) %}
         {% set partial = 'flexibles/' ~ name ~ '-flex.twig' %}
-        {% include partial with { flex: flex } %}
+        {% include partial ignore missing with { flex: flex } %}
     {% endfor %}
 </div>
 {% endif %}
