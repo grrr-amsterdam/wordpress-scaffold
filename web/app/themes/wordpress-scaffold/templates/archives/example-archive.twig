@@ -1,0 +1,17 @@
+<section>
+    {% include 'partials/page-header.twig' with {
+        title: title,
+    } only %}
+
+    {% for post in posts %}
+        {% include 'previews/' ~ post.post_type ~ '-preview.twig' %}
+    {% endfor %}
+
+    {% include 'partials/pagination.twig' with {
+        pagination: posts.pagination({
+            show_all: false,
+            mid_size: 3,
+            end_size: 2,
+        }),
+    } only %}
+</section>
