@@ -1,0 +1,18 @@
+parameters:
+    bootstrap: null
+    excludes_analyse: [
+        %currentWorkingDirectory%/../../../../vendor
+        %currentWorkingDirectory%/vendor
+        %currentWorkingDirectory%/lib/Grrr/Utils/*
+    ]
+    autoload_directories: [
+
+    ]
+    autoload_files: [
+        %currentWorkingDirectory%/vendor/giacocorsiglia/wordpress-stubs/wordpress-stubs.php
+    ]
+    fileExtensions:
+        - php
+    ignoreErrors: [
+
+    ]

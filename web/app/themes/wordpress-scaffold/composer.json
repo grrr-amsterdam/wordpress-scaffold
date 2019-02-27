@@ -24,11 +24,20 @@
     "composer/installers": "^1.2.0",
     "drewm/mailchimp-api": "^2.5"
   },
+  "require-dev": {
+    "phpstan/phpstan": "^0.11.2",
+    "giacocorsiglia/wordpress-stubs": "^4.9"
+  },
   "autoload": {
     "psr-4": {
       "Grrr\\": [
         "lib/Grrr/"
       ]
     }
+  },
+  "scripts": {
+    "analyse": [
+      "vendor/bin/phpstan analyse . -l max"
+    ]
   }
 }

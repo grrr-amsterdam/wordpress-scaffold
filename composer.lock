@@ -854,9 +854,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/acf-content-analysis-for-yoast-seo.2.2.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/acf-content-analysis-for-yoast-seo.2.2.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -874,9 +872,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.8.7.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.8.7.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -894,9 +890,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-thumbnail-rebuild.1.13.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/ajax-thumbnail-rebuild.1.13.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -914,9 +908,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/amazon-s3-and-cloudfront.2.0.1.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/amazon-s3-and-cloudfront.2.0.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -934,9 +926,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.4.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -954,9 +944,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.2.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -974,9 +962,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.1.9.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/timber-library.1.9.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -994,9 +980,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.0.9.7.2.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.0.9.7.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1014,9 +998,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.9.6.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.9.6.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1034,9 +1016,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-ses.zip?timestamp=1547567408",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/wp-ses.zip?timestamp=1547567408"
             },
             "require": {
                 "composer/installers": "~1.0"

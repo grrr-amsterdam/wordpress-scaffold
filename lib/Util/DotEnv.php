@@ -1,7 +1,7 @@
 <?php namespace Grrr\Root\Util;
 
 use Composer\Composer;
-use Dotenv\DotEnv as DotEnvLib;
+use Dotenv\Dotenv as DotEnvLib;
 
 class DotEnv {
 

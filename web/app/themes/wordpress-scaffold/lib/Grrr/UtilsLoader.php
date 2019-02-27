@@ -22,7 +22,7 @@ class UtilsLoader {
                 if (is_dir($file) || !$filepath) {
                     continue;
                 }
-                require_once $filepath;
+                require_once($filepath);
             }
         }
         unset($files, $file, $filepath);
