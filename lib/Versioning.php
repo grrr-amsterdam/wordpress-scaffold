@@ -1,6 +1,4 @@
-<?php
-
-namespace Grrr\Root;
+<?php namespace Grrr\Root;
 
 class Versioning {
 
