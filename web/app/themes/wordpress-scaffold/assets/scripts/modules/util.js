@@ -1,3 +1,8 @@
+/**
+ * @NOTE Most utils have moved to the `@grrr/utils` package. Feel free to add
+ * missing functions there.
+ */
+
 export const getScrollPosition = () => {
   const supportPageOffset = window.pageXOffset !== undefined;
   const isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
@@ -15,95 +20,6 @@ export const getScrollPosition = () => {
     y,
   };
   /* eslint-enable no-nested-ternary */
-};
-
-export const closest = (elm, selector) => {
-  let matchesFn;
-
-  // find vendor prefix
-  [
-    "matches",
-    "webkitMatchesSelector",
-    "mozMatchesSelector",
-    "msMatchesSelector",
-    "oMatchesSelector",
-  ].some(fn => {
-    if (typeof document.body[fn] === "function") {
-      matchesFn = fn;
-      return true;
-    }
-    return false;
-  });
-
-  // traverse parents
-  while (elm !== null) {
-    const parent = elm.parentElement;
-    if (parent !== null && parent[matchesFn] !== undefined && parent[matchesFn](selector)) {
-      return parent;
-    }
-    elm = parent;
-  }
-
-  return null;
-};
-
-export const head = a => a[0];
-
-export const forEach = (a, fn) => Array.prototype.forEach.call(a, fn);
-
-export const filter = (a, fn) => Array.prototype.filter.call(a, fn);
-
-export const not = fn => (...args) => !fn(...args);
-
-export const compose = (...fns) => arg => fns.reverse().reduce((acc, fn) => fn(acc), arg);
-
-export const objectByKey = (arr, key) => {
-  return arr.reduce((prev, curr) => {
-    if (typeof curr[key] === "undefined") {
-      return prev;
-    }
-    prev[curr[key]] = curr;
-    return prev;
-  }, {});
-};
-
-export const concat = (arr, x) => arr.concat([x]);
-
-export const range = (max, n = 0) => {
-  if (n > max) {
-    throw new Error("max should be less than start");
-  }
-  return n >= max ? [] : [n].concat(range(max, n + 1));
-};
-
-export const preventDefault = e => e.preventDefault();
-
-export const debounce = (fn, delay) => {
-  let timer = null;
-  return function(...args) {
-    clearTimeout(timer);
-    timer = setTimeout(e => fn(...args), delay);
-  };
-};
-
-export const throttle = (fn, limit) => {
-  let lastFunc;
-  let lastRan;
-  return function(...args) {
-    const context = this;
-    if (!lastRan) {
-      fn.apply(context, ...args);
-      lastRan = Date.now();
-    } else {
-      clearTimeout(lastFunc);
-      lastFunc = setTimeout(() => {
-        if ((Date.now() - lastRan) >= limit) {
-          fn.apply(context, ...args);
-          lastRan = Date.now();
-        }
-      }, limit - (Date.now() - lastRan));
-    }
-  };
 };
 
 export const parseJSON = json => {
