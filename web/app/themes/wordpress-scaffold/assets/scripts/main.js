@@ -33,11 +33,11 @@ const executeOnReady = () => {
 
 const main = () => {
   executeOnReady();
-  handle({
+  handle(document.documentElement, {
     classToggler,
     gtmEventHandler,
   });
-  enhance({
+  enhance(document.documentElement, {
     gtmEventEnhancer,
     newsletterSignup,
   });
