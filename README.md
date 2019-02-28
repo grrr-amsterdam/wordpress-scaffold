@@ -81,6 +81,12 @@ Deployments should be done by calling the wrapper script:
 sh deploy.sh <environment>
 ```
 
+To quickly connect to a server, run the following WP-CLI command:
+
+```
+wp ssh <environment> [--server=<number>]
+```
+
 ## Under the hood
 
 This scaffold is inspired by:
