@@ -668,17 +668,17 @@
     watchify "^3.9.0"
     yargs "^13.2.0"
 
-"@grrr/hansel@^1.0.4":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@grrr/hansel/-/hansel-1.0.5.tgz#25d8c1e0db42f96583afbfb7582f9e8bdeced5a2"
-  integrity sha512-0dtGxZoO9+gT+yO1k8ZoKy0bVcbxO5t+slRl+oiwmzttiSiYsIRQDrmvFa+CmODR2yI7DC1T/1Fj8A7TnNuGXw==
+"@grrr/hansel@^2.0.0":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@grrr/hansel/-/hansel-2.0.1.tgz#644638f44e4d4e2a9fb1ab688f06ab4111308b88"
+  integrity sha512-32KYtiHVJznMIhQ3AaOqtrMZiXeY24+l2GqnTSPRpz+Ar59gYZe70CES3WjKCV1heuMOp2nwqA12xmpyEilBhg==
   dependencies:
-    "@grrr/utils" "^1.1.0"
+    "@grrr/utils" "^2.0.0"
 
-"@grrr/utils@^1.1.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@grrr/utils/-/utils-1.1.1.tgz#e5494c694fa79cd6d413f2b89121a235a1597211"
-  integrity sha512-Wg/653VBhtqP/QutUknpkrJjqvCgYWZL1poNAPZ4+AAWdqjhDebk3WyKrgbQ0iaEhpVw4C8MHBh/tD+8TMdlSw==
+"@grrr/utils@^2.0.0", "@grrr/utils@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@grrr/utils/-/utils-2.0.1.tgz#ad2dabf35beda40bb9ccc5927f9a6a57e63a9115"
+  integrity sha512-GORpyB7f3NkXecqdYmcwOcP5dmuYRGP9nY2TShJ//uHoBI8d13pI+LY93napQ1uu/oz7JqkrOUVkBP5lfcbJrw==
 
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.2"

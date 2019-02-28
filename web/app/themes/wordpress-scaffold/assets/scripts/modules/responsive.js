@@ -1,4 +1,4 @@
-import { debounce } from './util';
+import { debounce } from '@grrr/utils';
 
 /**
  * Responsive breakpoint registry

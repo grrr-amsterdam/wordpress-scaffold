@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@grrr/hansel": "^1.0.4",
+    "@grrr/hansel": "^2.0.0",
+    "@grrr/utils": "^2.0.1",
     "classlist-polyfill": "^1.2.0",
     "fg-loadjs": "^1.0.0",
     "normalize.css": "^8.0.0",
