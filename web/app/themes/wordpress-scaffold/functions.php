@@ -1,11 +1,12 @@
 <?php
 
 use Grrr\Acf;
-use Grrr\API;
-use Grrr\Twig;
-use Grrr\Theme;
-use Grrr\Taxonomies;
+use Grrr\Api;
+use Grrr\Cli;
 use Grrr\PostTypes;
+use Grrr\Taxonomies;
+use Grrr\Theme;
+use Grrr\Twig;
 
 /**
  * Utils.
@@ -26,9 +27,7 @@ if (class_exists('Timber')) {
 /**
  * Advanced Custom Fields.
  */
-if (class_exists('acf')) {
-    (new Acf\Setup)->register();
-}
+(new Acf\Setup)->register();
 
 /**
  * Taxonomies.
@@ -47,3 +46,8 @@ if (class_exists('acf')) {
  * API.
  */
 (new Api\Newsletter)->register();
+
+/**
+ * WP-CLI.
+ */
+(new Cli\Setup)->register();

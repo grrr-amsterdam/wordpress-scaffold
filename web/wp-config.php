@@ -11,3 +11,4 @@ require_once(dirname(__DIR__) . '/config/application.php');
 require_once(ABSPATH . 'wp-settings.php');
 
 \Grrr\Root\Sentry::init();
+\Grrr\Root\Cli\Setup::init();
