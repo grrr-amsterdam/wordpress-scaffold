@@ -34,9 +34,9 @@ class Renderer {
         endswitch;
     }
 
-    public static function get(string $file, array $args = []): string {
+    public function get(): string {
         ob_start();
-        self::render($file, $args);
+        self::render();
         $output = ob_get_contents();
         ob_end_clean();
         return $output;
