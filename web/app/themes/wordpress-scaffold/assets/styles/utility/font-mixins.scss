@@ -7,5 +7,5 @@
 }
 
 @mixin ui-font {
-    font-family: $ui-font;
+    font-family: $ui-font; font-weight: bold;
 }

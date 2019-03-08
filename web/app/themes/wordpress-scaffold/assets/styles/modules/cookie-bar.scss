@@ -1,0 +1,36 @@
+.cookie-bar {
+    z-index: z(cookie-bar); position: fixed; right: 0; bottom: 0; left: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 15px; background: $blackish; color: $white; font-size: 12px;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease-out; transition-delay: 0.3s;
+    @include bp-min(360) {
+        padding: 10px 20px;
+    }
+    @include bp-min($small) {
+        font-size: 14px;
+    }
+}
+.cookie-bar[aria-hidden="true"] {
+    display: none;
+    visibility: hidden; opacity: 0; pointer-events: none;
+    transform: translate3d(0, 100%, 0); transition-delay: 0s;
+}
+
+/**
+ * Content
+ */
+.cookie-bar p {
+    margin-bottom: 0; margin-right: 20px;
+}
+.cookie-bar p > span {
+    @include bp-min($medium) {
+        margin-right: 20px;
+    }
+}
+.cookie-bar p > a {
+    @include ui-font; color: $white;
+}
+.cookie-bar button {
+    margin-top: 0; padding: 10px 25px; font-size: 16px;
+}

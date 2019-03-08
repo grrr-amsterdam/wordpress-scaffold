@@ -21,6 +21,13 @@ class Theme {
 
     private function _add_sub_pages() {
         acf_add_options_sub_page([
+            'page_title'    => 'Cookie Bar',
+            'menu_title'    => 'Cookie Bar',
+            'menu_slug'     => static::SLUG . '-cookie-bar',
+            'parent_slug'   => static::SLUG,
+        ]);
+
+        acf_add_options_sub_page([
             'page_title'    => 'Footer',
             'menu_title'    => 'Footer',
             'menu_slug'     => static::SLUG . '-footer',
