@@ -1,8 +1,10 @@
 <?php namespace Grrr\Twig;
 
 use Timber;
+use Grrr\Theme;
 use Grrr\Utils;
 use Grrr\Utils\Assets;
+use Garp\Functional as f;
 
 class Functions {
 
@@ -22,6 +24,10 @@ class Functions {
 
     public function get_asset_path(string $filepath) {
         return Assets\asset_path($filepath);
+    }
+
+    public function get_env(string $key) {
+        return f\prop($key, Theme\Setup::ENV_MAPPER);
     }
 
     public function get_acf_option(string $name, string $prefix) {
