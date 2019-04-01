@@ -110,6 +110,9 @@ label {
  */
 a {
     color: inherit; text-decoration: underline;
+    // sass-lint:disable no-misspelled-properties
+    text-decoration-skip-ink: auto;
+    // sass-lint:enable no-misspelled-properties
 }
 a:hover,
 a:focus {
