@@ -49,3 +49,11 @@ function set_max_srcset(int $max, array $sizes) {
     return 2560;
 }
 add_filter('max_srcset_image_width', __NAMESPACE__ . '\\set_max_srcset', 10, 2);
+
+/**
+ * Set the Open Graph image size (else will use native 'Large' from WordPress).
+ */
+function yoast_og_size() {
+    return 'image--huge';
+}
+add_filter('wpseo_opengraph_image_size', __NAMESPACE__ . '\\yoast_og_size', 10, 2);
