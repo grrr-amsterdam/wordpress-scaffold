@@ -6,9 +6,22 @@
  * This file is required in the root directory so WordPress can find it.
  * WP is hardcoded to look in its own directory or one directory up for wp-config.php.
  */
+
+/**
+ * Load namespaces & application configs e.g. environment variables
+ */
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
 require_once(dirname(__DIR__) . '/config/application.php');
+
+/**
+ * Bootstrap service providers
+ */
+\Grrr\Providers\SentryServiceProvider::instance();
+
+/**
+ * Load the rest of WordPress
+ */
 require_once(ABSPATH . 'wp-settings.php');
 
-\Grrr\Root\Sentry::init();
 \Grrr\Root\Cli\Setup::init();
+\Grrr\Providers\SentryServiceProvider::instance()->addTags();
