@@ -5,7 +5,7 @@ use Grrr\Utils\Assets;
 use Garp\Functional as f;
 
 Timber::$dirname = ['templates'];
-Timber::$autoescape = true;
+Timber::$autoescape = 'wp_kses_post';
 
 // Cache the twig file and conversion to PHP.
 // See `TWIG_CACHE_TTL` for static caching including data.
