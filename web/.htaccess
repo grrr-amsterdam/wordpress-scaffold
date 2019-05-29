@@ -1,8 +1,8 @@
 # #
 # !! Notice !!
 #
-# Any changes to the .htaccess should be manually added to the .htaccess on the server
-# This file won't be updated with a new deploy
+# Any changes to the .htaccess should be manually added to the .htaccess on
+# the server. This file won't be updated with a new deploy.
 # #
 
 # Custom rewrites
@@ -10,13 +10,19 @@
     RewriteEngine On
     RewriteBase /
 
-    # require https
+    # Require https
     RewriteCond %{HTTPS} !on
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteCond %{HTTP:CLOUDFRONT-FORWARDED-PROTO} !https [NC]
     RewriteCond %{HTTP_HOST} ^domain\.com$
     RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
 </IfModule>
+
+# Hide sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|yml|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
 
 # W3 Total Cache will be added here automagically
 
