@@ -2,6 +2,11 @@
 
 A WordPress 'Pro' scaffold, including a starter theme using [Twig](https://twig.symfony.com/) templates via [Timber](https://github.com/timber/timber/).
 
+## Requirements
+
+This scaffold requires the plugin [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/).
+The server needs to run PHP version 7.1 and php71-php-fpm.
+
 ## Quick start
 
 To start a new project, run:
