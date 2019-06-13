@@ -2,7 +2,7 @@
 
 class Setup {
 
-    public static function init() {
+    public static function register() {
         if (!defined('WP_CLI') || !WP_CLI) {
             return;
         }
