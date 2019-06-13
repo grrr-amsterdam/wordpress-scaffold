@@ -3,24 +3,23 @@
 class Sentry {
 
     public static function init() {
-        if (!defined('SENTRY_DSN') || WP_ENV === 'development') {
+        if (!defined('SENTRY_DSN') || !SENTRY_DSN) {
             return;
         }
 
-        $ravenClient = new \Raven_Client(SENTRY_DSN, [
+        \Sentry\init([
+            'dsn' => SENTRY_DSN,
             'environment' => WP_ENV,
             'release' => APPLICATION_VERSION,
-            'app_path' => ROOT_DIR,
-            'tags' => [
-                'wordpress' => get_bloginfo('version'),
-                'language' => get_bloginfo('language'),
-                'php_version' => phpversion(),
-            ]
         ]);
-        $ravenErrorHandler = new \Raven_ErrorHandler($ravenClient);
-        $ravenErrorHandler->registerExceptionHandler();
-        $ravenErrorHandler->registerErrorHandler();
-        $ravenErrorHandler->registerShutdownFunction();
+    }
+
+    public static function setTags() {
+        \Sentry\configureScope(function(\Sentry\State\Scope $scope): void {
+            $scope->setTag('wordpress', get_bloginfo('version'));
+            $scope->setTag('language', get_bloginfo('language'));
+            $scope->setTag('php_version', phpversion());
+        });
     }
 
 }

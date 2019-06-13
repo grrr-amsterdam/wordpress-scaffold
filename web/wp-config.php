@@ -6,9 +6,30 @@
  * This file is required in the root directory so WordPress can find it.
  * WP is hardcoded to look in its own directory or one directory up for wp-config.php.
  */
+
+/**
+ * Load dependencies & application config (e.g. environment variables).
+ */
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
 require_once(dirname(__DIR__) . '/config/application.php');
+
+/**
+ * Load Sentry. This way it will catch any errors in WordPress or the theme.
+ */
+\Grrr\Root\Sentry::init();
+
+/**
+ * Load WordPress.
+ */
 require_once(ABSPATH . 'wp-settings.php');
 
-\Grrr\Root\Sentry::init();
-\Grrr\Root\Cli\Setup::init();
+/**
+ * Add contextual tags to Sentry. This is added later, since it uses
+ * WordPress core functionality.
+ */
+\Grrr\Root\Sentry::setTags();
+
+/**
+ * Register WP-CLI commands.
+ */
+\Grrr\Root\Cli\Setup::register();
