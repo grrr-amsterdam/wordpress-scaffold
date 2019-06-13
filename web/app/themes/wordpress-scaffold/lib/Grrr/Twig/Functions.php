@@ -31,14 +31,23 @@ class Functions {
     }
 
     public function get_acf_option(string $name, string $prefix) {
+        if (!function_exists('get_field')) {
+            return;
+        }
         return get_field(str_replace(' ', '_', "{$prefix}_{$name}"), 'option');
     }
 
     public function get_acf_snippet(string $name) {
+        if (!function_exists('get_field')) {
+            return;
+        }
         return get_field(str_replace(' ', '_', "snippets_{$name}"), 'option');
     }
 
     public function get_acf_page(string $name) {
+        if (!function_exists('get_field')) {
+            return;
+        }
         return get_field(str_replace(' ', '_', "pages_{$name}"), 'option');
     }
 
