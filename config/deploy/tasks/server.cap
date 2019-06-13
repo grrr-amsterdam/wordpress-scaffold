@@ -15,6 +15,9 @@ namespace :server do
   desc 'Reload PHP-FPM'
   task :fpm_reload do
     on roles(:web) do
+      # This is an example of how to reload PHP-FPM on the server after a deploy,
+      # which is useful to reset OPcache. Passwordless sudo for this command is
+      # recommended, and the command might differ due to your server setup.
       execute :sudo, "service php71-php-fpm reload"
     end
   end
