@@ -1,6 +1,12 @@
 # Wordpress Scaffold
 
-A WordPress 'Pro' scaffold, including a starter theme using [Twig](https://twig.symfony.com/) templates via [Timber](https://github.com/timber/timber/).
+An opinionated WordPress 'Pro' scaffold. Includes a starter theme using [Twig](https://twig.symfony.com/) templates via [Timber](https://github.com/timber/timber/), and front-end tooling using [@grrr/gulpfile](https://github.com/grrr-amsterdam/gulpfile/). Built with ❤️ by [GRRR](https://grrr.tech).
+
+## Requirements
+
+- PHP 7.1+ with Composer
+- Node 8+ with Yarn (front-end tooling)
+- Ruby 2.2+ with Bundler (deploying)
 
 ## Quick start
 
@@ -12,8 +18,7 @@ composer create-project grrr-amsterdam/wordpress-scaffold <project>
 
 This will create a new project in the chosen directory. It will also initiate an interactive shell where the following things will be done for you:
 
-- Install root Composer dependencies
-- Install theme Composer dependencies
+- Install Composer dependencies (root and theme)
 - Create and prefill a `.env` file (essentials only)
 - Create a database
 - Install WordPress
@@ -27,11 +32,13 @@ This will create a new project in the chosen directory. It will also initiate an
 
 ## WordPress & plugins
 
-WordPress and its plugins should be required by Composer in the root of the project. Dependencies explicitly required by the theme (a SDK for accessing an API for example) can be included in the theme, which has its own `composer.json`.
+[Composer](https://getcomposer.org/) is used to require WordPress and its plugins. Dependencies explicitly required by the theme can be included via a nested Composer file in the theme. This makes the theme more portable, however, this is not required.
 
 #### Add a plugin
 
-Requiring a plugin works by using [WordPress Packagist](https://wpackagist.org/):
+Requiring a plugin works by using [WordPress Packagist](https://wpackagist.org/). You can search for the plugin there, or use the slug found on the WordPress site: `https://wordpress.org/plugins/<plugin-slug>/`. 
+    
+To require a plugin, run:
 
 ```
 composer require wpackagist-plugin/<plugin-slug>
@@ -98,4 +105,4 @@ This scaffold is inspired by:
 It relies heavily on:
 
 - [timber/timber](https://github.com/timber/timber/)
-- [grrr-amsterdam/gulpfile](https://github.com/grrr-amsterdam/gulpfile/)
+- [@grrr/gulpfile](https://github.com/grrr-amsterdam/gulpfile/)
