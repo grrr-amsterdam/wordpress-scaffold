@@ -21,13 +21,3 @@ export const getScrollPosition = () => {
   };
   /* eslint-enable no-nested-ternary */
 };
-
-export const parseJSON = json => {
-  try {
-    return JSON.parse(json);
-  } catch (e) {
-    console.warn("This JSON does not appear to be valied");
-    console.error(e);
-    return undefined;
-  }
-};
