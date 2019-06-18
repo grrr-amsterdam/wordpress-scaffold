@@ -35,7 +35,6 @@
             "presets": [
               [
                 "@babel/preset-env"
-                }
               ]
             ]
           }
