@@ -15,6 +15,9 @@ class Sentry {
     }
 
     public static function setTags() {
+        if (!function_exists('get_bloginfo')) {
+            return;
+        }
         \Sentry\configureScope(function(\Sentry\State\Scope $scope): void {
             $scope->setTag('wordpress', get_bloginfo('version'));
             $scope->setTag('language', get_bloginfo('language'));
