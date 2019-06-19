@@ -30,7 +30,7 @@ function my_login_logo() {
         }
         .login input[type="submit"] {
             background-color: #000000;
-            box-shadow: 0 1px 0 #000000);
+            box-shadow: 0 1px 0 #000000;
             color: #FFFFFF !important;
             border: none !important;
             text-shadow: none !important;
@@ -38,7 +38,7 @@ function my_login_logo() {
         .login input[type="submit"]:hover,
         .login input[type="submit"]:focus {
             background-color: #000000;
-            box-shadow: 0 1px 0 #000000);
+            box-shadow: 0 1px 0 #000000;
             color: #FFFFFF !important;
             border: none !important;
             text-shadow: none !important;
