@@ -66,6 +66,20 @@
 }
 
 /**
+ * Media query dark mode
+ *
+ * Usage:
+ * body {
+ *    @include dark-mode { background: $blackish; }
+ * }
+ */
+@mixin dark-mode {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
+/**
  * Clearfix
  * Actually an @extend, but we don't want to depend on inclusion order
  *
