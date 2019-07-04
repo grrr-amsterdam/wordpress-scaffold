@@ -11,6 +11,7 @@ class Sentry {
             'dsn' => SENTRY_DSN,
             'environment' => WP_ENV,
             'release' => APPLICATION_VERSION,
+            'error_types' => E_ALL & ~E_NOTICE & ~E_DEPRECATED,
         ]);
     }
 
