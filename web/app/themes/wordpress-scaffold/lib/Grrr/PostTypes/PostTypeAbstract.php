@@ -3,7 +3,7 @@
 use Timber;
 use Garp\Functional as f;
 
-abstract class PostTypesAbstract {
+abstract class PostTypeAbstract {
 
     protected $_type;
     protected $_slug;

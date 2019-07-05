@@ -1,6 +1,6 @@
 <?php namespace Grrr\PostTypes;
 
-class Example extends PostTypesAbstract {
+class Example extends PostTypeAbstract {
 
     protected $_type               = 'example';
     protected $_slug               = 'examples';
