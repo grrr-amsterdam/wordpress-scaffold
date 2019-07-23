@@ -6,9 +6,10 @@ namespace :wp_cli do
       upload! 'config/deploy/scripts/install-wp-cli.sh',
         "#{shared_path}"
       within shared_path do
-        execute :chmod, '+x', 'install-wp-cli.sh'
+        execute :chmod, '+x install-wp-cli.sh'
         execute :sh, 'install-wp-cli.sh'
-        execute :chmod, '+x', 'wp-cli.phar'
+        execute :mv, 'wp-cli.phar wp'
+        execute :chmod, '+x wp'
         execute :rm, 'install-wp-cli.sh'
       end
     end

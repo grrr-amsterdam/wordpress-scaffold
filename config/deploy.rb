@@ -19,6 +19,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
 # Linked files
 set :linked_files, fetch(:linked_files, []).push(
   '.env',
+  'wp',
   'web/.htaccess',
   'web/app/advanced-cache.php',
   'web/app/db.php'
