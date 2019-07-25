@@ -69,11 +69,11 @@ namespace :deploy do
     invoke 'setup:copy_dotenv'
     invoke 'setup:copy_htaccess'
     invoke 'setup:copy_w3tc_files'
+    invoke 'wp_cli:setup'
 
     invoke 'deploy:check:linked_files'
 
     invoke 'composer:install_executable'
-    invoke 'wp_cli:setup'
   end
 
 end
