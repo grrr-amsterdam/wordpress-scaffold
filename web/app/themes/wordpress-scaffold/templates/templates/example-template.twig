@@ -3,5 +3,5 @@
         title: post.title,
     } only %}
 
-    {{ post.content|raw }}
+    {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
 </article>
