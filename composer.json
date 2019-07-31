@@ -22,7 +22,8 @@
     }
   ],
   "config": {
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -35,31 +36,31 @@
   "require": {
     "php": ">=7.1",
     "composer/installers": "^1.2.0",
-    "vlucas/phpdotenv": "^3.0.0",
+    "grrr-amsterdam/garp-functional": "^4.0",
     "johnpbloch/wordpress": "^5.0.0",
     "oscarotero/env": "^1.0",
-    "roots/wp-password-bcrypt": "^1.0.0",
-    "wikimedia/composer-merge-plugin": "^1.4",
     "roots/soil": "^3.7",
+    "roots/wp-password-bcrypt": "^1.0.0",
+    "sentry/sdk": "^2.0",
+    "vlucas/phpdotenv": "^3.0.0",
+    "wikimedia/composer-merge-plugin": "^1.4",
     "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^2.0",
     "wpackagist-plugin/admin-menu-editor": "^1.6",
     "wpackagist-plugin/ajax-thumbnail-rebuild": "^1.12",
     "wpackagist-plugin/amazon-s3-and-cloudfront": "^2.0",
-    "wpackagist-plugin/w3-total-cache": "^0.9.5.4",
-    "wpackagist-plugin/wordpress-seo": "^11.0",
-    "wpackagist-plugin/wp-ses": "^1.1",
     "wpackagist-plugin/classic-editor": "^1.3",
-    "grrr-amsterdam/garp-functional": "^4.0",
     "wpackagist-plugin/safe-svg": "^1.9",
     "wpackagist-plugin/timber-library": "^1.8",
-    "sentry/sdk": "^2.0"
+    "wpackagist-plugin/w3-total-cache": "^0.9.5.4",
+    "wpackagist-plugin/wordpress-seo": "^11.0",
+    "wpackagist-plugin/wp-ses": "^1.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.0",
-    "wp-cli/wp-cli": "^2.0",
     "wp-cli/core-command": "^2.0",
     "wp-cli/entity-command": "^2.0",
-    "wp-cli/extension-command": "^2.0"
+    "wp-cli/extension-command": "^2.0",
+    "wp-cli/wp-cli": "^2.0"
   },
   "autoload": {
     "psr-4": {
