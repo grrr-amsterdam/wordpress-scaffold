@@ -4,17 +4,19 @@ use Grrr\Acf;
 use Grrr\Api;
 use Grrr\Cli;
 use Grrr\PostTypes;
+use Grrr\Shortcodes;
 use Grrr\Taxonomies;
 use Grrr\Theme;
 use Grrr\Twig;
 
 /**
- * Utils.
+ * Utils
  */
 new Grrr\UtilsLoader();
 
 /**
- * Theme setup. Fails when Timber plugin is not activated.
+ * Theme setup
+ * Fails when Timber plugin is not activated.
  */
 if (class_exists('Timber')) {
     (new Theme\Setup)->register();
@@ -25,17 +27,17 @@ if (class_exists('Timber')) {
 }
 
 /**
- * Advanced Custom Fields.
+ * Advanced Custom Fields
  */
 (new Acf\Setup)->register();
 
 /**
- * Taxonomies.
+ * Taxonomies
  */
 (new Taxonomies\ExampleType)->register();
 
 /**
- * Post Types.
+ * Post Types
  */
 (new PostTypes\Comment)->register();
 (new PostTypes\Post)->register();
@@ -43,11 +45,16 @@ if (class_exists('Timber')) {
 (new PostTypes\Example)->register();
 
 /**
- * API.
+ * Shortcodes
+ */
+(new Shortcodes\Footnote)->register();
+
+/**
+ * API
  */
 (new Api\Newsletter)->register();
 
 /**
- * WP-CLI.
+ * WP-CLI
  */
 (new Cli\Setup)->register();
