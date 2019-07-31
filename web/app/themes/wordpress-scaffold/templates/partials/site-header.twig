@@ -4,7 +4,7 @@
             {{ source('images/site-logo.svg')|raw }}
         </a>
         <nav class="site-header__nav" role="navigation">
-            {% include 'partials/menu.twig' with { 'menu': menu } only %}
+            {% include 'partials/menu.twig' with { 'menu': menus.primary_navigation } only %}
         </nav>
     </div>
 </header>
