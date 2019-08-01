@@ -6,7 +6,7 @@
     {% for post in posts %}
         {% include [
             'previews/preview-' ~ post.post_type ~ '.twig',
-            'previews/preview.twig',
+            'preview.twig',
         ] %}
     {% endfor %}
 
