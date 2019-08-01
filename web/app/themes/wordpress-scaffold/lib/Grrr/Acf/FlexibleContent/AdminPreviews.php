@@ -6,7 +6,7 @@
  * to load content.
  */
 
-class AdminTitles {
+class AdminPreviews {
 
     const FLEX_NAME = 'flexible_content';
 

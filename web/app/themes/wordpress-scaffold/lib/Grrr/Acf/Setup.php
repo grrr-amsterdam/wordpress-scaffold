@@ -7,7 +7,7 @@ class Setup {
         (new SelectPrefiller)->register();
         (new WysiwygToolbars)->register();
         (new Options\Theme)->register();
-        (new FlexibleContent\AdminTitles)->register();
+        (new FlexibleContent\AdminPreviews)->register();
     }
 
 }
