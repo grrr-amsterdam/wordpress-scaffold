@@ -10,7 +10,7 @@ class SelectPrefiller {
     public function register() {
         /*
         add_filter('acf/load_field/name=icon', [$this, 'adjust_icon_choices']);
-        *
+        */
     }
 
     /**
