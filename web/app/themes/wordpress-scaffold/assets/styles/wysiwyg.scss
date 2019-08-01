@@ -1,0 +1,43 @@
+// sass-lint:disable disable no-ids no-universal-selectors  no-misspelled-properties
+
+/**
+ * This file is loaded in the TinyMCE editor in the admin area.
+ */
+
+@import 'utility/functions';
+@import 'utility/mixins';
+@import 'utility/variables';
+
+@import 'utility/font-imports';
+@import 'utility/font-mixins';
+
+/* ==========================================================================
+    PRIMER
+    ========================================================================== */
+
+html {
+    height: 100%;
+    box-sizing: border-box; font-size: 62.5%; line-height: 1.4;
+    @include font-smoothing;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    @include body-font;
+}
+
+// sass-lint:disable no-ids
+body#tinymce {
+    margin: 12px 15px !important;
+    height: auto !important; padding: 0 !important;
+}
+// sass-lint:enable no-ids
+
+/**
+ * Add all necessary styling for the editor here.
+ * Think of heading, paragraphs, links, blockquotes, ...
+ */

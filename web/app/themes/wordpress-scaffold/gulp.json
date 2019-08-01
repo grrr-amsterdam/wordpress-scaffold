@@ -62,6 +62,7 @@
       "dist": "assets/build/styles",
       "main": [
         "assets/styles/base.scss",
+        "assets/styles/wysiwyg.scss",
         "assets/styles/admin.scss"
       ]
     },

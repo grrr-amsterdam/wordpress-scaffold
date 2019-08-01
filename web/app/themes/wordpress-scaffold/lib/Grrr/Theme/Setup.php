@@ -115,9 +115,8 @@ class Setup extends Timber\Site {
             'search-form'
         ]);
 
-        // Use main stylesheet for visual editor
-        // This can be replaced by creating a custom `wysiwyg` stylesheet.
-        add_editor_style(Assets\asset_path('styles/base.css'));
+        // Stylesheet loaded in TinyMCE editor.
+        add_editor_style(Assets\asset_path('styles/wysiwyg.css'));
     }
 
     /**

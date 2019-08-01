@@ -10,8 +10,8 @@
 @import 'utility/variables';
 
 /**
- * ACF styling
- * @see acf.php
+ * ACF flexible content.
+ * Also see PHP namespace `Grrr\Acf\FlexibleContent`.
  */
 .acf-fc-layout-handle {
     @include clearfix;

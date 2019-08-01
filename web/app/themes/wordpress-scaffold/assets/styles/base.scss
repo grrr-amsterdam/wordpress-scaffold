@@ -77,16 +77,6 @@ body.admin-bar {
     */
 }
 
-/**
- * WordPress editor
- * Use when including this file in the editor.
- */
-// sass-lint:disable no-ids
-body#tinymce {
-    margin: 12px 15px !important;
-}
-// sass-lint:enable no-ids
-
 /*
  * Forms
  */
