@@ -29,7 +29,9 @@ if (class_exists('Timber')) {
 /**
  * Advanced Custom Fields
  */
-(new Acf\Setup)->register();
+if (class_exists('acf')) {
+    (new Acf\Setup)->register();
+}
 
 /**
  * Taxonomies
