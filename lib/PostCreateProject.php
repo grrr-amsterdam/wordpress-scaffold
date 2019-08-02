@@ -115,6 +115,16 @@ class PostCreateProject {
         $io->write("\n" . $output);
         $output = shell_exec("wp option update timezone_string Europe/Amsterdam");
         $io->write("\n" . $output);
+        $output = shell_exec("wp option update time_format H:i");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp option update medium_size_w 350");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp option update medium_size_h 700");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp option update large_size_w 700");
+        $io->write("\n" . $output);
+        $output = shell_exec("wp option update large_size_h 1400");
+        $io->write("\n" . $output);
 
         $io->write("\n<info>Installing deployment dependencies (thru Bundler)</info>");
         $hasBundler = shell_exec("command -v bundle >/dev/null 2>&1 && echo 1 || echo 0");
