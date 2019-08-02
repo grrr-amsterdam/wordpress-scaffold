@@ -74,6 +74,10 @@ class PostCreateProject {
 
         shell_exec("cd " . self::_getRootPath());
 
+        $io->write("\n<info>Creating symlinks</info>");
+        shell_exec("ln -sf {$themePath}/package.json package.json");
+        shell_exec("ln -sf {$themePath}/node_modules/ node_modules");
+
         /**
          * We run `composer dumpautoload`, since the theme path was renamed,
          * and we merge dependencies in the main `composer.json`.
