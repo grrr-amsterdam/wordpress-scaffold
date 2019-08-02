@@ -57,3 +57,31 @@ function yoast_og_size() {
     return 'image--huge';
 }
 add_filter('wpseo_opengraph_image_size', __NAMESPACE__ . '\\yoast_og_size', 10, 2);
+
+/**
+ * Set default image embed options for WYSIWYG.
+ * See: https://core.trac.wordpress.org/ticket/35101
+ */
+function reset_image_insert_settings() {
+  ?>
+    <script>
+      if ( typeof setUserSetting !== 'undefined' ) {
+        setUserSetting('imgsize', 'large'); // thumbnail || medium || large || full
+        setUserSetting('align', 'none'); // none || left || center || right
+        setUserSetting('urlbutton', 'none'); // none || file || post
+      }
+    </script>
+  <?php
+}
+add_action('admin_head-post.php', __NAMESPACE__ . '\\reset_image_insert_settings');
+add_action('admin_head-post-new.php', __NAMESPACE__ . '\\reset_image_insert_settings');
+
+/**
+ * Adjust embed size defaults.
+ */
+function embed_defaults($embed_size){
+    $embed_size['width'] = 640;
+    $embed_size['height'] = 360;
+    return $embed_size;
+}
+add_filter('embed_defaults', __NAMESPACE__ . '\\embed_defaults');
