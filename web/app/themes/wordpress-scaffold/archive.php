@@ -1,6 +1,7 @@
 <?php
 
 $templates = [
+    'archives/' . $post->post_name . '-archive.twig',
     'archive.twig',
 ];
 

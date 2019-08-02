@@ -1,4 +1,5 @@
 <?php
+
 $templates = [
     'home.twig',
 ];
