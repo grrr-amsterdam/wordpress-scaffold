@@ -234,7 +234,7 @@ class PostCreateProject {
                 'default' => 'https://grrr.nl'
             ],
             'TEXT_DOMAIN' => [
-                'question' => 'What is your theme\'s textdomain',
+                'question' => 'What is your theme\'s textdomain and folder name',
                 'default' => static::_composeProjectName()
             ]
         ];
