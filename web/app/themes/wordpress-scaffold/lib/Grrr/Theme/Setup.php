@@ -7,8 +7,8 @@ use Garp\Functional as f;
 Timber::$dirname = ['templates'];
 Timber::$autoescape = 'wp_kses_post';
 
-// Cache the twig file and conversion to PHP.
-// See `TWIG_CACHE_TTL` for static caching including data.
+// Cache the Twig file (without the data).
+// See https://timber.github.io/docs/guides/performance/#cache-the-twig-file-but-not-the-data
 if (WP_ENV !== 'development') {
     Timber::$cache = true;
 }

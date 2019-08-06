@@ -32,4 +32,4 @@ $context['post_type'] = get_post_type();
 $context['term'] = new Timber\Term();
 $context['is_tax'] = is_tax();
 
-Timber::render('base.twig', $context, TWIG_CACHE_TTL);
+Timber::render('base.twig', $context);

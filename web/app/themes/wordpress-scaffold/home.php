@@ -11,4 +11,4 @@ $context['title'] = $page_for_posts_id ? get_the_title($page_for_posts_id) : nul
 $context['posts'] = new Timber\PostQuery();
 $context['templates'] = $templates;
 
-Timber::render('base.twig', $context, TWIG_CACHE_TTL);
+Timber::render('base.twig', $context);

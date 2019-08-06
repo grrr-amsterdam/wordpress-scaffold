@@ -11,4 +11,4 @@ $context['templates'] = post_password_required($post->ID)
     ? ['singles/password-single.twig']
     : $templates;
 
-Timber::render('base.twig', $context, TWIG_CACHE_TTL);
+Timber::render('base.twig', $context);
