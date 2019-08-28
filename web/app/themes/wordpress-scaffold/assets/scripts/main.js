@@ -26,7 +26,7 @@ const executeOnReady = () => {
   scrollListener(); // Initialise central scroll listener
   responsive(); // Set document width on resize and orientation change
 
-  window.requestAnimationFrame = window.requestAnimationFrame || rafPolyfill;
+  window.requestAnimationFrame = window.requestAnimationFrame ?? rafPolyfill;
 
   if (typeof window.Promise === 'undefined') {
     window.Promise = Promise;
