@@ -3,16 +3,6 @@
    ========================================================================== */
 
 /**
- * Figure reset
- */
-@mixin figure-reset {
-    margin: 0; line-height: 0;
-    img {
-        width: 100%; line-height: normal;
-    }
-}
-
-/**
  * Easier way to provide object-fit polyfill hook
  */
 @mixin object-fit($value: cover) {
