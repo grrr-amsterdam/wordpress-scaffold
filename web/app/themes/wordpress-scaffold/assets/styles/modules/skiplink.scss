@@ -1,5 +1,5 @@
 .skiplink {
-    position: absolute; top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     display: block; padding: 10px 15px;
     background: $black; color: $white; opacity: 0;
     transform: translateY(-100%);
