@@ -1,0 +1,30 @@
+/*
+ * Only applies when non-pointer or non-touch focus is received, and falls
+ * back to default browser focus styling when not supported.
+ *
+ * A `focus-visible` polyfill is used for unsupported platforms, although
+ * it applies the classes to supported platforms as well, leaving the platform
+ * styles for `no-js` scenarios.
+ */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+:focus:not(:-moz-focusring) {
+    outline: none;
+}
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: $focus-ring;
+}
+:-moz-focusring {
+    outline: $focus-ring;
+}
+button:-moz-focusring {
+    outline: $focus-ring !important;
+}
+.js-focus-visible .focus-visible {
+    outline: $focus-ring;
+}

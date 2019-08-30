@@ -22,6 +22,7 @@
     "@grrr/utils": "^2.0.1",
     "classlist-polyfill": "^1.2.0",
     "fg-loadjs": "^1.0.0",
+    "focus-visible": "^5.0.2",
     "normalize.css": "^8.0.0",
     "promise-polyfill": "^8.1.0",
     "svg4everybody": "^2.1.8",

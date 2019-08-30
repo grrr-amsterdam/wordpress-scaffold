@@ -1,6 +1,7 @@
 // Import libraries and polyfills
 import Promise from 'promise-polyfill';
 import 'whatwg-fetch';
+import 'focus-visible';
 import 'classlist-polyfill';
 import { handle, enhance } from '@grrr/hansel';
 import rafPolyfill from './polyfills/request-animation-frame';
