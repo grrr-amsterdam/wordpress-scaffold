@@ -1,7 +1,8 @@
 <?php namespace Grrr\Api;
 
 use Garp\Functional as f;
-use Grrr\MailingListServiceProvider\MailChimp;
+use Grrr\Rest\Routes;
+use \DrewM\MailChimp\MailChimp;
 
 /**
  * [Newsletter]
@@ -15,10 +16,18 @@ class Newsletter {
         add_action('rest_api_init', [$this, 'registerEndpoints']);
     }
 
-    public function registerEndpoints(\WP_REST_Server $wp_rest_server) {
-        register_rest_route('grrr/v1', 'newsletter/subscribe', [
+    public function register_endpoints(\WP_REST_Server $wp_rest_server) {
+        register_rest_route(Routes::NAMESPACE, Routes::get('newsletter'), [
             'methods'  => 'POST',
-            'callback' => [$this, 'subscribe']
+            'callback' => [$this, 'subscribe'],
+            'args' => [
+                'email' => [
+                    'required' => true,
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_string($param);
+                    },
+                ],
+            ],
         ]);
     }
 

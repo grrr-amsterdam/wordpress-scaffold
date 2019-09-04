@@ -49,7 +49,7 @@ function wpdocs_dequeue_dashicon() {
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\wpdocs_dequeue_dashicon');
 
 /**
- * Disable W3TC footer comment for everyone but Admins.
+ * Disable W3TC footer comment for everyone but admins.
  */
 function disable_w3tc_comment($can_print_comment) {
     if (!$can_print_comment) {
