@@ -24,6 +24,12 @@
     Deny from all
 </FilesMatch>
 
+# Block all WordPress xmlrpc.php requests
+<Files xmlrpc.php>
+    order deny,allow
+    deny from all
+</Files>
+
 # W3 Total Cache will be added here automagically
 
 # BEGIN WordPress
