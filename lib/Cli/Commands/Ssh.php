@@ -40,18 +40,20 @@ class Ssh {
         $environment = f\prop(0, $args);
         $server_index = f\prop('server', $assoc_args) ?: 1;
 
-        $config = new Deploy\Config();
+        try {
+            $config = new Deploy\Config();
+            $params = $config->get_params($environment);
+        } catch (\Exception $e) {
+            return WP_CLI::error("No settings found for environment '{$environment}'.");
+        }
 
-        $params = $config->get_params($environment);
         if (!$params) {
-            WP_CLI::error("No settings found for environment '{$environment}'.");
-            return false;
+            return WP_CLI::error("No settings found for environment '{$environment}'.");
         }
 
         $server = f\prop_in(['server', $server_index - 1], $params);
         if (!$server) {
-            WP_CLI::error("It seems server '{$server_index}' is not configured.");
-            return false;
+            return WP_CLI::error("It seems server '{$server_index}' is not configured.");
         }
 
         $this->_execute_ssh_command($server, f\prop('user', $params));

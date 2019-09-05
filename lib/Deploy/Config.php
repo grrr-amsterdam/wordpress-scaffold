@@ -53,7 +53,7 @@ class Config {
             . ')[,:]? [\'"](?P<paramValue>[^\'"]*)[\'"]/';
 
         if (!preg_match_all($pattern, $content, $matches)) {
-            throw new Exception(
+            throw new \Exception(
                 "Could not extract deploy parameters from "
                 . self::GENERIC_CONFIG_PATH
             );
@@ -91,10 +91,15 @@ class Config {
      */
     protected function _fetch_env_content(string $env): string {
         $env_path = $this->_create_path_from_env($env);
+        if (!file_exists($env_path)) {
+            throw new \Exception(
+                "Could not find the configuration file for the '{$env}' environment."
+            );
+        }
         $env_config = file_get_contents($env_path);
 
         if ($env_config === false) {
-            throw new Exception(
+            throw new \Exception(
                 "Could not read the configuration file for the '{$env}' environment."
             );
         }
