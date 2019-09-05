@@ -13,6 +13,8 @@ class Sentry {
             'release' => APPLICATION_VERSION,
             'error_types' => E_ALL & ~E_NOTICE & ~E_DEPRECATED,
         ]);
+
+        new SentryExceptionHandler();
     }
 
     public static function setTags() {
