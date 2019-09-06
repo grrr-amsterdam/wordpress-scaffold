@@ -1,19 +1,19 @@
-<?php namespace Grrr\Api;
+<?php namespace Grrr\Newsletter;
 
 use Garp\Functional as f;
 use Grrr\Rest\Routes;
 use \DrewM\MailChimp\MailChimp;
 
 /**
- * [Newsletter]
+ * Mailchimp newsletter endpoint.
  */
-class Newsletter {
+class Api {
 
     const EMAIL_INPUT = 'email';
     const HONEYPOT_INPUT = 'random_input';
 
     public function register() {
-        add_action('rest_api_init', [$this, 'registerEndpoints']);
+        add_action('rest_api_init', [$this, 'register_endpoints']);
     }
 
     public function register_endpoints(\WP_REST_Server $wp_rest_server) {
@@ -32,14 +32,14 @@ class Newsletter {
     }
 
     /**
-     * [subscribe]
+     * Subscribe
      *
      * @param  WP_REST_Request $data
      * @return mixed
      */
     public function subscribe(\WP_REST_Request $data) {
-        if (!defined('MAILCHIMP_API_KEY') || !MAILCHIMP_API_KEY) {
-            $message = $this->_get_failure_message('MailChimp is not configured.');
+        if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID) {
+            $message = $this->_get_failure_message('Mailchimp is not configured.');
             return new \WP_Error('rest_config_error', $message, ['status' => 400]);
         }
 
@@ -49,7 +49,10 @@ class Newsletter {
         }
 
         $email = sanitize_email($data->get_param(self::EMAIL_INPUT));
-        $result = (new Mailchimp)->subscribe($email, MAILCHIMP_LIST_ID);
+        $result = (new MailChimp(MAILCHIMP_API_KEY))->post('lists/' . MAILCHIMP_LIST_ID . '/members', [
+            'email_address' => $email,
+            'status' => 'subscribed',
+        ]);
 
         if (f\prop('status', $result) === 'subscribed') {
             return new \WP_REST_Response($this->_get_success_message(), 200);

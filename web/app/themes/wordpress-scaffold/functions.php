@@ -1,8 +1,8 @@
 <?php
 
 use Grrr\Acf;
-use Grrr\Api;
 use Grrr\Cli;
+use Grrr\Newsletter;
 use Grrr\PostTypes;
 use Grrr\Shortcodes;
 use Grrr\Taxonomies;
@@ -52,9 +52,9 @@ if (class_exists('acf')) {
 (new Shortcodes\Footnote)->register();
 
 /**
- * API
+ * Newsletter
  */
-(new Api\Newsletter)->register();
+(new Newsletter\Api)->register();
 
 /**
  * WP-CLI
