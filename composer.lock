@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b194e3740e78ddfab763f1ca40925f25",
+    "content-hash": "6e4df95a467a8bc6d9a5aae53a0ceef1",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1677,16 +1677,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "2.1.2",
+            "version": "dev-no-streaming-gzip",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "646f6ada8b89a08063e31f54ed6d260bd6879239"
+                "reference": "1574dded2c3a695214fc93b6545e683cee5433db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/646f6ada8b89a08063e31f54ed6d260bd6879239",
-                "reference": "646f6ada8b89a08063e31f54ed6d260bd6879239",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/1574dded2c3a695214fc93b6545e683cee5433db",
+                "reference": "1574dded2c3a695214fc93b6545e683cee5433db",
                 "shasum": ""
             },
             "require": {
@@ -1752,7 +1752,7 @@
                 "logging",
                 "sentry"
             ],
-            "time": "2019-08-22T07:37:30+00:00"
+            "time": "2019-09-06T11:23:33+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -2998,9 +2998,18 @@
             "time": "2019-08-13T23:12:27+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "2.1.2",
+            "alias_normalized": "2.1.2.0",
+            "version": "dev-no-streaming-gzip",
+            "package": "sentry/sentry"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "sentry/sentry": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
