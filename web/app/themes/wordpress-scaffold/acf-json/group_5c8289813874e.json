@@ -95,6 +95,41 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5d7385a5d7dfa",
+            "label": "Visibility",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7385acd7dfb",
+            "label": "Hidden",
+            "name": "cookie_bar_hidden",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Hide cookie bar",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -114,5 +149,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1552058993
+    "modified": 1567851973
 }
