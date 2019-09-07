@@ -26,10 +26,18 @@ if (is_day()) {
     array_unshift($templates, 'archives/' . get_post_type() . '-archive.twig');
 }
 
-$context['posts'] = new Timber\PostQuery();
 $context['templates'] = $templates;
 $context['post_type'] = get_post_type();
 $context['term'] = new Timber\Term();
 $context['is_tax'] = is_tax();
+
+if (is_post_type_archive('example')) {
+    $context['posts'] = new Timber\PostQuery([
+        'post_type' => 'example',
+        'posts_per_page' => -1,
+    ]);
+} else {
+    $context['posts'] = new Timber\PostQuery();
+}
 
 Timber::render('base.twig', $context);

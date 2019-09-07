@@ -1,14 +1,18 @@
-<section>
+<section class="{{ post_type }}-archive">
     {% include 'partials/page-header.twig' with {
         title: title,
     } only %}
 
-    {% for post in posts %}
-        {% include [
-            'previews/' ~ post.post_type ~ '-preview.twig',
-            'preview.twig',
-        ] %}
-    {% endfor %}
+    <ul>
+        {% for post in posts %}
+        <li>
+            {% include [
+                'previews/' ~ post.post_type ~ '-preview.twig',
+                'preview.twig',
+            ] %}
+        </li>
+        {% endfor %}
+    </ul>
 
     {% include 'partials/pagination.twig' with {
         pagination: posts.pagination({

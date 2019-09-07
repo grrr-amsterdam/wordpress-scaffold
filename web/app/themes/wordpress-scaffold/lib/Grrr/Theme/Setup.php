@@ -15,13 +15,6 @@ if (WP_ENV !== 'development') {
 
 class Setup extends Timber\Site {
 
-    const ENV_MAPPER = [
-        'wp_env' => WP_ENV,
-        'application_version' => APPLICATION_VERSION,
-        'aws_s3_region' => AS3CF_REGION,
-        'google_tag_manager_id' => GOOGLE_TAG_MANAGER_ID,
-    ];
-
     const NAV_MENUS = [
         [
             'location' => 'primary_navigation',
@@ -53,7 +46,6 @@ class Setup extends Timber\Site {
      */
     public function add_to_context($context) {
         $context['site'] = $this;
-        $context['env'] = self::ENV_MAPPER;
 
         // Add menus to context, but check if menu for location exists.
         $context['menus'] = f\reduce(function ($menus, $nav_menu) {

@@ -34,7 +34,7 @@
 
 <!--
 
-Version: {{ env.application_version ?: 'undefined' }}
+Version: {{ constant('APPLICATION_VERSION') ?: 'undefined' }}
 
 Performance: {{ function('get_num_queries') }} queries in {{ function('timer_stop') }} seconds
 

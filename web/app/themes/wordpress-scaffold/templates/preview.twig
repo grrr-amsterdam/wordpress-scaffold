@@ -1,9 +1,13 @@
-<article class="preview" id="preview-{{  post.ID  }}">
+<article class="{{ post.post_type }}-preview" id="preview-{{  post.ID  }}">
     <a href="{{ post.link }}">
         {% if post.get_thumbnail %}
-            <figure>
-                <img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.alt }}"/>
-            </figure>
+            <img
+                src="{{ post.thumbnail.src('image--small') }}"
+                srcset="{{ post.thumbnail.srcset('image--small') }}"
+                sizes="(min-width: 1280px) 640px, 50vw"
+                alt="{{ post.thumbnail.alt }}"
+                loading="lazy"
+                decoding="async"/>
         {% endif %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.preview({ read_more: 'Read More' })|raw }}</p>

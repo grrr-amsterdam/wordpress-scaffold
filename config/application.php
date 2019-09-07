@@ -128,7 +128,7 @@ define('WP_SES_ENDPOINT', env('WP_SES_ENDPOINT'));
 define('WP_SES_HIDE_VERIFIED', env('WP_SES_HIDE_VERIFIED'));
 
 /**
- * Google Tag Manager
+ * Analytics & Tracking
  */
 define('GOOGLE_TAG_MANAGER_ID', env('GOOGLE_TAG_MANAGER_ID'));
 
