@@ -42,7 +42,6 @@
     "roots/soil": "^3.7",
     "roots/wp-password-bcrypt": "^1.0.0",
     "sentry/sdk": "^2.0",
-    "sentry/sentry": "dev-no-streaming-gzip as 2.1.2",
     "vlucas/phpdotenv": "^3.0.0",
     "wikimedia/composer-merge-plugin": "^1.4",
     "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^2.0",
@@ -52,8 +51,8 @@
     "wpackagist-plugin/classic-editor": "^1.3",
     "wpackagist-plugin/safe-svg": "^1.9",
     "wpackagist-plugin/timber-library": "^1.8",
-    "wpackagist-plugin/w3-total-cache": "^0.9.5.4",
-    "wpackagist-plugin/wordpress-seo": "^11.0",
+    "wpackagist-plugin/w3-total-cache": "^0.10.0",
+    "wpackagist-plugin/wordpress-seo": "^12.0",
     "wpackagist-plugin/wp-ses": "^1.1"
   },
   "require-dev": {
