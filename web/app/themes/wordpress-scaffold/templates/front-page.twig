@@ -1,16 +1,16 @@
-{% set examples = get_example_posts(10) %}
-
 <article class="front-page">
+
     <header>
         <h1>{{ site.name }}</h1>
         {{ svg('arrow')|raw }}
     </header>
 
     <section>
-        {% for example in examples %}
+        {% for example in get_example_posts(10) %}
             {% include 'previews/example-preview.twig' with { post: example } only %}
         {% endfor %}
     </section>
 
     {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
+
 </article>

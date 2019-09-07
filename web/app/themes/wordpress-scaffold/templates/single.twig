@@ -1,6 +1,12 @@
 <article class="{{ post.post_type }}-single" id="single-{{ post.ID }}">
+
     <figure>
-        <img src="{{ post.thumbnail.src|resize(1200, 300) }}" alt="">
+        <img src="{{ post.thumbnail.src('image--medium') }}"
+            srcset="{{ post.thumbnail.srcset('image--medium') }}"
+            sizes="(min-width: 1280px) 1280px, 100vw"
+            width="{{ post.thumbnail.width }}"
+            height="{{ post.thumbnail.height }}"
+            alt="{{ post.thumbnail.alt }}"/>
     </figure>
 
     {% include 'partials/page-header.twig' with {
@@ -8,4 +14,5 @@
     } only %}
 
     {{ post.content|raw }}
+
 </article>

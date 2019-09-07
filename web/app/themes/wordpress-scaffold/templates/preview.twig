@@ -5,6 +5,8 @@
                 src="{{ post.thumbnail.src('image--small') }}"
                 srcset="{{ post.thumbnail.srcset('image--small') }}"
                 sizes="(min-width: 1280px) 640px, 50vw"
+                width="{{ post.thumbnail.width }}"
+                height="{{ post.thumbnail.height }}"
                 alt="{{ post.thumbnail.alt }}"
                 loading="lazy"
                 decoding="async"/>

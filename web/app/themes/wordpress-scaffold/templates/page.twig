@@ -1,7 +1,9 @@
 <article class="{{ post.post_type }}-page">
+
     {% include 'partials/page-header.twig' with {
         title: post.title,
     } only %}
 
     {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
+
 </article>

@@ -1,9 +1,10 @@
 <section class="{{ post_type }}-archive">
+
     {% include 'partials/page-header.twig' with {
         title: title,
     } only %}
 
-    <ul>
+    <ul aria-label="List of {{ post_type }} posts">
         {% for post in posts %}
         <li>
             {% include [
@@ -21,4 +22,5 @@
             end_size: 2,
         }),
     } only %}
+
 </section>
