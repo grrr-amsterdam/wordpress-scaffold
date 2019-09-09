@@ -75,9 +75,9 @@ class PostCreateProject {
         shell_exec("cd " . self::_getRootPath());
 
         $io->write("\n<info>Creating symlinks</info>");
-        shell_exec("ln -sf {$themePath}/node_modules/ node_modules");
-        shell_exec("ln -sf {$themePath}/package.json package.json");
-        shell_exec("ln -sf {$themePath}/yarn.lock yarn.lock");
+        shell_exec("ln -sf web/app/themes/{$themeName}/node_modules/ node_modules");
+        shell_exec("ln -sf web/app/themes/{$themeName}/package.json package.json");
+        shell_exec("ln -sf web/app/themes/{$themeName}/yarn.lock yarn.lock");
 
         /**
          * We run `composer dumpautoload`, since the theme path was renamed,
