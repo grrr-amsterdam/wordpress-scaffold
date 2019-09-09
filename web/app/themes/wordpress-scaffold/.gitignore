@@ -5,6 +5,7 @@
 /assets/build
 
 # Yarn & npm
-/node_modules
+/node_modules/*
+!/node_modules/.gitkeep
 npm-debug.log
 yarn-error.log
