@@ -66,9 +66,6 @@ abstract class PostTypeAbstract {
         $twig->addFunction(
             new Timber\Twig_Function('get_' . $this->_type . '_posts', [$this, 'get_posts'])
         );
-        $twig->addFunction(
-            new Timber\Twig_Function('get_' . $this->_type . '_archive_link', [$this, 'get_index_link'])
-        );
         return $twig;
     }
 

@@ -9,13 +9,14 @@ use Garp\Functional as f;
 class Functions {
 
     const FUNCTION_MAPPER = [
-        'asset' => 'get_asset_path',
-        'env' => 'get_env',
-        'option' => 'get_acf_option',
-        'page' => 'get_acf_page',
-        'snippet' => 'get_acf_snippet',
-        'source' => 'get_source',
-        'svg' => 'get_svg',
+        'asset'             => 'get_asset_path',
+        'env'               => 'get_env',
+        'archive_link'      => 'get_archive_link',
+        'option'            => 'get_acf_option',
+        'page'              => 'get_acf_page',
+        'snippet'           => 'get_acf_snippet',
+        'source'            => 'get_source',
+        'svg'               => 'get_svg',
     ];
 
     public function register() {
@@ -49,6 +50,10 @@ class Functions {
             return;
         }
         return get_field(str_replace(' ', '_', "pages_{$name}"), 'option');
+    }
+
+    public function get_archive_link(string $postType) {
+        return get_post_type_archive_link($postType);
     }
 
     public function get_source(string $filepath) {
