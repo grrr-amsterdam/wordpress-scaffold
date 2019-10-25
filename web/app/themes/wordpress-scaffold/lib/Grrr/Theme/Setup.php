@@ -68,6 +68,7 @@ class Setup extends Timber\Site {
         add_theme_support('soil-nice-search');
         add_theme_support('soil-js-to-footer');
         add_theme_support('soil-relative-urls');
+        add_theme_support('soil-disable-trackbacks');
 
         // Theme translations
         load_theme_textdomain('grrr', get_template_directory() . '/languages/grrr');
