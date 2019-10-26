@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c95d736cd2986659cd9b6efffe743dd5",
+    "content-hash": "57cbf2ee8b86aea3a6c60f0da7752322",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -2061,24 +2061,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/admin-menu-editor/"
-        },
-        {
-            "name": "wpackagist-plugin/ajax-thumbnail-rebuild",
-            "version": "1.13",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/ajax-thumbnail-rebuild/",
-                "reference": "tags/1.13"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-thumbnail-rebuild.1.13.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/ajax-thumbnail-rebuild/"
         },
         {
             "name": "wpackagist-plugin/amazon-s3-and-cloudfront",
