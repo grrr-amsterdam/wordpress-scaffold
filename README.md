@@ -17,6 +17,8 @@ A highly opinionated WordPress Pro scaffold, built with ❤️ by [GRRR](https:/
 
 View the [prerequisites](https://github.com/grrr-amsterdam/wordpress-scaffold/wiki/Prerequisites) in the wiki for more details.
 
+When you're running the included [Docker setup](https://github.com/grrr-amsterdam/wordpress-scaffold/wiki/Docker) you only need PHP with Composer.
+
 ## Quick start
 
 To create a new project, run:

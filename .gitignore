@@ -25,6 +25,9 @@
 # Generated static site
 /web/app/static/
 
+# Docker
+docker-compose.override.yml
+
 # Other
 .DS_Store
 yarn-error.log

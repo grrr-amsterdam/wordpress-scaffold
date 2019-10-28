@@ -1,0 +1,11 @@
+# Docker configuration backend
+providers:
+  docker:
+    defaultRule: "Host(`{{ trimPrefix `/` .Name }}.localhost`)"
+
+# API and dashboard configuration
+api:
+  insecure: true
+
+global:
+  sendAnonymousUsage: false

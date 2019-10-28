@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    volumes:
+      - web-data:/var/www/html
+
+  php:
+    volumes:
+      - codebase:/var/www/html
+
+volumes:
+  codebase:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+      device: ":$PWD"
+  web-data:
+    drive: local
+    driver_opts:
+      type: nfs
+      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+      device: "web:$PWD/web"

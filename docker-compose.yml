@@ -1,0 +1,45 @@
+version: '3'
+services:
+
+  web:
+    image: httpd:2.4-alpine
+    volumes:
+      - ./web:/usr/local/apache2/htdocs
+      - ./docker/web/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    labels:
+      - traefik.http.routers.my-container.rule=Host(`wordpress-scaffold.localhost`)
+
+  php:
+    build:
+      context: docker/php
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_NAME: wordpress
+      DB_USER: wordpress
+      DB_PASSWORD: secret
+      WP_HOME: http://wordpress-scaffold.localhost
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - mysqldata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: super-secret
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: secret
+
+  router:
+    image: traefik:v2.0-alpine
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - ./docker/router/traefik.yml:/etc/traefik/traefik.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  mysqldata:
