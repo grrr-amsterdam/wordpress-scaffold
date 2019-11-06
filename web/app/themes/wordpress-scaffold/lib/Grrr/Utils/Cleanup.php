@@ -1,27 +1,6 @@
 <?php namespace Grrr\Utils;
 
 /**
- * Remove generator, rsd and wlw
- */
-remove_action('wp_head', __NAMESPACE__ . '\\wp_generator' );
-
-/**
- * Cleanup Emoji scripts/styling
- */
-remove_action('wp_head', __NAMESPACE__ . '\\print_emoji_detection_script');
-remove_action('admin_print_scripts', __NAMESPACE__ . '\\print_emoji_detection_script');
-remove_action('wp_print_styles', __NAMESPACE__ . '\\print_emoji_styles');
-remove_action('admin_print_styles', __NAMESPACE__ . '\\print_emoji_styles');
-
-/**
- * Remove emoji DNS prefetch
- */
-function remove_emoji_dns() {
-    return false;
-}
-add_filter('emoji_svg_url', __NAMESPACE__ . '\\remove_emoji_dns');
-
-/**
  * Remove wp-embed.js (WP 4.4+)
  */
 function wpembed_dequeue_script() {
