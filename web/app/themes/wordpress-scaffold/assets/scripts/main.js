@@ -3,11 +3,11 @@ import Promise from 'promise-polyfill';
 import 'whatwg-fetch';
 import 'focus-visible';
 import 'classlist-polyfill';
+import { onDomReady } from '@grrr/ready';
 import { handle, enhance } from '@grrr/hansel';
 import rafPolyfill from './polyfills/request-animation-frame';
 
 // Import functions that are executed on DOMready regardless of DOM
-import { onDomReady } from './modules/ready';
 import { enhancer as scrollListener } from './modules/scroll-listener';
 import { enhancer as responsive } from './modules/responsive';
 import { default as disableHoverStylesOnScroll } from './modules/disable-hover-styles-on-scroll';

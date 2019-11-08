@@ -711,6 +711,11 @@
   dependencies:
     "@grrr/utils" "^2.0.0"
 
+"@grrr/ready@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@grrr/ready/-/ready-0.1.0.tgz#130816c7367040a795a773bb28d013691ce1e097"
+  integrity sha512-HrHnfEFzUekudlXBvwDs/seVciIAaFOzUYiIB2vtWF6WVGlEB6TEu9U/1uFXsmDAGJcXSbZRCN2+oAEvwT/+UA==
+
 "@grrr/utils@^2.0.0", "@grrr/utils@^2.0.1", "@grrr/utils@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@grrr/utils/-/utils-2.3.0.tgz#f11b39a746470dadfb823a228003ade7b852c59a"
