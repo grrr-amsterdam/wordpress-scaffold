@@ -24,7 +24,7 @@ class Routes {
     }
 
     public static function url(string $name): string {
-        return rest_url('/' . static::get($name));
+        return rest_url(static::NAMESPACE . '/' . static::get($name));
     }
 
 }
