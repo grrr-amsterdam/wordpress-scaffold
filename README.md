@@ -1,4 +1,4 @@
-# Wordpress Scaffold
+# WordPress Scaffold
 
 A highly opinionated WordPress 'Pro' scaffold, built with ❤️ by [GRRR](https://grrr.tech). It includes:
 
