@@ -115,7 +115,7 @@ class Setup extends Timber\Site {
     /**
      * Theme assets.
      */
-    function theme_assets() {
+    public function theme_assets() {
         wp_enqueue_style('grrr/css', Assets\asset_path('styles/base.css'), false, null);
         if (is_single() && comments_open() && get_option('thread_comments')) {
             wp_enqueue_script('comment-reply');
@@ -125,7 +125,7 @@ class Setup extends Timber\Site {
     /**
      * Admin assets.
      */
-    function admin_assets() {
+    public function admin_assets() {
         wp_enqueue_style('grrr/css', Assets\asset_path('styles/admin.css'), false, null);
     }
 
