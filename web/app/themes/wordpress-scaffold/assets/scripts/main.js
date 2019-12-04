@@ -23,15 +23,12 @@ import { enhancer as gtmEventEnhancer } from './modules/gtm-event';
 import { enhancer as newsletterSignup } from './modules/newsletter-signup';
 
 const executeOnReady = () => {
+  window.requestAnimationFrame = window.requestAnimationFrame || rafPolyfill;
+  window.Promise = window.Promise || Promise;
+
   disableHoverStylesOnScroll(); // Disable hover styles on scroll
   scrollListener(); // Initialise central scroll listener
   responsive(); // Set document width on resize and orientation change
-
-  window.requestAnimationFrame = window.requestAnimationFrame || rafPolyfill;
-
-  if (typeof window.Promise === 'undefined') {
-    window.Promise = Promise;
-  }
 };
 
 const main = () => {
