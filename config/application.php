@@ -112,15 +112,60 @@ define('APPLICATION_VERSION', (new Root\Versioning)->get_version());
 define('ACF_SYNC_WARNING', env('ACF_SYNC_WARNING') ?: false);
 
 /**
- * AWS & S3
+ * AWS — Site (used for Redirect post type)
  */
-define('DBI_AWS_ACCESS_KEY_ID', env('DBI_AWS_ACCESS_KEY_ID'));
-define('DBI_AWS_SECRET_ACCESS_KEY', env('DBI_AWS_SECRET_ACCESS_KEY'));
-define('AS3CF_BUCKET', env('AS3CF_BUCKET'));
-define('AS3CF_REGION', env('AS3CF_REGION'));
+define('AWS_SITE', [
+    'key'           => env('AWS_SITE_ACCESS_KEY_ID'),
+    'secret'        => env('AWS_SITE_SECRET_ACCESS_KEY'),
+    'region'        => env('AWS_SITE_REGION'),
+    'bucket'        => env('AWS_SITE_S3_BUCKET'),
+    'bucket_acl'    => env('AWS_SITE_S3_BUCKET_ACL'),
+    'distribution'  => env('AWS_SITE_CF_DISTRIBUTION_ID'),
+    'url'           => env('AWS_SITE_WEBSITE_URL'),
+]);
 
 /**
- * SES
+ * AWS — Assets (mainly for consistency, and for preconnecting in `head.twig`)
+ */
+define('AWS_ASSETS', [
+    'key'           => env('AWS_ASSETS_ACCESS_KEY_ID'),
+    'secret'        => env('AWS_ASSETS_SECRET_ACCESS_KEY'),
+    'region'        => env('AWS_ASSETS_REGION'),
+    'bucket'        => env('AWS_ASSETS_S3_BUCKET'),
+    'bucket_acl'    => env('AWS_ASSETS_S3_BUCKET_ACL'),
+    'distribution'  => env('AWS_ASSETS_CF_DISTRIBUTION_ID'),
+    'url'           => env('AWS_ASSETS_WEBSITE_URL'),
+]);
+
+/**
+ * Simply Static Deploy
+ */
+define('SIMPLY_STATIC_DEPLOY_CONFIG', [
+    'aws' => [
+        'key'           => env('AWS_SITE_ACCESS_KEY_ID'),
+        'secret'        => env('AWS_SITE_SECRET_ACCESS_KEY'),
+        'region'        => env('AWS_SITE_REGION'),
+        'bucket'        => env('AWS_SITE_S3_BUCKET'),
+        'bucket_acl'    => env('AWS_SITE_S3_BUCKET_ACL'),
+        'distribution'  => env('AWS_SITE_CF_DISTRIBUTION_ID'),
+    ],
+    'url' => env('AWS_SITE_WEBSITE_URL'),
+]);
+
+/**
+ * WP Offload Media
+ */
+define('AS3CF_AWS_USE_EC2_IAM_ROLE', env('AS3CF_AWS_USE_EC2_IAM_ROLE'));
+define('AS3CF_SETTINGS', serialize([
+    'provider'          => 'aws',
+    'access-key-id'     => env('AWS_ASSETS_ACCESS_KEY_ID'),
+    'secret-access-key' => env('AWS_ASSETS_SECRET_ACCESS_KEY'),
+    'bucket'            => env('AWS_ASSETS_S3_BUCKET'),
+    'region'            => env('AWS_ASSETS_REGION'),
+]));
+
+/**
+ * WP Offload SES
  */
 define('WP_SES_ACCESS_KEY', env('WP_SES_ACCESS_KEY'));
 define('WP_SES_SECRET_KEY', env('WP_SES_SECRET_KEY'));
