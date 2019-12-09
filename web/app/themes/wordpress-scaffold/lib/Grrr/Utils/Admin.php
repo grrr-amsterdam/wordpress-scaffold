@@ -20,11 +20,3 @@ function admin_footer_timing() {
     <?php
 }
 add_action('admin_footer-index.php', __NAMESPACE__ . '\\admin_footer_timing');
-
-/**
- * Move Yoast to bottom.
- */
-function yoasttobottom() {
-    return 'low';
-}
-add_filter('wpseo_metabox_prio', __NAMESPACE__ . '\\yoasttobottom');
