@@ -16,8 +16,8 @@
 
            https://grrr.nl -->
 
-    {% if constant('AS3CF_REGION') %}
-        <link rel="preconnect" href="{{ 'https://s3-' ~ constant('AS3CF_REGION') ~ '.amazonaws.com' }}">
+    {% if constant('AWS_ASSETS').url %}
+        <link rel="preconnect" href="{{ constant('AWS_ASSETS').url }}">
     {% endif %}
     {% if constant('GOOGLE_TAG_MANAGER_ID') %}
         <link rel="preconnect" href="https://www.googletagmanager.com">
