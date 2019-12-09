@@ -5,7 +5,8 @@ A highly opinionated WordPress 'Pro' scaffold, built with ❤️ by [GRRR](https
 - Dependency management via [Composer](https://getcomposer.org/)
 - [Twig](https://twig.symfony.com/) templates via [Timber](https://github.com/timber/timber/)
 - Front-end tooling using [@grrr/gulpfile](https://github.com/grrr-amsterdam/gulpfile/)
-- Deployments via [Capistrano](https://github.com/capistrano/capistrano)
+- Application deployments via [Capistrano](https://github.com/capistrano/capistrano)
+- Static site generation and deployments via [Simply Static Deploy](https://github.com/grrr-amsterdam/simply-static-deploy)
 - Advanced [ACF](https://www.advancedcustomfields.com/) integrations
 
 ## Requirements
