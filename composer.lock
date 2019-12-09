@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75651426a86a9a3b2aab7af37987c9b9",
+    "content-hash": "7f827f98b8ca851d3a5c35f5a748dade",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -354,6 +354,32 @@
             ],
             "description": "Utility library embracing functional programming paradigms.",
             "time": "2019-05-21T09:21:05+00:00"
+        },
+        {
+            "name": "grrr-amsterdam/simply-static",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/grrr-amsterdam/simply-static.git",
+                "reference": "fc9841f86dda4daa867b72c0112c071735423197"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/grrr-amsterdam/simply-static/zipball/fc9841f86dda4daa867b72c0112c071735423197",
+                "reference": "fc9841f86dda4daa867b72c0112c071735423197",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.3.3"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Simply Static site generator for wordpress",
+            "time": "2019-09-23T16:00:41+00:00"
         },
         {
             "name": "guzzlehttp/promises",
