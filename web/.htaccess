@@ -30,8 +30,6 @@
     deny from all
 </Files>
 
-# W3 Total Cache will be added here automagically
-
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
     RewriteEngine On

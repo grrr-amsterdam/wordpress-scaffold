@@ -22,14 +22,8 @@
 # Plugins not available on Packagist/WPackagist
 # !/web/app/plugins/advanced-custom-fields-pro
 
-# Cache
-/web/app/cache/*
-!/web/app/cache/.gitkeep
-
-# W3TC (managed on server in shared folder)
-/web/app/db.php
-/web/app/advanced-cache.php
-/web/app/w3tc-config/
+# Generated static site
+/web/app/static/
 
 # Other
 .DS_Store

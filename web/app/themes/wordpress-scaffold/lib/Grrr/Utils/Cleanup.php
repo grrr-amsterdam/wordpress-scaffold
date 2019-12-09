@@ -26,14 +26,3 @@ function wpdocs_dequeue_dashicon() {
 	wp_deregister_style('dashicons');
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\wpdocs_dequeue_dashicon');
-
-/**
- * Disable W3TC footer comment for everyone but admins.
- */
-function disable_w3tc_comment($can_print_comment) {
-    if (!$can_print_comment) {
-        return false;
-    }
-    return current_user_can('activate_plugins');
-}
-add_filter('w3tc_can_print_comment', __NAMESPACE__ . '\\disable_w3tc_comment');

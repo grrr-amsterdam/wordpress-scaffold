@@ -16,14 +16,4 @@ namespace :setup do
     end
   end
 
-  desc "Copy W3TC file to server"
-  task :copy_w3tc_files do
-    on roles(:web) do
-      upload! 'web/app/plugins/w3-total-cache/wp-content/advanced-cache.php',
-        "#{shared_path}/web/app"
-      upload! 'web/app/plugins/w3-total-cache/wp-content/db.php',
-        "#{shared_path}/web/app"
-    end
-  end
-
 end

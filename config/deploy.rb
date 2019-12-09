@@ -12,17 +12,14 @@ set :composer_install_flags, '--no-dev --no-interaction --prefer-dist --optimize
 
 # Linked directories
 set :linked_dirs, fetch(:linked_dirs, []).push(
-  'web/app/uploads',
-  'web/app/w3tc-config'
+  'web/app/uploads'
 )
 
 # Linked files
 set :linked_files, fetch(:linked_files, []).push(
   '.env',
   'wp',
-  'web/.htaccess',
-  'web/app/advanced-cache.php',
-  'web/app/db.php'
+  'web/.htaccess'
 )
 
 # Slackistrano
@@ -68,7 +65,6 @@ namespace :deploy do
 
     invoke 'setup:copy_dotenv'
     invoke 'setup:copy_htaccess'
-    invoke 'setup:copy_w3tc_files'
     invoke 'wp_cli:setup'
 
     invoke 'deploy:check:linked_files'
