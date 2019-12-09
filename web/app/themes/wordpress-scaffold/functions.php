@@ -3,6 +3,7 @@
 use Grrr\Acf;
 use Grrr\Cli;
 use Grrr\Newsletter;
+use Grrr\Plugins;
 use Grrr\PostTypes;
 use Grrr\Shortcodes;
 use Grrr\Taxonomies;
@@ -50,6 +51,11 @@ if (class_exists('acf')) {
  * Shortcodes
  */
 (new Shortcodes\Footnote)->register();
+
+/**
+ * Plugin settings
+ */
+(new Plugins\Yoast)->register();
 
 /**
  * Newsletter
