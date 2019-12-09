@@ -4,6 +4,7 @@
  * Get paths for assets
  */
 class JsonManifest {
+
     private $manifest;
 
     public function __construct($manifest_path) {
@@ -32,4 +33,5 @@ function asset_path($filepath, $return_uri = true) {
     } else {
         return ($return_uri ? $dist_uri : $dist_path) . $filepath;
     }
+
 }
