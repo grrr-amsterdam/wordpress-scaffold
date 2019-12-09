@@ -9,19 +9,6 @@ function excerpt_more() {
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 /**
- * Clear W3 Total Cache when publishing any 'post'.
- * Executes AFTER save_post hook (else use 1 as priority).
- */
-function custom_cache_clearing($post_id) {
-    if (!defined('DOING_AUTOSAVE') && function_exists('w3tc_flush_all')) {
-        w3tc_flush_all();
-    }
-    return $post_id;
-}
-add_action('save_post', __NAMESPACE__ . '\\custom_cache_clearing', 20);
-add_action('acf/save_post', __NAMESPACE__ . '\\custom_cache_clearing', 20);
-
-/**
  * Add term query argument to get terms for a specific post type
  * Based on https://1fix.io/blog/2016/10/25/get-terms-cpt-taxonomy
  */
