@@ -55,6 +55,7 @@ if (class_exists('acf')) {
 /**
  * Plugin settings
  */
+(new Plugins\BetterSearchReplace)->register();
 (new Plugins\Yoast)->register();
 
 /**
