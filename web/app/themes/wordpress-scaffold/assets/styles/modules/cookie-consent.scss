@@ -1,0 +1,98 @@
+$cookie-consent-horizontal-padding: 25px;
+
+.cookie-consent {
+    z-index: z(cookie-consent); position: fixed; right: 0; bottom: 0; left: 0;
+    max-height: 100%; overflow: hidden; overflow-y: auto; overscroll-behavior: contain;
+    background: $white; box-shadow: $box-shadow; color: $black;
+    transform: translate3d(0, 0, 0); transition: all 0.5s;
+    @include bp-min($small) {
+        right: 25px; bottom: 25px; left: auto;
+        max-width: 400px; max-height: calc(100% - 50px);
+    }
+}
+.cookie-consent[aria-hidden="true"] {
+    visibility: hidden; opacity: 0; pointer-events: none;
+    transform: translate(0, 100px);
+    @include bp-min($small) {
+        transform: translate(100px, 0);
+    }
+}
+
+/**
+ * Header
+ */
+.cookie-consent__header {
+    padding: 20px $cookie-consent-horizontal-padding; font-size: 0.8em;
+}
+.cookie-consent__header h1 {
+    @include h3;
+}
+.cookie-consent__header p:last-child {
+    margin-bottom: 0;
+}
+
+/**
+ * Tabs
+ */
+.cookie-consent__tab-list {
+    @include bare-list;
+}
+.cookie-consent__tab-list li {
+    border-top: 1px solid rgba($black, 0.1);
+}
+.cookie-consent__tab {
+    display: flex; align-items: stretch;
+}
+.cookie-consent__option {
+    flex: 1 1 auto; display: flex; align-items: center;
+    padding: 15px $cookie-consent-horizontal-padding 17px;
+    font-size: 0.9em; user-select: none;
+}
+.cookie-consent__option input {
+    margin-right: 10px;
+}
+.cookie-consent__option:not([data-required="true"]):hover {
+    background: rgba($black, 0.05);
+}
+.cookie-consent__tab-toggle {
+    position: relative; flex: 0 0 auto; display: block;
+    width: 55px; min-height: 55px; padding: 10px;
+    background: rgba($black, 0.1); line-height: 0;
+}
+.cookie-consent__tab-toggle:hover {
+    background: rgba($black, 0.2);
+}
+.cookie-consent__tab-toggle > svg {
+    position: absolute; top: 50%; left: 50%;
+    margin-top: -6px; margin-left: -9px;
+    width: 18px; height: 11px; fill: $black;
+}
+.cookie-consent__tab-toggle[aria-selected="true"] > svg {
+    transform: scaleY(-1);
+}
+.cookie-consent__tab-panel {
+    position: relative; overflow: hidden;
+    transition: all 0.35s;
+}
+.cookie-consent__tab-panel[aria-hidden="true"] {
+    display: none;
+}
+.cookie-consent__tab-description {
+    padding: 20px $cookie-consent-horizontal-padding; background: rgba($black, 0.1);
+    font-size: 0.8em;
+}
+.cookie-consent__tab-description::after {
+    content: '';
+    position: absolute; top: 0; left: 25px;
+    width: 0; height: 0;
+    border: 8px solid transparent; border-top-color: $white; border-bottom: 0;
+}
+
+/**
+ * Button
+ */
+.cookie-consent__button {
+    @include button;
+    width: 100%; min-height: 55px; background: $primary-color; color: $white;
+    border-radius: 0;
+}

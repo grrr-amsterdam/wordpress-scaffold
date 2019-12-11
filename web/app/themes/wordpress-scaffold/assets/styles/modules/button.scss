@@ -14,6 +14,9 @@
 .button {
     @include button;
 }
+.button--primary {
+    background: $primary-color; color: $white;
+}
 .button--white {
     background: $white;
 }
