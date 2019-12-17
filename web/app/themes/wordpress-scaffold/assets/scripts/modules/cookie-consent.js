@@ -4,8 +4,6 @@ import { pushEvent } from './gtm-event';
 export const enhancer = () => {
 
   const cookieConsent = new CookieConsent({
-    prefix: 'cookie-consent',
-    append: true,
     cookies: [
       {
         id: 'functional',
@@ -29,9 +27,11 @@ export const enhancer = () => {
   });
 
   // Update Tag Manager when `set` event is fired.
-  cookieConsent.on('set', cookies => {
-    const accepted = cookies.filter(cookie => cookie.accepted);
-    accepted.forEach(cookie => pushEvent({ event: 'cookieConsent', cookieType: cookie.id }));
+  cookieConsent.on('update', cookies => {
+    cookies.filter(cookie => cookie.accepted).forEach(cookie => pushEvent({
+      event: 'cookieConsent',
+      cookieType: cookie.id,
+    }));
   });
 
   // Make the object globally available.

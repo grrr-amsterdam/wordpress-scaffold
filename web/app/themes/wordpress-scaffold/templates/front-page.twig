@@ -11,6 +11,13 @@
         {% endfor %}
     </section>
 
+    <section>
+        <h2>Cookie consent examples</h2>
+        <a href="#" data-handler="cookieConsentShow">Update cookie preferences</a>
+        <div data-cookie-consent-accepted="marketing" hidden>Marketing cookies: <strong>accepted!</strong></div>
+        <div data-cookie-consent-rejected="marketing" hidden>Marketing cookies: <strong>rejected!</strong></div>
+    </section>
+
     {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
 
 </article>
