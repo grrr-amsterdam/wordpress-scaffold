@@ -1,10 +1,12 @@
 $cookie-consent-horizontal-padding: 25px;
 
 .cookie-consent {
+    @include styled-scrollbar;
     z-index: z(cookie-consent); position: fixed; right: 0; bottom: 0; left: 0;
     max-height: 100%; overflow: hidden; overflow-y: auto; overscroll-behavior: contain;
     background: $white; box-shadow: $box-shadow; color: $black;
-    transform: translate3d(0, 0, 0); transition: transform 0.5s, opacity 0.5s, visibility 0.5s;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.5s, opacity 0.5s, visibility 0.5s;
     @include bp-min($small) {
         right: 25px; bottom: 25px; left: auto;
         max-width: 400px; max-height: calc(100% - 50px);
@@ -43,6 +45,10 @@ $cookie-consent-horizontal-padding: 25px;
 .cookie-consent__tab {
     display: flex; align-items: stretch;
 }
+
+/**
+ * Tab option (label with input in it) & tab toggle
+ */
 .cookie-consent__option {
     flex: 1 1 auto; display: flex; align-items: center;
     padding: 15px $cookie-consent-horizontal-padding 17px;
@@ -55,8 +61,8 @@ $cookie-consent-horizontal-padding: 25px;
     background: rgba($black, 0.05);
 }
 .cookie-consent__tab-toggle {
-    position: relative; flex: 0 0 auto; display: block;
-    width: 55px; min-height: 55px; padding: 10px;
+    position: relative; flex: 0 0 auto;
+    display: block; width: 55px; min-height: 55px; padding: 10px;
     background: rgba($black, 0.1); line-height: 0;
 }
 .cookie-consent__tab-toggle:hover {
@@ -70,6 +76,10 @@ $cookie-consent-horizontal-padding: 25px;
 .cookie-consent__tab-toggle[aria-selected="true"] > svg {
     transform: scaleY(-1);
 }
+
+/**
+ * Tab panel (with description)
+ */
 .cookie-consent__tab-panel {
     position: relative; overflow: hidden;
     transition: all 0.35s;
@@ -78,13 +88,12 @@ $cookie-consent-horizontal-padding: 25px;
     display: none;
 }
 .cookie-consent__tab-description {
-    padding: 20px $cookie-consent-horizontal-padding; background: rgba($black, 0.1);
-    font-size: 0.8em;
+    padding: 20px $cookie-consent-horizontal-padding;
+    background: rgba($black, 0.05); font-size: 0.8em;
 }
 .cookie-consent__tab-description::after {
     content: '';
-    position: absolute; top: 0; left: 25px;
-    width: 0; height: 0;
+    position: absolute; top: 0; left: 25px; width: 0; height: 0;
     border: 8px solid transparent; border-top-color: $white; border-bottom: 0;
 }
 
