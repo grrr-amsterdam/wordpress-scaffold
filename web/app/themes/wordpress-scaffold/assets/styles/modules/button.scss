@@ -1,5 +1,13 @@
-@mixin button {
-    @include bare-button;
+@mixin button-color($color) {
+    @if ($color == primary) {
+        background: $primary-color; color: $white;
+    }
+    @if ($color == white) {
+        background: $white; color: $primary-color;
+    }
+}
+@mixin button($color: undefined) {
+    @include bare-button; @include button-color($color);
     display: inline-block; padding: 12px 15px;
     border-radius: $border-radius;
     @include ui-font;
@@ -11,12 +19,13 @@
         transform: scale(0.95);
     }
 }
+
 .button {
     @include button;
 }
 .button--primary {
-    background: $primary-color; color: $white;
+    @include button-color(primary);
 }
 .button--white {
-    background: $white;
+    @include button-color(white);
 }

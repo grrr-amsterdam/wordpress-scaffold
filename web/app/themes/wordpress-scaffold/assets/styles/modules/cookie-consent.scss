@@ -92,7 +92,10 @@ $cookie-consent-horizontal-padding: 25px;
  * Button
  */
 .cookie-consent__button {
-    @include button;
-    width: 100%; min-height: 55px; background: $primary-color; color: $white;
+    @include button(primary);
+    width: 100%; min-height: 55px;
     border-radius: 0;
+}
+.cookie-consent__button:active {
+    transform: none;
 }
