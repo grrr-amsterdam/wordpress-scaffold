@@ -6,21 +6,15 @@ export const enhancer = () => {
   const cookieConsent = new CookieConsent({
     cookies: [
       {
-        id: 'functional',
-        label: 'Functional',
-        description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Etiam porta sem malesuada magna mollis euismod.',
-        required: true,
-      },
-      {
         id: 'analytical',
         label: 'Analytical',
-        description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Etiam porta sem malesuada magna mollis euismod.',
+        description: 'Analytical cookies help us understand how visitors interact with websites by collecting and reporting anonymised information.',
         required: true,
       },
       {
         id: 'marketing',
         label: 'Marketing & Social Media',
-        description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Etiam porta sem malesuada magna mollis euismod.',
+        description: 'Marketing and social media cookies are used to track visitors across websites. The intention could be to display retargeting ads, or to show embedded content from third parties.',
         checked: true,
       },
     ],
