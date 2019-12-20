@@ -3,10 +3,36 @@
    ========================================================================== */
 
 /**
- * Easier way to provide object-fit polyfill hook
+ * Styled scrollbar
+ */
+@mixin styled-scrollbar($color: $blackish) {
+    // Standardized (currently only Firefox, plus on macOS only when system
+    // preferences are set to always show scrollbars).
+    // sass-lint:disable no-misspelled-properties
+    scrollbar-color: $color transparent;
+    scrollbar-width: thin;
+    // sass-lint:enable no-misspelled-properties
+    // WebKit only (Chrome, Safari, Edge).
+    &::-webkit-scrollbar-track {
+        margin: 3px 0;
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color;
+        border: 3px solid transparent;
+        border-top: 0; border-bottom: 0;
+        background-clip: padding-box;
+    }
+}
+
+/**
+ * Easier way to provide `object-fit-images` polyfill hook
  */
 @mixin object-fit($value: cover) {
-    object-fit: $value; font-family: 'object-fit: #{$value}'; // for polyfill
+    object-fit: $value; font-family: 'object-fit: #{$value}';
 }
 
 /**
