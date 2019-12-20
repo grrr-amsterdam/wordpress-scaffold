@@ -176,6 +176,7 @@ define('WP_SES_HIDE_VERIFIED', env('WP_SES_HIDE_VERIFIED'));
  * Analytics & Tracking
  */
 define('GOOGLE_TAG_MANAGER_ID', env('GOOGLE_TAG_MANAGER_ID'));
+define('GOOGLE_TAG_MANAGER_DEBUG', env('GOOGLE_TAG_MANAGER_DEBUG'));
 
 /**
  * Sentry

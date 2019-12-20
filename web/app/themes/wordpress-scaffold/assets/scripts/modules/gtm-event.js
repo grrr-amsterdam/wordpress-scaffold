@@ -1,5 +1,3 @@
-const DEBUG = true;
-
 const getDataLayer = () => window.dataLayer || [];
 
 const getAttributes = el => ({
@@ -12,7 +10,7 @@ const getAttributes = el => ({
 
 export const pushEvent = data => {
   getDataLayer().push(data);
-  if (DEBUG) {
+  if (window.GOOGLE_TAG_MANAGER_DEBUG) {
     console.log('Tracking event', data);
   }
 };
