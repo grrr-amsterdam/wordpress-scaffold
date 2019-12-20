@@ -15,12 +15,10 @@ import { default as disableHoverStylesOnScroll } from './modules/disable-hover-s
 
 // Import handlers
 import { handler as classToggler } from './modules/class-toggler';
-import { handler as cookieBarAccept } from './modules/cookie-bar';
 import { handler as cookieConsentShow } from './modules/cookie-consent';
 import { handler as gtmEventHandler } from './modules/gtm-event';
 
 // Import enhancers
-import { enhancer as cookieBar } from './modules/cookie-bar';
 import { enhancer as gtmEventEnhancer } from './modules/gtm-event';
 import { enhancer as newsletterSignup } from './modules/newsletter-signup';
 
@@ -38,12 +36,10 @@ const main = () => {
   executeOnReady();
   handle(document.documentElement, {
     classToggler,
-    cookieBarAccept,
     cookieConsentShow,
     gtmEventHandler,
   });
   enhance(document.documentElement, {
-    cookieBar,
     gtmEventEnhancer,
     newsletterSignup,
   });
