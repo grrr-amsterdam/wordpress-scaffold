@@ -1,6 +1,6 @@
 {
     "key": "group_5c6158f202bdc",
-    "title": "Options › Footer",
+    "title": "Option › Footer",
     "fields": [
         {
             "key": "field_5c6158fdb4472",
@@ -73,5 +73,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1549883694
+    "modified": 1576838707
 }

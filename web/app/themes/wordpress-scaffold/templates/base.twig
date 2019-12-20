@@ -9,24 +9,24 @@
             {{ __( 'Skip to content') }}
         </a>
 
-        {% block header %}
-            {% include 'partials/site-header.twig' %}
-        {% endblock %}
+        {% include 'partials/site-header.twig' %}
 
         <main class="site-wrapper" id="content">
             {% include templates %}
         </main>
 
-        {% block footer %}
-            {% include 'partials/site-footer.twig' %}
-            {{ function('wp_footer') }}
-        {% endblock %}
+        {% include 'partials/site-footer.twig' %}
+        {{ function('wp_footer') }}
 
         <!--[if IE]>
         <div class="browser-warning">
             {{ __('You are using a <strong>strongly outdated</strong> browser. Please <a href="http://outdatedbrowser.com/" target="_blank">upgrade your browser</a> to improve your experience.', 'grrr')|raw }}
         </div>
         <![endif]-->
+
+        {% if option('enabled', 'cookie consent') %}
+            {% include 'partials/cookie-consent.twig' %}
+        {% endif %}
     </body>
 </html>
 

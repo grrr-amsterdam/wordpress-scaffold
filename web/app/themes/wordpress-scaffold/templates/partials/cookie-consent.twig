@@ -1,0 +1,22 @@
+<div data-enhancer="cookieConsent"></div>
+
+<script>
+    window.COOKIE_CONSENT_CONFIG = {
+      labels: {
+        title: '{{ option('title', 'cookie consent')|e('js') }}',
+        description: '{{ option('description', 'cookie consent')|e('js') }}',
+        button: '{{ option('button', 'cookie consent')|e('js') }}',
+      },
+      cookies: [
+        {% for cookie in option('cookies', 'cookie consent') %}
+        {
+          id: '{{ cookie.id|e('js') }}',
+          label: '{{ cookie.label|e('js') }}',
+          description: '{{ cookie.description|e('js') }}',
+          required: {{ cookie.required ? 'true' : 'false' }},
+          checked: {{ cookie.checked ? 'true' : 'false' }},
+        },
+        {% endfor %}
+      ],
+    };
+</script>

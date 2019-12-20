@@ -1,104 +1,10 @@
 {
     "key": "group_5c8289813874e",
-    "title": "Options › Cookie Bar",
+    "title": "Option › Cookie Consent",
     "fields": [
         {
             "key": "field_5c82898725c6a",
-            "label": "Content",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5c828997fddf2",
-            "label": "Description",
-            "name": "cookie_bar_description",
-            "type": "textarea",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "This site makes use of third-party cookies for analytics. By continuing to use the site, you accept the use of cookies.",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 3,
-            "new_lines": ""
-        },
-        {
-            "key": "field_5c8289b5f6ac5",
-            "label": "Link",
-            "name": "cookie_bar_link",
-            "type": "page_link",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
-        },
-        {
-            "key": "field_5c8289ccf6ac6",
-            "label": "Link label",
-            "name": "cookie_bar_link_label",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Read more",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5c8289d44ce14",
-            "label": "Button label",
-            "name": "cookie_bar_button_label",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Accept",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5d7385a5d7dfa",
-            "label": "Visibility",
+            "label": "Settings",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -114,8 +20,8 @@
         },
         {
             "key": "field_5d7385acd7dfb",
-            "label": "Hidden",
-            "name": "cookie_bar_hidden",
+            "label": "Enabled",
+            "name": "cookie_consent_enabled",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -125,11 +31,240 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Hide cookie bar",
-            "default_value": 0,
-            "ui": 0,
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5d7385a5d7dfa",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d7385acd7dfb",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5dfca65549dbb",
+            "label": "Title",
+            "name": "cookie_consent_title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Cookies & Privacy",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c828997fddf2",
+            "label": "Description",
+            "name": "cookie_consent_description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<p>This site makes use of third-party cookies. Read more in our <a href=\"\/privacy-policy\">privacy policy<\/a>.<\/p>",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5c8289d44ce14",
+            "label": "Button",
+            "name": "cookie_consent_button",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ok",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5dfca8a85d329",
+            "label": "Cookies",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d7385acd7dfb",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5dfcaa6e20bae",
+            "label": "Cookie Types",
+            "name": "cookie_consent_cookies",
+            "type": "repeater",
+            "instructions": "List cookie types which are required or can be given consent to. Note that the identifier should match what's been configured in the tag loader (e.g. Google Tag Manager).",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5dfcaa9c20bb0",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Cookie Type",
+            "sub_fields": [
+                {
+                    "key": "field_5dfcaa9120baf",
+                    "label": "Identifier",
+                    "name": "id",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5dfcaa9c20bb0",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5dfcaab120bb1",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_5dfcaad120bb3",
+                    "label": "Required",
+                    "name": "required",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5dfcaabe20bb2",
+                    "label": "Checked",
+                    "name": "checked",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5dfcaad120bb3",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -137,7 +272,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "theme-options-cookie-bar"
+                "value": "theme-options-cookie-consent"
             }
         ]
     ],
@@ -149,5 +284,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1567851973
+    "modified": 1576840341
 }
