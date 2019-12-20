@@ -14,7 +14,7 @@ class DotEnv {
     }
 
     public function get($key) {
-        $dotenv = DotEnvLib::create($this->_rootPath);
+        $dotenv = DotEnvLib::createImmutable($this->_rootPath);
         $dotenv->load();
         return getenv($key);
     }
