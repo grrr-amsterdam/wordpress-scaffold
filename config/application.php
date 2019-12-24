@@ -167,10 +167,12 @@ define('AS3CF_SETTINGS', serialize([
 /**
  * WP Offload SES
  */
-define('WP_SES_ACCESS_KEY', env('WP_SES_ACCESS_KEY'));
-define('WP_SES_SECRET_KEY', env('WP_SES_SECRET_KEY'));
-define('WP_SES_ENDPOINT', env('WP_SES_ENDPOINT'));
-define('WP_SES_HIDE_VERIFIED', env('WP_SES_HIDE_VERIFIED'));
+define('WPOSES_AWS_ACCESS_KEY_ID', env('WPOSES_AWS_ACCESS_KEY_ID'));
+define('WPOSES_AWS_SECRET_ACCESS_KEY', env('WPOSES_AWS_SECRET_ACCESS_KEY'));
+define('WPOSES_HIDE_VERIFIED', env('WPOSES_HIDE_VERIFIED'));
+define('WPOSES_SETTINGS', serialize([
+    'region' => env('WPOSES_AWS_REGION'),
+]));
 
 /**
  * Analytics & Tracking
