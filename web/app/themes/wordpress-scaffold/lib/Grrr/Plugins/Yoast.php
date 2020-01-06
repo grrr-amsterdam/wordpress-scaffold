@@ -9,7 +9,7 @@ final class Yoast {
 
     public function register() {
         add_filter('wpseo_metabox_prio', [$this, 'metabox_prio']);
-        add_action('wpseo_opengraph_image_size', [$this, 'opengraph_image_size'], 10, 2);
+        add_filter('wpseo_opengraph_image_size', [$this, 'opengraph_image_size']);
         add_action('template_redirect', [$this, 'remove_comments'], 9999);
     }
 
@@ -21,12 +21,15 @@ final class Yoast {
     }
 
     /**
-     * Set the Open Graph image size (default is 'large').
-     * Note that it will not fallback to a default, so uploaded images should be at
-     * least this size or should be upscaled.
+     * Set the Open Graph image size (default is set to `large`, which is too small).
+     *
+     * Notes:
+     * - The argument doesn't appear to work.
+     * - We're using `full`, since setting it to `image--large` when the original is
+     *   1920px (or smaller) will not show any Open Graph image. No fallback is provided.
      */
-    public function opengraph_image_size() {
-        return 'image--huge';
+    public function opengraph_image_size($original) {
+        return 'full';
     }
 
     /**
