@@ -38,11 +38,12 @@ class Functions {
         return get_field(str_replace(' ', '_', "{$prefix}_{$name}"), 'option');
     }
 
-    public function get_acf_snippet(string $name) {
+    public function get_acf_snippet(string $name, ?string $default = null) {
         if (!function_exists('get_field')) {
             return;
         }
-        return get_field(str_replace(' ', '_', "snippets_{$name}"), 'option');
+        return get_field(str_replace(' ', '_', "snippets_{$name}"), 'option')
+            ?: $default ?: '';
     }
 
     public function get_acf_page(string $name) {
