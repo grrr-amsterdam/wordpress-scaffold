@@ -45,7 +45,7 @@ namespace :assets do
           execute \
             "for theme in web/app/themes/*; do " \
               "if [ -f \"$theme/package.json\" ]; then " \
-                "scp -r $theme/assets/build/* " \
+                "rsync -rlz $theme/assets/build/* " \
                   "#{host.user}@#{host.hostname}:#{release_path}/$theme/assets/build/;" \
               "fi;" \
             "done;"
