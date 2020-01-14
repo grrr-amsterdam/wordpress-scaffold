@@ -5,13 +5,12 @@ use Garp\Functional as f;
 
 abstract class PostTypeAbstract {
 
-    protected $_type;
-    protected $_slug;
-    protected $_name;
-    protected $_singular_name;
-    protected $_icon;
+    protected $type;
+    protected $slug;
+    protected $icon;
+    protected $labels = [];
 
-    protected $_args = [];
+    protected $args = [];
 
     public function __construct() {
         $defaults = [
@@ -29,17 +28,14 @@ abstract class PostTypeAbstract {
             'show_in_rest' => false,
             'hierarchical' => false,
             'rewrite' => [
-                'slug' => $this->_slug,
+                'slug' => $this->slug,
                 'with_front' => false,
             ],
             'taxonomies' => [],
-            'labels' => [
-                'name' => $this->_name,
-                'singular_name' => $this->_singular_name,
-            ],
-            'menu_icon' => $this->_icon,
+            'labels' => $this->labels,
+            'menu_icon' => $this->icon,
         ];
-        $this->_args = f\concat($defaults, $this->_args);
+        $this->args = f\concat($defaults, $this->args);
     }
 
     public function register() {
@@ -48,22 +44,22 @@ abstract class PostTypeAbstract {
     }
 
     public function register_post_type() {
-        register_post_type($this->_type, $this->_args);
+        register_post_type($this->type, $this->args);
     }
 
     public function get_posts(int $amount = -1) {
         return Timber\Timber::get_posts([
-            'post_type' => $this->_type,
+            'post_type' => $this->type,
             'posts_per_page' => $amount,
         ]);
     }
 
     public function get_index_link() {
-        return get_post_type_archive_link($this->_type);
+        return get_post_type_archive_link($this->type);
     }
 
     public function twig_functions(\Twig_Environment $twig) {
-        $type = str_replace('-', '_', $this->_type);
+        $type = str_replace('-', '_', $this->type);
         $twig->addFunction(
             new Timber\Twig_Function('get_' . $type . '_posts', [$this, 'get_posts'])
         );

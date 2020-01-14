@@ -2,13 +2,15 @@
 
 class Example extends PostTypeAbstract {
 
-    protected $_type               = 'example';
-    protected $_slug               = 'examples';
-    protected $_name               = 'Examples';
-    protected $_singular_name      = 'Example';
-    protected $_icon               = 'dashicons-portfolio';
+    protected $type   = 'example';
+    protected $slug   = 'examples';
+    protected $icon   = 'dashicons-portfolio';
+    protected $labels = [
+        'name' => 'Examples',
+        'singular_name'  => 'Example',
+    ];
 
-    protected $_args = [
+    protected $args = [
         'public' => true,
         'has_archive' => true,
         'taxonomies' => [

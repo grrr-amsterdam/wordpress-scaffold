@@ -2,7 +2,7 @@
 
 class Comment {
 
-    protected $_type = 'comment';
+    protected $type = 'comment';
 
     public function register() {
         add_action('admin_menu', [$this, 'adjust']);
