@@ -63,8 +63,9 @@ abstract class PostTypeAbstract {
     }
 
     public function twig_functions(\Twig_Environment $twig) {
+        $type = str_replace('-', '_', $this->_type);
         $twig->addFunction(
-            new Timber\Twig_Function('get_' . $this->_type . '_posts', [$this, 'get_posts'])
+            new Timber\Twig_Function('get_' . $type . '_posts', [$this, 'get_posts'])
         );
         return $twig;
     }
