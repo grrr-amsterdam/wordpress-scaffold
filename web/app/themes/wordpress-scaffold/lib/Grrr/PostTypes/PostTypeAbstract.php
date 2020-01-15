@@ -54,7 +54,7 @@ abstract class PostTypeAbstract {
         ]);
     }
 
-    public function get_index_link() {
+    public function get_archive_link() {
         return get_post_type_archive_link($this->type);
     }
 
