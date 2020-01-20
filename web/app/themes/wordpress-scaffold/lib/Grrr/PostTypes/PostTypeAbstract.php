@@ -8,8 +8,8 @@ abstract class PostTypeAbstract {
     protected $type;
     protected $slug;
     protected $icon;
-    protected $labels = [];
 
+    protected $labels = [];
     protected $args = [];
 
     public function __construct() {

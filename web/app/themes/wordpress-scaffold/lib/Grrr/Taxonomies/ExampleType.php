@@ -2,14 +2,17 @@
 
 class ExampleType extends TaxonomyAbstract {
 
-    protected $_taxonomy           = 'example_type';
-    protected $_slug               = 'type';
-    protected $_name               = 'Example Types';
-    protected $_singular_name      = 'Example Type';
+    protected $taxonomy = 'example-type';
+    protected $slug = 'type';
 
-    protected $_args = [
+    protected $labels = [
+        'name' => 'Types',
+        'singular_name' => 'Type',
+    ];
+
+    protected $args = [
         'rewrite' => [
-            'slug' => '<post_type_slug>/type',
+            'slug' => '<post-type-slug>/type',
         ],
     ];
 

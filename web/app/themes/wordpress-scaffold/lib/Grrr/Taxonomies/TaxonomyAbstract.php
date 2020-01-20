@@ -4,12 +4,11 @@ use Garp\Functional as f;
 
 abstract class TaxonomyAbstract {
 
-    protected $_taxonomy;
-    protected $_slug;
-    protected $_name;
-    protected $_singular_name;
+    protected $taxonomy;
+    protected $slug;
 
-    protected $_args = [];
+    protected $labels = [];
+    protected $args = [];
 
     public function __construct() {
         $defaults = [
@@ -18,15 +17,12 @@ abstract class TaxonomyAbstract {
             'show_ui' => true,
             'show_admin_column' => true,
             'rewrite' => [
-                'slug' => $this->_slug,
+                'slug' => $this->slug,
                 'with_front' => false,
             ],
-            'labels' => [
-                'name' => $this->_name,
-                'singular_name' => $this->_singular_name,
-            ],
+            'labels' => $this->labels,
         ];
-        $this->_args = f\concat($defaults, $this->_args);
+        $this->args = f\concat($defaults, $this->args);
     }
 
     public function register() {
@@ -34,7 +30,7 @@ abstract class TaxonomyAbstract {
     }
 
     public function register_taxonomy() {
-        register_taxonomy($this->_taxonomy, null, $this->_args);
+        register_taxonomy($this->taxonomy, null, $this->args);
     }
 
 }
