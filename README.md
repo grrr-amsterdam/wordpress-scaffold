@@ -19,15 +19,19 @@ View the [prerequisites](https://github.com/grrr-amsterdam/wordpress-scaffold/wi
 
 ## Quick start
 
-To start a new project, run:
+To create a new project, run:
 
-```
+```sh
 $ composer create-project grrr-amsterdam/wordpress-scaffold <project-name>
 ```
 
-After the project is created by Composer, an interactive shell will be initiated. This interactive setup will prompt you with some questions.
+After the project is created by Composer, you can run the `setup` command:
 
-See the [complete list of tasks](https://github.com/grrr-amsterdam/wordpress-scaffold/wiki/Setting-up-a-project) that will run during this interactive setup.
+```sh
+$ composer setup
+```
+
+This will trigger an interactive shell, which will prompt you with questions. The given answers will help configure the newly created project. See the [complete list of tasks](https://github.com/grrr-amsterdam/wordpress-scaffold/wiki/Setting-up-a-project) that will run during this interactive setup.
 
 ## Documentation
 
