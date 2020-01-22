@@ -23,14 +23,15 @@ class ProjectSetup {
         $io = $event->getIO();
         static::$io = $io;
 
-        $io->write("\n<info>Environment variables (hit enter key for default)</info>");
-        $answers = static::askQuestions(static::getEnvQuestions());
+        $io->write("\n<info>Environment variables</info>");
+        $io->write("Press `enter` for <comment>default value</comment>.\n");
 
+        $answers = static::parseAnswers(static::askQuestions(static::getEnvQuestions()));
         $io->write("\n<info>Updating .env file...</info>");
         $output = shell_exec("cp -n .env.template .env");
         $io->write("\n" . $output);
+
         $dotEnv = new Util\DotEnv(self::_getRootPath());
-        $answers = static::parseAnswers($answers);
         $dotEnv->replaceVariables($answers);
         $io->write('.env file updated');
 
@@ -42,38 +43,22 @@ class ProjectSetup {
             $io->write("<error>{$errorMessage}</error>");
         }
 
-        $io->write("\n<info>Theme settings (hit enter key for default)</info>");
-        $answers = static::askQuestions(static::getThemeQuestions());
+        $io->write("\n<info>Theme settings</info>");
+        $io->write("Press `enter` for <comment>default value</comment>.\n");
+        $answers = f\concat(
+            $answers,
+            static::askQuestions(static::getThemeQuestions())
+        );
         static::_updateThemeSettings($answers);
         $themeName = $answers['TEXT_DOMAIN'];
 
-        $io->write("\n<info>Wordpress settings (hit enter key for default)</info>");
-        $answers = static::askQuestions(static::getWordpressInstallQuestions());
-        $result = static::_installWordpress($answers);
-        $io->write($result);
-
-        $io->write("\n<info>Installing front-end dependencies (thru Yarn)</info>");
-        $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
-        if (intval($hasYarn)) {
-            $themePath = self::_getThemePath($themeName);
-            $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
-        } else {
-            $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies. \nInstall Yarn `npm i -g yarn` and install the front-end assets yourself.</error>\n";
-        }
-        $io->write("\n" . $output);
-
-        $io->write("\n<info>Building theme assets</info>");
-        $themePath = self::_getThemePath($themeName);
-        $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
-        if (intval($hasYarn)) {
-            $themePath = self::_getThemePath($themeName);
-            $output = shell_exec("cd {$themePath} && yarn build");
-        } else {
-            $output = "<error>Yarn was not found. We require Yarn for building our front-end dependencies. \nInstall Yarn `npm i -g yarn` and build the front-end assets yourself.</error>\n";
-        }
-        $io->write("\n" . $output);
-
-        shell_exec("cd " . self::_getRootPath());
+        $io->write("\n<info>Wordpress settings</info>\n");
+        $io->write("Press `enter` for <comment>default value</comment>.\n");
+        $answers = f\concat(
+            $answers,
+            static::askQuestions(static::getWordpressInstallQuestions())
+        );
+        $io->write("\n" . static::_installWordpress($answers));
 
         $io->write("\n<info>Creating symlinks</info>");
         shell_exec("ln -sf web/app/themes/{$themeName}/node_modules/ node_modules");
@@ -84,11 +69,11 @@ class ProjectSetup {
          * We run `composer dumpautoload`, since the theme path was renamed,
          * and we merge dependencies in the main `composer.json`.
          */
-        $io->write("\n<info>Composer dumpautoload</info>");
+        $io->write("\n<info>Updating Composer autoload paths</info>");
         $output = shell_exec("composer dumpautoload");
         $io->write("\n" . $output);
 
-        $io->write("\n<info>Activate theme & plugins</info>");
+        $io->write("\n<info>Activating theme & plugins</info>");
 
         $io->write("\n" . $output);
         $output = shell_exec("wp plugin activate timber-library");
@@ -125,7 +110,24 @@ class ProjectSetup {
         $output = shell_exec("wp option update large_size_h 1400");
         $io->write("\n" . $output);
 
-        $io->write("\n<info>Installing deployment dependencies (thru Bundler)</info>");
+        $io->write("\n<info>Architecture</info> (hit <comment>enter</comment> key for default)\n");
+        $answers = f\concat(
+            $answers,
+            static::askQuestions(static::getArchitectureQuestions())
+        );
+
+        if (f\prop('is_static', $answers)) {
+            $io->write("\n<info>Adding robot.txt file</info>");
+            static::_createRobotsFile();
+
+            $io->write("\n<info>Activating static site plugins</info>");
+            $output = shell_exec("wp plugin activate simply-static");
+            $io->write("\n" . $output);
+            $output = shell_exec("wp plugin activate simply-static-deploy");
+            $io->write("\n" . $output);
+        }
+
+        $io->write("\n<info>Installing deployment dependencies (with Bundler)</info>");
         $hasBundler = shell_exec("command -v bundle >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasBundler)) {
             $output = shell_exec("bundle install");
@@ -133,6 +135,29 @@ class ProjectSetup {
             $output = "<error>Bundler was not found. We recommend using Bundler to install deployment dependencies.\n Install Bundler `gem install bundler` and install the dependencies yourself: `bundle install`.</error>\n";
         }
         $io->write("\n" . $output);
+
+        $io->write("\n<info>Installing front-end dependencies (with Yarn)</info>");
+        $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
+        if (intval($hasYarn)) {
+            $themePath = self::_getThemePath($themeName);
+            $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
+        } else {
+            $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies. \nInstall Yarn `npm i -g yarn` and install the front-end assets yourself.</error>\n";
+        }
+        $io->write("\n" . $output);
+
+        $io->write("\n<info>Building theme assets</info>");
+        $themePath = self::_getThemePath($themeName);
+        $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
+        if (intval($hasYarn)) {
+            $themePath = self::_getThemePath($themeName);
+            $output = shell_exec("cd {$themePath} && yarn build");
+        } else {
+            $output = "<error>Yarn was not found. We require Yarn for building our front-end dependencies. \nInstall Yarn `npm i -g yarn` and build the front-end assets yourself.</error>\n";
+        }
+        $io->write("\n" . $output);
+
+        shell_exec("cd " . self::_getRootPath());
 
         $io->write("\n<info>Done! (｡◕‿◕｡)</info>");
     }
@@ -152,7 +177,7 @@ class ProjectSetup {
                 : 'no'
             : f\prop('default', $config);
 
-        $question = f\prop('question', $config) . " ({$default}): ";
+        $question = f\prop('question', $config) . " (<comment>{$default}</comment>): ";
 
         if (f\prop('type', $config) === 'confirmation') {
             return static::$io->askConfirmation(
@@ -174,11 +199,6 @@ class ProjectSetup {
 
     protected static function getWordpressInstallQuestions() {
         return [
-            'is_static' => [
-                'question' => 'Will this use the static site setup?',
-                'default' => true,
-                'type' => 'confirmation',
-            ],
             'site_title' => [
                 'question' => 'Please give your site a title',
                 'default' => static::_composeThemeName(),
@@ -231,8 +251,8 @@ class ProjectSetup {
                 'question' => 'What will be your local site URL? (incl. `http://`)',
                 'default' => NULL,
                 'validator' => function($value) {
-                    if (empty($value)) {
-                        throw new \Exception('You need to give a URL');
+                    if (!filter_var($value, FILTER_VALIDATE_URL)) {
+                        throw new \Exception('You need to give a valid URL');
                     }
                     return $value;
                 }
@@ -249,21 +269,31 @@ class ProjectSetup {
                 'default' => static::_composeThemeName()
             ],
             'THEME_URI' => [
-                'question' => 'What is your Theme URI',
+                'question' => 'What is your Theme URI?',
                 'default' => 'https://grrr.nl'
             ],
             'AUTHOR' => [
-                'question' => 'What is the Author\'s name',
-                'default' => 'Grrr'
+                'question' => 'What is the Author\'s name?',
+                'default' => 'GRRR'
             ],
             'AUTHOR_URI' => [
-                'question' => 'What is the Author\'s URI',
+                'question' => 'What is the Author\'s URI?',
                 'default' => 'https://grrr.nl'
             ],
             'TEXT_DOMAIN' => [
-                'question' => 'What is your theme\'s textdomain and folder name',
+                'question' => 'What will be your theme\'s textdomain and folder name?',
                 'default' => static::_composeProjectName()
             ]
+        ];
+    }
+
+    protected static function getArchitectureQuestions() {
+        return [
+            'is_static' => [
+                'question' => 'Will this use the static site setup?',
+                'default' => true,
+                'type' => 'confirmation',
+            ],
         ];
     }
 
@@ -323,4 +353,10 @@ class ProjectSetup {
     protected static function _getThemePath($themeName) {
         return self::_getRootPath() . '/web/app/themes/' . $themeName;
     }
+
+    protected static function _createRobotsFile() {
+        $contents = "User-agent: *\nDisallow: /";
+        return file_put_contents(self::_getRootPath() . '/web/robots.txt', $contents);
+    }
+
 }
