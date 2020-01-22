@@ -1,6 +1,6 @@
 # WordPress Scaffold
 
-A highly opinionated WordPress 'Pro' scaffold, built with ❤️ by [GRRR](https://grrr.tech). It includes:
+A highly opinionated WordPress Pro scaffold, built with ❤️ by [GRRR](https://grrr.tech). It includes:
 
 - Dependency management via [Composer](https://getcomposer.org/)
 - [Twig](https://twig.symfony.com/) templates via [Timber](https://github.com/timber/timber/)
