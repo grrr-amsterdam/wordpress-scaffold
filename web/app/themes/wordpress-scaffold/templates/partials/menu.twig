@@ -1,7 +1,9 @@
 <ul>
     {% for item in menu.items %}
     <li>
-        <a href="{{ item.link }}" aria-current="{{ item.current ? 'page' : 'false' }}">{{ item.title }}</a>
+        <a href="{{ item.link }}" aria-current="{{ item.current ? 'page' : '' }}">
+            <span>{{ item.title }}<span>
+        </a>
     </li>
     {% endfor %}
 </ul>
