@@ -12,17 +12,7 @@ init() {
         exit
     fi
 
-    install_composer_packages
     install_ruby_bundler
-}
-
-install_composer_packages() {
-    if command -v composer 2>/dev/null; then
-        composer install
-    else
-        echo 'No PHP Composer available.'
-        exit 1;
-    fi
 }
 
 install_ruby_bundler() {
@@ -31,6 +21,10 @@ install_ruby_bundler() {
 }
 
 deploy() {
+    echo '🔑  [SSH]'
+    eval `ssh-agent -s`
+    ssh-add
+
     echo '🤖  [Deploying]'
     export PATH=$PATH:$(npm bin);
 

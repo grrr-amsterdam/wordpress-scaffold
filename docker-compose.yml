@@ -41,5 +41,15 @@ services:
       - ./docker/router/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
 
+  deploy:
+    build:
+      context: docker/deploy
+    volumes:
+      - .:/app
+      - ~/.ssh:/root/.ssh
+    environment:
+      - "USER=${USER}"
+    working_dir: /app
+
 volumes:
   mysqldata:
