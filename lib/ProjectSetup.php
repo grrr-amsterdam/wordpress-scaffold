@@ -1,6 +1,7 @@
 <?php namespace Grrr\Root;
 
 use Composer\Script\Event;
+use Garp\Functional as f;
 use Grrr\Root\Util\StringUtil as S;
 
 /**
@@ -22,9 +23,8 @@ class ProjectSetup {
         $io = $event->getIO();
         static::$io = $io;
 
-        $io->write("\n<info>Setup project information. Press enter key for default.</info>");
-        $questions = static::getEnvQuestions();
-        $answers = static::askQuestions($questions);
+        $io->write("\n<info>Environment variables (hit enter key for default)</info>");
+        $answers = static::askQuestions(static::getEnvQuestions());
 
         $io->write("\n<info>Updating .env file...</info>");
         $output = shell_exec("cp -n .env.template .env");
@@ -42,12 +42,12 @@ class ProjectSetup {
             $io->write("<error>{$errorMessage}</error>");
         }
 
-        $io->write("\n<info>Setup theme settings</info>");
+        $io->write("\n<info>Theme settings (hit enter key for default)</info>");
         $answers = static::askQuestions(static::getThemeQuestions());
         static::_updateThemeSettings($answers);
         $themeName = $answers['TEXT_DOMAIN'];
 
-        $io->write("\n<info>Start installation of Wordpress</info>");
+        $io->write("\n<info>Wordpress settings (hit enter key for default)</info>");
         $answers = static::askQuestions(static::getWordpressInstallQuestions());
         $result = static::_installWordpress($answers);
         $io->write($result);
@@ -134,7 +134,7 @@ class ProjectSetup {
         }
         $io->write("\n" . $output);
 
-        $io->write("\n<info>Done 🤘</info>");
+        $io->write("\n<info>Done! (｡◕‿◕｡)</info>");
     }
 
     protected static function askQuestions($questions) {
@@ -145,40 +145,57 @@ class ProjectSetup {
         return $answers;
     }
 
+    protected static function askQuestion($config) {
+        $default = f\prop('type', $config) === 'confirmation'
+            ? f\prop('default', $config)
+                ? 'yes'
+                : 'no'
+            : f\prop('default', $config);
+
+        $question = f\prop('question', $config) . " ({$default}): ";
+
+        if (f\prop('type', $config) === 'confirmation') {
+            return static::$io->askConfirmation(
+                $question, f\prop('default', $config)
+            );
+        }
+        if (f\prop('validator', $config)) {
+            return static::$io->askAndValidate(
+                $question, f\prop('validator', $config), null, f\prop('default', $config)
+            );
+        }
+        return static::$io->ask($question, f\prop('default', $config));
+    }
+
     protected static function parseAnswers($answers) {
         $answers['BROWSERSYNC_PROXY'] = $answers['WP_HOME'];
         return $answers;
     }
 
-    protected static function askQuestion($config) {
-        $question = $config['question'] . " ({$config['default']}): ";
-        if (!empty($config['validator'])) {
-            return static::$io->askAndValidate(
-                $question, $config['validator'], null, $config['default']
-            );
-        }
-        return static::$io->ask($question, $config['default']);
-    }
-
     protected static function getWordpressInstallQuestions() {
         return [
+            'is_static' => [
+                'question' => 'Will this use the static site setup?',
+                'default' => true,
+                'type' => 'confirmation',
+            ],
             'site_title' => [
-                'question' => 'Please give your site\'s title?',
+                'question' => 'Please give your site a title',
                 'default' => static::_composeThemeName(),
             ],
             'admin_user' => [
                 'question' => 'What will be the admin\'s username?',
-                'default' => 'grrr'
+                'default' => 'grrr',
             ],
             'admin_email' => [
                 'question' => 'What will be the admin\'s email?',
-                'default' => 'wordpress@grrr.nl'
+                'default' => 'wordpress@grrr.nl',
             ],
             'admin_password' => [
                 'question' => 'Please provide the admin\'s password',
                 'default' => 'secret',
-                'type' => 'password'
-            ]
+                'type' => 'password',
+            ],
         ];
     }
 
@@ -211,11 +228,11 @@ class ProjectSetup {
                 }
             ],
             'WP_HOME' => [
-                'question' => 'What will be your local site url? (incl. `http://`)',
+                'question' => 'What will be your local site URL? (incl. `http://`)',
                 'default' => NULL,
                 'validator' => function($value) {
                     if (empty($value)) {
-                        throw new \Exception('You need to give an url');
+                        throw new \Exception('You need to give a URL');
                     }
                     return $value;
                 }
