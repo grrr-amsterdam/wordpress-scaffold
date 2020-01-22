@@ -4,7 +4,7 @@ use Composer\Script\Event;
 use Grrr\Root\Util\StringUtil as S;
 
 /**
- * PostCreateProject
+ * ProjectSetup
  *
  * Some task that will be done after composer create-project
  *
@@ -12,7 +12,7 @@ use Grrr\Root\Util\StringUtil as S;
  * @author Ramiro Hammen <ramiro@grrr.nl>
  */
 
-class PostCreateProject {
+class ProjectSetup {
 
     public static $event;
     public static $io;
@@ -21,6 +21,7 @@ class PostCreateProject {
         static::$event = $event;
         $io = $event->getIO();
         static::$io = $io;
+
         $io->write("\n<info>Setup project information. Press enter key for default.</info>");
         $questions = static::getEnvQuestions();
         $answers = static::askQuestions($questions);

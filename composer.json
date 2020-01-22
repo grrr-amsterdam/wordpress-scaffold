@@ -90,8 +90,8 @@
     "wordpress-install-dir": "web/wp"
   },
   "scripts": {
-    "post-create-project-cmd": [
-      "Grrr\\Root\\PostCreateProject::setup"
+    "setup": [
+      "Grrr\\Root\\ProjectSetup::setup"
     ],
     "test": [
       "vendor/bin/phpcs"
