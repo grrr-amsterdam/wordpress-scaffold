@@ -12,9 +12,9 @@ services:
   php:
     build:
       context: docker/php
-    working_dir: /var/www/html
+    working_dir: /var/www/wordpress-scaffold
     volumes:
-      - .:/var/www/html
+      - .:/var/www/wordpress-scaffold
     environment:
       DB_HOST: db
       DB_NAME: wordpress

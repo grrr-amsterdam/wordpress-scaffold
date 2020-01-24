@@ -27,8 +27,7 @@ class ProjectSetup {
         $answers = static::askQuestions($questions);
 
         $io->write("\n<info>Updating .env file...</info>");
-        $output = shell_exec("cp -n .env.template .env");
-        $io->write("\n" . $output);
+        static::_copyDotEnv();
         $dotEnv = new Util\DotEnv(self::_getRootPath());
         $answers = static::parseAnswers($answers);
         $dotEnv->replaceVariables($answers);
@@ -54,22 +53,20 @@ class ProjectSetup {
 
         $io->write("\n<info>Installing front-end dependencies (thru Yarn)</info>");
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
+        $themePath = self::_getThemePath($themeName);
         if (intval($hasYarn)) {
-            $themePath = self::_getThemePath($themeName);
             $output = shell_exec("cd {$themePath} && yarn --non-interactive --no-progress");
         } else {
-            $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies. \nInstall Yarn `npm i -g yarn` and install the front-end assets yourself.</error>\n";
+            $output = "<error>Yarn was not found. We require Yarn for managing our front-end dependencies. \nInstall Yarn `npm i -g yarn` and install the front-end assets yourself. \nWhen using Docker run `docker-compose run builder yarn install`</error>\n";
         }
         $io->write("\n" . $output);
 
         $io->write("\n<info>Building theme assets</info>");
-        $themePath = self::_getThemePath($themeName);
         $hasYarn = shell_exec("command -v yarn >/dev/null 2>&1 && echo 1 || echo 0");
         if (intval($hasYarn)) {
-            $themePath = self::_getThemePath($themeName);
             $output = shell_exec("cd {$themePath} && yarn build");
         } else {
-            $output = "<error>Yarn was not found. We require Yarn for building our front-end dependencies. \nInstall Yarn `npm i -g yarn` and build the front-end assets yourself.</error>\n";
+            $output = "<error>Yarn was not found. We require Yarn for building our front-end dependencies. \nInstall Yarn `npm i -g yarn` and build the front-end assets yourself. \nWhen using Docker run `docker-compose run builder yarn build`</error>\n";
         }
         $io->write("\n" . $output);
 
@@ -130,7 +127,7 @@ class ProjectSetup {
         if (intval($hasBundler)) {
             $output = shell_exec("bundle install");
         } else {
-            $output = "<error>Bundler was not found. We recommend using Bundler to install deployment dependencies.\n Install Bundler `gem install bundler` and install the dependencies yourself: `bundle install`.</error>\n";
+            $output = "<error>Bundler was not found. We recommend using Bundler to install deployment dependencies.\n Install Bundler `gem install bundler` and install the dependencies yourself: `bundle install`. \nWhen using Docker run `docker-compose run deploy bundle install`</error>\n";
         }
         $io->write("\n" . $output);
 
@@ -186,19 +183,19 @@ class ProjectSetup {
         $questions = [
             'DB_HOST' => [
                 'question' => 'Database host',
-                'default' => '127.0.0.1'
+                'default' => getenv('DB_HOST') ?: '127.0.0.1',
             ],
             'DB_NAME' => [
                 'question' => 'Database name',
-                'default' => str_replace('-', '_', static::_composeProjectName() . '_d')
+                'default' => getenv('DB_NAME') ?: str_replace('-', '_', static::_composeProjectName() . '_d')
             ],
             'DB_USER' => [
                 'question' => 'Database user',
-                'default' => 'garp_development'
+                'default' => getenv('DB_USER') ?: 'garp_development',
             ],
             'DB_PASSWORD' => [
                 'question' => 'Database password',
-                'default' => 'welovegarp'
+                'default' => getenv('DB_PASSWORD') ?: 'welovegarp',
             ],
             'DB_PREFIX' => [
                 'question' => 'Database prefix (incl. trailing `_`)',
@@ -212,7 +209,7 @@ class ProjectSetup {
             ],
             'WP_HOME' => [
                 'question' => 'What will be your local site url? (incl. `http://`)',
-                'default' => NULL,
+                'default' => getenv('WP_HOME'),
                 'validator' => function($value) {
                     if (empty($value)) {
                         throw new \Exception('You need to give an url');
@@ -250,6 +247,13 @@ class ProjectSetup {
         ];
     }
 
+    protected static function _copyDotEnv() {
+        $rootPath = self::_getRootPath();
+        if (!file_exists("$rootPath/.env")) {
+            copy("$rootPath/.env.template", "$rootPath/.env");
+        }
+    }
+
     protected static function _createDatabase($dotEnv) {
         $db_host = $dotEnv->get('DB_HOST');
         $db_name = $dotEnv->get('DB_NAME');
@@ -257,7 +261,7 @@ class ProjectSetup {
         $db_password = $dotEnv->get('DB_PASSWORD');
         $conn = new \PDO("mysql:host={$db_host}", $db_user, $db_password);
         $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE {$db_name} CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
+        $sql = "CREATE DATABASE IF NOT EXISTS {$db_name} CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
         $conn->exec($sql);
     }
 
@@ -285,7 +289,6 @@ class ProjectSetup {
     }
 
     protected static function _composeThemeName() {
-        $projectName = self::_composeProjectName();
         $themeName = str_replace('_', ' ', self::_composeProjectName());
         $themeName = str_replace('-', ' ', $themeName);
         $themeName = ucfirst($themeName);

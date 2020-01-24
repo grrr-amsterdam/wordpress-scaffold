@@ -6,7 +6,7 @@ services:
 
   php:
     volumes:
-      - codebase:/var/www/html
+      - codebase:/var/www/wordpress-scaffold
 
 volumes:
   codebase:
