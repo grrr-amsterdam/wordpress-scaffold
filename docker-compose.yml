@@ -51,5 +51,14 @@ services:
       - "USER=${USER}"
     working_dir: /app
 
+  builder:
+    build:
+      context: docker/builder
+    volumes:
+      - ./web/app/themes/wordpress-scaffold:/theme
+      - node_modules:/theme/node_modules
+    working_dir: /theme
+
 volumes:
   mysqldata:
+  node_modules:
