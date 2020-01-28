@@ -4,7 +4,7 @@ import { pushEvent } from './gtm-event';
 export const enhancer = () => {
 
   // Construct and initialize the module.
-  const cookieConsent = new CookieConsent(window.COOKIE_CONSENT_CONFIG);
+  const cookieConsent = CookieConsent(window.COOKIE_CONSENT_CONFIG);
 
   // Update Tag Manager when `update` event is fired.
   cookieConsent.on('update', cookies => {
