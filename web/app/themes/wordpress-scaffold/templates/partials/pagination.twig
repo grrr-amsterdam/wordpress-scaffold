@@ -1,56 +1,26 @@
 {% if pagination.pages is not empty %}
-<nav class="pagination" aria-label="{{ __('Page navigation', 'grrr') }}">
+<nav class="pagination" aria-label="Page navigation">
     <ul>
-
-        {% if pagination.pages|first and pagination.pages|first.current != true %}
-        <li>
-            <a href="{{ pagination.pages|first.link }}" rel="first">First</a>
-        </li>
-        {% else %}
-        <li>
-            <a href="{{ pagination.pages|first.link }}" disabled aria-current="page">First</a>
-        </li>
-        {% endif %}
 
         {% if pagination.prev %}
         <li>
             <a href="{{ pagination.prev.link }}" rel="prev">Previous</a>
         </li>
-        {% else %}
-        <li>
-            <a href="{{ pagination.prev.link }}" disabled aria-current="page">Previous</a>
-        </li>
         {% endif %}
 
         {% for page in pagination.pages %}
-            {% if page.link %}
-            <li>
-                <a href="{{ page.link }}">{{ page.title }}</a>
-            </li>
+        <li>
+            {% if page.class == 'dots' %}
+                <span>{{ page.title }}</span>
             {% else %}
-            <li>
-                <a href="" disabled aria-current="page">{{ page.title }}</a>
-            </li>
+                <a href="{{ page.link }}" aria-current="{{ page.current ? 'page' : '' }}">{{ page.title }}</a>
             {% endif %}
+        </li>
         {% endfor %}
 
         {% if pagination.next %}
         <li>
             <a href="{{ pagination.next.link }}" rel="next">Next</a>
-        </li>
-        {% else %}
-        <li>
-            <a href="{{ pagination.next.link }}" disabled aria-current="page">Next</a>
-        </li>
-        {% endif %}
-
-        {% if pagination.pages|last and pagination.pages|last.current != true %}
-        <li>
-            <a href="{{ pagination.pages|last.link }}" rel="last">Last</a>
-        </li>
-        {% else %}
-        <li>
-            <a href="{{ pagination.pages|last.link }}" disabled aria-current="page">Last</a>
         </li>
         {% endif %}
 
