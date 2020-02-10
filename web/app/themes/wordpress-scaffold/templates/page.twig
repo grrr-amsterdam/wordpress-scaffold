@@ -4,6 +4,8 @@
         title: post.title,
     } only %}
 
-    {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
+    {% include 'partials/flexible-content.twig' with {
+        content: post.meta('flexible_content'),
+    } %}
 
 </article>
