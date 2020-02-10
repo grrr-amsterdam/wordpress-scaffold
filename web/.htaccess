@@ -127,7 +127,7 @@
     ExpiresByType video/ogg                 "access plus 1 month"
     ExpiresByType video/webm                "access plus 1 month"
 
-    <IfModule mod_expires.c>
+    <IfModule mod_headers.c>
         Header append Cache-Control "public"
     </IfModule>
 </IfModule>
