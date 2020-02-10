@@ -6,8 +6,10 @@
     </header>
 
     <section>
-        {% for example in get_example_posts(10) %}
-            {% include 'previews/example-preview.twig' with { post: example } only %}
+        {% for example in examples %}
+            {% include 'previews/example-preview.twig' with {
+                post: example,
+            } only %}
         {% endfor %}
     </section>
 
@@ -18,6 +20,8 @@
         <div data-cookie-consent-rejected="marketing" hidden>Marketing cookies: <strong>rejected!</strong></div>
     </section>
 
-    {% include 'partials/flexible-content.twig' with { content: post.meta('flexible_content') } %}
+    {% include 'partials/flexible-content.twig' with {
+        content: post.meta('flexible_content'),
+    } %}
 
 </article>
