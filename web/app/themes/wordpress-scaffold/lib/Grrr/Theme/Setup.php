@@ -15,21 +15,6 @@ if (WP_ENV !== 'development') {
 
 class Setup extends Timber\Site {
 
-    const NAV_MENUS = [
-        [
-            'location' => 'primary_navigation',
-            'description' => 'Primary Navigation',
-        ],
-        [
-            'location' => 'footer_primary_navigation',
-            'description' => 'Footer Primary Navigation',
-        ],
-        [
-            'location' => 'footer_secondary_navigation',
-            'description' => 'Footer Secondary Navigation',
-        ],
-    ];
-
     public function __construct() {
         parent::__construct();
     }
@@ -48,11 +33,12 @@ class Setup extends Timber\Site {
         $context['site'] = $this;
 
         // Add menus to context, but check if menu for location exists.
-        $context['menus'] = f\reduce(function ($menus, $nav_menu) {
-            $menus[$nav_menu['location']] = has_nav_menu($nav_menu['location'])
-                ? new Timber\Menu($nav_menu['location']) : null;
+        $context['menus'] = f\reduce(function ($menus, $menu) {
+            $menus[$menu['location']] = has_nav_menu($menu['location'])
+                ? new Timber\Menu($menu['location'])
+                : null;
             return $menus;
-        }, [], self::NAV_MENUS);
+        }, [], Config::NAV_MENUS);
 
         return $context;
     }
@@ -79,7 +65,7 @@ class Setup extends Timber\Site {
 
         // Register wp_nav_menu() menus
         // http://codex.wordpress.org/Function_Reference/register_nav_menus
-        $this->_register_nav_menus();
+        $this->register_nav_menus(Config::NAV_MENUS);
 
         // Enable post thumbnails
         // http://codex.wordpress.org/Post_Thumbnails
@@ -132,12 +118,12 @@ class Setup extends Timber\Site {
     /**
      * Nav menus.
      */
-    protected function _register_nav_menus() {
+    protected function register_nav_menus(array $menus) {
         f\map(
-            function ($nav_menu) {
-                register_nav_menu($nav_menu['location'], $nav_menu['description']);
+            function ($menu) {
+                register_nav_menu($menu['location'], $menu['description']);
             },
-            self::NAV_MENUS
+            $menus
         );
     }
 

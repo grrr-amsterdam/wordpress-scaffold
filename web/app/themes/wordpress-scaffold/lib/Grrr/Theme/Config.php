@@ -14,13 +14,31 @@ final class Config {
     ];
 
     /**
-     * All custom REST routes.
+     * Custom REST routes.
      * See also `Rest\Routes` and `Utils\Security`.
      */
     const REST = [
         'namespace' => 'grrr/v1',
         'routes' => [
             'newsletter' => 'newsletter/subscribe',
+        ],
+    ];
+
+    /**
+     * Navigation menus.
+     */
+    const NAV_MENUS = [
+        [
+            'location' => 'primary_navigation',
+            'description' => 'Primary Navigation',
+        ],
+        [
+            'location' => 'footer_primary_navigation',
+            'description' => 'Footer Primary Navigation',
+        ],
+        [
+            'location' => 'footer_secondary_navigation',
+            'description' => 'Footer Secondary Navigation',
         ],
     ];
 
