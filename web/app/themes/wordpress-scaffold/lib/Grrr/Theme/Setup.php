@@ -4,11 +4,22 @@ use Timber;
 use Grrr\Utils\Assets;
 use Garp\Functional as f;
 
+/**
+ * Set Twig template directory.
+ * https://timber.github.io/docs/guides/template-locations/
+ */
 Timber::$dirname = ['templates'];
+
+/**
+ * Set default escaper to KSES (KSES Kills Evil Scripts).
+ * https://timber.github.io/docs/guides/escapers/
+ */
 Timber::$autoescape = 'wp_kses_post';
 
-// Cache the Twig file (without the data).
-// See https://timber.github.io/docs/guides/performance/#cache-the-twig-file-but-not-the-data
+/**
+ * Cache the Twig file (without the data).
+ * https://timber.github.io/docs/guides/performance/
+ */
 if (WP_ENV !== 'development') {
     Timber::$cache = true;
 }
@@ -29,16 +40,9 @@ class Setup extends Timber\Site {
     /**
      * Add Timber/Twig contexts.
      */
-    public function add_to_context($context) {
-        $context['site'] = $this;
-
-        // Add menus to context, but check if menu for location exists.
-        $context['menus'] = f\reduce(function ($menus, $menu) {
-            $menus[$menu['location']] = has_nav_menu($menu['location'])
-                ? new Timber\Menu($menu['location'])
-                : null;
-            return $menus;
-        }, [], Config::NAV_MENUS);
+    public function add_to_context(array $context): array {
+        $context['site']  = $this;
+        $context['menus'] = $this->get_timber_menus(Config::NAV_MENUS);
 
         return $context;
     }
@@ -46,7 +50,7 @@ class Setup extends Timber\Site {
     /**
      * WordPress theme setup.
      */
-    public function theme_setup() {
+    public function theme_setup(): void {
         // Enable features from Soil when plugin is activated
         // https://roots.io/plugins/soil/
         add_theme_support('soil-clean-up');
@@ -93,7 +97,7 @@ class Setup extends Timber\Site {
     /**
      * Theme assets.
      */
-    public function theme_assets() {
+    public function theme_assets(): void {
         wp_enqueue_style('grrr/css', Assets\asset_path('styles/base.css'), false, null);
         if (is_single() && comments_open() && get_option('thread_comments')) {
             wp_enqueue_script('comment-reply');
@@ -103,20 +107,32 @@ class Setup extends Timber\Site {
     /**
      * Admin assets.
      */
-    public function admin_assets() {
+    public function admin_assets(): void {
         wp_enqueue_style('grrr/css', Assets\asset_path('styles/admin.css'), false, null);
     }
 
     /**
      * Nav menus.
      */
-    protected function register_nav_menus(array $menus) {
+    protected function register_nav_menus(array $menus): void {
         f\map(
             function ($menu) {
                 register_nav_menu($menu['location'], $menu['description']);
             },
             $menus
         );
+    }
+
+    /**
+     * Get array of Timber\Menu menus, but check if menu for location exists.
+     */
+    protected function get_timber_menus(array $menus) {
+        return f\reduce(function ($acc, $menu) {
+            $acc[$menu['location']] = has_nav_menu($menu['location'])
+                ? new Timber\Menu($menu['location'])
+                : null;
+            return $acc;
+        }, [], $menus);
     }
 
 }
