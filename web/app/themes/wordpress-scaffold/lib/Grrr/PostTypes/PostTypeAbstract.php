@@ -1,12 +1,12 @@
 <?php namespace Grrr\PostTypes;
 
 use Garp\Functional as f;
-use Grrr\Timber as GrrrTimber;
+use Grrr\Timber\TimberPostBase;
 use Spatie\SchemaOrg\Schema;
 use Timber;
 use Twig_Environment;
 
-abstract class PostTypeAbstract {
+abstract class PostTypeAbstract extends PostTypeStub {
 
     protected $type;
     protected $slug;
@@ -55,16 +55,12 @@ abstract class PostTypeAbstract {
                 'post_type' => $this->type,
                 'posts_per_page' => $amount,
             ],
-            GrrrTimber\TimberPostBase::class
+            TimberPostBase::class
         );
     }
 
     public function get_archive_link() {
         return get_post_type_archive_link($this->type);
-    }
-
-    public function get_structured_data(Timber\Post $post, bool $asArray = false) {
-        return $asArray ? [] : '';
     }
 
 }
