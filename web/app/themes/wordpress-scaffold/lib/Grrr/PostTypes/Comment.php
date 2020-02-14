@@ -1,6 +1,6 @@
 <?php namespace Grrr\PostTypes;
 
-class Comment {
+class Comment extends PostTypeStub {
 
     protected $type = 'comment';
 

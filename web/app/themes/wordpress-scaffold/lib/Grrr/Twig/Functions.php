@@ -1,26 +1,33 @@
 <?php namespace Grrr\Twig;
 
-use Timber;
+use Garp\Functional as f;
+use Grrr\PostTypes\PostTypeRegistry;
 use Grrr\Theme;
 use Grrr\Utils;
 use Grrr\Utils\Assets;
-use Garp\Functional as f;
+use Timber;
 
 class Functions {
 
     const FUNCTION_MAPPER = [
+        'archive_link'      => 'get_archive_link',
         'asset'             => 'get_asset_path',
         'env'               => 'get_env',
-        'archive_link'      => 'get_archive_link',
         'option'            => 'get_acf_option',
         'page'              => 'get_acf_page',
+        'posts'             => 'get_posts',
         'snippet'           => 'get_acf_snippet',
         'source'            => 'get_source',
+        'structured_data'   => 'get_structured_data',
         'svg'               => 'get_svg',
     ];
 
     public function register() {
         add_filter('timber/twig', [$this, 'add_functions']);
+    }
+
+    public function get_archive_link(string $postType) {
+        return get_post_type_archive_link($postType);
     }
 
     public function get_asset_path(string $filepath) {
@@ -52,12 +59,18 @@ class Functions {
         return get_field(str_replace(' ', '_', "pages_{$name}"), 'option');
     }
 
-    public function get_archive_link(string $postType) {
-        return get_post_type_archive_link($postType);
+    public function get_posts(string $type, ...$args) {
+        $class = PostTypeRegistry::create_class($type)
+            ->get_posts(...$args);
     }
 
     public function get_source(string $filepath) {
         return file_get_contents(Assets\asset_path($filepath, false));
+    }
+
+    public function get_structured_data(Timber\Post $post, ...$args) {
+        return PostTypeRegistry::create_class($post->type)
+            ->get_structured_data($post, ...$args);
     }
 
     public function get_svg(string $id, array $arguments = []) {

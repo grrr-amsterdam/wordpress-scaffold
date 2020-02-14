@@ -1,6 +1,6 @@
 <?php namespace Grrr\PostTypes;
 
-class Post {
+class Post extends PostTypeStub {
 
     protected $type = 'post';
 
