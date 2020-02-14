@@ -73,18 +73,10 @@ class Setup extends Timber\Site {
         // http://codex.wordpress.org/Function_Reference/add_image_size
         add_theme_support('post-thumbnails');
 
-        // Image scaling templates
-        add_image_size('image--tiny', 640, 0, false);
-        add_image_size('image--small', 960, 0, false);
-        add_image_size('image--medium', 1280, 0, false);
-        add_image_size('image--large', 1920, 0, false);
-        add_image_size('image--huge', 2560, 0, false);
-
-        add_image_size('image-cropped--tiny', 640, 360, true);
-        add_image_size('image-cropped--small', 960, 540, true);
-        add_image_size('image-cropped--medium', 1280, 720, true);
-        add_image_size('image-cropped--large', 1920, 1280, true);
-        add_image_size('image-cropped--huge', 2560, 1440, true);
+        // Register custom image sizes.
+        foreach (Config::IMAGE_SIZES as $entry) {
+            add_image_size(...$entry);
+        }
 
         // Enable HTML5 markup support
         // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
