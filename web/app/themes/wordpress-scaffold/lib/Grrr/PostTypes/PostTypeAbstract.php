@@ -1,7 +1,10 @@
 <?php namespace Grrr\PostTypes;
 
-use Timber;
 use Garp\Functional as f;
+use Grrr\Timber as GrrrTimber;
+use Spatie\SchemaOrg\Schema;
+use Timber;
+use Twig_Environment;
 
 abstract class PostTypeAbstract {
 
@@ -40,7 +43,6 @@ abstract class PostTypeAbstract {
 
     public function register() {
         add_action('init', [$this, 'register_post_type'], 1);
-        add_filter('timber/twig', [$this, 'twig_functions']);
     }
 
     public function register_post_type() {
@@ -48,22 +50,21 @@ abstract class PostTypeAbstract {
     }
 
     public function get_posts(int $amount = -1) {
-        return Timber\Timber::get_posts([
-            'post_type' => $this->type,
-            'posts_per_page' => $amount,
-        ]);
+        return Timber\Timber::get_posts(
+            [
+                'post_type' => $this->type,
+                'posts_per_page' => $amount,
+            ],
+            GrrrTimber\TimberPostBase::class
+        );
     }
 
     public function get_archive_link() {
         return get_post_type_archive_link($this->type);
     }
 
-    public function twig_functions(\Twig_Environment $twig) {
-        $type = str_replace('-', '_', $this->type);
-        $twig->addFunction(
-            new Timber\Twig_Function('get_' . $type . '_posts', [$this, 'get_posts'])
-        );
-        return $twig;
+    public function get_structured_data(Timber\Post $post, bool $asArray = false) {
+        return $asArray ? [] : '';
     }
 
 }

@@ -8,6 +8,7 @@ final class Config {
     const POST_TYPES = [
         'comment' => 'Comment',
         'example' => 'Example',
+        'faq'     => 'Faq',
         'page'    => 'Page',
         'post'    => 'Post',
     ];

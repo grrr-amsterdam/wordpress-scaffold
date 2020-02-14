@@ -6,8 +6,6 @@ use Grrr\Config;
 
 final class PostTypeRegistry {
 
-    const NAMESPACE = '\\Grrr\\PostTypes\\';
-
     public static function register() {
         foreach (Config::POST_TYPES as $name => $className) {
             $classFull = static::compose_full_class($className);
