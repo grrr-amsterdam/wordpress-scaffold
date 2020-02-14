@@ -24,7 +24,7 @@ if (class_exists('Timber')) {
     (new Twig\Filters)->register();
     (new Twig\Functions)->register();
 } else {
-    (new Theme\NoTimber)->register();
+    (new Utils\NoTimber)->register();
 }
 
 /**

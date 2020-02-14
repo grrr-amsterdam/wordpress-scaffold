@@ -1,7 +1,7 @@
 <?php namespace Grrr\Rest;
 
 use Garp\Functional as f;
-use Grrr\Config;
+use Grrr\Theme\Config;
 
 class Routes {
 

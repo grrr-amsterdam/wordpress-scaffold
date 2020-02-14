@@ -2,7 +2,7 @@
 
 use Grrr\PostTypes\PostTypeAbstract;
 use Garp\Functional as f;
-use Grrr\Config;
+use Grrr\Theme\Config;
 
 final class PostTypeRegistry {
 

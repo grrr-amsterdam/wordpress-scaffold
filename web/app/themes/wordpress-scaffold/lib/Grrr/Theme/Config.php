@@ -1,4 +1,4 @@
-<?php namespace Grrr;
+<?php namespace Grrr\Theme;
 
 final class Config {
 
