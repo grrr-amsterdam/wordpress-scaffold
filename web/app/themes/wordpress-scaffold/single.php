@@ -2,7 +2,7 @@
 
 $templates = [
     'singles/' . $post->post_type . '-single.twig',
-    'single.twig'
+    'single.twig',
 ];
 
 $context = Timber::get_context();
