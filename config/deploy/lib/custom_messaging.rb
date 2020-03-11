@@ -1,9 +1,13 @@
 module Slackistrano
   class CustomMessaging < Messaging::Base
 
+    @icon_emoji
+    @version
+
     def initialize(env: nil, team: nil, channel: nil, token: nil, webhook: nil, icon_emoji: nil)
       super(env: env, team: team, channel: channel, token: token, webhook: webhook)
       @icon_emoji = icon_emoji
+      @version = `git describe #{fetch(:branch)} --tags --always`.strip!
     end
 
     def icon_emoji
@@ -24,6 +28,13 @@ module Slackistrano
       #end
     #end
 
+    # Fancy starting message.
+    def payload_for_starting
+      {
+        text: "*#{deployer}* has started deploying branch *#{fetch(:branch)}* to *#{stage}*"
+      }
+    end
+
     # Suppress updating message.
     def payload_for_updating
       nil
@@ -39,9 +50,8 @@ module Slackistrano
     # Fancy updated message.
     # See https://api.slack.com/docs/message-attachments
     def payload_for_updated
-      version = `git describe #{fetch(:branch)} --tags --always`.strip!
       {
-        text: "*#{application}* *#{version}* (*#{fetch(:branch)}*) was deployed to *#{stage}* by *#{deployer}*"
+        text: "*#{application}* *#{@version}* (*#{fetch(:branch)}*) was deployed to *#{stage}* by *#{deployer}*"
       }
     end
 
@@ -63,7 +73,11 @@ module Slackistrano
     # Override the deployer helper to pull the full name from the password file.
     # See https://github.com/phallstrom/slackistrano/blob/master/lib/slackistrano/messaging/helpers.rb
     def deployer
-      Etc.getpwnam(ENV['USER']).gecos
+      begin
+        Etc.getpwnam(ENV['USER']).gecos
+      rescue
+        ENV['USER']
+      end
     end
   end
 end
