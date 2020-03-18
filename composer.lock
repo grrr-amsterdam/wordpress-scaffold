@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.33",
+            "version": "3.133.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "bdae58163a527d1d03db9a845fe57795c81e2c49"
+                "reference": "5ec9442162d83f94918bc17136a2b674a04784e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bdae58163a527d1d03db9a845fe57795c81e2c49",
-                "reference": "bdae58163a527d1d03db9a845fe57795c81e2c49",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5ec9442162d83f94918bc17136a2b674a04784e5",
+                "reference": "5ec9442162d83f94918bc17136a2b674a04784e5",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-10T18:14:53+00:00"
+            "time": "2020-03-17T18:16:01+00:00"
         },
         {
             "name": "clue/stream-filter",
@@ -443,16 +443,16 @@
         },
         {
             "name": "grrr-amsterdam/simply-static",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grrr-amsterdam/simply-static.git",
-                "reference": "fc9841f86dda4daa867b72c0112c071735423197"
+                "reference": "77881607e211b4d75c22e61df355b87c1a3a2d0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grrr-amsterdam/simply-static/zipball/fc9841f86dda4daa867b72c0112c071735423197",
-                "reference": "fc9841f86dda4daa867b72c0112c071735423197",
+                "url": "https://api.github.com/repos/grrr-amsterdam/simply-static/zipball/77881607e211b4d75c22e61df355b87c1a3a2d0e",
+                "reference": "77881607e211b4d75c22e61df355b87c1a3a2d0e",
                 "shasum": ""
             },
             "require": {
@@ -465,7 +465,7 @@
                 "GPL-2.0+"
             ],
             "description": "Simply Static site generator for wordpress",
-            "time": "2019-09-23T16:00:41+00:00"
+            "time": "2020-03-17T16:16:23+00:00"
         },
         {
             "name": "grrr-amsterdam/simply-static-deploy",
@@ -2256,16 +2256,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "32bd5ca5a4170f88e27073353013d210a3354ae9"
+                "reference": "939dfda2d7267ac8fc53ac3d642b5de357554c39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/32bd5ca5a4170f88e27073353013d210a3354ae9",
-                "reference": "32bd5ca5a4170f88e27073353013d210a3354ae9",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/939dfda2d7267ac8fc53ac3d642b5de357554c39",
+                "reference": "939dfda2d7267ac8fc53ac3d642b5de357554c39",
                 "shasum": ""
             },
             "require": {
@@ -2314,7 +2314,13 @@
                 "env",
                 "environment"
             ],
-            "time": "2020-03-01T23:56:01+00:00"
+            "funding": [
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-03-12T13:44:15+00:00"
         },
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -2385,15 +2391,15 @@
         },
         {
             "name": "wpackagist-plugin/admin-menu-editor",
-            "version": "1.9.3",
+            "version": "1.9.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/admin-menu-editor/",
-                "reference": "tags/1.9.3"
+                "reference": "tags/1.9.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.9.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.9.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -2493,15 +2499,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "13.2",
+            "version": "13.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/13.2"
+                "reference": "tags/13.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.13.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.13.3.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -2511,15 +2517,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-ses",
-            "version": "1.3",
+            "version": "1.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-ses/",
-                "reference": "tags/1.3"
+                "reference": "tags/1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-ses.1.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/wp-ses.1.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -2587,16 +2593,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "472c917b2a083ec7d2fa25c55fd099d1300e2515"
+                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/472c917b2a083ec7d2fa25c55fd099d1300e2515",
-                "reference": "472c917b2a083ec7d2fa25c55fd099d1300e2515",
+                "url": "https://api.github.com/repos/composer/composer/zipball/b912a45da3e2b22f5cb5a23e441b697a295ba011",
+                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011",
                 "shasum": ""
             },
             "require": {
@@ -2663,7 +2669,17 @@
                 "dependency",
                 "package"
             ],
-            "time": "2020-03-10T13:08:05+00:00"
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-03-13T19:34:27+00:00"
         },
         {
             "name": "composer/semver",
@@ -3065,16 +3081,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.10.1",
+            "version": "v1.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "461fbe96212ac1b511f527fd11b942e976429398"
+                "reference": "1c3984ba9fc3cb93848748f141f5ddac0a65c5e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/461fbe96212ac1b511f527fd11b942e976429398",
-                "reference": "461fbe96212ac1b511f527fd11b942e976429398",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/1c3984ba9fc3cb93848748f141f5ddac0a65c5e1",
+                "reference": "1c3984ba9fc3cb93848748f141f5ddac0a65c5e1",
                 "shasum": ""
             },
             "require": {
@@ -3086,7 +3102,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.10.1-dev"
+                    "dev-master": "1.10.2-dev"
                 }
             },
             "autoload": {
@@ -3106,7 +3122,7 @@
                 }
             ],
             "description": "Peast is PHP library that generates AST for JavaScript code",
-            "time": "2019-12-22T16:46:42+00:00"
+            "time": "2020-03-15T16:03:55+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -5684,5 +5700,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.1"
-    }
+    },
+    "plugin-api-version": "1.1.0"
 }
