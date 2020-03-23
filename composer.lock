@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37f894d465eaac961c6517b13327db96",
+    "content-hash": "ab2fa9fa2ee062af569d131c0144d99e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.38",
+            "version": "3.133.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5ec9442162d83f94918bc17136a2b674a04784e5"
+                "reference": "4f0259689e66237e429f9fc1d879b2bcdce6dadb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5ec9442162d83f94918bc17136a2b674a04784e5",
-                "reference": "5ec9442162d83f94918bc17136a2b674a04784e5",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4f0259689e66237e429f9fc1d879b2bcdce6dadb",
+                "reference": "4f0259689e66237e429f9fc1d879b2bcdce6dadb",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-17T18:16:01+00:00"
+            "time": "2020-03-23T18:17:07+00:00"
         },
         {
             "name": "clue/stream-filter",
@@ -469,16 +469,16 @@
         },
         {
             "name": "grrr-amsterdam/simply-static-deploy",
-            "version": "v0.1.4",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grrr-amsterdam/simply-static-deploy.git",
-                "reference": "0b16a53209ffa4bf4145ca2227060f1ad9522f58"
+                "reference": "80d81130585194c030095fad6a43c08b2c74ce32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grrr-amsterdam/simply-static-deploy/zipball/0b16a53209ffa4bf4145ca2227060f1ad9522f58",
-                "reference": "0b16a53209ffa4bf4145ca2227060f1ad9522f58",
+                "url": "https://api.github.com/repos/grrr-amsterdam/simply-static-deploy/zipball/80d81130585194c030095fad6a43c08b2c74ce32",
+                "reference": "80d81130585194c030095fad6a43c08b2c74ce32",
                 "shasum": ""
             },
             "require": {
@@ -520,7 +520,7 @@
                 "static site generator",
                 "wordpress"
             ],
-            "time": "2020-02-05T13:14:39+00:00"
+            "time": "2020-03-19T08:57:47+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1560,20 +1560,20 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959"
+                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959",
-                "reference": "77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
+                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9 || ^7.0"
+                "php": "^5.5.9 || ^7.0 || ^8.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.3",
@@ -1611,7 +1611,7 @@
                 "php",
                 "type"
             ],
-            "time": "2019-12-15T19:35:24+00:00"
+            "time": "2020-03-21T18:07:53+00:00"
         },
         {
             "name": "psr/http-client",
@@ -2314,12 +2314,6 @@
                 "env",
                 "environment"
             ],
-            "funding": [
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-03-12T13:44:15+00:00"
         },
         {
@@ -2668,16 +2662,6 @@
                 "autoload",
                 "dependency",
                 "package"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-03-13T19:34:27+00:00"
         },
