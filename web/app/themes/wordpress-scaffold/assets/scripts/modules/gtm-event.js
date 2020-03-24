@@ -1,4 +1,7 @@
-const getDataLayer = () => window.dataLayer || [];
+const getDataLayer = () => {
+  window.dataLayer = window.dataLayer || [];
+  return window.dataLayer;
+};
 
 const getAttributes = el => ({
   type: el.getAttribute('data-event-type'),
