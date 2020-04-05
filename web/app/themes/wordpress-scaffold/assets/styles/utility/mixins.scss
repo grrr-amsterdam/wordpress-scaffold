@@ -29,10 +29,14 @@
 }
 
 /**
- * Easier way to provide `object-fit-images` polyfill hook
+ * Easier way to provide object-fit polyfill hook
  */
-@mixin object-fit($value: cover) {
-    object-fit: $value; font-family: 'object-fit: #{$value}';
+@mixin object-fit($fit: cover, $position: center) {
+    object-fit: $fit; object-position: $position;
+    font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+    @if $fit == cover {
+        max-width: none;
+    }
 }
 
 /**
@@ -126,7 +130,7 @@
  */
 @mixin bare-list {
     margin: 0; padding: 0; list-style-type: none;
-    li {
+    & > li {
         margin: 0;
     }
 }
