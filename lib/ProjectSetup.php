@@ -19,6 +19,7 @@ class ProjectSetup {
     public static $io;
 
     public static function setup(Event $event) {
+        static::_autoloadComposer();
         static::$event = $event;
         $io = $event->getIO();
         static::$io = $io;
@@ -359,4 +360,9 @@ class ProjectSetup {
         return file_put_contents(self::_getRootPath() . '/web/robots.txt', $contents);
     }
 
+    protected static function _autoloadComposer() {
+        if (!function_exists('Garp\\Functional\\prop')) {
+            require_once(dirname(__DIR__) . '/vendor/autoload.php');
+        }
+    }
 }
