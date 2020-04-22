@@ -1,7 +1,10 @@
+{% set type = option('input type', 'cookie consent') %}
+
 <div data-enhancer="cookieConsent"></div>
 
 <script>
     window.COOKIE_CONSENT_CONFIG = {
+      type: '{{ type|e('js') }}',
       labels: {
         title: '{{ option('title', 'cookie consent')|e('js') }}',
         description: '{{ option('description', 'cookie consent')|e('js') }}',
@@ -13,7 +16,7 @@
           id: '{{ cookie.id|e('js') }}',
           label: '{{ cookie.label|e('js') }}',
           description: '{{ cookie.description|e('js') }}',
-          required: {{ cookie.required ? 'true' : 'false' }},
+          required: {{ type != 'radio' and cookie.required ? 'true' : 'false' }},
           checked: {{ cookie.checked ? 'true' : 'false' }},
         },
         {% endfor %}

@@ -38,6 +38,39 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_5ea01c25100cb",
+            "label": "Input Type",
+            "name": "cookie_consent_input_type",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d7385acd7dfb",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "checkbox": "Checkboxes",
+                "radio": "Radio buttons"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5d7385a5d7dfa",
             "label": "Content",
             "name": "",
@@ -144,7 +177,7 @@
         },
         {
             "key": "field_5dfcaa6e20bae",
-            "label": "Cookie Types",
+            "label": "Types",
             "name": "cookie_consent_cookies",
             "type": "repeater",
             "instructions": "List cookie types which are required or can be given consent to. Note that the identifier should match what's been configured in the tag loader (e.g. Google Tag Manager).",
@@ -225,7 +258,15 @@
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5ea01c25100cb",
+                                "operator": "!=",
+                                "value": "radio"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "50",
                         "class": "",
@@ -284,5 +325,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576840341
+    "modified": 1587628922
 }
