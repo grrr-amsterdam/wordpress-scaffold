@@ -1,7 +1,7 @@
 import CookieConsent from '@grrr/cookie-consent';
 import { pushEvent } from './gtm-event';
 
-export const enhancer = () => {
+export default () => {
 
   // Construct and initialize the module.
   const cookieConsent = CookieConsent(window.COOKIE_CONSENT_CONFIG);
