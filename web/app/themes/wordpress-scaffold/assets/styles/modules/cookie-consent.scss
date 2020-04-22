@@ -4,7 +4,7 @@ $cookie-consent-horizontal-padding: 25px;
     @include styled-scrollbar;
     z-index: z(cookie-consent); position: fixed; right: 0; bottom: 0; left: 0;
     max-height: 100%; overflow: hidden; overflow-y: auto; overscroll-behavior: contain;
-    background: $white; box-shadow: $box-shadow; color: $black;
+    background: $white; box-shadow: $box-shadow; color: $text-color;
     transform: translate3d(0, 0, 0);
     transition: transform 0.5s, opacity 0.5s, visibility 0.5s;
     @include bp-min($small) {
