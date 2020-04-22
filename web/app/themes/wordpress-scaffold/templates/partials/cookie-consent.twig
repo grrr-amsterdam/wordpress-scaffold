@@ -1,7 +1,5 @@
 {% set type = option('input type', 'cookie consent') %}
 
-<div data-enhancer="cookieConsent"></div>
-
 <script>
     window.COOKIE_CONSENT_CONFIG = {
       type: '{{ type|e('js') }}',
