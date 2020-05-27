@@ -42,7 +42,7 @@
     "drewm/mailchimp-api": "^2.5",
     "grrr-amsterdam/garp-functional": "^4.0",
     "grrr-amsterdam/simply-static": "^3.0",
-    "grrr-amsterdam/simply-static-deploy": "0.*",
+    "grrr-amsterdam/simply-static-deploy": "^1.0",
     "johnpbloch/wordpress": "^5.0.0",
     "oscarotero/env": "^1.0",
     "roots/soil": "^3.7",
@@ -57,7 +57,7 @@
     "wpackagist-plugin/classic-editor": "^1.3",
     "wpackagist-plugin/safe-svg": "^1.9",
     "wpackagist-plugin/timber-library": "^1.8",
-    "wpackagist-plugin/wordpress-seo": "^13.0",
+    "wpackagist-plugin/wordpress-seo": "^14.0",
     "wpackagist-plugin/wp-ses": "^1.1"
   },
   "require-dev": {
