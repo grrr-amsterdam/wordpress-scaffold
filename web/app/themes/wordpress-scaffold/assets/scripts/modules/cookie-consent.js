@@ -3,8 +3,12 @@ import { pushEvent } from './gtm-event';
 
 export default () => {
 
-  // Construct and initialize the module.
-  const cookieConsent = CookieConsent(window.COOKIE_CONSENT_CONFIG);
+  // Construct and initialize the module if a config is found.
+  const config = window.COOKIE_CONSENT_CONFIG;
+  if (!config) {
+    return;
+  }
+  const cookieConsent = new CookieConsent(config);
 
   // Update Tag Manager when `update` event is fired.
   cookieConsent.on('update', cookies => {
