@@ -816,9 +816,9 @@
     "@grrr/utils" "^2.3.0"
 
 "@grrr/gulpfile@^7.0.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@grrr/gulpfile/-/gulpfile-7.3.0.tgz#88932d23400611aee3b9b4be4ef558b672d754ac"
-  integrity sha512-XtUsAXAPLDDkdgtSNFWt7If1KToDdSPwY2R9XAMZagi5tMmE4NBXE4SHLJlS/EIr7wrgB2d6mBlK/m63BDKzYw==
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@grrr/gulpfile/-/gulpfile-7.3.1.tgz#e1a188955b19fe43f5f2acd48581b63409cf92a8"
+  integrity sha512-oBejN68QTqaGRjh5Cx8s+2V//i5xezxhZCNI0CZ6RCsBt1x2G3MBzbTzYjD2eWIyInkYnCiJ0vYvSWLMS5FxVg==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/plugin-proposal-object-rest-spread" "^7.0.0"
