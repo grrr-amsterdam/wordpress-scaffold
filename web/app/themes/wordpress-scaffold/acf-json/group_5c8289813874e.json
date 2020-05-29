@@ -133,11 +133,62 @@
             "delay": 0
         },
         {
-            "key": "field_5c8289d44ce14",
+            "key": "field_5ece8ab6e5b58",
             "label": "Button",
-            "name": "cookie_consent_button",
-            "type": "text",
+            "name": "",
+            "type": "tab",
             "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d7385acd7dfb",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ece8abfda2ca",
+            "label": "Accept All",
+            "name": "cookie_consent_accept_all",
+            "type": "true_false",
+            "instructions": "The initial button will act as an 'accept all' button. This only happens when no preferences have been stored, and nudges users to accept all cookies.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d7385acd7dfb",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5c8289d44ce14",
+            "label": "Button (default)",
+            "name": "cookie_consent_button_default",
+            "type": "text",
+            "instructions": "The default button label. Shown when 'accept all' is not enabled, or when existing preferences are found (e.g. opening the dialog in a later stage).",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -145,7 +196,26 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Ok",
+            "default_value": "Save preferences",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ece8aea1bba2",
+            "label": "Button (accept all)",
+            "name": "cookie_consent_button_accept_all",
+            "type": "text",
+            "instructions": "Button label shown when 'accept all' is enabled and no preferences have been stored.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Accept all cookies",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -325,5 +395,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587628922
+    "modified": 1590595170
 }

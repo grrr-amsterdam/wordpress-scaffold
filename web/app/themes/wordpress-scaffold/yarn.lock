@@ -808,17 +808,17 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@grrr/cookie-consent@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@grrr/cookie-consent/-/cookie-consent-0.2.0.tgz#c18de8e40358eb1e078d0c53c3afd5a781357123"
-  integrity sha512-00mYVL8VbRIxQsGUzZt4v+BmXEqP/dxk9noSZN5qz2nWImcEVvAwzXe/dQyAhRbvbpD1ahB95oVD6REPUCzo3Q==
+"@grrr/cookie-consent@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@grrr/cookie-consent/-/cookie-consent-1.0.0.tgz#2192284f59db4d752fe2f38270656d2fbdd5ed2a"
+  integrity sha512-A0vUOkPLTvlWrNU1DufoFkw56oRya2eQEfD8iLRSy9ghKyShKIPmigrY6LwgY3en/5CCkHkaF6uGyJUO23M7Eg==
   dependencies:
     "@grrr/utils" "^2.3.0"
 
 "@grrr/gulpfile@^7.0.0":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@grrr/gulpfile/-/gulpfile-7.3.1.tgz#e1a188955b19fe43f5f2acd48581b63409cf92a8"
-  integrity sha512-oBejN68QTqaGRjh5Cx8s+2V//i5xezxhZCNI0CZ6RCsBt1x2G3MBzbTzYjD2eWIyInkYnCiJ0vYvSWLMS5FxVg==
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@grrr/gulpfile/-/gulpfile-7.3.0.tgz#88932d23400611aee3b9b4be4ef558b672d754ac"
+  integrity sha512-XtUsAXAPLDDkdgtSNFWt7If1KToDdSPwY2R9XAMZagi5tMmE4NBXE4SHLJlS/EIr7wrgB2d6mBlK/m63BDKzYw==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/plugin-proposal-object-rest-spread" "^7.0.0"

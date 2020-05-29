@@ -3,10 +3,14 @@
 <script>
     window.COOKIE_CONSENT_CONFIG = {
       type: '{{ type|e('js') }}',
+      acceptAllButton: {{ option('accept all', 'cookie consent') ? 'true' : 'false' }},
       labels: {
         title: '{{ option('title', 'cookie consent')|e('js') }}',
         description: '{{ option('description', 'cookie consent')|e('js') }}',
-        button: '{{ option('button', 'cookie consent')|e('js') }}',
+        button: {
+          default: '{{ option('button default', 'cookie consent')|e('js') }}',
+          acceptAll: '{{ option('button accept all', 'cookie consent')|e('js') }}',
+        },
       },
       cookies: [
         {% for cookie in option('cookies', 'cookie consent') %}
