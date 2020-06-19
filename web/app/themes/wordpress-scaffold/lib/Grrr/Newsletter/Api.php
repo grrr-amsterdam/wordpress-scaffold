@@ -17,7 +17,7 @@ class Api {
     }
 
     public function register_endpoints(\WP_REST_Server $wp_rest_server) {
-        register_rest_route(Routes::NAMESPACE, Routes::get('newsletter'), [
+        register_rest_route(Routes::namespace(), Routes::get('newsletter'), [
             'methods'  => 'POST',
             'callback' => [$this, 'subscribe'],
             'args' => [
