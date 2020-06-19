@@ -41,4 +41,15 @@ final class Config {
         ],
     ];
 
+    /**
+     * Custom REST routes.
+     * See also `Rest\Routes` and `Utils\Security`.
+     */
+    const REST = [
+        'namespace' => 'grrr/v1',
+        'routes' => [
+            'newsletter' => 'newsletter/subscribe',
+        ],
+    ];
+
 }
