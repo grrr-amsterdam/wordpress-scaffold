@@ -1,5 +1,6 @@
 <?php
 
+use function Env\env;
 use Grrr\Root;
 
 /** @var string Directory containing all of the site's files */
@@ -14,11 +15,6 @@ if (!defined('ROOT_DIR')) {
 
 /** @var string Document Root */
 $webroot_dir = $root_dir . '/web';
-
-/**
- * Expose global env() function from oscarotero/env
- */
-Env::init();
 
 /**
  * Use Dotenv to set required environment variables and load .env file in root

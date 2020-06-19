@@ -44,7 +44,7 @@
     "grrr-amsterdam/simply-static": "^3.0",
     "grrr-amsterdam/simply-static-deploy": "^1.0",
     "johnpbloch/wordpress": "^5.0.0",
-    "oscarotero/env": "^1.0",
+    "oscarotero/env": "^2.0",
     "roots/soil": "^3.7",
     "roots/wp-password-bcrypt": "^1.0.0",
     "sentry/sdk": "^2.0",
