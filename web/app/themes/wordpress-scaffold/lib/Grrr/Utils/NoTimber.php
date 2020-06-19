@@ -1,6 +1,6 @@
-<?php namespace Grrr\Theme;
+<?php namespace Grrr\Utils;
 
-class NoTimber {
+final class NoTimber {
 
     public function register() {
     	add_action('admin_notices', [$this, 'show_admin_notice']);

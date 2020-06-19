@@ -9,6 +9,7 @@ use Grrr\Shortcodes;
 use Grrr\Taxonomies;
 use Grrr\Theme;
 use Grrr\Twig;
+use Grrr\Utils;
 
 /**
  * Utils
@@ -24,7 +25,7 @@ if (class_exists('Timber')) {
     (new Twig\Filters)->register();
     (new Twig\Functions)->register();
 } else {
-    (new Theme\NoTimber)->register();
+    (new Utils\NoTimber)->register();
 }
 
 /**
