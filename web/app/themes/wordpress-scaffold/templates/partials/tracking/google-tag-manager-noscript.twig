@@ -1,0 +1,8 @@
+{% if (not constant('GOOGLE_TAG_MANAGER_ID') or function('is_user_logged_in')) %}
+    <!-- Google Tag Manager (TRACKING CODE EXCLUDED) -->
+{% else %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{ constant('GOOGLE_TAG_MANAGER_ID') }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+{% endif %}
