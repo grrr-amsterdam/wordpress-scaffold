@@ -4,7 +4,7 @@ use Grrr\Acf;
 use Grrr\Cli;
 use Grrr\Newsletter;
 use Grrr\Plugins;
-use Grrr\PostTypes;
+use Grrr\PostTypes\PostTypeRegistry;
 use Grrr\Shortcodes;
 use Grrr\Taxonomies;
 use Grrr\Theme;
@@ -43,10 +43,7 @@ if (class_exists('acf')) {
 /**
  * Post Types
  */
-(new PostTypes\Comment)->register();
-(new PostTypes\Post)->register();
-(new PostTypes\Page)->register();
-(new PostTypes\Example)->register();
+PostTypeRegistry::register();
 
 /**
  * Shortcodes

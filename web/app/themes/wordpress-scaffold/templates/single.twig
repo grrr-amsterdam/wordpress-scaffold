@@ -16,3 +16,8 @@
     {{ post.content }}
 
 </article>
+
+{#
+ # Render structured data if available.
+ #}
+{{ structured_data(post)|raw }}

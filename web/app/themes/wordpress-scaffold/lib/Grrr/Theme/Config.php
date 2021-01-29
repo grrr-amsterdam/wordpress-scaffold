@@ -3,6 +3,17 @@
 final class Config {
 
     /**
+     * Post type registration names and their class names.
+     */
+    const POST_TYPES = [
+        'comment' => 'Comment',
+        'example' => 'Example',
+        'faq'     => 'Faq',
+        'page'    => 'Page',
+        'post'    => 'Post',
+    ];
+
+    /**
      * Image sizes.
      */
     const IMAGE_SIZES = [
