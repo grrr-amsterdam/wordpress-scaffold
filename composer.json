@@ -51,14 +51,14 @@
     "spatie/schema-org": "^2.7",
     "vlucas/phpdotenv": "^4.0.0",
     "wikimedia/composer-merge-plugin": "^1.4",
-    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^2.0",
+    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.0",
     "wpackagist-plugin/admin-menu-editor": "^1.6",
     "wpackagist-plugin/amazon-s3-and-cloudfront": "^2.0",
     "wpackagist-plugin/better-search-replace": "^1.3",
     "wpackagist-plugin/classic-editor": "^1.3",
     "wpackagist-plugin/safe-svg": "^1.9",
     "wpackagist-plugin/timber-library": "^1.8",
-    "wpackagist-plugin/wordpress-seo": "^14.0",
+    "wpackagist-plugin/wordpress-seo": "^17.0",
     "wpackagist-plugin/wp-ses": "^1.1"
   },
   "require-dev": {
@@ -67,7 +67,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Grrr\\Root\\" : "lib/"
+      "Grrr\\Root\\": "lib/"
     }
   },
   "extra": {
@@ -84,9 +84,15 @@
       "merge-scripts": false
     },
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
     },
     "wordpress-install-dir": "web/wp"
   },
