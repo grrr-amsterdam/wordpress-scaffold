@@ -1,6 +1,6 @@
 # WordPress Scaffold
 
-A highly opinionated WordPress Pro scaffold, built with ❤️ by [GRRR](https://grrr.tech). It includes:
+A highly opinionated WordPress Pro scaffold. It includes:
 
 - Dependency management via [Composer](https://getcomposer.org/)
 - [Twig](https://twig.symfony.com/) templates via [Timber](https://github.com/timber/timber/)
@@ -8,6 +8,13 @@ A highly opinionated WordPress Pro scaffold, built with ❤️ by [GRRR](https:/
 - Application deployments via [Capistrano](https://github.com/capistrano/capistrano)
 - Static site generation and deployments via [Simply Static Deploy](https://github.com/grrr-amsterdam/simply-static-deploy)
 - Advanced [ACF](https://www.advancedcustomfields.com/) integrations
+
+## Developed with ❤️ by [GRRR](https://grrr.nl)
+
+- GRRR is a [B Corp](https://grrr.nl/en/b-corp/)
+- GRRR has a [tech blog](https://grrr.tech/)
+- GRRR is [hiring](https://grrr.nl/en/jobs/)
+- [@GRRRTech](https://twitter.com/grrrtech) tweets
 
 ## Requirements
 
