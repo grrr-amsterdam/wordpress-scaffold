@@ -1,0 +1,57 @@
+# Translation of Plugins - Safe SVG - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - Safe SVG - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-02-25 10:28:48+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - Safe SVG - Stable (latest release)\n"
+
+#: safe-svg.php:230
+msgid "Large"
+msgstr "Groot"
+
+#: safe-svg.php:229
+msgid "Medium"
+msgstr "Gemiddeld"
+
+#: safe-svg.php:228
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: safe-svg.php:227
+msgid "Full Size"
+msgstr "Volledige grootte"
+
+#: safe-svg.php:141
+msgid "Sorry, this file couldn't be sanitized so for security reasons wasn't uploaded"
+msgstr "Dit bestand kon niet worden opgeschoond, dus om veiligheidsredenen is het niet geüpload"
+
+#. translators: %1$s is the command that needs to be run.
+#: safe-svg.php:33
+msgid "You appear to be running a development version of Safe SVG. Please run %1$s in order for things to work properly."
+msgstr "Je lijkt een ontwikkelingsversie van Safe SVG uit te voeren. Voer %1$s uit om ervoor te zorgen dat de dingen goed werken."
+
+#. Author URI of the plugin
+msgid "https://10up.com"
+msgstr "https://10up.com"
+
+#. Author of the plugin
+msgid "10up"
+msgstr "10up"
+
+#. Description of the plugin
+msgid "Allows SVG uploads into WordPress and sanitizes the SVG before saving it"
+msgstr "Hiermee kun je SVG uploaden naar WordPress en de SVG opschonen voordat deze wordt opgeslagen"
+
+#. Plugin URI of the plugin
+msgid "https://wpsvg.com/"
+msgstr "https://wpsvg.com/"
+
+#. Plugin Name of the plugin
+msgid "Safe SVG"
+msgstr "Safe SVG"
