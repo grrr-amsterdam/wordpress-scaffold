@@ -17,6 +17,8 @@ class Faq extends PostTypeAbstract {
     protected $args = [
         'public' => true,
         'has_archive' => true,
+        'show_in_rest' => true,
+        'rest_base' => 'faqs',
         'supports' => [
             'title',
             'revisions',
