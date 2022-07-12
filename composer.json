@@ -48,7 +48,7 @@
     "grrr-amsterdam/garp-functional": "^5.0",
     "grrr-amsterdam/simply-static": "^3.0",
     "grrr-amsterdam/simply-static-deploy": "dev-feature/php80",
-    "johnpbloch/wordpress": "^5.0.0",
+    "johnpbloch/wordpress": "6.0.*",
     "oscarotero/env": "^2.0",
     "roots/soil": "^4.0",
     "roots/wp-password-bcrypt": "^1.0.0",
