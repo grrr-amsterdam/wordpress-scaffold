@@ -43,4 +43,4 @@ function remove_rest_endpoints(array $endpoints) {
         $endpoints
     );
 }
-add_filter('rest_endpoints', __NAMESPACE__ . '\\remove_rest_endpoints');
+// add_filter('rest_endpoints', __NAMESPACE__ . '\\remove_rest_endpoints');

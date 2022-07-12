@@ -14,6 +14,9 @@ class Example extends PostTypeAbstract {
     protected $args = [
         'public' => true,
         'has_archive' => true,
+        'post_type' => 'example',
+        'show_in_rest' => true,
+        'rest_base' => 'examples',
         'taxonomies' => [
             'example-type',
         ],
